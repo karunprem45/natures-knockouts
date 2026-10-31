@@ -23,3 +23,32 @@ def test_multi_item_list_is_not_silently_picked():
 def test_garbage_raises():
     with pytest.raises(json.JSONDecodeError):
         parse_json("no json here")
+
+
+class _Usage:
+    prompt_tokens, completion_tokens, completion_tokens_details = 10, 5, None
+
+
+class _Resp:
+    def __init__(self, text):
+        self.choices = [type("C", (), {"message": type("M", (), {"content": text})()})()]
+        self.usage = _Usage()
+
+
+def _client(tmp_path, reply):
+    from llm.client import LLMClient
+    c = LLMClient("t", tmp_path)
+    c._call = lambda messages: ("m", _Resp(reply))
+    return c
+
+
+def test_single_challenge_list_is_wrapped_not_unwrapped(tmp_path):
+    c = _client(tmp_path, '[{"type": "single_cohort", "channel": "burden"}]')
+    parsed, err = c.complete_json(agent="skeptic", gene_code="Gene_01", prompt="p", schema="s", list_key="challenges")
+    assert err is None and parsed == {"challenges": [{"type": "single_cohort", "channel": "burden"}]}
+
+
+def test_wrapped_object_still_unwrapped_without_list_key(tmp_path):
+    c = _client(tmp_path, '[{"stance": "neutral"}]')
+    parsed, _ = c.complete_json(agent="burden", gene_code="Gene_01", prompt="p", schema="s")
+    assert parsed == {"stance": "neutral"}
