@@ -1,0 +1,33 @@
+{
+ "channel_weights": {
+  "burden": 1.0,
+  "gwas": 1.0,
+  "safety": 1.0,
+  "tolerance": 1.0,
+  "variant": 1.0
+ },
+ "max_llm_calls_per_gene": 10,
+ "model": "gemini-2.5-flash",
+ "pressure": {
+  "age": 0.2,
+  "centrality": 1.0,
+  "depth": 0.5,
+  "novelty": 2.0
+ },
+ "seed": 20261031,
+ "skeptic_challenges": [
+  "underpowered",
+  "single_cohort",
+  "single_ancestry",
+  "biomarker_only",
+  "direction_conflict",
+  "essential_gene"
+ ],
+ "skeptic_discount": 0.5,
+ "stance_value": {
+  "against": -1.0,
+  "neutral": 0.0,
+  "supports": 1.0
+ },
+ "temperature": 0.0
+}
