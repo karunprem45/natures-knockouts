@@ -49,6 +49,7 @@ freeze-results:   ## R7
 report:
 	$(PY) -m eval.report
 	$(PY) -m eval.figures
+	$(PY) -m eval.freeze_results
 
 test:
 	$(PY) -m pytest -q

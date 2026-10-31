@@ -25,3 +25,8 @@ def test_paired_delta_of_identical_arms_is_zero():
 def test_permutation_null_small_p_for_perfect():
     _, p = m.permutation_null(m.auroc, Y, PERFECT, n=500)
     assert p < 0.05
+
+
+def test_seed_paired_delta_matches_single_seed_case():
+    s = np.array([5, 3, 6, 4, 2, 7, 1, 0.0])
+    assert m.paired_delta_seeds(m.auroc, Y, [PERFECT], [s], n=100) == m.paired_delta(m.auroc, Y, PERFECT, s, n=100)
