@@ -1,5 +1,10 @@
-TASK: A quality-control agent challenged your earlier verdict.
-  challenge: {ctype}
-  reason: {why}
+TASK: Reconsider your earlier verdict in light of what other agents posted on the shared board.
   your earlier verdict: stance={stance}, strength={strength}, rationale="{rationale}"
-Re-read your view. If the challenge is right, lower your strength or change your stance; if it is wrong, keep your verdict and say why in the rationale. Do not broadcast new needs.
+
+Answers other agents gave to the needs YOU broadcast (they hold evidence you cannot see):
+{answers}
+
+Quality-control challenges against your channel:
+{challenges}
+
+Re-read your view. Your verdict is still about YOUR channel's question, but now judged with the extra context: e.g. strong protective burden evidence matters less if the gene is LoF-intolerant; a weak signal matters more if another channel confirms it. If a challenge is right, lower your strength or change your stance; if it is wrong, keep your verdict and say why. Do not broadcast new needs.
