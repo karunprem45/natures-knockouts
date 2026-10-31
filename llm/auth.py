@@ -8,6 +8,9 @@ nebius   Nebius-hosted open model, NEBIUS_API_KEY (exploratory)
 import json, os
 import threading
 import config
+from dotenv import load_dotenv
+
+load_dotenv(config.ROOT / ".env")
 
 _lock = threading.Lock()
 _creds = None
