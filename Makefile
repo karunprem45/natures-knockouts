@@ -2,7 +2,7 @@ PY ?= .venv/bin/python
 ARM ?= A3
 SEED ?= 1
 
-.PHONY: setup probe data panel freeze baselines arm allarms ablations freeze-results report test
+.PHONY: demo setup probe data panel freeze baselines arm allarms ablations freeze-results report test
 
 setup:            ## create venv and install deps
 	python3 -m venv .venv && .venv/bin/pip install -q -r requirements.txt
@@ -53,3 +53,6 @@ report:
 
 test:
 	$(PY) -m pytest -q
+
+demo:             ## two-minute replay of one gene's board (no API calls)
+	$(PY) -m scripts.demo $(or $(GENE),Gene_01)
