@@ -1,0 +1,9 @@
+openai>=1.40
+requests>=2.32
+python-dotenv>=1.0
+numpy>=2.0
+pandas>=2.2
+scikit-learn>=1.5
+matplotlib>=3.9
+networkx>=3.3
+pytest>=8.0
