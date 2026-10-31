@@ -11,16 +11,20 @@ JSON_NUDGE = "\n\nReturn ONLY one JSON object matching the schema. No prose, no 
 
 
 def parse_json(text):
-    """Tolerant parse: strips code fences and takes the outermost {...}."""
+    """Tolerant parse: strips code fences, takes the outermost {...}, and unwraps a one-item
+    list (Gemini sometimes returns [ {...} ] even in JSON mode)."""
     text = (text or "").strip()
     text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text)
     try:
-        return json.loads(text)
+        parsed = json.loads(text)
     except json.JSONDecodeError:
         start, end = text.find("{"), text.rfind("}")
         if start >= 0 and end > start:
             return json.loads(text[start:end + 1])
         raise
+    if isinstance(parsed, list) and len(parsed) == 1 and isinstance(parsed[0], dict):
+        return parsed[0]
+    return parsed
 
 
 class LLMClient:
