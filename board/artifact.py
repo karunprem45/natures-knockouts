@@ -33,6 +33,13 @@ class Artifact:
                     if k not in ("artifact_id", "content_hash", "timestamp")}
             self.content_hash = hashlib.sha256(json.dumps(body, sort_keys=True).encode()).hexdigest()
 
+    def add_flag(self, flag):
+        """Add a flag and recompute the content hash so provenance stays exact."""
+        self.flags.append(flag)
+        self.content_hash = ""
+        self.__post_init__()
+        return self
+
     def to_json(self):
         return json.dumps(asdict(self), sort_keys=True)
 
