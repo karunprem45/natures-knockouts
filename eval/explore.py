@@ -83,6 +83,14 @@ def main():
             d = m.paired_delta_seeds(m.auroc, y, b3, b1)
             rows.append(f"| A3 on {backend} | {model} | {len(b3)} | {fmt(au3)} | {fmtd(d)} vs A1 on {backend} | "
                         f"A1: {fmt(au1)} |")
+            import scoring
+            from arms.rescore import ABLATIONS, load_boards
+            for ab in ("isolated", "noskeptic"):
+                abl = [pd.Series({c: scoring.score(ABLATIONS[ab](arts)) for c, arts in load_boards(dd).items()})
+                       .reindex(lab.index).values.astype(float) for dd in d3]
+                rows.append(f"| A3_{ab} on {backend} (re-scored, 0 calls) | {model} | {len(abl)} | "
+                            f"{fmt(m.bootstrap_ci_seeds(m.auroc, y, abl))} | "
+                            f"{fmtd(m.paired_delta_seeds(m.auroc, y, abl, b1))} vs A1 on {backend} | |")
 
     if not rows:
         print("no complete exploratory runs yet")

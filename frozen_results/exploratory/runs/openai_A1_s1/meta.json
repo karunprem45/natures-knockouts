@@ -1,0 +1,13 @@
+{
+ "arm": "A1",
+ "seed": 1,
+ "model": "gpt-5-mini",
+ "backend": "openai",
+ "variant_agent": false,
+ "exploratory": true,
+ "temperature": 0.0,
+ "reasoning_effort": "low",
+ "max_calls_per_gene": 10,
+ "git_head": "a72f26f",
+ "n_genes": 40
+}
