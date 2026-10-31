@@ -40,11 +40,12 @@ def run_gene(gene_code, agents, skeptic, client, store, use_skeptic=True):
             posted.append(a)
         return a
 
-    # round 0: independent evidence
+    # round 0: independent evidence (agents that only answer needs, like Variant, sit this out)
     names = sorted(agents)
-    with ThreadPoolExecutor(len(names)) as pool:
-        r0 = dict(zip(names, pool.map(lambda n: _safe(agents[n].evidence, gene_code, 0), names)))
-    for n in names:
+    first = [n for n in names if getattr(agents[n], "posts_round0", True)]
+    with ThreadPoolExecutor(len(first)) as pool:
+        r0 = dict(zip(first, pool.map(lambda n: _safe(agents[n].evidence, gene_code, 0), first)))
+    for n in first:
         post(r0[n])
 
     index = NeedIndex()
