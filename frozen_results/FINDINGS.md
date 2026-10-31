@@ -1,5 +1,7 @@
 # Findings
 
+Project: **Null Hypothesis**. Extensions run after this file was frozen (NVIDIA Evo 2 Variant agent, GPT-5 mini robustness check) are in [`exploratory/explore_table.md`](exploratory/explore_table.md); they replicate the isolated-specialist result (0.857 on GPT-5 mini) and do not change the headline.
+
 Panel frozen at `prereg` (`12b8c58`); raw outputs frozen at `results-raw` (`28a0e95`) before any A1/A3 metric was computed. Numbers below are from `arms_table.md`.
 
 ## 1. Headline: the collective ties the single agent
