@@ -1,0 +1,4 @@
+TASK: The {requester} agent cannot see your evidence and has broadcast this need:
+  query: {query}
+  why: {why}
+Answer it from YOUR view only. Your stance/strength should describe what your evidence says about the question asked (supports = it favours the gene as a target). Put the direct answer in the rationale and cite rows in data_refs. If your view cannot answer it, say so and return neutral with strength 0. Do not broadcast new needs.
