@@ -101,9 +101,13 @@ class Agent:
             requester=parent.producer_agent, query=need["query"], why=need["rationale"])
         return self._ask(gene_code, self.render(gene_code, task=task), round_, "fulfillment", [parent.artifact_id])
 
-    def revise(self, gene_code, challenge, parent, round_=2):
-        """Reconsider an earlier artifact in light of a skeptic challenge."""
+    def revise(self, gene_code, parent, challenges=(), answers=(), round_=2):
+        """Reconsider an earlier verdict given answers to this agent's needs and skeptic challenges."""
+        fmt_a = "\n".join(f"  - from {a.producer_agent}: stance={a.stance}, strength={a.strength}, \"{a.rationale}\""
+                          for a in answers) or "  (none)"
+        fmt_c = "\n".join(f"  - {c['type']}: {c['rationale']}" for c in challenges) or "  (none)"
         task = (PROMPTS / "_task_revise.txt").read_text().format(
-            ctype=challenge["type"], why=challenge["rationale"], stance=parent.stance,
-            strength=parent.strength, rationale=parent.rationale)
-        return self._ask(gene_code, self.render(gene_code, task=task), round_, "revision", [parent.artifact_id])
+            stance=parent.stance, strength=parent.strength, rationale=parent.rationale,
+            answers=fmt_a, challenges=fmt_c)
+        parents = [parent.artifact_id] + [a.artifact_id for a in answers]
+        return self._ask(gene_code, self.render(gene_code, task=task), round_, "revision", parents)
