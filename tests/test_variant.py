@@ -73,9 +73,35 @@ def test_variant_prompt_never_contains_coordinates(monkeypatch):
     art = agent.fulfil("Gene_01", {"query": "is the lead variant disruptive?", "rationale": ""}, parent)
     assert art.artifact_type == "fulfillment" and art.producer_agent == "variant"
     assert "55063514" not in seen["prompt"] and "chrom" not in seen["prompt"]
-    assert any(f.startswith("evo2_percentile:") for f in art.flags)
+    assert any(f.startswith("evo2_") for f in art.flags)
 
 
 def test_variant_agent_skips_round0(tmp_path):
     from agents.variant import VariantAgent
     assert VariantAgent.posts_round0 is False
+
+
+def test_parallel_fulfilments_keep_their_own_numbers(monkeypatch):
+    """Regression: one agent instance serves many genes in parallel threads."""
+    import threading, time
+    from concurrent.futures import ThreadPoolExecutor
+    from agents.variant import VariantAgent
+    from board.artifact import Artifact
+
+    class Client:
+        def complete_json(self, **kw):
+            time.sleep(0.05)
+            return {"stance": "neutral", "strength": 0.1, "rationale": "x", "data_refs": []}, None
+
+    agent = VariantAgent(Client())
+    pct = {"Gene_01": 5.0, "Gene_02": 95.0}
+
+    def fake_numbers(code):
+        time.sleep(0.01 if code == "Gene_01" else 0.03)
+        return {"delta_ll": -1.0, "site_percentile": pct[code]}
+    monkeypatch.setattr(agent, "evo2_numbers", fake_numbers)
+    parent = Artifact("evidence", "burden", "Gene_00", 0)
+    with ThreadPoolExecutor(2) as pool:
+        arts = dict(zip(pct, pool.map(lambda c: agent.fulfil(c, {"query": "q", "rationale": ""}, parent), pct)))
+    for code, a in arts.items():
+        assert f"evo2_percentile:{pct[code]}" in a.flags

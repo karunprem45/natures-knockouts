@@ -8,6 +8,9 @@ import base64, hashlib, io, json, os
 import numpy as np
 import requests
 import config
+from dotenv import load_dotenv
+
+load_dotenv(config.ROOT / ".env")
 
 CACHE = config.DATA_DIR / "cache" / "evo2"
 BASES = "ACGT"
