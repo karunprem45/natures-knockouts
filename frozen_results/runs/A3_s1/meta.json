@@ -1,0 +1,11 @@
+{
+ "arm": "A3",
+ "seed": 1,
+ "model": "gemini-3-flash-preview",
+ "backend": "vertex",
+ "temperature": 0.0,
+ "reasoning_effort": "low",
+ "max_calls_per_gene": 10,
+ "git_head": "e71a466",
+ "n_genes": 40
+}
