@@ -1,0 +1,3 @@
+TASK: Give your verdict on whether inhibiting this gene would be a safe, effective therapy for cardiometabolic or liver disease, judged ONLY on the evidence in your view. "supports" = your evidence favours it as a target, "against" = your evidence argues against it, "neutral" = your evidence is absent, weak or mixed. Set strength to how decisive your evidence is (0 = nothing, 1 = overwhelming).
+
+If the deciding information lies outside your view, broadcast a need (type + plain-words query) so the agent that holds it can answer. Ask only for what would change your verdict; an empty needs list is fine.
