@@ -1,0 +1,7 @@
+TASK: Revise your channel verdicts in light of your own review. If a challenge is right, lower that channel's strength or change its stance; if it is wrong, keep the verdict. Return all four channels.
+
+YOUR VERDICTS:
+{verdicts}
+
+YOUR CHALLENGES:
+{challenges}

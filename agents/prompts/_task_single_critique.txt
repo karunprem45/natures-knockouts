@@ -1,0 +1,4 @@
+TASK: Act as your own quality-control reviewer. Below are the channel verdicts you just gave. Challenge any that are not trustworthy, using only these types: underpowered, single_cohort, single_ancestry, biomarker_only, direction_conflict, essential_gene. Each challenge names the ONE channel it discounts. Only challenge what the evidence actually shows; zero challenges is valid.
+
+YOUR VERDICTS:
+{verdicts}
