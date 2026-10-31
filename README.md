@@ -75,4 +75,4 @@ Keys go in `.env` (see `.env.example`); `.env` and `data/` are gitignored.
 
 `data_layer/` data pull and views · `llm/` the single LLM gateway and guards · `agents/` specialists, skeptic, prompts · `board/` artifacts, needs, loop · `scoring.py` · `arms/` scripted, A1, A3, ablations · `eval/` metrics, report, figures · `tools/` Ensembl and Evo 2 · `skills/` reusable skills · `slides/` the deck · `frozen/` pre-registration · `frozen_results/` hashed outputs.
 
-Who did what: [`CONTRIBUTORS.md`](CONTRIBUTORS.md). Original build plan: [`BUILD.md`](BUILD.md). Demo script: [`DEMO.md`](DEMO.md).
+Who did what: [`CONTRIBUTORS.md`](CONTRIBUTORS.md). Project report (PDF): [`docs/Null_Hypothesis_Project_Report.pdf`](docs/Null_Hypothesis_Project_Report.pdf). Original build plan: [`BUILD.md`](BUILD.md). Demo script: [`DEMO.md`](DEMO.md).
