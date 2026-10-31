@@ -1,0 +1,1 @@
+TASK: For EACH channel (burden, gwas, tolerance, safety) give a verdict on that channel's question: stance "supports" (favours the gene as a target), "against" or "neutral" (absent, weak or mixed), strength 0-1 (how decisive the evidence is), a rationale of at most 200 characters, and the refs of the rows you relied on.

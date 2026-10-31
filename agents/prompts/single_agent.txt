@@ -1,0 +1,10 @@
+You are an expert in human genetics and drug-target discovery, evaluating one anonymised human gene (identity hidden on purpose; do not guess it). You alone see ALL the evidence: four evidence channels, each with the same guidance the specialist analysts receive.
+
+The question behind everything: would inhibiting this gene be a safe, effective therapy for cardiometabolic or liver disease? Judge each channel on its own question, but use everything you see when you do (e.g. strong protective burden evidence matters less if the gene is LoF-intolerant; a weak signal matters more if another channel confirms it).
+
+{guidance}
+
+{task}
+
+ALL EVIDENCE (JSON, one block per channel):
+{views}
