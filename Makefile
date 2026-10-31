@@ -2,7 +2,7 @@ PY ?= .venv/bin/python
 ARM ?= A3
 SEED ?= 1
 
-.PHONY: demo setup probe data panel freeze baselines arm allarms ablations freeze-results report test
+.PHONY: demo explore setup probe data panel freeze baselines arm allarms ablations freeze-results report test
 
 setup:            ## create venv and install deps
 	python3 -m venv .venv && .venv/bin/pip install -q -r requirements.txt
@@ -56,3 +56,10 @@ test:
 
 demo:             ## two-minute replay of one gene's board (no API calls)
 	$(PY) -m scripts.demo $(or $(GENE),Gene_01)
+
+explore:          ## exploratory runs after results-final (needs NVIDIA / OpenAI keys)
+	$(PY) -m arms.run_arm --arm A3 --seed 1 --variant --out runs/explore/A3_variant_s1
+	$(PY) -m arms.run_arm --arm A3 --seed 2 --variant --out runs/explore/A3_variant_s2
+	$(PY) -m arms.run_arm --arm A1 --seed 1 --backend openai --out runs/explore/openai_A1_s1
+	$(PY) -m arms.run_arm --arm A3 --seed 1 --backend openai --out runs/explore/openai_A3_s1
+	$(PY) -m eval.explore
