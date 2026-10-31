@@ -18,9 +18,20 @@ SEED = 20261031
 TEMPERATURE = 0.0
 
 # --- LLM (R1: same model, same cap, every arm) -----------------------------
+# "vertex": Gemini on Vertex AI via Application Default Credentials (the hackathon GCP org
+#           disallows API keys). "api_key": Gemini API with GEMINI_API_KEY (AI Studio).
+LLM_BACKEND = "vertex"
+GCP_PROJECT = "scienceclaw26bos-3027"
+GCP_LOCATION = "global"
+VERTEX_BASE_URL = (f"https://aiplatform.googleapis.com/v1/projects/{GCP_PROJECT}"
+                   f"/locations/{GCP_LOCATION}/endpoints/openapi")
 LLM_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
-LLM_MODEL = "gemini-2.5-flash"
+LLM_MODEL = "gemini-3-flash-preview"   # same model in every arm (R1); Vertex names it google/<model>
 MAX_LLM_CALLS_PER_GENE = 10
+LLM_REASONING_EFFORT = "low"   # same in every arm; default thinking is ~3x slower
+# Assumed list prices (USD per 1M tokens) for cost logging only; reasoning tokens bill as output
+LLM_PRICE_IN_PER_M = 0.50
+LLM_PRICE_OUT_PER_M = 3.00
 LLM_MAX_ATTEMPTS = 4
 LLM_WORKERS = 10
 
@@ -93,6 +104,13 @@ N_NEGATIVES_FALLBACK = 16
 
 # --- Agents ----------------------------------------------------------------
 EVIDENCE_AGENTS = ["burden", "gwas", "tolerance", "safety", "variant"]
+# Phase 0 gate: the Evo 2 probe failed (no NVIDIA key), so the Variant agent is dropped.
+# Its channel weight stays in the frozen weights; a missing channel contributes 0.
+VARIANT_ENABLED = False
+ACTIVE_EVIDENCE_AGENTS = [a for a in EVIDENCE_AGENTS if a != "variant" or VARIANT_ENABLED]
+# A need's type names the capability that can fulfil it
+NEED_TYPES = {"burden_check": "burden", "gwas_check": "gwas", "tolerance_check": "tolerance",
+              "safety_check": "safety", "variant_check": "variant"}
 ALL_AGENTS = EVIDENCE_AGENTS + ["skeptic"]
 SKEPTIC_CHALLENGES = ["underpowered", "single_cohort", "single_ancestry",
                       "biomarker_only", "direction_conflict", "essential_gene"]
