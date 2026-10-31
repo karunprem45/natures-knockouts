@@ -1,4 +1,4 @@
-# Two-minute demo
+# Null Hypothesis: two-minute demo
 
 Run from the repo root, terminal font large, window wide:
 
