@@ -1,0 +1,12 @@
+{
+  "backend": "openai",
+  "base_url": "https://api.openai.com/v1",
+  "model": "gpt-5-mini",
+  "n_models_listed": 130,
+  "text": true,
+  "temperature_ok": false,
+  "seed_ok": true,
+  "reasoning_effort_ok": true,
+  "json_mode": true,
+  "usage": true
+}
