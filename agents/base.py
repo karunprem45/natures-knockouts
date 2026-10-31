@@ -58,9 +58,14 @@ def coerce_verdict(d):
     return stance, strength, str(d.get("rationale", ""))[:200], refs
 
 
+VARIANT_HINT = ("\n\nAlso available on the board: variant_check. A genome language model (Evo 2) can test whether "
+                "the lead variant behind this gene's signal is actually disruptive at the DNA level.")
+
+
 class Agent:
     name = None            # also the view directory name
     capability = None      # need type this agent can fulfil
+    posts_round0 = True
 
     def __init__(self, client):
         self.client = client
@@ -92,7 +97,10 @@ class Agent:
                         needs=needs, flags=flags)
 
     def evidence(self, gene_code, round_=0):
-        prompt = self.render(gene_code, task=(PROMPTS / "_task_evidence.txt").read_text())
+        task = (PROMPTS / "_task_evidence.txt").read_text()
+        if config.VARIANT_ENABLED:
+            task += VARIANT_HINT
+        prompt = self.render(gene_code, task=task)
         return self._ask(gene_code, prompt, round_, "evidence")
 
     def fulfil(self, gene_code, need, parent, round_=1):

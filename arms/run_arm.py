@@ -35,7 +35,14 @@ def main(argv=None):
     ap.add_argument("--out", required=True)
     ap.add_argument("--limit", type=int, default=None, help="first N genes only (smoke test)")
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--backend", default=config.LLM_BACKEND, choices=["vertex", "api_key", *config.PROVIDERS],
+                    help="exploratory runs only; the pre-registered arms use vertex")
+    ap.add_argument("--variant", action="store_true", help="exploratory: enable the Evo 2 Variant agent (A3)")
     args = ap.parse_args(argv)
+    config.LLM_BACKEND = args.backend
+    if args.variant:
+        config.VARIANT_ENABLED = True
+        config.ACTIVE_EVIDENCE_AGENTS[:] = list(config.EVIDENCE_AGENTS)
 
     if not frozen_is_clean():
         sys.exit("refusing to run: frozen/ has uncommitted changes (R6)")
@@ -44,7 +51,11 @@ def main(argv=None):
     genes_dir.mkdir(parents=True, exist_ok=True)
     with open(args.panel) as f:
         codes = [r["gene_code"] for r in csv.DictReader(f)][:args.limit]
-    meta = {"arm": args.arm, "seed": args.seed, "model": config.LLM_MODEL, "backend": config.LLM_BACKEND,
+    from llm.auth import capabilities
+    caps = capabilities(args.backend)
+    meta = {"arm": args.arm, "seed": args.seed, "model": caps.get("model", config.LLM_MODEL),
+            "backend": args.backend, "variant_agent": bool(args.variant),
+            "exploratory": args.backend != "vertex" or bool(args.variant),
             "temperature": config.TEMPERATURE, "reasoning_effort": config.LLM_REASONING_EFFORT,
             "max_calls_per_gene": config.MAX_LLM_CALLS_PER_GENE, "git_head": git_head(),
             "n_genes": len(codes)}
