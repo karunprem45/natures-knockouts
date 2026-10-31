@@ -13,7 +13,7 @@ ALLOWED_TOP = {
     "tolerance": {"channel", "gene_code", "loeuf", "lof_oe", "pli", "missense_oe", "missense_z",
                   "depmap_mean_gene_effect", "depmap_frac_dependent", "depmap_n_screens",
                   "is_core_essential", "subcellular_location", "biotype"},
-    "safety": {"channel", "gene_code", "rows", "curated_safety_events", "summary"},
+    "safety": {"channel", "gene_code", "rows", "mendelian_by_category", "curated_safety_events", "summary"},
     "variant": {"channel", "gene_code", "available", "chrom", "pos", "ref", "alt"},
 }
 FORBIDDEN_ANYWHERE = {"symbol", "approvedsymbol", "approvedname", "synonyms", "literature", "pmid",
@@ -75,6 +75,22 @@ def test_view(path, agent):
     assert not re.search(r"ENSG\d{11}", text)                 # R4
     hit = re.search(r"\b(" + "|".join(map(re.escape, sorted(known_symbols()))) + r")\b", text)
     assert not hit, f"gene symbol {hit.group(0)} in {path}"
+
+
+def test_safety_view_holds_no_mendelian_disease_names():
+    """Amendment #2: Mendelian diseases appear only as therapeutic-area counts."""
+    import json as _json
+    from data_layer.common import load_raw
+    with (config.FROZEN_DIR / "panel.csv").open() as f:
+        panel = list(csv.DictReader(f))
+    for g in panel:
+        names = {r["disease"]["name"] for r in load_raw(g["ensembl_id"])["all_trait_evidence"]
+                 if r["datasourceId"] in config.SAFETY_EXTRA_DATASOURCES}
+        other = {r["disease"]["name"] for r in load_raw(g["ensembl_id"])["all_trait_evidence"]
+                 if r["datasourceId"] not in config.SAFETY_EXTRA_DATASOURCES}
+        text = (config.VIEWS_DIR / "safety" / f"{g['gene_code']}.json").read_text()
+        for n in names - other:  # a name also seen as a burden/GWAS trait may legitimately appear
+            assert f'"{n}"' not in text, f"{g['gene_code']}: Mendelian name {n!r} in safety view"
 
 
 def test_labels_live_outside_views():

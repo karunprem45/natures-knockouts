@@ -8,6 +8,7 @@ import csv, json, re, statistics
 from collections import defaultdict
 import config
 from data_layer.common import load_raw, neg_log10_p, read_pool, symbol_map
+from data_layer.disease_areas import areas_for
 from data_layer.scope import is_hard_endpoint
 
 VIEW_LOG = config.VIEWS_DIR / "build_log.md"
@@ -130,29 +131,50 @@ def tolerance_view(raw):
             "subcellular_location": raw["annotation"]["subcellular"], "biotype": raw["annotation"]["biotype"]}
 
 
-def safety_view(rows, liabilities):
+def safety_view(rows, liabilities, areas):
+    """Out-of-scope burden/GWAS rows by trait name; Mendelian rows ONLY as therapeutic-area counts,
+    because eponymous syndrome names can identify the gene (frozen/AMENDMENTS.md #2)."""
     kind = {config.DS_BURDEN: "burden", config.DS_GWAS: "gwas"}
+    mendelian = [r for r in rows if r["datasourceId"] not in kind]
     by_trait = defaultdict(list)
     for r in rows:
-        by_trait[r["disease"]["name"]].append(r)
+        if r["datasourceId"] in kind:
+            by_trait[r["disease"]["name"]].append(r)
     groups = []
     for trait, rs in sorted(by_trait.items()):
         best = max(rs, key=lambda r: (p_of(r) or 0, r.get("score") or 0))
         groups.append({
-            "trait": trait, "evidence_types": sorted({kind.get(r["datasourceId"], "mendelian") for r in rs}),
+            "trait": trait, "evidence_types": sorted({kind[r["datasourceId"]] for r in rs}),
             "direction_on_trait": best.get("directionOnTrait"), "direction_on_target": best.get("directionOnTarget"),
-            "neg_log10_p": p_of(best), "evidence_score": best.get("score"), "n_rows_for_trait": len(rs)})
-    groups.sort(key=lambda g: (-("mendelian" in g["evidence_types"]), -(g["neg_log10_p"] or 0),
-                               -(g["evidence_score"] or 0), g["trait"]))
+            "neg_log10_p": p_of(best), "n_rows_for_trait": len(rs)})
+    groups.sort(key=lambda g: (-(g["neg_log10_p"] or 0), g["trait"]))
     kept, cut = groups[:config.MAX_VIEW_ROWS], max(0, len(groups) - config.MAX_VIEW_ROWS)
     for i, g in enumerate(kept, 1):
         g["ref"] = f"safety_{i}"
+    by_area = defaultdict(lambda: {"diseases": set(), "lof_risk_diseases": set(), "max_score": 0.0})
+    for r in mendelian:
+        did = r["disease"]["id"]
+        lof_risk = r.get("directionOnTarget") == "LoF" and r.get("directionOnTrait") == "risk"
+        for area in areas.get(did, ["other"]):
+            a = by_area[area]
+            a["diseases"].add(did)
+            if lof_risk:
+                a["lof_risk_diseases"].add(did)
+            a["max_score"] = max(a["max_score"], r.get("score") or 0.0)
+    areas_out = sorted(({"category": k, "n_diseases": len(v["diseases"]),
+                         "n_diseases_with_lof_causing_disease": len(v["lof_risk_diseases"]),
+                         "max_evidence_score": round(v["max_score"], 3)} for k, v in by_area.items()),
+                       key=lambda a: (-a["n_diseases_with_lof_causing_disease"], -a["n_diseases"], a["category"]))
+    for i, a in enumerate(areas_out, 1):
+        a["ref"] = f"mendelian_{i}"
     events = sorted({(l.get("event") or "", tuple(sorted({str(e.get("direction")) for e in l.get("effects") or []})))
                      for l in liabilities})
-    return {"channel": "safety", "rows": kept,
+    return {"channel": "safety", "rows": kept, "mendelian_by_category": areas_out,
             "curated_safety_events": [{"event": e, "directions": list(d)} for e, d in events if e],
             "summary": {"n_out_of_scope_traits": len(groups), "n_traits_not_shown": cut,
-                        "n_mendelian_traits": sum("mendelian" in g["evidence_types"] for g in groups)}}
+                        "n_mendelian_diseases": len({r["disease"]["id"] for r in mendelian}),
+                        "n_mendelian_diseases_lof_causing": len({r["disease"]["id"] for r in mendelian
+                            if r.get("directionOnTarget") == "LoF" and r.get("directionOnTrait") == "risk"})}}
 
 
 def variant_view(gwas_rows):
@@ -178,6 +200,9 @@ def main():
     scrub = Scrubber(all_symbols)
     VIEW_LOG.parent.mkdir(parents=True, exist_ok=True)
     log = []
+    mendelian_ids = sorted({r["disease"]["id"] for g in panel for r in load_raw(g["ensembl_id"])["all_trait_evidence"]
+                            if r["datasourceId"] in config.SAFETY_EXTRA_DATASOURCES})
+    areas = areas_for(mendelian_ids)
     for g in panel:
         raw, code = load_raw(g["ensembl_id"]), g["gene_code"]
         ident = raw["identity"]
@@ -186,7 +211,7 @@ def main():
         burden, gwas, other = keep(raw["burden"]), keep(raw["gwas"]), keep(raw["all_trait_evidence"])
         liab = [l for l in raw["safety_liabilities"] if scrub.ok(l.get("event") or "", ident)]
         views = {"burden": burden_view(burden), "gwas": gwas_view(gwas), "tolerance": tolerance_view(raw),
-                 "safety": safety_view(other, liab), "variant": variant_view(raw["gwas"])}
+                 "safety": safety_view(other, liab, areas), "variant": variant_view(raw["gwas"])}
         for agent, view in views.items():
             d = config.VIEWS_DIR / agent
             d.mkdir(parents=True, exist_ok=True)
