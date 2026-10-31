@@ -20,7 +20,8 @@ TEMPERATURE = 0.0
 # --- LLM (R1: same model, same cap, every arm) -----------------------------
 # "vertex": Gemini on Vertex AI via Application Default Credentials (the hackathon GCP org
 #           disallows API keys). "api_key": Gemini API with GEMINI_API_KEY (AI Studio).
-LLM_BACKEND = "vertex"
+import os as _os
+LLM_BACKEND = _os.environ.get("NK_LLM_BACKEND", "vertex")   # pre-registered arms all use "vertex"
 GCP_PROJECT = "scienceclaw26bos-3027"
 GCP_LOCATION = "global"
 VERTEX_BASE_URL = (f"https://aiplatform.googleapis.com/v1/projects/{GCP_PROJECT}"
@@ -32,6 +33,17 @@ LLM_REASONING_EFFORT = "low"   # same in every arm; default thinking is ~3x slow
 # Assumed list prices (USD per 1M tokens) for cost logging only; reasoning tokens bill as output
 LLM_PRICE_IN_PER_M = 0.50
 LLM_PRICE_OUT_PER_M = 3.00
+# Exploratory backends (after results-final; never used for the pre-registered headline).
+# The model is picked by the provider's probe from what the account actually offers.
+PROVIDERS = {
+    "openai": {"base_urls": ["https://api.openai.com/v1"], "key_env": "OPENAI_API_KEY",
+               "model_prefs": ["gpt-5-mini", "gpt-5.1-mini", "gpt-4.1-mini", "gpt-4o-mini", "mini"],
+               "price_in_per_m": None, "price_out_per_m": None},
+    "nebius": {"base_urls": ["https://api.tokenfactory.nebius.com/v1/", "https://api.studio.nebius.com/v1/"],
+               "key_env": "NEBIUS_API_KEY",
+               "model_prefs": ["qwen3-235b", "qwen3-next", "llama-3.3-70b", "deepseek-v3", "gpt-oss-120b", "qwen", "llama"],
+               "price_in_per_m": None, "price_out_per_m": None},
+}
 LLM_MAX_ATTEMPTS = 4
 LLM_WORKERS = 10
 
@@ -44,7 +56,7 @@ EVO2_URLS = [
     "https://health.api.nvidia.com/v1/biology/arc/evo2-7b/forward",
 ]
 EVO2_LAYER_NAMES = ["output_layer", "unembed"]
-EVO2_WINDOW_BP = 4096
+EVO2_WINDOW_BP = 2048   # BUILD.md says 4096; halved to keep each NIM response ~4 MB (exploratory)
 RAW_CACHE_TTL_H = 24
 
 # --- Trait scope (never change after freeze) -------------------------------

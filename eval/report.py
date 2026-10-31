@@ -50,7 +50,7 @@ def cost_and_calls(dirs):
             return 0.0, 0.0
         calls.append(float(pd.read_csv(d / "scores.csv")["calls"].mean()))
         rows = [json.loads(l) for l in log.read_text().splitlines()]
-        cost.append(sum(r["cost_usd"] for r in rows if "cost_usd" in r))
+        cost.append(sum(r.get("cost_usd") or 0.0 for r in rows))
     return float(np.mean(calls)), float(np.mean(cost))
 
 
