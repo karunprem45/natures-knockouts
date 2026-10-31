@@ -18,8 +18,15 @@ SEED = 20261031
 TEMPERATURE = 0.0
 
 # --- LLM (R1: same model, same cap, every arm) -----------------------------
+# "vertex": Gemini on Vertex AI via Application Default Credentials (the hackathon GCP org
+#           disallows API keys). "api_key": Gemini API with GEMINI_API_KEY (AI Studio).
+LLM_BACKEND = "vertex"
+GCP_PROJECT = "scienceclaw26bos-3027"
+GCP_LOCATION = "global"
+VERTEX_BASE_URL = (f"https://aiplatform.googleapis.com/v1/projects/{GCP_PROJECT}"
+                   f"/locations/{GCP_LOCATION}/endpoints/openapi")
 LLM_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
-LLM_MODEL = "gemini-2.5-flash"
+LLM_MODEL = "gemini-3-flash-preview"   # same model in every arm (R1); Vertex names it google/<model>
 MAX_LLM_CALLS_PER_GENE = 10
 LLM_MAX_ATTEMPTS = 4
 LLM_WORKERS = 10
