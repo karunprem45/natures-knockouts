@@ -1,4 +1,4 @@
-<title>Nature's Knockouts</title>
+<title>Null Hypothesis</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,8 +126,8 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
 <!-- 1 · PROBLEM -->
 <section class="slide" id="problem" aria-label="Slide 1, problem">
   <div class="sheet">
-    <div class="strip"><span><b>Nature's Knockouts</b> · ScienceClaw, MIT Media Lab</span><span>Karuniya Premnath · Karishma Premnath · Dheepak Karan</span><span>1 / 5 · problem</span></div>
-    <p class="eyebrow">Human knockouts as free clinical trials</p>
+    <div class="strip"><span><b>Null Hypothesis</b> · ScienceClaw, MIT Media Lab</span><span>Karuniya Premnath · Karishma Premnath · Dheepak Karan</span><span>1 / 6 · problem</span></div>
+    <p class="eyebrow">Null Hypothesis · human knockouts as free clinical trials</p>
     <h1>Some people are born with a broken gene and are healthier for it. Finding the next one means reading evidence no single source holds.</h1>
     <div class="chain" aria-label="The PCSK9 story">
       <div><span class="k">genotype</span><span class="v">Loss-of-function in PCSK9</span></div>
@@ -149,7 +149,7 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
 <!-- 2 · SYSTEM -->
 <section class="slide" id="system" aria-label="Slide 2, system">
   <div class="sheet">
-    <div class="strip"><span><b>System</b> · four specialists, one skeptic, a shared board</span><span>Gemini 3 Flash for every agent in every arm</span><span>2 / 5 · system</span></div>
+    <div class="strip"><span><b>System</b> · four specialists, one skeptic, a shared board</span><span>Gemini 3 Flash for every agent in every arm</span><span>2 / 6 · system</span></div>
     <h2>Each agent reads one directory of evidence. Nothing assigns work; agents pick up each other's needs from the board.</h2>
     <div class="cols wide-right">
       <div style="display:grid; gap:14px">
@@ -162,7 +162,7 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
               <tr><td class="agent" style="color:var(--s4)">Tolerance</td><td>LOEUF, pLI, DepMap</td><td>Can a human live without it?</td></tr>
               <tr><td class="agent" style="color:#a87200">Safety</td><td>Out-of-scope traits</td><td>Does breaking it harm elsewhere?</td></tr>
               <tr><td class="agent" style="color:#b3416c">Skeptic</td><td>Only the other agents' verdicts</td><td>Is this evidence trustworthy?</td></tr>
-              <tr class="dim"><td class="cut">Variant</td><td colspan="2">Dropped at the Phase 0 gate: no Evo 2 access</td></tr>
+              <tr class="dim"><td class="agent">Variant</td><td>Lead variant, scored by NVIDIA Evo 2</td><td>Added after the headline; see slide 6</td></tr>
             </tbody>
           </table>
         </div>
@@ -179,7 +179,7 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
 <!-- 3 · RESULT -->
 <section class="slide" id="result" aria-label="Slide 3, result">
   <div class="sheet">
-    <div class="strip"><span><b>Result</b> · 40-gene blind panel, 12 known targets, 28 hard negatives</span><span>2 seeds · 1,000 paired resamples</span><span>3 / 5 · result</span></div>
+    <div class="strip"><span><b>Result</b> · 40-gene blind panel, 12 known targets, 28 hard negatives</span><span>2 seeds · 1,000 paired resamples</span><span>3 / 6 · result</span></div>
     <div class="cols">
       <div style="display:grid; gap:16px">
         <div class="hero-num">
@@ -211,7 +211,7 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
 <!-- 4 · RIGOR -->
 <section class="slide" id="rigor" aria-label="Slide 4, rigor">
   <div class="sheet">
-    <div class="strip"><span><b>Rigor</b> · what was fixed, and when</span><span>github.com/karunprem45/natures-knockouts</span><span>4 / 5 · rigor</span></div>
+    <div class="strip"><span><b>Rigor</b> · what was fixed, and when</span><span>github.com/karunprem45/natures-knockouts</span><span>4 / 6 · rigor</span></div>
     <h2>Panel and metrics frozen at commit <span style="font-family:var(--mono); color:var(--a3)">12b8c58</span>, before any arm ran.</h2>
     <div class="cols">
       <div>
@@ -244,7 +244,7 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
 <!-- 5 · DISCOVERY -->
 <section class="slide" id="discovery" aria-label="Slide 5, discovery">
   <div class="sheet">
-    <div class="strip"><span><b>What we learned</b> · and what the collective ranked highly</span><span>Ablations are secondary; the headline stays A3 vs A1</span><span>5 / 5 · discovery</span></div>
+    <div class="strip"><span><b>What we learned</b> · and what the collective ranked highly</span><span>Ablations are secondary; the headline stays A3 vs A1</span><span>5 / 6 · discovery</span></div>
     <h2>Separate views helped. An over-eager skeptic gave the gain back.</h2>
     <div class="cols">
       <div style="display:grid; gap:14px">
@@ -271,6 +271,41 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
       <figure>
         <img src="figures/4_skeptic_rank_shift.png" alt="Slope chart of gene ranks without and with the skeptic. Most known targets move down; mean positive rank goes from 10.7 to 12.5.">
         <figcaption>Each line is one gene. Blue: known targets. Grey: hard negatives.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · EXTENSIONS -->
+<section class="slide" id="extensions" aria-label="Slide 6, extensions">
+  <div class="sheet">
+    <div class="strip"><span><b>Extensions</b> · run after results-final, not pre-registered</span><span>Google Cloud · NVIDIA · OpenAI</span><span>6 / 6 · extensions</span></div>
+    <h2>The isolated-specialist result holds on a second model, and a DNA language model joins the board.</h2>
+    <div class="cols">
+      <div style="display:grid; gap:14px">
+        <div class="tbl">
+          <table>
+            <thead><tr><th>Run</th><th class="num">AUROC (95% CI)</th><th class="num">Paired Δ</th></tr></thead>
+            <tbody>
+              <tr class="a3"><td>Gemini · A3 round 0</td><td class="num">0.853 (0.729–0.948)</td><td class="num">+0.080 vs A1</td></tr>
+              <tr class="a3"><td>GPT-5 mini · A3 round 0</td><td class="num">0.857 (0.730–0.961)</td><td class="num">+0.037 vs A1</td></tr>
+              <tr class="dim"><td>GPT-5 mini · A1 / A3</td><td class="num">0.820 / 0.751</td><td class="num">−0.068 A3 vs A1</td></tr>
+              <tr><td style="color:#a87200; font-weight:600">Gemini · A3 + Evo 2</td><td class="num">0.820 (0.671–0.929)</td><td class="num">+0.038 vs A3</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <strong>NVIDIA Evo 2 as the Variant agent</strong>
+          <p>One Evo 2 40B pass over 2,048 bp around the lead variant scores every possible base change in the window; the agent reports where the real variant falls. Agents asked for it 77 times; Evo 2 answered 30, with no errors. Coordinates never reach a prompt.</p>
+        </div>
+        <div class="callout">
+          <strong>What to take from it</strong>
+          <p>On both models, specialists who never talk beat the full coordination loop. Evo 2 leans positive, but GWAS lead variants are mostly non-coding tags (median percentile 59), so it had little to score. Every interval here includes zero.</p>
+        </div>
+      </div>
+      <figure>
+        <img src="figures/6_models_and_evo2.png" alt="Dot plot of AUROC with 95% confidence intervals. Gemini: A1 0.774, A3 0.782, A3 round 0 0.853, A3 plus Evo 2 0.820. GPT-5 mini: A1 0.820, A3 0.751, A3 round 0 0.857.">
+        <figcaption>Same 40 genes, labels and paired bootstrap as the headline. GPT-5 mini rejects temperature 0, so it ran at its default.</figcaption>
       </figure>
     </div>
   </div>
