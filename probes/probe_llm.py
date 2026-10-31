@@ -1,18 +1,20 @@
 """Phase 0: Gemini via the OpenAI-compatible endpoint. Checks text, JSON mode, usage fields."""
-import json, os, sys
+import json, sys
 from dotenv import load_dotenv
 from openai import OpenAI
 import config
+from llm.auth import endpoint
 
 load_dotenv()
-key = os.environ.get("GEMINI_API_KEY")
-if not key:
-    print("FAIL GEMINI_API_KEY not set (copy .env.example to .env)"); sys.exit(1)
-client = OpenAI(base_url=config.LLM_BASE_URL, api_key=key)
-result = {"model": config.LLM_MODEL}
+try:
+    base_url, token, model = endpoint()
+except Exception as e:
+    print(f"FAIL {config.LLM_BACKEND} credentials: {str(e)[:200]}"); sys.exit(1)
+client = OpenAI(base_url=base_url, api_key=token)
+result = {"backend": config.LLM_BACKEND, "model": model}
 
 try:  # (a) plain completion returns text
-    r = client.chat.completions.create(model=config.LLM_MODEL, temperature=config.TEMPERATURE,
+    r = client.chat.completions.create(model=model, temperature=config.TEMPERATURE,
         messages=[{"role": "user", "content": "Reply with the single word: ready"}])
     text = (r.choices[0].message.content or "").strip()
     assert text, "empty completion"
@@ -21,7 +23,7 @@ except Exception as e:
     print(f"FAIL chat completion: {e}"); sys.exit(1)
 
 try:  # (b) response_format json_object returns valid JSON
-    r = client.chat.completions.create(model=config.LLM_MODEL, temperature=config.TEMPERATURE,
+    r = client.chat.completions.create(model=model, temperature=config.TEMPERATURE,
         response_format={"type": "json_object"},
         messages=[{"role": "user", "content": 'Return JSON {"stance":"neutral","strength":0.5}'}])
     json.loads(r.choices[0].message.content)

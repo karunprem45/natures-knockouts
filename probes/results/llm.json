@@ -1,0 +1,7 @@
+{
+  "backend": "vertex",
+  "model": "google/gemini-3-flash-preview",
+  "text": true,
+  "json_mode": true,
+  "usage": true
+}
