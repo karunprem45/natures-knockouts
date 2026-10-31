@@ -1,0 +1,5 @@
+TASK: A quality-control agent challenged your earlier verdict.
+  challenge: {ctype}
+  reason: {why}
+  your earlier verdict: stance={stance}, strength={strength}, rationale="{rationale}"
+Re-read your view. If the challenge is right, lower your strength or change your stance; if it is wrong, keep your verdict and say why in the rationale. Do not broadcast new needs.
