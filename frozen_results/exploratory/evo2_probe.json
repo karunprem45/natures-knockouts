@@ -1,0 +1,12 @@
+{
+  "url": "https://health.api.nvidia.com/v1/biology/arc/evo2-40b/forward",
+  "layer": "unembed",
+  "shapes": {
+    "unembed.output": [
+      1,
+      200,
+      512
+    ]
+  },
+  "seq_len": 200
+}

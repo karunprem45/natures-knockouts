@@ -5,7 +5,7 @@ import openai
 from openai import OpenAI
 import config
 from llm import guards
-from llm.auth import endpoint
+from llm.auth import capabilities, endpoint
 
 JSON_NUDGE = "\n\nReturn ONLY one JSON object matching the schema. No prose, no code fences."
 
@@ -35,16 +35,29 @@ class LLMClient:
         self.log_path = run_dir / "llm_log.jsonl"
         self.budget = budget or guards.Budget()
         self._log_lock = threading.Lock()
-        probe = config.PROBE_RESULTS / "llm.json"
-        self.json_mode = json.loads(probe.read_text()).get("json_mode", False) if probe.exists() else False
+        self.backend = config.LLM_BACKEND
+        caps = capabilities(self.backend)
+        self.json_mode = caps.get("json_mode", False)
+        # vertex predates the capability probe fields; it accepts all three (probes/results/llm.json)
+        self.use_temperature = caps.get("temperature_ok", True)
+        self.use_seed = caps.get("seed_ok", True)
+        self.use_reasoning = caps.get("reasoning_effort_ok", True)
+        prov = config.PROVIDERS.get(self.backend, {})
+        self.price_in = prov.get("price_in_per_m", config.LLM_PRICE_IN_PER_M) if prov else config.LLM_PRICE_IN_PER_M
+        self.price_out = prov.get("price_out_per_m", config.LLM_PRICE_OUT_PER_M) if prov else config.LLM_PRICE_OUT_PER_M
 
     def _call(self, messages):
         """One API call with exponential backoff + jitter on 429/5xx; every retry is logged."""
         for attempt in range(1, config.LLM_MAX_ATTEMPTS + 1):
             base_url, token, model = endpoint()
             client = OpenAI(base_url=base_url, api_key=token, max_retries=0, timeout=120)
-            kwargs = {"model": model, "messages": messages, "temperature": config.TEMPERATURE,
-                      "seed": self.seed, "reasoning_effort": config.LLM_REASONING_EFFORT}
+            kwargs = {"model": model, "messages": messages}
+            if self.use_temperature:
+                kwargs["temperature"] = config.TEMPERATURE
+            if self.use_seed:
+                kwargs["seed"] = self.seed
+            if self.use_reasoning:
+                kwargs["reasoning_effort"] = config.LLM_REASONING_EFFORT
             if self.json_mode:
                 kwargs["response_format"] = {"type": "json_object"}
             try:
@@ -77,11 +90,13 @@ class LLMClient:
             details = getattr(u, "completion_tokens_details", None)
             reasoning = getattr(details, "reasoning_tokens", 0) or 0
             out_tokens = (u.completion_tokens or 0) + reasoning
-            cost = (u.prompt_tokens * config.LLM_PRICE_IN_PER_M + out_tokens * config.LLM_PRICE_OUT_PER_M) / 1e6
+            cost = (None if self.price_in is None or self.price_out is None
+                    else (u.prompt_tokens * self.price_in + out_tokens * self.price_out) / 1e6)
             entry = {"agent": agent, "gene_code": gene_code, "call_n": n, "model": model,
                      "prompt_tokens": u.prompt_tokens, "completion_tokens": u.completion_tokens,
                      "reasoning_tokens": reasoning, "latency_s": round(time.time() - t0, 2),
-                     "cost_usd": round(cost, 6), "parse_attempt": parse_attempt}
+                     "cost_usd": round(cost, 6) if cost is not None else None, "parse_attempt": parse_attempt,
+                     "backend": self.backend}
             try:
                 parsed = parse_json(text, unwrap_single=not list_key)
                 if list_key and isinstance(parsed, list):
