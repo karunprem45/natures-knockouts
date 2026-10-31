@@ -51,3 +51,28 @@ def permutation_null(metric, y, s, n=config.N_PERMUTATIONS, seed=config.SEED):
     obs = metric(y, s)
     hits = sum(metric(rng.permutation(y), s) >= obs for _ in range(n))
     return obs, (hits + 1) / (n + 1)
+
+
+def _seed_mean(metric, y, score_sets, idx=None):
+    if idx is None:
+        return float(np.mean([metric(y, s) for s in score_sets]))
+    return float(np.mean([metric(y[idx], s[idx]) for s in score_sets]))
+
+
+def bootstrap_ci_seeds(metric, y, score_sets, n=config.N_BOOTSTRAP, seed=config.SEED):
+    """Metric averaged over seeds, CI from resampling genes (all seeds scored on each resample)."""
+    y = np.asarray(y)
+    sets = [np.asarray(s) for s in score_sets]
+    vals = [_seed_mean(metric, y, sets, i) for i in _resamples(y, n, seed)]
+    return _seed_mean(metric, y, sets), float(np.percentile(vals, 2.5)), float(np.percentile(vals, 97.5))
+
+
+def paired_delta_seeds(metric, y, sets_a, sets_b, n=config.N_BOOTSTRAP, seed=config.SEED):
+    """Pre-registered headline: mean-over-seeds metric(a) minus mean-over-seeds metric(b), with
+    both arms (every seed) scored on the SAME gene resample each time."""
+    y = np.asarray(y)
+    a = [np.asarray(s) for s in sets_a]
+    b = [np.asarray(s) for s in sets_b]
+    vals = [_seed_mean(metric, y, a, i) - _seed_mean(metric, y, b, i) for i in _resamples(y, n, seed)]
+    point = _seed_mean(metric, y, a) - _seed_mean(metric, y, b)
+    return point, float(np.percentile(vals, 2.5)), float(np.percentile(vals, 97.5))
