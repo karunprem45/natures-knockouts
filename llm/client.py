@@ -10,7 +10,7 @@ from llm.auth import endpoint
 JSON_NUDGE = "\n\nReturn ONLY one JSON object matching the schema. No prose, no code fences."
 
 
-def parse_json(text):
+def parse_json(text, unwrap_single=True):
     """Tolerant parse: strips code fences, takes the outermost {...}, and unwraps a one-item
     list (Gemini sometimes returns [ {...} ] even in JSON mode)."""
     text = (text or "").strip()
@@ -22,7 +22,7 @@ def parse_json(text):
         if start >= 0 and end > start:
             return json.loads(text[start:end + 1])
         raise
-    if isinstance(parsed, list) and len(parsed) == 1 and isinstance(parsed[0], dict):
+    if unwrap_single and isinstance(parsed, list) and len(parsed) == 1 and isinstance(parsed[0], dict):
         return parsed[0]
     return parsed
 
@@ -57,8 +57,9 @@ class LLMClient:
                 self._log({"event": "retry", "attempt": attempt, "wait_s": round(wait, 2), "error": str(e)[:200]})
                 time.sleep(wait)
 
-    def complete_json(self, *, agent, gene_code, prompt, schema):
-        """Return (parsed dict, error string or None). Never raises on a bad model reply (R10)."""
+    def complete_json(self, *, agent, gene_code, prompt, schema, list_key=None):
+        """Return (parsed dict, error string or None). Never raises on a bad model reply (R10).
+        list_key: if the schema is {list_key: [...]} and the model returns the bare list, wrap it."""
         guards.assert_no_identity(prompt)                 # R4
         guards.assert_no_labels(prompt)                   # R3
         messages = [{"role": "user", "content": prompt + "\n\nJSON schema:\n" + schema}]
@@ -82,7 +83,9 @@ class LLMClient:
                      "reasoning_tokens": reasoning, "latency_s": round(time.time() - t0, 2),
                      "cost_usd": round(cost, 6), "parse_attempt": parse_attempt}
             try:
-                parsed = parse_json(text)
+                parsed = parse_json(text, unwrap_single=not list_key)
+                if list_key and isinstance(parsed, list):
+                    parsed = {list_key: parsed}
                 if not isinstance(parsed, dict):
                     raise ValueError("reply is not a JSON object")
                 self._log(dict(entry, ok=True))

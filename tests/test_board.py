@@ -132,3 +132,16 @@ def test_loop_without_skeptic_posts_no_challenge(tmp_path):
 def test_loop_source_says_no_assignment():
     import board.loop as loop
     assert "NOTHING IN THIS LOOP ASSIGNS WORK" in open(loop.__file__).read()
+
+
+def test_rescore_ablations_need_no_llm():
+    src = open(__import__("arms.rescore", fromlist=["x"]).__file__).read()
+    assert "llm" not in src.lower().replace("zero extra llm calls", "").replace("0 llm calls", "")
+
+
+def test_ablation_isolated_keeps_round0_only():
+    from arms.rescore import ABLATIONS
+    e = ev("burden"); r = Artifact("revision", "burden", "Gene_01", 2, stance="against", strength=1.0,
+                                   parent_artifact_ids=[e.artifact_id])
+    assert scoring.score(ABLATIONS["isolated"]([e, r])) == pytest.approx(0.8)
+    assert scoring.score(ABLATIONS["noburden"]([e, r])) == 0.0

@@ -26,7 +26,8 @@ class SkepticAgent:
                                "stance": a.stance, "strength": a.strength, "rationale": a.rationale,
                                "data_refs": a.data_refs} for r, a in refs.items()], indent=1)
         parsed, err = self.client.complete_json(agent=self.name, gene_code=gene_code,
-                                                prompt=self.template.format(artifacts=listing), schema=SCHEMA)
+                                                prompt=self.template.format(artifacts=listing), schema=SCHEMA,
+                                                list_key="challenges")
         if parsed is None:
             return Artifact("error", self.name, gene_code, round_, error=err)
         challenges, found = [], []
