@@ -31,6 +31,7 @@ freeze:           ## R6 — refuse if dirty, print hash
 baselines:        ## Phase 2 — S1–S4 table
 	$(PY) -m data_layer.features
 	$(PY) -m arms.scripted
+	$(PY) -m eval.baselines
 
 arm:
 	$(PY) -m arms.run_arm --arm $(ARM) --seed $(SEED) --panel frozen/panel.csv --out runs/$(ARM)_s$(SEED)
