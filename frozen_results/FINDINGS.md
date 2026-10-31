@@ -51,7 +51,7 @@ ACVR1C (ALK7) has protective loss-of-function evidence for fat distribution and 
 
 1. **Small panel.** 40 genes, 12 positives: every CI is wide. S4, A1 and A3 overlap.
 2. **Study-intensity confound.** Famous positives carry far more evidence rows; every arm can partly score "how well studied".
-3. **Anonymisation is partial.** Names, IDs and drug data are removed and Mendelian diseases coarsened to categories (amendment #2), but trait patterns remain: 2 of 320 A3 verdicts still named a gene (redacted and flagged).
+3. **Anonymisation is partial.** Names, IDs and drug data are removed and Mendelian diseases coarsened to categories (amendment #2), but trait patterns remain: 2 of 800 A3 artifacts across both seeds still named a gene (redacted and flagged).
 4. **Direction labels.** Open Targets assigns "protect" for quantitative traits from the sign of beta, so lowering HDL reads as protective.
 5. **Amendments after `prereg`**, all before any LLM arm ran: model `gemini-2.5-flash` → `gemini-3-flash-preview` on Vertex AI, and the Safety-view coarsening (`frozen/AMENDMENTS.md`). The S1–S4 feature definitions were committed after the tag but before any LLM arm.
 6. **Reruns.** 16 gene-runs lost to rate limits were rerun under one rule for every arm (`RERUN_LOG.md`).
