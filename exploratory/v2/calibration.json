@@ -1,0 +1,41 @@
+{
+ "source": "frozen_results/runs/A3_s1, A3_s2 (panel 1)",
+ "gene_runs": {
+  "pos": 24,
+  "neg": 56
+ },
+ "formula": "multiplier_t = 1 - 0.5 * max(0, (rate_neg - rate_pos) / rate_neg); 1.0 if rate_neg == 0",
+ "channel_rule": "a challenged channel takes the minimum multiplier over the types that name it",
+ "types": {
+  "biomarker_only": {
+   "rate_pos": 0.8333,
+   "rate_neg": 0.8393,
+   "multiplier": 0.9965
+  },
+  "direction_conflict": {
+   "rate_pos": 0.0,
+   "rate_neg": 0.2857,
+   "multiplier": 0.5
+  },
+  "essential_gene": {
+   "rate_pos": 0.0,
+   "rate_neg": 0.2143,
+   "multiplier": 0.5
+  },
+  "single_ancestry": {
+   "rate_pos": 0.25,
+   "rate_neg": 0.4821,
+   "multiplier": 0.7593
+  },
+  "single_cohort": {
+   "rate_pos": 0.0833,
+   "rate_neg": 0.3571,
+   "multiplier": 0.6167
+  },
+  "underpowered": {
+   "rate_pos": 0.0417,
+   "rate_neg": 0.0893,
+   "multiplier": 0.7333
+  }
+ }
+}
