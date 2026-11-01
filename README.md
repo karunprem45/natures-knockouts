@@ -10,6 +10,8 @@ Built at ScienceClaw, MIT Media Lab, by Karuniya Premnath, Karishma Premnath and
 
 *The 170-second film at 4× speed. Click for the full video with sound ([`site/null-hypothesis-keynote.mp4`](site/null-hypothesis-keynote.mp4)).*
 
+**Live explainer site: [karunprem45.github.io/null-hypothesis](https://karunprem45.github.io/null-hypothesis/)**: replay a real agent board gene by gene and see the score with and without coordination.
+
 ## Results
 
 | Arm | AUROC (95% CI) | What it is |
@@ -81,4 +83,4 @@ Keys go in `.env` (see `.env.example`); `.env` and `data/` are gitignored.
 
 Who did what: [`CONTRIBUTORS.md`](CONTRIBUTORS.md). Project report (PDF): [`docs/Null_Hypothesis_Project_Report.pdf`](docs/Null_Hypothesis_Project_Report.pdf). Original build plan: [`BUILD.md`](BUILD.md). Demo script: [`DEMO.md`](DEMO.md).
 
-Explainer site: [`site/index.html`](site/index.html), one self-contained file that works offline; download it and open it in any browser to replay a real board gene by gene and toggle "score without coordination". Film (170 s, 1080p): [`site/null-hypothesis-keynote.mp4`](site/null-hypothesis-keynote.mp4): the ScienceClaw question, the PCSK9 board round by round, every arm, the five paired reruns, NVIDIA Evo 2 and ACVR1C. Both are rebuilt from frozen and exploratory outputs: `site/build_site.py` writes the pages, `site/make_video.py` renders the film from [`site/keynote.html`](site/keynote.html).
+Explainer site: [live on GitHub Pages](https://karunprem45.github.io/null-hypothesis/), source [`site/index.html`](site/index.html), one self-contained file that also works offline; download it and open it in any browser to replay a real board gene by gene and toggle "score without coordination". Film (170 s, 1080p): [`site/null-hypothesis-keynote.mp4`](site/null-hypothesis-keynote.mp4): the ScienceClaw question, the PCSK9 board round by round, every arm, the five paired reruns, NVIDIA Evo 2 and ACVR1C. Both are rebuilt from frozen and exploratory outputs: `site/build_site.py` writes the pages, `site/make_video.py` renders the film from [`site/keynote.html`](site/keynote.html).
