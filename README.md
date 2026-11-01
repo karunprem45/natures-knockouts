@@ -21,23 +21,6 @@
   <img src="https://img.shields.io/badge/built%20with-Claude%20Code-d97757" alt="Built with Claude Code">
 </p>
 
-## Preview
-
-<table>
-  <tr>
-    <td width="50%"><a href="https://karunprem45.github.io/null-hypothesis/"><img src="docs/screenshots/site-hero.jpg" alt="Live explainer site"></a><br><sub><b>Live site:</b> the problem and the five agents</sub></td>
-    <td width="50%"><a href="https://karunprem45.github.io/null-hypothesis/#replay"><img src="docs/screenshots/site-replay.jpg" alt="Replay of a real agent board"></a><br><sub><b>Replay:</b> a real PCSK9 board, round by round</sub></td>
-  </tr>
-  <tr>
-    <td><img src="docs/screenshots/film-paper.jpg" alt="ScienceClaw paper in the film"><br><sub><b>Film:</b> the ScienceClaw question</sub></td>
-    <td><img src="docs/screenshots/film-board.jpg" alt="PCSK9 board table in the film"><br><sub><b>Film:</b> coordination marks a real target down</sub></td>
-  </tr>
-  <tr>
-    <td><img src="docs/screenshots/film-arms.jpg" alt="Every arm on one blind panel"><br><sub><b>Film:</b> every arm on one blind panel</sub></td>
-    <td><img src="docs/screenshots/film-evo2.jpg" alt="NVIDIA Evo 2 in the film"><br><sub><b>Film:</b> NVIDIA Evo 2 sees the break</sub></td>
-  </tr>
-</table>
-
 ---
 
 ## The story in nine steps
