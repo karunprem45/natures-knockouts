@@ -104,6 +104,46 @@ def main():
     cost_lines = [f"| {name} | {n} | {fmt(m.bootstrap_ci_seeds(m.auroc, y, s))} | {p12(s):.2f} | {c} | {calls} |"
                   for name, n, s, c, calls in cost_rows]
 
+    a2_lines = []
+    a2_dir = ROOT / "exploratory" / "A2"
+    if (a2_dir / "scores.csv").exists():
+        a2 = [scores(a2_dir, idx)]
+        same_seed = {k: [v[0]] for k, v in gem.items()}           # seed 1, the seed A2 used
+        plans = json.loads((a2_dir / "plans.json").read_text())
+        from collections import Counter
+        sizes = Counter(len(p["plan"]) for p in plans)
+        a2_lines = [
+            "## Decentralized vs centralized: A2 (post-freeze extension, 1 seed, not pre-registered)",
+            "",
+            "A2 holds everything constant except who decides the trajectory: same model, same 10-call cap, same "
+            "specialist prompts, views and parser (each chosen specialist runs exactly as in A3 round 0), same "
+            "`scoring.py`. A planner LLM sees only the gene code and a one-line description of each specialist, "
+            "never any evidence, and picks which to consult. No needs, no skeptic, no revisions. The Variant agent "
+            "is not offered because it has no round-0 mode. Comparisons use seed 1 of each Gemini arm, the seed A2 ran.",
+            "",
+            "| Contrast | AUROC first | AUROC second | Paired Δ AUROC (95% CI) |",
+            "| --- | --- | --- | --- |",
+            *[f"| {lbl} | {fmt(m.bootstrap_ci_seeds(m.auroc, y, a))} | {fmt(m.bootstrap_ci_seeds(m.auroc, y, b))} | "
+              f"**{fmtd(m.paired_delta_seeds(m.auroc, y, a, b))}** |"
+              for lbl, a, b in [("A2 − A1 (centralized vs single agent)", a2, same_seed["A1"]),
+                                ("A2 − A3 (centralized vs decentralized loop)", a2, same_seed["A3"]),
+                                ("A2 − A3 round 0 (centralized vs isolated specialists)", a2, same_seed["A3_isolated"])]],
+            "",
+            f"A2 AUPRC {m.auprc(y, a2[0]):.3f}, P@12 {m.precision_at_k(y, a2[0]):.2f}, spend "
+            f"${spend([a2_dir]):.2f} per 40-gene run, {np.mean([p['calls'] for p in plans]):.1f} LLM calls per gene. "
+            f"Planner chose {', '.join(f'{k} specialist(s) for {v} genes' for k, v in sorted(sizes.items()))}.",
+            "",
+            "**How to read A2:** with no evidence to go on, the planner consulted every specialist for every gene "
+            "(only the order varied), so A2 ran the same configuration as A3 round 0. "
+            f"{int((np.abs(a2[0] - same_seed['A3_isolated'][0]) < 1e-9).sum())} of 40 genes got identical scores; "
+            "the rest differ only through Gemini's run-to-run variation at temperature 0. The A2 − round 0 delta is "
+            "therefore a measured **noise floor between two runs of one configuration**, not a "
+            "centralized-vs-decentralized effect. What A2 does show: a planner that cannot see evidence adds nothing "
+            "over isolated specialists, and the same specialists without the coordination loop again beat the loop "
+            "(A2 − A3). A planner that sees evidence summaries would be the informative next test.",
+            "",
+        ]
+
     text = "\n".join([
         "# Exploratory and secondary results",
         "",
@@ -150,6 +190,7 @@ def main():
         "The coordination loop's effect (round 0 → final) is in "
         "[`figures/coordination_effect.png`](figures/coordination_effect.png).",
         "",
+        *a2_lines,
     ])
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(text)

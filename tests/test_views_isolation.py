@@ -5,6 +5,9 @@ Run live if a judge asks how we know the agents are really separate.
 import csv, json, re
 import pytest
 import config
+from tests.conftest import requires_data
+
+pytestmark = requires_data
 
 AGENTS = ["burden", "gwas", "tolerance", "safety", "variant"]
 ALLOWED_TOP = {
@@ -51,7 +54,7 @@ def known_symbols():
     return {s for s in syms if len(s) >= 3 and not s.startswith("ENSG")}
 
 
-FILES = view_files()
+FILES = view_files() if config.VIEWS_DIR.exists() else []
 
 
 def test_every_panel_gene_has_every_view():

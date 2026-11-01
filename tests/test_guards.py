@@ -8,6 +8,7 @@ from agents.base import ViewAccessError
 from agents.skeptic import SkepticAgent
 from board.artifact import Artifact
 from llm import guards
+from tests.conftest import requires_data
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -45,6 +46,7 @@ def test_budget_cap_is_enforced_per_arm_and_gene():
     b.take("A1", "Gene_01")
 
 
+@requires_data
 @pytest.mark.parametrize("name", sorted(EVIDENCE_AGENT_CLASSES))
 def test_every_rendered_prompt_passes_guards(name):
     agent = EVIDENCE_AGENT_CLASSES[name](NoCallClient())
@@ -84,7 +86,7 @@ def test_artifact_hash_is_content_based():
 
 def test_agent_output_naming_a_gene_is_redacted_and_flagged():
     from agents.base import redact_output
-    text, needs, flags = redact_output("Looks like LCAT deficiency",
+    text, needs, flags = redact_output("Looks like APOC3 deficiency",
                                        [{"type": "tolerance_check", "query": "is PCSK9 tolerated", "rationale": ""}])
-    assert "LCAT" not in text and "PCSK9" not in needs[0]["query"]
+    assert "APOC3" not in text and "PCSK9" not in needs[0]["query"]
     assert flags == ["identity_named:2"]
