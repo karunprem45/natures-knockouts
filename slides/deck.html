@@ -191,7 +191,7 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
             <tbody>
               <tr class="a3"><td>Collaborative vs isolated</td><td><b>−0.071</b> (−0.139 to −0.013)<br><span style="color:var(--ink-2); font-size:12.5px">A3 0.782 vs round 0 0.853; gpt-5-mini −0.106</span></td><td>Coordination hurt; CI excludes 0</td></tr>
               <tr><td>Multi-agent vs single-agent</td><td><b>+0.080</b> (−0.004 to +0.173)<br><span style="color:var(--ink-2); font-size:12.5px">round 0 0.853 vs A1 0.774; gpt-5-mini +0.037</span></td><td>Positive on both models; CI crosses 0</td></tr>
-              <tr class="dim"><td>Decentralized vs centralized</td><td>Centralized arm not run</td><td>Stated as a limitation</td></tr>
+              <tr class="dim"><td>Decentralized vs centralized</td><td><b>+0.080</b> (−0.041 to +0.208), A2 − A3<br><span style="color:var(--ink-2); font-size:12.5px">evidence-blind planner consulted all 4 specialists for all 40 genes</span></td><td>A2 matched round 0: a noise floor (~0.03), not a real centralization test</td></tr>
             </tbody>
           </table>
         </div>
@@ -235,7 +235,7 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
         <ul class="limits">
           <li>40 genes: intervals are wide, and S4, A1 and A3 overlap.</li>
           <li>The slide 3 contrasts are post-hoc, with no multiplicity correction.</li>
-          <li>No centralized (planner) arm: decentralized vs centralized is untested.</li>
+          <li>Our centralized arm's planner saw no evidence and consulted everyone, so decentralized vs centralized is not meaningfully tested.</li>
           <li>Famous targets carry more evidence rows; any arm can partly score how well studied a gene is.</li>
           <li>2 of 800 A3 artifacts still named a gene (redacted, flagged).</li>
           <li>Open Targets derives "protective" from the sign of beta, so lower HDL reads as protective.</li>
@@ -289,7 +289,7 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
 <section class="slide" id="next" aria-label="Slide 6, ecosystem and next steps">
   <div class="sheet">
     <div class="strip"><span><b>Ecosystem and next steps</b> · extensions are post-freeze, not pre-registered</span><span>Google Cloud · NVIDIA · OpenAI</span><span>6 / 6 · next</span></div>
-    <h2>Reusable pieces for other teams, two extensions run tonight, and the experiment that would close the story.</h2>
+    <h2>Reusable pieces for other teams, and four extensions run tonight, including a pre-registered test of the fix.</h2>
     <div class="cols">
       <div style="display:grid; gap:14px">
         <div class="tbl">
@@ -309,12 +309,17 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
             <tbody>
               <tr><td>A3 + NVIDIA Evo 2 Variant agent</td><td class="num">0.820</td><td class="num">+0.038 vs A3</td></tr>
               <tr><td>gpt-5-mini: round 0 / A1 / A3</td><td class="num">0.857 / 0.820 / 0.751</td><td class="num">same direction</td></tr>
+              <tr><td>A2 centralized planner (1 seed)</td><td class="num">0.871</td><td class="num">≈ round 0</td></tr>
             </tbody>
           </table>
         </div>
         <div class="callout">
-          <strong>Next: a calibrated skeptic on a fresh panel</strong>
-          <p>Fit per-challenge discounts on this panel, pre-register them, test on 28 negatives the fit never saw. Then a centralized planner arm, 200 genes, and Evo 2 on coding variants.</p>
+          <strong>Tested tonight: a calibrated skeptic on a fresh panel</strong>
+          <p>Per-challenge discounts fitted on panel 1, pre-registered (<span style="font-family:var(--mono)">prereg-v2</span>), tested on 28 negatives the fit never saw. Calibrated − flat = <b>+0.004</b> (−0.032 to +0.042): no improvement. On both panels the skeptic loop scores at or below the isolated specialists.</p>
+        </div>
+        <div class="callout">
+          <strong>Next</strong>
+          <p>A planner that sees evidence summaries, 200 genes so the intervals close, and Evo 2 on coding variants.</p>
         </div>
       </div>
       <figure>
