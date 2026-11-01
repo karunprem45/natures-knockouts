@@ -6,6 +6,10 @@ Some people are born with a broken copy of a gene and are healthier for it: loss
 
 Built at ScienceClaw, MIT Media Lab, by Karuniya Premnath, Karishma Premnath and Dheepak Karan.
 
+[![Null Hypothesis film, 4x speed](site/null-hypothesis-film.gif)](site/null-hypothesis-keynote.mp4)
+
+*The 170-second film at 4× speed. Click for the full video with sound ([`site/null-hypothesis-keynote.mp4`](site/null-hypothesis-keynote.mp4)).*
+
 ## Results
 
 | Arm | AUROC (95% CI) | What it is |
