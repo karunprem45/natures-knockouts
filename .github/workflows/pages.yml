@@ -1,10 +1,10 @@
-# Publish site/ (the explainer page and the film) to GitHub Pages on every push to main.
+# Publish site/ (explainer page, film) and the deck (at /deck/) to GitHub Pages on every push to main.
 name: Pages
 
 on:
   push:
     branches: [main]
-    paths: ["site/**", ".github/workflows/pages.yml"]
+    paths: ["site/**", "slides/**", ".github/workflows/pages.yml"]
   workflow_dispatch:
 
 permissions:
@@ -25,8 +25,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Assemble site and deck
+        run: |
+          mkdir -p _site/deck
+          cp -r site/. _site/
+          cp slides/deck.html _site/deck/index.html
+          cp -r slides/figures _site/deck/figures
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
