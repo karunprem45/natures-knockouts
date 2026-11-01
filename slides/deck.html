@@ -291,7 +291,7 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
 <section class="slide" id="next" aria-label="Slide 6, ecosystem and next steps">
   <div class="sheet">
     <div class="strip"><span><b>Ecosystem and next steps</b> · extensions are post-freeze, not pre-registered</span><span>Google Cloud · NVIDIA · OpenAI</span><span>6 / 6 · next</span></div>
-    <h2>Reusable pieces for other teams, and four extensions run tonight, including a pre-registered test of the fix.</h2>
+    <h2>Reusable pieces for other teams, and every extension run tonight, including two tests whose outcome we wrote down first.</h2>
     <div class="cols">
       <div style="display:grid; gap:14px">
         <div class="tbl">
@@ -309,7 +309,8 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
           <table>
             <thead><tr><th>Extension</th><th class="num">AUROC</th><th class="num">Paired Δ</th></tr></thead>
             <tbody>
-              <tr><td>A3 + NVIDIA Evo 2 Variant agent</td><td class="num">0.820</td><td class="num">+0.038 vs A3</td></tr>
+              <tr><td>A3 + NVIDIA Evo 2 Variant agent, GWAS lead tags</td><td class="num">0.820</td><td class="num">+0.038 vs A3</td></tr>
+              <tr><td>A3 + Evo 2 on 200 coding LoF variants (1 seed)</td><td class="num">median pct 4.4</td><td class="num">−0.006 vs A3</td></tr>
               <tr><td>gpt-5-mini: round 0 / A1 / A3</td><td class="num">0.857 / 0.820 / 0.751</td><td class="num">same direction</td></tr>
               <tr><td>Centralized planner, must pick 2 of 4 (1 seed)</td><td class="num">0.829</td><td class="num">−0.013 vs round 0</td></tr>
               <tr><td>Noise floor, 5 replicates of A3</td><td class="num">0.774–0.842</td><td class="num">floor 0.062</td></tr>
@@ -321,8 +322,12 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
           <p>Per-challenge discounts fitted on panel 1, pre-registered (<span style="font-family:var(--mono)">prereg-v2</span>), tested on 28 negatives the fit never saw. Calibrated − flat = <b>+0.004</b> (−0.032 to +0.042): no improvement. On both panels the skeptic loop scores at or below the isolated specialists.</p>
         </div>
         <div class="callout">
+          <strong>Tested tonight: Evo 2 on coding variants</strong>
+          <p>Predicted beforehand: coding LoF variants lift the Variant channel above +0.038. Evo 2 rated them far more disruptive than the lead tags (median percentile 4.4 vs 59), but equally so in targets and negatives (3.4 vs 5.2): <b>−0.006</b>, not supported. It shows a variant breaks a gene, not that breaking it helps.</p>
+        </div>
+        <div class="callout">
           <strong>Next</strong>
-          <p>A planner that sees evidence summaries, 200 genes so the intervals close, and Evo 2 on coding variants.</p>
+          <p>A planner that sees evidence summaries, and 200 genes so the intervals close.</p>
         </div>
       </div>
       <figure>
