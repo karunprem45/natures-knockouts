@@ -1,0 +1,328 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Null Hypothesis Keynote</title>
+<style>
+/* 16:9 film, 1920x1080, keynote style: black, very large SF Pro type, one gradient accent per frame.
+   Each chapter draws into its own transparent buffer, so chapters can enter with different transitions
+   (push, zoom, iris, wipe, blur, fade). Text builds vary too (rise, mask, scale, type, tracking).
+   Visual set pieces: a paper that opens and zooms to a highlight, a brain network for the LLMs, a terminal
+   for Claude Code, a GPU die for NVIDIA, a real board played round by round, and two results tables.
+   Every number comes from data.json (frozen or exploratory files). Every frame is renderAt(t). */
+html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+canvas { position: absolute; left: 50%; top: 50%; transform-origin: 0 0; }
+</style>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script>
+const D = /*__DATA__*/null;
+const W = 1920, H = 1080, cv = document.getElementById("c"), out = cv.getContext("2d");
+const mk = () => { const c = document.createElement("canvas"); c.width = W; c.height = H; return c; };
+const BUF = [mk(), mk()];
+let x = BUF[0].getContext("2d");   // the chapter being drawn; switched per chapter by renderAt
+const SF = '"SF Pro Display", system-ui, -apple-system, "Helvetica Neue", sans-serif', MONO = 'ui-monospace, "SF Mono", Menlo, monospace';
+const WHITE = "#f5f5f7", GREY = "#86868b", DARK = "#424245", LINE = "#2c2c2e", RED = "#ff453a", GREEN = "#30d158", NV = "#76b900", BLUE = "#0a84ff", PINK = "#ff375f", YELLOW = "#ffd60a";
+const AGC = { burden: "#64d2ff", gwas: "#ff9f0a", tolerance: "#30d158", safety: "#ffd60a", skeptic: "#ff375f" };
+const A = D.arms, P = D.paired, M = D.mechanism, K = D.acvr1c, E = D.evo2, PL = D.planner, G = D.replays.find(r => r.symbol === "PCSK9");
+const cl = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const pr = (t, a, b) => cl((t - a) / (b - a));
+const eo = k => 1 - Math.pow(1 - k, 3);
+const eo5 = k => 1 - Math.pow(1 - k, 5);
+const eio = k => k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const back = k => k <= 0 ? 0 : 1 + 2.7 * Math.pow(k - 1, 3) + 1.7 * Math.pow(k - 1, 2);
+const lerp = (a, b, k) => a + (b - a) * k;
+const f3 = v => (v < 0 ? "−" : v > 0 ? "+" : "") + Math.abs(v).toFixed(3);
+const C = W / 2;
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+// ---------- type ----------
+function font(size, weight, mono) { return `${weight} ${size}px ${mono ? MONO : SF}`; }
+function measure(s, size, weight = 700, mono = false, track = null) { x.save(); x.font = font(size, weight, mono); x.letterSpacing = `${track ?? (mono ? 0 : -size * 0.025)}px`; const w = x.measureText(s).width; x.restore(); return w; }
+function grad(X0, X1, kind = "blue") {
+  const g = x.createLinearGradient(X0, 0, X1, 0), st = { blue: ["#5ac8fa", "#0a84ff", "#bf5af2"], warm: ["#ff9f0a", "#ff453a", "#ff375f"], green: ["#30d158", "#76b900", "#a3e635"] }[kind];
+  st.forEach((c, i) => g.addColorStop(i / 2, c)); return g;
+}
+// one line of type with a chosen build: rise | mask | scale | type | track | blur
+function say(s, X, Y, t0, t, o = {}) {
+  const { size = 120, weight = 700, color = WHITE, align = "center", dur = 0.9, mono = false, g = null, fx = "rise" } = o;
+  const k = eo5(pr(t, t0, t0 + dur)); if (k <= 0) return;
+  let track = mono ? 0 : -size * 0.025, str = s;
+  if (fx === "track") track = lerp(size * 0.35, track, k);
+  if (fx === "type") str = s.slice(0, Math.round(s.length * pr(t, t0, t0 + Math.max(dur, s.length * 0.03))));
+  const w = measure(s, size, weight, mono, track), X0 = align === "center" ? X - w / 2 : align === "right" ? X - w : X;
+  x.save(); x.font = font(size, weight, mono); x.letterSpacing = `${track}px`; x.textBaseline = "alphabetic"; x.fillStyle = g ? grad(X0, X0 + w, g) : color;
+  if (fx === "rise") { x.globalAlpha = k; if (k < 1) x.filter = `blur(${(1 - k) * 10}px)`; x.fillText(str, X0, Y + (1 - k) * 40); }
+  else if (fx === "mask") { x.beginPath(); x.rect(X0 - 20, Y - size, w + 40, size * 1.25); x.clip(); x.fillText(str, X0, Y + (1 - k) * size * 1.1); }
+  else if (fx === "scale") { const s_ = lerp(1.25, 1, k); x.globalAlpha = k; if (k < 1) x.filter = `blur(${(1 - k) * 14}px)`; x.translate(X0 + w / 2, Y - size * 0.35); x.scale(s_, s_); x.fillText(str, -w / 2, size * 0.35); }
+  else if (fx === "blur") { x.globalAlpha = k; if (k < 1) x.filter = `blur(${(1 - k) * 24}px)`; x.fillText(str, X0, Y); }
+  else { x.globalAlpha = pr(t, t0, t0 + 0.4); x.fillText(str, X0, Y); if (fx === "type" && str.length < s.length) { x.fillRect(X0 + measure(str, size, weight, mono, track) + 6, Y - size * 0.8, size * 0.08, size * 0.9); } }
+  x.restore();
+}
+function rect(X, Y, w, h, c, a = 1, r = 0) { if (a <= 0 || w <= 0) return; x.save(); x.globalAlpha *= a; x.fillStyle = c; x.beginPath(); x.roundRect(X, Y, w, h, r); x.fill(); x.restore(); }
+function stroke(X, Y, w, h, c, a = 1, r = 0, lw = 1) { if (a <= 0) return; x.save(); x.globalAlpha *= a; x.strokeStyle = c; x.lineWidth = lw; x.beginPath(); x.roundRect(X, Y, w, h, r); x.stroke(); x.restore(); }
+function line(x1, y1, x2, y2, c, w = 1, a = 1) { if (a <= 0) return; x.save(); x.globalAlpha *= a; x.strokeStyle = c; x.lineWidth = w; x.beginPath(); x.moveTo(x1, y1); x.lineTo(x2, y2); x.stroke(); x.restore(); }
+function dot(X, Y, r, c, a = 1) { if (a <= 0 || r <= 0) return; x.save(); x.globalAlpha *= a; x.fillStyle = c; x.beginPath(); x.arc(X, Y, r, 0, 6.283); x.fill(); x.restore(); }
+function halo(X, Y, r, c, a) { if (a <= 0) return; x.save(); x.globalAlpha *= a; const g = x.createRadialGradient(X, Y, 0, X, Y, r); g.addColorStop(0, c); g.addColorStop(1, "rgba(0,0,0,0)"); x.fillStyle = g; x.fillRect(X - r, Y - r, 2 * r, 2 * r); x.restore(); }
+function count(v, t0, t, dur = 1.6, from = 0) { return lerp(from, v, eo5(pr(t, t0, t0 + dur))).toFixed(3); }
+// camera inside a chapter: zoom toward a point
+function camera(s, fx, fy) { x.translate(C, H / 2); x.scale(s, s); x.translate(-fx, -fy); }
+
+// ---------- set pieces ----------
+// a journal page: header, title, grey text lines, and a highlighter that sweeps across a chosen box
+function paper(o) {
+  const { X, Y, w = 860, h = 1110, head, title, body = 30, seed = 1, hl = null, hlK = 0, figure = null } = o, r = rng(seed);
+  x.save(); x.shadowColor = "rgba(0,0,0,0.6)"; x.shadowBlur = 60; x.shadowOffsetY = 20; rect(X, Y, w, h, "#f4f4f2", 1, 6); x.restore();
+  x.save(); x.font = font(16, 600, true); x.fillStyle = "#8a8a8a"; x.fillText(head, X + 60, Y + 70); x.restore();
+  let yy = Y + 140; if (!title.length) { rect(X + 60, yy - 30, w - 220, 30, "#3a3a3a", 1, 6); rect(X + 60, yy + 16, w - 420, 30, "#3a3a3a", 1, 6); yy += 92; }
+  title.forEach(tl => { x.save(); x.font = font(34, 700); x.fillStyle = "#111"; x.letterSpacing = "-0.5px"; x.fillText(tl, X + 60, yy); x.restore(); yy += 46; });
+  yy += 18; for (let i = 0; i < 2; i++) { rect(X + 60, yy, 300 + r() * 300, 10, "#b5b5b5", 1, 5); yy += 24; }
+  yy += 26; const colW = (w - 160) / 2;
+  for (let c = 0; c < 2; c++) { let cy = yy; for (let i = 0; i < body; i++) { const ww = i % 7 === 6 ? colW * (0.3 + r() * 0.4) : colW * (0.9 + r() * 0.1);
+      if (figure && c === figure.col && i >= figure.from && i < figure.from + figure.rows) { if (i === figure.from) figure.draw(X + 60 + c * (colW + 40), cy, colW, figure.rows * 26); }
+      else rect(X + 60 + c * (colW + 40), cy, ww, 9, "#cfcfcf", 1, 4); cy += 26; } }
+  if (hl && hlK > 0) { x.save(); x.globalCompositeOperation = "multiply"; rect(hl[0], hl[1], hl[2] * eio(hlK), hl[3], "rgba(255,214,10,0.75)", 1, 4); x.restore(); }
+}
+// a neural "brain": nodes inside a brain-shaped outline, near-neighbour links, pulses travelling along them
+const BR = (() => { const r = rng(77), pts = [];
+  while (pts.length < 150) { const px = r() * 2 - 1, py = r() * 2 - 1; const inBrain = ((px / 1) ** 2 + ((py + 0.05) / 0.72) ** 2 < 1 && py < 0.55) || (((px - 0.45) / 0.32) ** 2 + ((py - 0.62) / 0.2) ** 2 < 1); if (inBrain) pts.push([px, py]); }
+  const ed = []; pts.forEach((p, i) => pts.map((q, j) => [j, Math.hypot(p[0] - q[0], p[1] - q[1])]).filter(([j]) => j > i).sort((a, b) => a[1] - b[1]).slice(0, 3).forEach(([j, d]) => { if (d < 0.32) ed.push([i, j]); }));
+  return { pts, ed }; })();
+function brain(cx, cy, s, t, a = 1, hue = "blue") {
+  if (a <= 0) return; const P_ = BR.pts.map(([px, py]) => [cx + px * s, cy + py * s]);
+  x.save(); x.globalAlpha *= a;
+  BR.ed.forEach(([i, j], q) => { const k = pr(t, 0.2 + q * 0.004, 0.8 + q * 0.004); if (k <= 0) return; line(P_[i][0], P_[i][1], lerp(P_[i][0], P_[j][0], k), lerp(P_[i][1], P_[j][1], k), hue === "blue" ? "rgba(90,200,250,0.35)" : "rgba(191,90,242,0.35)", 1.2); });
+  P_.forEach(([px, py], i) => dot(px, py, 3.2, hue === "blue" ? "#9bdcff" : "#d8a6ff", pr(t, 0.1 + i * 0.004, 0.5 + i * 0.004)));
+  for (let q = 0; q < 26; q++) { const e = BR.ed[(q * 37 + Math.floor(t * 2.3 + q * 0.7) * 11) % BR.ed.length], u = (t * 1.6 + q * 0.37) % 1, [i, j] = e;
+    halo(lerp(P_[i][0], P_[j][0], u), lerp(P_[i][1], P_[j][1], u), 16, hue === "blue" ? "rgba(90,200,250,0.9)" : "rgba(191,90,242,0.9)", pr(t, 1.0, 1.6)); }
+  x.restore();
+}
+// GPU die: a grid of cores lighting in a travelling wave, pins around the edge
+function gpu(cx, cy, s, t, a = 1) {
+  if (a <= 0) return; x.save(); x.globalAlpha *= a; const half = 300 * s;
+  x.save(); x.shadowColor = NV; x.shadowBlur = 60; rect(cx - half, cy - half, 2 * half, 2 * half, "#0b1405", 1, 28 * s); x.restore();
+  stroke(cx - half, cy - half, 2 * half, 2 * half, NV, 0.9, 28 * s, 2);
+  for (let k = 0; k < 16; k++) { const p = -half + 30 * s + k * (2 * half - 60 * s) / 15; [[p, -half - 22 * s, p, -half], [p, half, p, half + 22 * s], [-half - 22 * s, p, -half, p], [half, p, half + 22 * s, p]].forEach(([a1, b1, a2, b2]) => line(cx + a1, cy + b1, cx + a2, cy + b2, NV, 3 * s, 0.6)); }
+  const n = 12, cs = (2 * half - 80 * s) / n;
+  for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) { const v = 0.5 + 0.5 * Math.sin((i + j) * 0.55 - t * 5), X = cx - half + 40 * s + i * cs, Y = cy - half + 40 * s + j * cs;
+    rect(X + 3, Y + 3, cs - 6, cs - 6, `rgba(118,185,0,${0.12 + 0.6 * v * pr(t, 0.4 + (i + j) * 0.02, 0.9 + (i + j) * 0.02)})`, 1, 4); }
+  x.restore();
+}
+// terminal window with typed commands
+function terminal(X, Y, w, h, lines_, t0, t, a = 1) {
+  if (a <= 0) return; x.save(); x.globalAlpha *= a;
+  x.save(); x.shadowColor = "rgba(0,0,0,0.7)"; x.shadowBlur = 50; rect(X, Y, w, h, "#1c1c1e", 1, 16); x.restore(); rect(X, Y, w, 46, "#2c2c2e", 1, 16); rect(X, Y + 30, w, 16, "#2c2c2e");
+  [RED, "#ffd60a", GREEN].forEach((c, i) => dot(X + 28 + i * 24, Y + 23, 7, c));
+  x.save(); x.font = font(18, 600); x.fillStyle = GREY; x.textAlign = "center"; x.fillText("claude — null-hypothesis", X + w / 2, Y + 29); x.restore();
+  let tt = t0; lines_.forEach(([s, c], i) => { const yy = Y + 100 + i * 46; if (s.startsWith("$")) { say(s, X + 36, yy, tt, t, { size: 26, weight: 500, mono: true, align: "left", fx: "type", color: c, dur: s.length * 0.022 }); tt += s.length * 0.022 + 0.25; }
+    else { say(s, X + 36, yy, tt, t, { size: 26, weight: 500, mono: true, align: "left", fx: "blur", color: c, dur: 0.4 }); tt += 0.35; } });
+  x.restore();
+}
+
+// ---------- chapters: scene(start, end, transition-in, draw) ----------
+const SC = [];
+const scene = (s, e, tr, f) => SC.push({ s, e, tr, f });
+
+scene(0, 6, "fade", t => { halo(C, 520, 700, "rgba(10,132,255,0.12)", pr(t, 0.5, 2.5));
+  say("ScienceClaw · MIT Media Lab", C, 400, 0.8, t, { size: 30, weight: 600, color: GREY, fx: "track" });
+  say("Null Hypothesis.", C, 580, 1.3, t, { size: 180, fx: "scale" }); });
+scene(6, 11, "blur", t => { say("Some people are born", C, 500, 0.3, t, { size: 130, fx: "mask" }); say("with a broken gene.", C, 650, 0.5, t, { size: 130, fx: "mask" }); });
+scene(11, 16, "fade", t => { say("And they're", C, 500, 0.3, t, { size: 150, fx: "scale" }); say("healthier for it.", C, 670, 0.8, t, { size: 150, g: "blue", fx: "scale" }); });
+scene(16, 23, "zoom", t => {
+  say("PCSK9", C, 520, 0.2, t, { size: 260, fx: "track", dur: 1.4 });
+  ["Broken copy.", "Low cholesterol.", "Fewer heart attacks.", "A medicine."].forEach((w, i, arr) => {
+    const ws = arr.map(s => measure(s + "  ", 44, 500)), tot = ws.reduce((p, q) => p + q, 0); let X = C - tot / 2; for (let j = 0; j < i; j++) X += ws[j];
+    say(w, X, 680, 1.6 + i * 0.6, t, { size: 44, weight: 500, align: "left", color: i === 3 ? WHITE : GREY }); }); });
+scene(23, 28, "push", t => { say("Nature ran the trial.", C, 520, 0.3, t, { size: 130, fx: "mask" }); say("For free.", C, 680, 1.3, t, { size: 130, g: "blue", fx: "blur" }); });
+
+scene(28, 40, "iris", t => {   // the ScienceClaw paper opens and zooms to its title
+  const z = eio(pr(t, 2.2, 4.6)), s = lerp(0.62, 1.9, z), fx = lerp(C, 760, z), fy = lerp(560, 300, z);
+  x.save(); camera(s, fx, fy);
+  const py = 30 + (1 - eo5(pr(t, 0.2, 1.4))) * 300, rot = (1 - eo5(pr(t, 0.2, 1.6))) * -0.06;
+  x.translate(C, 560); x.rotate(rot); x.translate(-C, -560);
+  x.globalAlpha = pr(t, 0.2, 0.8);
+  paper({ X: C - 430, Y: py, head: "arXiv:2603.14312", title: ["Autonomous Agents Coordinating", "Distributed Discovery Through", "Emergent Artifact Exchange"], seed: 3,
+    hl: [C - 376, py + 150, 560, 46 * 2 + 4], hlK: pr(t, 4.8, 6.0) });
+  x.restore();
+  rect(0, 820, W, 260, "rgba(0,0,0,0.0)");
+  x.save(); const gfade = x.createLinearGradient(0, 720, 0, 900); gfade.addColorStop(0, "rgba(0,0,0,0)"); gfade.addColorStop(1, "rgba(0,0,0,0.97)"); x.fillStyle = gfade; x.globalAlpha = pr(t, 6, 6.6); x.fillRect(0, 720, W, 360); x.restore();
+  say("The ScienceClaw paper.", C, 920, 6.2, t, { size: 64, fx: "rise" });
+  say("Agents that coordinate by exchanging artifacts. The framework this hackathon is built on.", C, 990, 7.0, t, { size: 30, weight: 500, color: GREY });
+});
+scene(40, 48, "wipe", t => {
+  say("The question", C, 300, 0.3, t, { size: 30, weight: 600, color: GREY, fx: "track" });
+  say("One agent that sees everything.", C, 500, 0.5, t, { size: 104, fx: "mask" });
+  say("Or many that each see a part.", C, 650, 2.2, t, { size: 104, g: "blue", fx: "mask" });
+  say("single vs collective · centralized vs decentralized", C, 800, 3.8, t, { size: 30, weight: 500, color: GREY }); });
+scene(48, 56, "push", t => {
+  say("Five agents.", C, 380, 0.3, t, { size: 170, fx: "scale" });
+  say("Each opens one folder. No planner.", C, 510, 1.3, t, { size: 52, weight: 600, color: GREY });
+  const names = ["burden", "gwas", "tolerance", "safety", "skeptic"], gap = 300, X0 = C - gap * 2;
+  names.forEach((n, i) => { const k = back(pr(t, 2.0 + i * 0.15, 2.7 + i * 0.15)), X = X0 + i * gap, c = AGC[n];
+    if (i) line(X - gap + 70, 690, X - gap + 70 + (gap - 140) * eo5(pr(t, 2.6 + i * 0.15, 3.2 + i * 0.15)), 690, LINE, 1.5);
+    x.save(); x.translate(X, 690); x.scale(k, k); halo(0, 0, 90, c + "55", 1); dot(0, 0, 54, "#111"); x.strokeStyle = c; x.lineWidth = 2.5; x.beginPath(); x.arc(0, 0, 54, 0, 6.283); x.stroke(); x.restore();
+    say(n, X, 790, 2.2 + i * 0.15, t, { size: 30, weight: 600, color: c }); });
+  for (let q = 0; q < 3; q++) { const u = pr(t, 3.6 + q * 0.7, 4.3 + q * 0.7); if (u > 0 && u < 1) { const a_ = [2, 3, 0][q], b_ = [0, 2, 3][q], X1 = X0 + a_ * gap, X2 = X0 + b_ * gap;
+      const xx = lerp(X1, X2, eio(u)), yy = 690 - Math.sin(Math.PI * u) * 120; halo(xx, yy, 30, "rgba(255,255,255,0.8)", 1); dot(xx, yy, 6, WHITE); } }
+  say(`${D.isolation_checks} automated checks that no agent reads another's data.`, C, 930, 5.6, t, { size: 30, weight: 500, color: GREY }); });
+
+scene(56, 65, "zoom", t => {     // the agents' brains: two LLM families
+  brain(560, 540, 300, t, pr(t, 0, 0.6), "blue"); brain(1360, 540, 300, Math.max(0, t - 0.8), pr(t, 0.8, 1.4), "purple");
+  say("Google Cloud", 560, 160, 0.4, t, { size: 28, weight: 600, color: "#5ac8fa" }); say("Gemini 3 Flash", 560, 230, 0.5, t, { size: 64, fx: "rise" });
+  say("OpenAI", 1360, 160, 1.2, t, { size: 28, weight: 600, color: "#bf5af2" }); say("GPT-5 mini", 1360, 230, 1.3, t, { size: 64, fx: "rise" });
+  say("The brain of every agent, in every pre-registered arm.", 560, 900, 2.8, t, { size: 28, weight: 500, color: GREY });
+  say("A second brain for the robustness rerun: 0.857 again.", 1360, 900, 3.4, t, { size: 28, weight: 500, color: GREY });
+  say("Two model families. Same pattern.", C, 1010, 4.8, t, { size: 40, weight: 600 }); });
+scene(65, 72, "wipe", t => {
+  terminal(360, 200, 1200, 560, [["$ make allarms ablations report", WHITE], ["  A1, A3 x2 seeds, ablations, figures", GREY], ["$ python exploratory/scripts/verify_frozen.py", WHITE],
+    ["  SHA-256: 63/63 files match", GREY], ["  Arms table: 12/12 arms reproduce their AUROC", GREY], ["  ALL CHECKS PASS", GREEN]], 0.6, t, pr(t, 0, 0.5));
+  say("Engineered end to end with Claude Code.", C, 890, 4.6, t, { size: 56, fx: "mask" });
+  say("Frozen hashes. One-command reproduce.", C, 960, 5.2, t, { size: 30, weight: 500, color: GREY }); });
+scene(72, 78, "blur", t => {
+  say(`${D.panel.n} genes.`, C, 460, 0.3, t, { size: 150, fx: "mask" }); say("Names hidden.", C, 620, 0.9, t, { size: 150, g: "blue", fx: "mask" });
+  say(`Plan frozen at commit ${D.tags.prereg}, before the first run.`, C, 800, 2.2, t, { size: 34, weight: 500, color: GREY, mono: false }); });
+
+scene(78, 92, "iris", t => {      // one real board, round by round
+  say("One real run. A known drug target.", C, 140, 0.3, t, { size: 56, fx: "mask" });
+  say(`${G.code} · revealed after scoring: ${G.symbol}`, C, 196, 0.8, t, { size: 26, weight: 500, color: GREY, mono: true });
+  const cols = ["burden", "gwas", "tolerance", "safety"], X0 = 520, cw = 230, rows = ["Round 0 · evidence", "Round 1 · needs answered", "Round 2 · skeptic", "Score"], Y0 = 330, rh = 130;
+  cols.forEach((c, i) => say(c, X0 + i * cw + cw / 2, Y0 - 30, 1.0 + i * 0.08, t, { size: 30, weight: 600, color: AGC[c] }));
+  say("total", X0 + 4 * cw + 90, Y0 - 30, 1.4, t, { size: 30, weight: 600, color: GREY });
+  rows.forEach((r, j) => { const a = pr(t, 1.6 + j * 2.4, 2.1 + j * 2.4); line(260, Y0 + j * rh, 1700, Y0 + j * rh, LINE, 1, pr(t, 1.2, 1.8));
+    say(r, 470, Y0 + j * rh + 78, 1.6 + j * 2.4, t, { size: 26, weight: 600, color: j === 3 ? WHITE : GREY, align: "right" }); });
+  const r0 = G.round0.parts, fin = G.final.parts, lat = G.final.latest, ch = G.challenged;
+  cols.forEach((c, i) => { const cx = X0 + i * cw + cw / 2;
+    say(r0[c].toFixed(2), cx, Y0 + 80, 1.9 + i * 0.12, t, { size: 46, weight: 500 });
+    const ans = { burden: "answers tolerance", tolerance: "answers safety", safety: "answers burden", gwas: "—" }[c];
+    say(ans, cx, Y0 + rh + 76, 4.3 + i * 0.12, t, { size: 22, weight: 500, color: c === "gwas" ? DARK : GREY });
+    if (ch.includes(c)) { say(`×0.5`, cx, Y0 + 2 * rh + 80, 6.8 + i * 0.15, t, { size: 46, weight: 700, color: PINK, fx: "scale" }); say(`"biomarker only"`, cx, Y0 + 2 * rh + 112, 7.1 + i * 0.15, t, { size: 18, weight: 500, color: GREY, mono: true }); }
+    else say("—", cx, Y0 + 2 * rh + 80, 6.8 + i * 0.15, t, { size: 40, weight: 300, color: DARK });
+    say(fin[c].toFixed(c === "gwas" ? 3 : 2), cx, Y0 + 3 * rh + 80, 9.2 + i * 0.12, t, { size: 46, weight: 600, color: ch.includes(c) ? PINK : WHITE }); });
+  const tx = X0 + 4 * cw + 90;
+  say(G.round0.total.toFixed(3), tx, Y0 + 80, 2.6, t, { size: 46, weight: 600 });
+  say(count(G.final.total, 9.8, t, 1.2, G.round0.total), tx, Y0 + 3 * rh + 80, 9.8, t, { size: 46, weight: 700, color: PINK });
+  say(`Coordination marked a real target down: ${G.round0.total.toFixed(3)} → ${G.final.total.toFixed(3)}.`, C, 1010, 11.0, t, { size: 36, weight: 600 }); });
+
+scene(92, 104, "push", t => {     // every arm, one table
+  say("Every arm. One blind panel.", C, 130, 0.3, t, { size: 60, fx: "mask" });
+  const rows = [["S3", "GWAS signal alone", "scripted", A.S3.auroc[0]], ["S2", "Burden signal alone", "scripted", A.S2.auroc[0]], ["S1", "Tolerance signal alone", "scripted", A.S1.auroc[0]],
+    ["S4", "All four signals", "scripted", A.S4.auroc[0]], ["A1", "One agent, all the data", "single · centralized", A.A1.auroc[0]], ["A3", "Agent collective", "decentralized", A.A3.auroc[0]],
+    ["A2*", "Central planner", "centralized · post-freeze", PL.auroc], ["A3−s", "Collective, no skeptic", "ablation", A.A3_noskeptic.auroc[0]], ["A3·r0", "Specialists, apart", "round 0", A.A3_isolated.auroc[0]]];
+  const Y0 = 230, rh = 76, bx = 1080, bw = 560, sx = v => bx + (v - 0.4) / 0.5 * bw;
+  say("arm", 260, Y0, 0.8, t, { size: 22, weight: 600, color: GREY, align: "left", mono: true }); say("AUROC", sx(0.9), Y0, 0.8, t, { size: 22, weight: 600, color: GREY, align: "right", mono: true });
+  rows.forEach(([id, name, kind, v], i) => { const Y = Y0 + 50 + i * rh, t0 = 1.0 + i * 0.35, hi = id === "A1" || id === "A3" || id === "A3·r0";
+    line(260, Y - 30, 1680, Y - 30, LINE, 1, pr(t, t0 - 0.2, t0 + 0.2));
+    say(id, 260, Y + 12, t0, t, { size: 24, weight: 600, mono: true, align: "left", color: hi ? WHITE : GREY, dur: 0.6 });
+    say(name, 400, Y + 12, t0 + 0.05, t, { size: 32, weight: hi ? 700 : 500, align: "left", color: hi ? WHITE : GREY, dur: 0.6 });
+    say(kind, 820, Y + 12, t0 + 0.1, t, { size: 22, weight: 500, align: "left", color: DARK, dur: 0.6 });
+    const k = eo5(pr(t, t0 + 0.2, t0 + 1.2)); rect(bx, Y - 8, (sx(v) - bx) * k, 26, id === "A3·r0" ? GREEN : id === "A3" ? PINK : id === "A1" ? BLUE : "#3a3a3c", 1, 6);
+    say(v.toFixed(3), sx(0.9) + 120, Y + 12, t0 + 0.6, t, { size: 30, weight: 600, align: "right", color: hi ? WHITE : GREY, dur: 0.5 }); });
+  say("Pre-registered: collective − single = +0.008 (95% CI −0.074 to +0.103). A tie, reported as one.", C, 1010, 4.8, t, { size: 26, weight: 500, color: GREY }); });
+
+scene(104, 114, "zoom", t => {    // five paired reruns, one table
+  say("5 of 5.", C, 220, 0.2, t, { size: 150, g: "warm", fx: "scale" });
+  say("Same genes, rerun five times. Coordinating lowered accuracy every time.", C, 300, 1.0, t, { size: 32, weight: 500, color: GREY });
+  const Y0 = 400, rh = 92, cxs = [420, 820, 1220, 1560];
+  ["rerun", "collective", "specialists apart", "difference"].forEach((h, i) => say(h, cxs[i], Y0, 1.4, t, { size: 24, weight: 600, color: GREY, mono: true }));
+  P.penalties.forEach((d, i) => { const coll = D.floor.replicates[i], apart = coll - d, Y = Y0 + 70 + i * rh, t0 = 2.0 + i * 0.45;
+    line(300, Y - 50, 1680, Y - 50, LINE, 1, pr(t, t0 - 0.3, t0));
+    say(String(i + 1), cxs[0], Y, t0, t, { size: 40, weight: 500, color: GREY, dur: 0.5 });
+    say(coll.toFixed(3), cxs[1], Y, t0 + 0.1, t, { size: 44, weight: 500, dur: 0.5 });
+    say(apart.toFixed(3), cxs[2], Y, t0 + 0.2, t, { size: 44, weight: 500, dur: 0.5 });
+    say(f3(d), cxs[3], Y, t0 + 0.35, t, { size: 44, weight: 700, color: RED, fx: "scale", dur: 0.5 }); });
+  say(`mean ${f3(P.mean)} · 95% CI ${f3(P.ci[0])} to ${f3(P.ci[1])} · p = ${P.p.toFixed(3)}`, C, 1010, 5.4, t, { size: 30, weight: 500, color: GREY, mono: true }); });
+
+scene(114, 120, "fade", t => { const TC = M.top_challenge;
+  say("Why?", C, 300, 0.3, t, { size: 60, weight: 600, color: GREY, fx: "track" });
+  say(`${Math.round(TC.pos * 100 * eo5(pr(t, 0.8, 2)))}%`, 600, 590, 0.8, t, { size: 240, weight: 600 }); say(`${Math.round(TC.neg * 100 * eo5(pr(t, 1.2, 2.4)))}%`, 1320, 590, 1.2, t, { size: 240, weight: 600 });
+  say("of real targets", 600, 670, 1.4, t, { size: 34, weight: 500, color: GREY }); say("of look-alikes", 1320, 670, 1.8, t, { size: 34, weight: 500, color: GREY });
+  say("The critic challenged both, equally.", C, 850, 2.8, t, { size: 60, weight: 600, fx: "mask" }); });
+
+scene(120, 131, "iris", t => {    // NVIDIA: DNA into a GPU
+  const s = lerp(1.25, 1, eo5(pr(t, 0, 2.5)));
+  x.save(); x.translate(560, 540); x.scale(s, s); x.translate(-560, -540); gpu(560, 540, 0.85, t, pr(t, 0.2, 1));
+  const R_ = rng(4); for (let i = 0; i < 30; i++) { const u = (t * 0.35 + i / 30) % 1, b = "ATGC"[Math.floor(R_() * 4)];
+    x.save(); x.globalAlpha = Math.sin(Math.PI * u) * pr(t, 0.8, 1.4); x.font = font(28, 700, true); x.fillStyle = { A: "#30d158", T: "#ff453a", G: "#ffd60a", C: "#64d2ff" }[b];
+    x.fillText(b, lerp(-160, 260, u), 540 + Math.sin(u * 8 + i) * 160 * (1 - u)); x.restore(); }
+  x.restore();
+  say("NVIDIA", 1380, 330, 1.0, t, { size: 30, weight: 600, color: NV, fx: "track" });
+  say("Evo 2 · 40B", 1380, 420, 1.2, t, { size: 90, fx: "rise" });
+  say("A DNA language model, on a hosted endpoint.", 1380, 480, 1.8, t, { size: 28, weight: 500, color: GREY });
+  say("No GPU box to provision.", 1380, 520, 2.1, t, { size: 28, weight: 500, color: GREY });
+  say("It sees the break.", 1380, 650, 3.4, t, { size: 64, fx: "mask" });
+  say(E.coding_median.toFixed(1), 1250, 800, 4.4, t, { size: 120, weight: 600, g: "green" }); say(E.lead_median.toFixed(1), 1530, 800, 4.8, t, { size: 120, weight: 600, color: DARK });
+  say("broken-gene variants", 1250, 850, 4.6, t, { size: 22, weight: 500, color: GREY }); say("GWAS lead variants", 1530, 850, 5.0, t, { size: 22, weight: 500, color: GREY });
+  say(`median site percentile · ${E.n_coding} variants · lower = more damaging`, 1380, 920, 5.6, t, { size: 22, weight: 500, color: DARK }); });
+scene(131, 137, "blur", t => {
+  say("But not which break helps.", C, 480, 0.3, t, { size: 110, fx: "mask" });
+  say(`real targets ${E.pos_median.toFixed(1)} · look-alikes ${E.neg_median.toFixed(1)}`, C, 600, 1.4, t, { size: 40, weight: 500, color: GREY });
+  say("Written down first. It failed. We published it.", C, 760, 2.4, t, { size: 52, weight: 600, g: "warm", fx: "type", dur: 1.6 }); });
+scene(137, 144, "zoom", t => {
+  say("Our top-ranked look-alike", C, 300, 0.3, t, { size: 38, weight: 600, color: GREY });
+  const fl = pr(t, 1.4, 2.0);
+  if (fl < 0.5) say(K.code, C, 560, 0.4, t, { size: 160, weight: 500, mono: true, color: GREY, fx: "type", dur: 0.6 });
+  else { halo(C, 500, 600, "rgba(10,132,255,0.16)", pr(t, 1.8, 2.6)); say("ACVR1C", C, 560, 1.7, t, { size: 240, weight: 700, g: "blue", fx: "scale", dur: 0.7 }); }
+  say(`rank ${K.ranks.mean[1]} of ${D.panel.neg} look-alikes · the agents never saw the name`, C, 720, 2.8, t, { size: 32, weight: 500, color: GREY }); });
+
+scene(144, 156, "wipe", t => {    // the 2019 paper: open, zoom, highlight the result
+  const z = eio(pr(t, 2.0, 4.4)), s = lerp(0.62, 1.7, z), fx = lerp(C, C + 200, z), fy = lerp(560, 800, z);
+  x.save(); camera(s, fx, fy);
+  const py = 30 + (1 - eo5(pr(t, 0.2, 1.4))) * 300;
+  x.globalAlpha = pr(t, 0.2, 0.8);
+  const fig = { col: 1, from: 14, rows: 9, draw: (X, Y, w, h) => {   // a forest-plot style figure of the reported estimate
+    rect(X, Y, w, h - 8, "#ebebe8", 1, 4); const ax = v => X + 30 + (v - 0.1) / 1.3 * (w - 60);
+    line(ax(1), Y + 20, ax(1), Y + h - 40, "#999", 1.5); line(ax(0.27), Y + h / 2 - 8, ax(0.81), Y + h / 2 - 8, "#111", 3);
+    x.save(); x.fillStyle = "#111"; x.fillRect(ax(0.46) - 9, Y + h / 2 - 17, 18, 18); x.font = font(15, 600, true); x.fillStyle = "#555"; x.textAlign = "center";
+    x.fillText("1.0", ax(1), Y + h - 18); x.fillText("OR 0.46 (0.27–0.81)", ax(0.54), Y + h / 2 - 30); x.restore(); } };
+  paper({ X: C - 430, Y: py, head: "Diabetes · 2019 · 68:226–234", title: [], seed: 8, figure: fig,
+    hl: [C - 430 + 60 + (860 - 160) / 2 + 40 - 10, py + 140 + 46 * 2 + 18 + 48 + 26 + 14 * 26 - 12, (860 - 160) / 2 + 20, 9 * 26 + 6], hlK: pr(t, 4.6, 5.8) });
+  x.restore();
+  x.save(); const gf = x.createLinearGradient(0, 760, 0, 1080); gf.addColorStop(0, "rgba(0,0,0,0)"); gf.addColorStop(1, "rgba(0,0,0,0.95)"); x.fillStyle = gf; x.globalAlpha = pr(t, 6, 6.6); x.fillRect(0, 760, W, 320); x.restore();
+  say(`${K.cite.pct_lower}% lower type 2 diabetes risk.`, C, 930, 6.2, t, { size: 64, fx: "rise" });
+  say(`Previously reported: ${K.cite.ref}. Page shown as an illustration.`, C, 995, 7.0, t, { size: 26, weight: 500, color: GREY }); });
+
+scene(156, 162, "push", t => {
+  say("Three skills.", C, 360, 0.3, t, { size: 130, fx: "mask" }); say("Open to every team.", C, 500, 0.9, t, { size: 130, g: "blue", fx: "mask" });
+  ["skills/blind-agent-views", "skills/needs-board-coordination", "skills/evo2-variant-score"].forEach((s, i) => say(s, C, 680 + i * 70, 1.8 + i * 0.4, t, { size: 40, weight: 500, mono: true, color: GREY, fx: "type", dur: 0.8 })); });
+scene(162, 170, "fade", t => { halo(C, 480, 700, "rgba(10,132,255,0.12)", pr(t, 0.3, 2));
+  say("Null Hypothesis.", C, 480, 0.3, t, { size: 170, fx: "scale" });
+  say("A pre-registered answer to the ScienceClaw question.", C, 590, 1.2, t, { size: 40, weight: 500, color: GREY });
+  say("github.com/karunprem45/null-hypothesis", C, 700, 2.0, t, { size: 36, weight: 500, mono: true, g: "blue" });
+  say("Karuniya Premnath · Karishma Premnath · Dheepak Karan", C, 800, 2.6, t, { size: 30, weight: 500 });
+  say("ScienceClaw · MIT Media Lab    Google Cloud    NVIDIA    OpenAI    Claude Code", C, 940, 3.2, t, { size: 22, weight: 600, color: DARK, fx: "track" }); });
+
+const DURATION = SC[SC.length - 1].e;
+const HITS = [[28, 0.15], [78, 0.18], [104, 0.25], [120, 0.2], [138.7, 0.2]], PULSE = [78, 156];
+
+// ---------- compositor: each chapter in its own buffer, entered with its own transition ----------
+const OV = 0.4;   // half-width of each transition window
+function renderAt(T) {
+  out.setTransform(1, 0, 0, 1, 0, 0); out.globalAlpha = 1; out.filter = "none"; out.globalCompositeOperation = "source-over"; out.fillStyle = "#000"; out.fillRect(0, 0, W, H);
+  const act = SC.map((sc, i) => [sc, i]).filter(([sc, i]) => T >= (i ? sc.s - OV : 0) && T <= (i < SC.length - 1 ? sc.e + OV : sc.e));
+  act.forEach(([sc, i], n) => {
+    const b = BUF[n % 2], g = b.getContext("2d"); x = g; g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = "none"; g.clearRect(0, 0, W, H);
+    g.save(); const s = 1 + 0.012 * pr(T, sc.s, sc.e); g.translate(C, H / 2); g.scale(s, s); g.translate(-C, -H / 2); sc.f(T - sc.s); g.restore();
+    // transition in (this chapter's own) and out (the next chapter's) progress
+    const pin = i ? pr(T, sc.s - OV, sc.s + OV) : 1, nxt = SC[i + 1], pout = nxt ? pr(T, nxt.s - OV, nxt.s + OV) : 0;
+    out.save();
+    if (pin < 1) enter(sc.tr, pin, b); else if (pout > 0) leave(nxt.tr, pout, b); else out.drawImage(b, 0, 0);
+    out.restore(); });
+  const fb = Math.max(1 - pr(T, 0, 1.2), pr(T, DURATION - 1.8, DURATION)); if (fb > 0) { out.globalAlpha = fb; out.fillStyle = "#000"; out.fillRect(0, 0, W, H); out.globalAlpha = 1; }
+}
+function enter(tr, p, b) { const e = eio(p);
+  if (tr === "push") out.drawImage(b, W * (1 - e), 0);
+  else if (tr === "zoom") { const s = lerp(0.86, 1, e); out.globalAlpha = e; out.translate(C, H / 2); out.scale(s, s); out.translate(-C, -H / 2); out.drawImage(b, 0, 0); }
+  else if (tr === "iris") { out.beginPath(); out.arc(C, H / 2, 1150 * e, 0, 6.283); out.clip(); out.drawImage(b, 0, 0); }
+  else if (tr === "wipe") { out.save(); out.beginPath(); out.rect(0, 0, W * e, H); out.clip(); out.drawImage(b, 0, 0); out.restore(); if (e > 0 && e < 1) { out.fillStyle = "rgba(90,200,250,0.9)"; out.fillRect(W * e - 1, 0, 2, H); } }
+  else if (tr === "blur") { out.globalAlpha = e; out.filter = `blur(${(1 - e) * 22}px)`; out.drawImage(b, 0, 0); }
+  else { out.globalAlpha = e; out.drawImage(b, 0, 0); } }
+function leave(tr, p, b) { const e = eio(p);
+  if (tr === "push") out.drawImage(b, -W * e, 0);
+  else if (tr === "zoom") { const s = lerp(1, 1.18, e); out.globalAlpha = 1 - e; out.translate(C, H / 2); out.scale(s, s); out.translate(-C, -H / 2); out.drawImage(b, 0, 0); }
+  else if (tr === "iris" || tr === "wipe") { out.globalAlpha = 1 - e * 0.6; out.drawImage(b, 0, 0); }
+  else if (tr === "blur") { out.globalAlpha = 1 - e; out.filter = `blur(${e * 22}px)`; out.drawImage(b, 0, 0); }
+  else { out.globalAlpha = 1 - e; out.drawImage(b, 0, 0); } }
+function fit() { const s = Math.min(innerWidth / W, innerHeight / H); cv.style.transform = `scale(${s}) translate(-50%, -50%)`; }
+addEventListener("resize", fit); fit();
+const qp = new URLSearchParams(location.search);
+if (qp.has("t")) renderAt(Number(qp.get("t")));
+else if (!qp.has("manual")) { const t0 = performance.now(); (function loop() { renderAt(((performance.now() - t0) / 1000) % DURATION); requestAnimationFrame(loop); })(); }
+</script>

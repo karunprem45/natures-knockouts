@@ -1,0 +1,789 @@
+{
+ "built_from": "fa0acbe",
+ "tags": {
+  "prereg": "12b8c58",
+  "results-raw": "28a0e95",
+  "results-final": "4729a6b",
+  "prereg-v2": "78df730",
+  "submission": "2307265"
+ },
+ "panel": {
+  "n": 40,
+  "pos": 12,
+  "neg": 28
+ },
+ "arms": {
+  "S1": {
+   "auroc": [
+    0.72,
+    0.559,
+    0.868
+   ],
+   "auprc": [
+    0.435,
+    0.277,
+    0.732
+   ],
+   "calls": 0.0,
+   "cost": 0.0
+  },
+  "S2": {
+   "auroc": [
+    0.662,
+    0.487,
+    0.827
+   ],
+   "auprc": [
+    0.396,
+    0.225,
+    0.661
+   ],
+   "calls": 0.0,
+   "cost": 0.0
+  },
+  "S3": {
+   "auroc": [
+    0.44,
+    0.27,
+    0.587
+   ],
+   "auprc": [
+    0.276,
+    0.146,
+    0.446
+   ],
+   "calls": 0.0,
+   "cost": 0.0
+  },
+  "S4": {
+   "auroc": [
+    0.75,
+    0.542,
+    0.91
+   ],
+   "auprc": [
+    0.697,
+    0.428,
+    0.884
+   ],
+   "calls": 0.0,
+   "cost": 0.0
+  },
+  "A1": {
+   "auroc": [
+    0.774,
+    0.616,
+    0.903
+   ],
+   "auprc": [
+    0.653,
+    0.392,
+    0.851
+   ],
+   "calls": 3.0,
+   "cost": 1.09
+  },
+  "A3": {
+   "auroc": [
+    0.782,
+    0.641,
+    0.895
+   ],
+   "auprc": [
+    0.63,
+    0.408,
+    0.836
+   ],
+   "calls": 10.0,
+   "cost": 1.32
+  },
+  "A3_isolated": {
+   "auroc": [
+    0.853,
+    0.729,
+    0.948
+   ],
+   "auprc": [
+    0.736,
+    0.479,
+    0.907
+   ],
+   "calls": 0.0,
+   "cost": 0.0
+  },
+  "A3_noskeptic": {
+   "auroc": [
+    0.844,
+    0.713,
+    0.939
+   ],
+   "auprc": [
+    0.727,
+    0.475,
+    0.901
+   ],
+   "calls": 0.0,
+   "cost": 0.0
+  },
+  "A3_noburden": {
+   "auroc": [
+    0.732,
+    0.589,
+    0.862
+   ],
+   "auprc": [
+    0.545,
+    0.329,
+    0.777
+   ],
+   "calls": 0.0,
+   "cost": 0.0
+  },
+  "A3_nogwas": {
+   "auroc": [
+    0.778,
+    0.628,
+    0.905
+   ],
+   "auprc": [
+    0.606,
+    0.368,
+    0.82
+   ],
+   "calls": 0.0,
+   "cost": 0.0
+  },
+  "A3_notolerance": {
+   "auroc": [
+    0.76,
+    0.611,
+    0.884
+   ],
+   "auprc": [
+    0.589,
+    0.374,
+    0.809
+   ],
+   "calls": 0.0,
+   "cost": 0.0
+  },
+  "A3_nosafety": {
+   "auroc": [
+    0.795,
+    0.652,
+    0.907
+   ],
+   "auprc": [
+    0.614,
+    0.387,
+    0.831
+   ],
+   "calls": 0.0,
+   "cost": 0.0
+  }
+ },
+ "headline": {
+  "delta": [
+   0.008,
+   -0.074,
+   0.103
+  ],
+  "perm_p": 0.003
+ },
+ "paired": {
+  "penalties": [
+   -0.0521,
+   -0.0908,
+   -0.0402,
+   -0.0134,
+   -0.0699
+  ],
+  "mean": -0.0533,
+  "sd": 0.0294,
+  "se": 0.0131,
+  "ci": [
+   -0.0897,
+   -0.0168
+  ],
+  "t": -4.06,
+  "p": 0.0154,
+  "neg": 5
+ },
+ "floor": {
+  "value": 0.062,
+  "replicates": [
+   0.79,
+   0.774,
+   0.829,
+   0.842,
+   0.787
+  ]
+ },
+ "mechanism": {
+  "burden_pos": [
+   7,
+   12
+  ],
+  "burden_neg": [
+   21,
+   28
+  ],
+  "rank_shift": [
+   10.8,
+   12.5
+  ],
+  "top_challenge": {
+   "type": "biomarker_only",
+   "pos": 0.833,
+   "neg": 0.839,
+   "gene_runs": {
+    "pos": 24,
+    "neg": 56
+   }
+  }
+ },
+ "acvr1c": {
+  "code": "Gene_06",
+  "ranks": {
+   "mean": [
+    6,
+    1
+   ],
+   "seed1": [
+    4,
+    2
+   ],
+   "seed2": [
+    15,
+    8
+   ]
+  },
+  "latest": {
+   "burden": {
+    "stance": "supports",
+    "strength": 0.7
+   },
+   "gwas": {
+    "stance": "supports",
+    "strength": 0.7
+   },
+   "tolerance": {
+    "stance": "supports",
+    "strength": 0.8
+   },
+   "safety": {
+    "stance": "supports",
+    "strength": 0.8
+   }
+  },
+  "identity_hits": 0,
+  "terms": 14,
+  "views": 5,
+  "cite": {
+   "pct_lower": 54,
+   "or": "0.46",
+   "ci": [
+    "0.27",
+    "0.81"
+   ],
+   "ref": "Emdin et al., Diabetes 2019;68:226-234"
+  }
+ },
+ "evo2": {
+  "lead_median": 59.1,
+  "coding_median": 4.4,
+  "n_coding": 200,
+  "pos_median": 3.4,
+  "neg_median": 5.2,
+  "d_lead_s1": [
+   0.007,
+   -0.146,
+   0.14
+  ],
+  "d_lead_2seed": [
+   0.038,
+   -0.036,
+   0.124
+  ],
+  "d_coding": [
+   -0.006,
+   -0.165,
+   0.132
+  ]
+ },
+ "planner": {
+  "counts": {
+   "burden": 40,
+   "gwas": 0,
+   "tolerance": 25,
+   "safety": 15
+  },
+  "n": 40,
+  "auroc": 0.829,
+  "d_round0": [
+   -0.013,
+   -0.112,
+   0.093
+  ]
+ },
+ "isolation_checks": 203,
+ "replays": [
+  {
+   "code": "Gene_08",
+   "symbol": "PCSK9",
+   "label": 1,
+   "artifacts": [
+    {
+     "id": "a0",
+     "round": 0,
+     "type": "evidence",
+     "agent": "tolerance",
+     "stance": "supports",
+     "strength": 0.9,
+     "rationale": "High LOEUF (1.14) and pLI near 0 indicate high tolerance for loss-of-function in humans. Low DepMap dependency and non-essential status suggest safety. Secreted/cell surface location is druggable.",
+     "parents": [],
+     "needs": [
+      {
+       "type": "burden_check",
+       "query": "Does loss-of-function or genetic variation in this gene associate with improved cardiometabolic or liver health?"
+      }
+     ],
+     "challenges": []
+    },
+    {
+     "id": "a1",
+     "round": 0,
+     "type": "evidence",
+     "agent": "safety",
+     "stance": "supports",
+     "strength": 0.8,
+     "rationale": "No Mendelian diseases are caused by loss-of-function (LoF). GWAS/burden signals are overwhelmingly lipid-related, which is the therapeutic scope. No serious safety events reported.",
+     "parents": [],
+     "needs": [
+      {
+       "type": "tolerance_check",
+       "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?"
+      }
+     ],
+     "challenges": []
+    },
+    {
+     "id": "a2",
+     "round": 0,
+     "type": "evidence",
+     "agent": "gwas",
+     "stance": "supports",
+     "strength": 0.9,
+     "rationale": "Massive GWAS evidence (p < 1e-1000) across multiple populations links missense variants in this gene to lower LDL, ApoB, and total cholesterol, suggesting inhibition is beneficial.",
+     "parents": [],
+     "needs": [
+      {
+       "type": "burden_check",
+       "query": "Does rare-variant loss-of-function in this gene significantly lower LDL cholesterol and protect against coronary artery disease?"
+      },
+      {
+       "type": "safety_check",
+       "query": "Are there any adverse associations with liver fat, transaminases, or non-lipid traits for this gene?"
+      }
+     ],
+     "challenges": []
+    },
+    {
+     "id": "a3",
+     "round": 0,
+     "type": "evidence",
+     "agent": "burden",
+     "stance": "supports",
+     "strength": 0.85,
+     "rationale": "Massive LoF burden associations with lower LDL, ApoB, and total cholesterol across multiple cohorts (UKB, G&H, BRaVa) and ancestries. However, no hard clinical endpoints are present in view.",
+     "parents": [],
+     "needs": [
+      {
+       "type": "tolerance_check",
+       "query": "Is this gene tolerant to loss-of-function in humans (pLI/LOEUF)?"
+      },
+      {
+       "type": "safety_check",
+       "query": "Are there any adverse signals in liver or metabolic traits for LoF carriers?"
+      }
+     ],
+     "challenges": []
+    },
+    {
+     "id": "a4",
+     "round": 1,
+     "type": "fulfillment",
+     "agent": "burden",
+     "stance": "supports",
+     "strength": 1.0,
+     "rationale": "Strong LoF burden across 7 projects and 5+ cohorts shows massive reduction in LDL, ApoB, and VLDL. While hard endpoints aren't in the top rows, the biomarker effect is extremely robust.",
+     "parents": [
+      "a0"
+     ],
+     "needs": [],
+     "challenges": []
+    },
+    {
+     "id": "a5",
+     "round": 1,
+     "type": "fulfillment",
+     "agent": "tolerance",
+     "stance": "supports",
+     "strength": 1.0,
+     "rationale": "The gene is highly LoF-tolerant (LOEUF 1.14, pLI ~0) and not core-essential (DepMap mean -0.24), suggesting systemic inhibition would be well-tolerated in the general population.",
+     "parents": [
+      "a1"
+     ],
+     "needs": [],
+     "challenges": []
+    },
+    {
+     "id": "a6",
+     "round": 1,
+     "type": "fulfillment",
+     "agent": "safety",
+     "stance": "supports",
+     "strength": 0.8,
+     "rationale": "No Mendelian diseases are caused by LoF, including in hepatobiliary or endocrine categories. Burden signals for metabolic disease and lipids are likely related to the primary mechanism.",
+     "parents": [
+      "a3"
+     ],
+     "needs": [],
+     "challenges": []
+    },
+    {
+     "id": "a7",
+     "round": 2,
+     "type": "challenge",
+     "agent": "skeptic",
+     "stance": "neutral",
+     "strength": 0.0,
+     "rationale": "3 challenge(s)",
+     "parents": [
+      "a4",
+      "a3",
+      "a2"
+     ],
+     "needs": [],
+     "challenges": [
+      {
+       "type": "biomarker_only",
+       "channel": "burden",
+       "target": "a3"
+      },
+      {
+       "type": "biomarker_only",
+       "channel": "gwas",
+       "target": "a2"
+      },
+      {
+       "type": "biomarker_only",
+       "channel": "burden",
+       "target": "a4"
+      }
+     ]
+    },
+    {
+     "id": "a8",
+     "round": 2,
+     "type": "revision",
+     "agent": "burden",
+     "stance": "supports",
+     "strength": 0.8,
+     "rationale": "Massive LoF burden signals for lower LDL/ApoB across multiple cohorts and ancestries. Safety agent confirms no LoF-driven harm, though evidence remains limited to biomarkers.",
+     "parents": [
+      "a3",
+      "a6"
+     ],
+     "needs": [],
+     "challenges": []
+    },
+    {
+     "id": "a9",
+     "round": 2,
+     "type": "revision",
+     "agent": "gwas",
+     "stance": "supports",
+     "strength": 0.85,
+     "rationale": "Massive GWAS evidence (p < 1e-1000) across multiple populations links missense variants to lower LDL and ApoB. Strength reduced slightly as shown data lacks hard endpoints.",
+     "parents": [
+      "a2"
+     ],
+     "needs": [],
+     "challenges": []
+    }
+   ],
+   "final": {
+    "total": 2.525,
+    "parts": {
+     "burden": 0.4,
+     "gwas": 0.425,
+     "safety": 0.8,
+     "tolerance": 0.9
+    },
+    "latest": {
+     "tolerance": {
+      "stance": "supports",
+      "strength": 0.9
+     },
+     "safety": {
+      "stance": "supports",
+      "strength": 0.8
+     },
+     "burden": {
+      "stance": "supports",
+      "strength": 0.8
+     },
+     "gwas": {
+      "stance": "supports",
+      "strength": 0.85
+     }
+    }
+   },
+   "round0": {
+    "total": 3.45,
+    "parts": {
+     "burden": 0.85,
+     "gwas": 0.9,
+     "safety": 0.8,
+     "tolerance": 0.9
+    }
+   },
+   "challenged": [
+    "burden",
+    "gwas"
+   ]
+  },
+  {
+   "code": "Gene_21",
+   "symbol": "THBS1",
+   "label": 0,
+   "artifacts": [
+    {
+     "id": "a0",
+     "round": 0,
+     "type": "evidence",
+     "agent": "burden",
+     "stance": "neutral",
+     "strength": 0.2,
+     "rationale": "Only one protective LoF association found for a specific LDL subfraction biomarker in a single EUR cohort. No hard clinical endpoints or multi-ancestry data available to support efficacy.",
+     "parents": [],
+     "needs": [
+      {
+       "type": "gwas_check",
+       "query": "Are there common variant associations for major lipid fractions (LDL, TC, TG) or cardiovascular disease?"
+      },
+      {
+       "type": "tolerance_check",
+       "query": "Is this gene loss-of-function tolerant in the general population (LOEUF/pLI)?"
+      }
+     ],
+     "challenges": []
+    },
+    {
+     "id": "a1",
+     "round": 0,
+     "type": "evidence",
+     "agent": "gwas",
+     "stance": "supports",
+     "strength": 0.7,
+     "rationale": "Strong GWAS evidence for triglycerides, ALT, and T2D with high L2G scores across multiple populations. However, all lead variants are intronic, requiring LoF confirmation.",
+     "parents": [],
+     "needs": [
+      {
+       "type": "burden_check",
+       "query": "Does rare-variant burden analysis show that loss-of-function in this gene reduces triglycerides and T2D risk?"
+      },
+      {
+       "type": "tolerance_check",
+       "query": "Is this gene tolerant to loss-of-function in the general population (e.g., pLI score, LOEUF)?"
+      }
+     ],
+     "challenges": []
+    },
+    {
+     "id": "a2",
+     "round": 0,
+     "type": "evidence",
+     "agent": "safety",
+     "stance": "supports",
+     "strength": 0.7,
+     "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 20 conditions. Strong GWAS signals in brain morphology lack evidence of being driven by LoF or causing clinical harm.",
+     "parents": [],
+     "needs": [
+      {
+       "type": "tolerance_check",
+       "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?"
+      },
+      {
+       "type": "burden_check",
+       "query": "Are there any rare-variant burden signals for cognitive impairment or psychiatric disorders?"
+      }
+     ],
+     "challenges": []
+    },
+    {
+     "id": "a3",
+     "round": 0,
+     "type": "evidence",
+     "agent": "tolerance",
+     "stance": "against",
+     "strength": 0.8,
+     "rationale": "High pLI (1.0) and low LOEUF (0.31) indicate strong constraint against loss-of-function variants in humans, suggesting lifelong inhibition may not be well-tolerated.",
+     "parents": [],
+     "needs": [
+      {
+       "type": "burden_check",
+       "query": "Is there any evidence that loss of function in this gene protects against cardiometabolic or liver disease?"
+      }
+     ],
+     "challenges": []
+    },
+    {
+     "id": "a4",
+     "round": 1,
+     "type": "fulfillment",
+     "agent": "tolerance",
+     "stance": "against",
+     "strength": 0.9,
+     "rationale": "The gene is highly LoF-intolerant (pLI=1, LOEUF=0.31), suggesting strong purifying selection. While not essential in cell culture, its constraint indicates likely developmental importance.",
+     "parents": [
+      "a2"
+     ],
+     "needs": [],
+     "challenges": []
+    },
+    {
+     "id": "a5",
+     "round": 1,
+     "type": "fulfillment",
+     "agent": "burden",
+     "stance": "neutral",
+     "strength": 0.2,
+     "rationale": "Evidence shows LoF reduces LDL-related lipids, but no data is provided for triglycerides or T2D. Only one cohort/ancestry and no hard endpoints are present.",
+     "parents": [
+      "a1"
+     ],
+     "needs": [],
+     "challenges": []
+    },
+    {
+     "id": "a6",
+     "round": 1,
+     "type": "fulfillment",
+     "agent": "gwas",
+     "stance": "supports",
+     "strength": 0.8,
+     "rationale": "Strong common variant evidence for TG and LDL with high L2G scores across multiple populations. T2D association provides a hard endpoint, though CVD is not explicitly listed.",
+     "parents": [
+      "a0"
+     ],
+     "needs": [],
+     "challenges": []
+    },
+    {
+     "id": "a7",
+     "round": 2,
+     "type": "challenge",
+     "agent": "skeptic",
+     "stance": "neutral",
+     "strength": 0.0,
+     "rationale": "3 challenge(s)",
+     "parents": [
+      "a6",
+      "a2",
+      "a1"
+     ],
+     "needs": [],
+     "challenges": [
+      {
+       "type": "essential_gene",
+       "channel": "gwas",
+       "target": "a1"
+      },
+      {
+       "type": "essential_gene",
+       "channel": "safety",
+       "target": "a2"
+      },
+      {
+       "type": "essential_gene",
+       "channel": "gwas",
+       "target": "a6"
+      }
+     ]
+    },
+    {
+     "id": "a8",
+     "round": 2,
+     "type": "revision",
+     "agent": "gwas",
+     "stance": "supports",
+     "strength": 0.5,
+     "rationale": "Strong GWAS for TG, ALT, and T2D across populations. However, pLI 1.0 and neutral burden results for primary traits suggest common variants may not reflect LoF therapeutic potential.",
+     "parents": [
+      "a1",
+      "a5"
+     ],
+     "needs": [],
+     "challenges": []
+    },
+    {
+     "id": "a9",
+     "round": 2,
+     "type": "revision",
+     "agent": "safety",
+     "stance": "against",
+     "strength": 0.8,
+     "rationale": "Initial support is overturned by extreme LoF-intolerance (pLI=1, LOEUF=0.31). This suggests the massive GWAS signals in brain morphology likely reflect deleterious developmental consequences.",
+     "parents": [
+      "a2",
+      "a4"
+     ],
+     "needs": [],
+     "challenges": []
+    }
+   ],
+   "final": {
+    "total": -0.95,
+    "parts": {
+     "burden": 0.0,
+     "gwas": 0.25,
+     "safety": -0.4,
+     "tolerance": -0.8
+    },
+    "latest": {
+     "burden": {
+      "stance": "neutral",
+      "strength": 0.2
+     },
+     "tolerance": {
+      "stance": "against",
+      "strength": 0.8
+     },
+     "gwas": {
+      "stance": "supports",
+      "strength": 0.5
+     },
+     "safety": {
+      "stance": "against",
+      "strength": 0.8
+     }
+    }
+   },
+   "round0": {
+    "total": 0.6,
+    "parts": {
+     "burden": 0.0,
+     "gwas": 0.7,
+     "safety": 0.7,
+     "tolerance": -0.8
+    }
+   },
+   "challenged": [
+    "gwas",
+    "safety"
+   ]
+  }
+ ]
+}
