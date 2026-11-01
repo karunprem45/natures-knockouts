@@ -1,0 +1,562 @@
+[
+ {
+  "gene_code": "Gene_01",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for cardiometabolic/liver traits. Tolerance and safety assess potential risks of systemic inhibition.",
+  "score": 1.0499999999999998,
+  "calls": 5,
+  "seconds": 10.9,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_02",
+  "plan": [
+   "burden",
+   "gwas",
+   "safety",
+   "tolerance"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits. Safety and tolerance assess potential adverse effects and gene essentiality to ensure therapeutic viability.",
+  "score": 2.65,
+  "calls": 5,
+  "seconds": 10.5,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_03",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish genetic evidence for efficacy in target traits. Tolerance and safety assess potential risks and adverse effects of systemic inhibition.",
+  "score": -0.9,
+  "calls": 5,
+  "seconds": 7.9,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_04",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish causal links to target traits. Tolerance and safety assess potential risks of inhibition, mimicking the therapeutic mechanism.",
+  "score": -0.4999999999999999,
+  "calls": 5,
+  "seconds": 9.9,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_05",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits; tolerance and safety assess the risk of adverse effects from systemic inhibition.",
+  "score": 2.5,
+  "calls": 5,
+  "seconds": 8.4,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_06",
+  "plan": [
+   "gwas",
+   "burden",
+   "safety",
+   "tolerance"
+  ],
+  "planner_rationale": "GWAS and burden establish efficacy for cardiometabolic/liver traits. Safety and tolerance assess potential adverse effects and gene essentiality to ensure therapeutic viability.",
+  "score": 2.5999999999999996,
+  "calls": 5,
+  "seconds": 8.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_07",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits. Tolerance and safety assess the risks of systemic inhibition to ensure a viable therapeutic window.",
+  "score": 2.1,
+  "calls": 5,
+  "seconds": 8.0,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_08",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for cardiometabolic/liver traits. Tolerance and safety assess potential risks of systemic inhibition.",
+  "score": 3.4499999999999997,
+  "calls": 5,
+  "seconds": 8.2,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_09",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish causal links to target traits. Tolerance and safety assess risks of systemic inhibition and essentiality.",
+  "score": 0.30000000000000004,
+  "calls": 5,
+  "seconds": 6.7,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_10",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits. Tolerance and safety assess the risks of systemic inhibition and pleiotropic effects.",
+  "score": -0.5,
+  "calls": 5,
+  "seconds": 10.0,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_11",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for cardiometabolic/liver traits. Tolerance and safety assess potential risks of systemic inhibition.",
+  "score": 1.85,
+  "calls": 5,
+  "seconds": 8.9,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_12",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy and direction of effect for cardiometabolic traits. Tolerance and safety assess potential risks of systemic inhibition.",
+  "score": 0.40000000000000013,
+  "calls": 5,
+  "seconds": 11.8,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_13",
+  "plan": [
+   "burden",
+   "gwas",
+   "safety",
+   "tolerance"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits. Safety and tolerance assess potential adverse effects or essentiality issues resulting from gene inhibition.",
+  "score": 2.6,
+  "calls": 5,
+  "seconds": 9.0,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_14",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish genetic links to target traits; Tolerance and Safety evaluate potential risks and adverse effects of inhibiting the gene.",
+  "score": 0.7499999999999999,
+  "calls": 5,
+  "seconds": 8.7,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_15",
+  "plan": [
+   "burden",
+   "gwas",
+   "safety",
+   "tolerance"
+  ],
+  "planner_rationale": "Burden and GWAS establish genetic evidence for efficacy in target traits, while safety and tolerance assess potential risks of inhibition.",
+  "score": 3.1,
+  "calls": 5,
+  "seconds": 7.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_16",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for cardiometabolic/liver traits. Tolerance and safety assess the risk of adverse effects from systemic inhibition.",
+  "score": 2.4,
+  "calls": 5,
+  "seconds": 9.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_17",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits. Tolerance and safety assess the risks of systemic inhibition.",
+  "score": 3.3000000000000003,
+  "calls": 5,
+  "seconds": 9.8,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_18",
+  "plan": [
+   "burden",
+   "gwas",
+   "safety",
+   "tolerance"
+  ],
+  "planner_rationale": "Burden and GWAS establish causal links to target traits. Safety and tolerance evaluate potential adverse effects and systemic constraint to ensure therapeutic viability.",
+  "score": 3.05,
+  "calls": 5,
+  "seconds": 54.4,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_19",
+  "plan": [
+   "gwas",
+   "burden",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "GWAS and burden tests identify genetic associations with target traits, while tolerance and safety data evaluate the risks of therapeutic inhibition.",
+  "score": 1.75,
+  "calls": 5,
+  "seconds": 10.8,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_20",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish genetic links to target diseases. Tolerance and safety data are essential to predict adverse effects from systemic inhibition.",
+  "score": 3.1999999999999997,
+  "calls": 5,
+  "seconds": 9.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_21",
+  "plan": [
+   "burden",
+   "gwas",
+   "safety",
+   "tolerance"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits. Safety and tolerance assess potential risks and systemic consequences of gene inhibition.",
+  "score": 0.5999999999999999,
+  "calls": 5,
+  "seconds": 9.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_22",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy and direction of effect for target traits. Tolerance and safety assess potential risks and systemic toxicity of gene inhibition.",
+  "score": 2.4,
+  "calls": 5,
+  "seconds": 15.1,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_23",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy and direction of effect for target traits. Tolerance and safety assess potential risks and essentiality of gene inhibition.",
+  "score": 3.3000000000000003,
+  "calls": 5,
+  "seconds": 28.9,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_24",
+  "plan": [
+   "burden",
+   "gwas",
+   "safety",
+   "tolerance"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy and direction of effect for target traits. Safety and tolerance assess potential risks and essentiality for therapeutic inhibition.",
+  "score": -1.1,
+  "calls": 5,
+  "seconds": 6.7,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_25",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits; tolerance and safety assess potential risks of inhibition.",
+  "score": 1.75,
+  "calls": 5,
+  "seconds": 8.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_26",
+  "plan": [
+   "burden",
+   "gwas",
+   "safety",
+   "tolerance"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits. Safety and tolerance assess potential adverse effects and gene essentiality to ensure therapeutic viability.",
+  "score": 2.9499999999999997,
+  "calls": 5,
+  "seconds": 5.9,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_27",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish genetic links to target traits; tolerance and safety assess the risks of systemic inhibition.",
+  "score": 2.4,
+  "calls": 5,
+  "seconds": 8.0,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_28",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits. Tolerance and safety assess the risk of adverse effects from systemic inhibition.",
+  "score": 1.5,
+  "calls": 5,
+  "seconds": 9.8,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_29",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits; tolerance and safety assess the risks of systemic inhibition.",
+  "score": -0.5499999999999999,
+  "calls": 5,
+  "seconds": 7.4,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_30",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish causal links to target traits. Tolerance and safety assess potential risks of systemic inhibition.",
+  "score": 3.4,
+  "calls": 5,
+  "seconds": 8.2,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_31",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits. Tolerance and safety assess potential risks of inhibition, mimicking the therapeutic mechanism.",
+  "score": 2.6,
+  "calls": 5,
+  "seconds": 6.1,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_32",
+  "plan": [
+   "gwas",
+   "burden",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "GWAS and burden establish genetic links to target traits; tolerance and safety assess potential risks of inhibition.",
+  "score": 1.6,
+  "calls": 5,
+  "seconds": 8.2,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_33",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits. Tolerance and safety assess the risk of adverse effects from inhibition.",
+  "score": 1.5,
+  "calls": 5,
+  "seconds": 9.8,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_34",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits; tolerance and safety assess potential risks of systemic inhibition.",
+  "score": 1.2999999999999998,
+  "calls": 5,
+  "seconds": 10.2,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_35",
+  "plan": [
+   "burden",
+   "gwas",
+   "safety",
+   "tolerance"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits; safety and tolerance assess potential adverse effects and biological constraint of inhibition.",
+  "score": -1.2,
+  "calls": 5,
+  "seconds": 8.9,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_36",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy and directionality for target traits. Tolerance and safety assess potential risks of systemic inhibition.",
+  "score": 1.5499999999999998,
+  "calls": 5,
+  "seconds": 8.5,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_37",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish efficacy for target traits. Tolerance and safety assess the risk of adverse effects or lethality resulting from gene inhibition.",
+  "score": 1.7000000000000002,
+  "calls": 5,
+  "seconds": 7.9,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_38",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish genetic evidence for efficacy; tolerance and safety assess the risk profile of systemic inhibition.",
+  "score": -1.0,
+  "calls": 5,
+  "seconds": 8.5,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_39",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS assess efficacy for target traits; tolerance and safety evaluate potential risks and side effects of gene inhibition.",
+  "score": 1.5,
+  "calls": 5,
+  "seconds": 7.4,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_40",
+  "plan": [
+   "burden",
+   "gwas",
+   "tolerance",
+   "safety"
+  ],
+  "planner_rationale": "Burden and GWAS establish causal links to target traits. Tolerance and safety assess potential risks and side effects of systemic inhibition.",
+  "score": 1.45,
+  "calls": 5,
+  "seconds": 11.3,
+  "errors": 0
+ }
+]
