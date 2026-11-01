@@ -21,11 +21,6 @@
   <img src="https://img.shields.io/badge/built%20with-Claude%20Code-d97757" alt="Built with Claude Code">
 </p>
 
-<p align="center">
-  <a href="site/null-hypothesis-keynote.mp4"><img src="site/null-hypothesis-film.gif" alt="The Null Hypothesis film at 4x speed" width="90%"></a><br>
-  <sub>The film at 4× speed. Click for the full version with sound.</sub>
-</p>
-
 ---
 
 ## The story in nine steps
@@ -115,6 +110,15 @@ You can watch it happen on PCSK9, a real drug target. It scored **3.450** before
 ### 9. Something real came out of it
 
 Our top-ranked look-alike, still hidden as `Gene_06`, turned out to be **ACVR1C**. A 2019 study found that people born with a damaging copy have **54% lower type 2 diabetes risk** (odds ratio 0.46, 95% CI 0.27–0.81; Emdin et al., *Diabetes* 2019;68:226–234). The agents never saw the name. That is "surfaced blind", not a new discovery.
+
+## Watch the film
+
+The whole story in under a minute, at 4× speed.
+
+<p align="center">
+  <a href="site/null-hypothesis-keynote.mp4"><img src="site/null-hypothesis-film.gif" alt="The Null Hypothesis film at 4x speed" width="100%"></a><br>
+  <sub>The film at 4× speed. Click for the full version with sound.</sub>
+</p>
 
 ---
 
