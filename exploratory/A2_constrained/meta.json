@@ -1,0 +1,17 @@
+{
+ "arm": "A2_constrained",
+ "seed": 1,
+ "model": "google/gemini-3-flash-preview",
+ "backend": "vertex",
+ "temperature": 0.0,
+ "reasoning_effort": "low",
+ "max_calls_per_gene": 10,
+ "specialists": [
+  "burden",
+  "gwas",
+  "tolerance",
+  "safety"
+ ],
+ "pick": 2,
+ "label": "post-freeze extension, 1 seed, not pre-registered"
+}

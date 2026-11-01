@@ -1,0 +1,522 @@
+[
+ {
+  "gene_code": "Gene_01",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden data provides high-confidence causal links to target traits, while tolerance metrics assess the fundamental safety of gene inhibition.",
+  "score": 0.30000000000000004,
+  "calls": 3,
+  "seconds": 9.4,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_02",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden tests provide high-confidence causal links to target traits, while tolerance data assesses the fundamental safety of systemic gene inhibition.",
+  "score": 1.25,
+  "calls": 3,
+  "seconds": 6.4,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_03",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides direct evidence of the effect of gene inhibition on target traits, while tolerance assesses the fundamental safety risk of loss-of-function.",
+  "score": 0.0,
+  "calls": 3,
+  "seconds": 12.1,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_04",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden testing provides high-confidence causal links to target traits, while tolerance metrics assess the fundamental safety of gene inhibition.",
+  "score": -0.09999999999999998,
+  "calls": 3,
+  "seconds": 6.3,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_05",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden testing identifies high-impact causal links for inhibition, while safety analysis screens for adverse pleiotropic effects in non-target tissues.",
+  "score": 1.2999999999999998,
+  "calls": 3,
+  "seconds": 7.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_06",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden testing provides the best evidence for efficacy via loss-of-function, while tolerance metrics assess the fundamental safety of gene inhibition.",
+  "score": 1.2999999999999998,
+  "calls": 3,
+  "seconds": 10.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_07",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden testing provides high-confidence causal links to target traits, while tolerance metrics assess the fundamental risk of systemic toxicity from gene inhibition.",
+  "score": 0.95,
+  "calls": 3,
+  "seconds": 8.0,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_08",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides direct evidence for efficacy via loss-of-function variants, while safety data identifies potential adverse pleiotropic effects across non-target traits.",
+  "score": 1.6,
+  "calls": 3,
+  "seconds": 6.1,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_09",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis mimics therapeutic inhibition through rare loss-of-function variants, while tolerance metrics assess the fundamental safety and viability of gene inactivation.",
+  "score": 0.0,
+  "calls": 3,
+  "seconds": 8.2,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_10",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden provides rare-variant evidence for efficacy, while tolerance assesses the fundamental safety of gene inhibition through loss-of-function constraint.",
+  "score": 0.0,
+  "calls": 3,
+  "seconds": 10.3,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_11",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides high-confidence causal links for efficacy, while safety data identifies potential adverse pleiotropic effects across non-target systems.",
+  "score": 1.2,
+  "calls": 3,
+  "seconds": 11.3,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_12",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden testing provides high-confidence causal links to target traits, while tolerance data assesses the fundamental risk of systemic inhibition.",
+  "score": 1.5,
+  "calls": 3,
+  "seconds": 5.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_13",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden data mimics therapeutic inhibition to establish efficacy, while safety data identifies potential adverse pleiotropic effects across non-target traits.",
+  "score": 1.1,
+  "calls": 3,
+  "seconds": 10.5,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_14",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden testing provides high-confidence causal links to target traits, while safety analysis identifies potential pleiotropic risks across the phenome.",
+  "score": -0.10000000000000009,
+  "calls": 3,
+  "seconds": 6.4,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_15",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides high-confidence causal links to target traits, while safety data identifies potential pleiotropic risks or adverse effects outside the therapeutic scope.",
+  "score": 1.4,
+  "calls": 3,
+  "seconds": 6.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_16",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis mimics therapeutic inhibition through rare loss-of-function variants, while tolerance metrics assess the safety of systemic gene suppression.",
+  "score": 0.95,
+  "calls": 3,
+  "seconds": 6.4,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_17",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis mimics therapeutic inhibition through rare loss-of-function variants, while tolerance metrics assess the fundamental safety of systemic gene suppression.",
+  "score": 1.7000000000000002,
+  "calls": 3,
+  "seconds": 10.4,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_18",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides rare-variant evidence mimicking therapeutic inhibition, while safety data identifies potential adverse pleiotropic effects across non-target traits.",
+  "score": 1.4,
+  "calls": 3,
+  "seconds": 7.1,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_19",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides high-confidence causal links to target traits via rare variants, while tolerance assesses the fundamental safety of gene inhibition through population constraint.",
+  "score": 0.95,
+  "calls": 3,
+  "seconds": 8.3,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_20",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides causal directionality for target traits via rare variants, while safety data identifies potential adverse pleiotropic effects across non-target phenotypes.",
+  "score": 1.6,
+  "calls": 3,
+  "seconds": 6.5,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_21",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden provides high-confidence causal links to target traits via rare variants, while tolerance assesses the fundamental safety of gene inhibition through population constraint data.",
+  "score": -0.8,
+  "calls": 3,
+  "seconds": 8.9,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_22",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden testing identifies causal links to target traits, while safety analysis screens for potential pleiotropic side effects across other organ systems.",
+  "score": 0.9,
+  "calls": 3,
+  "seconds": 16.1,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_23",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden testing provides direct evidence for efficacy via loss-of-function mimics, while safety data identifies potential pleiotropic risks across non-target traits.",
+  "score": 1.6,
+  "calls": 3,
+  "seconds": 6.1,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_24",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides direct evidence for efficacy in target traits, while tolerance metrics assess the safety of systemic gene inhibition.",
+  "score": -0.9,
+  "calls": 3,
+  "seconds": 7.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_25",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides high-confidence causal links to target traits, while tolerance metrics assess the fundamental safety of gene inhibition based on human genetic constraint.",
+  "score": 1.7999999999999998,
+  "calls": 3,
+  "seconds": 6.2,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_26",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis identifies high-impact causal links to target traits, while tolerance metrics assess the fundamental safety of systemic gene inhibition.",
+  "score": 1.65,
+  "calls": 3,
+  "seconds": 6.5,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_27",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden results provide evidence for efficacy through rare loss-of-function variants, while safety data identifies potential adverse effects across non-target traits.",
+  "score": 0.7,
+  "calls": 3,
+  "seconds": 9.1,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_28",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis identifies loss-of-function effects mimicking inhibition, while tolerance assesses the fundamental safety and viability of reducing gene function.",
+  "score": 0.9,
+  "calls": 3,
+  "seconds": 8.6,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_29",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides high-confidence evidence for efficacy via rare-variant effects, while safety data identifies potential adverse pleiotropic associations across non-target systems.",
+  "score": -0.8,
+  "calls": 3,
+  "seconds": 8.9,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_30",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis identifies rare loss-of-function variants mimicking inhibition, while tolerance metrics assess the safety of lifelong target deficiency.",
+  "score": 1.75,
+  "calls": 3,
+  "seconds": 8.7,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_31",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden testing provides high-confidence causal links to target traits, while tolerance metrics assess the fundamental safety and viability of gene inhibition.",
+  "score": 1.45,
+  "calls": 3,
+  "seconds": 7.4,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_32",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden evidence mimics therapeutic inhibition to assess efficacy, while safety data identifies potential adverse associations outside the target disease scope.",
+  "score": 0.6,
+  "calls": 3,
+  "seconds": 19.3,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_33",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides high-confidence causal links to target traits, while tolerance metrics assess the fundamental safety and viability of inhibiting the gene in humans.",
+  "score": 0.9,
+  "calls": 3,
+  "seconds": 6.2,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_34",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides high-confidence efficacy via rare-variant LoF mimics, while safety data identifies potential adverse pleiotropic effects outside the target therapeutic area.",
+  "score": -0.10000000000000009,
+  "calls": 3,
+  "seconds": 8.2,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_35",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides high-confidence causal links to target traits, while tolerance assesses the fundamental biological viability of inhibiting the gene in humans.",
+  "score": -0.6,
+  "calls": 3,
+  "seconds": 10.0,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_36",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides causal direction for efficacy via rare loss-of-function variants, while tolerance assesses the fundamental safety and viability of gene inhibition.",
+  "score": 1.5,
+  "calls": 3,
+  "seconds": 7.5,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_37",
+  "plan": [
+   "burden",
+   "safety"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden data models therapeutic inhibition for efficacy, while safety data identifies potential adverse pleiotropic effects outside the target scope.",
+  "score": 0.0,
+  "calls": 3,
+  "seconds": 7.3,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_38",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides high-confidence causal links and directionality for efficacy, while tolerance assesses the fundamental safety and viability of inhibiting the gene.",
+  "score": -0.6,
+  "calls": 3,
+  "seconds": 8.8,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_39",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis provides high-confidence causal links to target traits, while tolerance data assesses the fundamental safety and viability of systemic gene inhibition.",
+  "score": 1.6,
+  "calls": 3,
+  "seconds": 7.3,
+  "errors": 0
+ },
+ {
+  "gene_code": "Gene_40",
+  "plan": [
+   "burden",
+   "tolerance"
+  ],
+  "plan_status": "ok",
+  "reason": "Burden analysis identifies efficacy through loss-of-function variants mimicking inhibition, while tolerance assesses the fundamental safety of reducing gene function in humans.",
+  "score": 0.85,
+  "calls": 3,
+  "seconds": 9.8,
+  "errors": 0
+ }
+]
