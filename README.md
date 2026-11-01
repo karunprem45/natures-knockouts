@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="docs/banner.png" alt="Null Hypothesis: can a team of AI agents find the next drug target better than one agent that sees everything?" width="100%">
+  <a href="site/null-hypothesis-keynote.mp4"><img src="site/null-hypothesis-film.gif" alt="Null Hypothesis: the film at 4x speed" width="100%"></a><br>
+  <sub>The whole story in under a minute (4× speed). Click for the full film with sound.</sub>
 </p>
 
 <p align="center">
@@ -110,15 +111,6 @@ You can watch it happen on PCSK9, a real drug target. It scored **3.450** before
 ### 9. Something real came out of it
 
 Our top-ranked look-alike, still hidden as `Gene_06`, turned out to be **ACVR1C**. A 2019 study found that people born with a damaging copy have **54% lower type 2 diabetes risk** (odds ratio 0.46, 95% CI 0.27–0.81; Emdin et al., *Diabetes* 2019;68:226–234). The agents never saw the name. That is "surfaced blind", not a new discovery.
-
-## Watch the film
-
-The whole story in under a minute, at 4× speed.
-
-<p align="center">
-  <a href="site/null-hypothesis-keynote.mp4"><img src="site/null-hypothesis-film.gif" alt="The Null Hypothesis film at 4x speed" width="100%"></a><br>
-  <sub>The film at 4× speed. Click for the full version with sound.</sub>
-</p>
 
 ---
 
