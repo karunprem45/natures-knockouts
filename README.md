@@ -1,86 +1,203 @@
-# Null Hypothesis
+<p align="center">
+  <img src="docs/banner.png" alt="Null Hypothesis: can a team of AI agents find the next drug target better than one agent that sees everything?" width="100%">
+</p>
 
-**Does a collective of AI agents, each seeing one slice of the evidence and coordinating with no planner, find drug targets better than one agent that sees everything?**
+<p align="center">
+  <a href="https://karunprem45.github.io/null-hypothesis/"><img src="https://img.shields.io/badge/live%20site-open-0a84ff?style=for-the-badge" alt="Live site"></a>
+  <a href="site/null-hypothesis-keynote.mp4"><img src="https://img.shields.io/badge/film-170%20s-bf5af2?style=for-the-badge" alt="Film"></a>
+  <a href="docs/Null_Hypothesis_Project_Report.pdf"><img src="https://img.shields.io/badge/report-PDF-30d158?style=for-the-badge" alt="Report"></a>
+</p>
 
-Some people are born with a broken copy of a gene and are healthier for it: loss of PCSK9 means lifelong low LDL cholesterol, far fewer heart attacks, and a drug (evolocumab). Finding the next such gene means combining evidence that lives in separate places. We built a decentralised collective of specialist agents for exactly that split, and tested it against a single agent and a strong scripted baseline on a blind, pre-registered panel of 40 genes.
+<p align="center">
+  <img src="https://img.shields.io/badge/ScienceClaw-MIT%20Media%20Lab-111111" alt="ScienceClaw, MIT Media Lab">
+  <a href="frozen/"><img src="https://img.shields.io/badge/pre--registered-12b8c58-ffd60a" alt="Pre-registered at 12b8c58"></a>
+  <img src="https://img.shields.io/badge/tests-passing-30d158" alt="Tests passing">
+  <img src="https://img.shields.io/badge/python-3.14-3776ab?logo=python&logoColor=white" alt="Python 3.14">
+  <br>
+  <img src="https://img.shields.io/badge/Gemini%203%20Flash-Google%20Cloud-4285f4?logo=googlecloud&logoColor=white" alt="Gemini 3 Flash on Google Cloud">
+  <img src="https://img.shields.io/badge/Evo%202%2040B-NVIDIA-76b900?logo=nvidia&logoColor=white" alt="NVIDIA Evo 2">
+  <img src="https://img.shields.io/badge/GPT--5%20mini-OpenAI-412991?logo=openai&logoColor=white" alt="OpenAI GPT-5 mini">
+  <img src="https://img.shields.io/badge/built%20with-Claude%20Code-d97757" alt="Built with Claude Code">
+</p>
 
-Built at ScienceClaw, MIT Media Lab, by Karuniya Premnath, Karishma Premnath and Dheepak Karan.
+<p align="center">
+  <a href="site/null-hypothesis-keynote.mp4"><img src="site/null-hypothesis-film.gif" alt="The Null Hypothesis film at 4x speed" width="90%"></a><br>
+  <sub>The film at 4× speed. Click for the full version with sound.</sub>
+</p>
 
-[![Null Hypothesis film, 4x speed](site/null-hypothesis-film.gif)](site/null-hypothesis-keynote.mp4)
+---
 
-*The 170-second film at 4× speed. Click for the full video with sound ([`site/null-hypothesis-keynote.mp4`](site/null-hypothesis-keynote.mp4)).*
+## The story in nine steps
 
-**Live explainer site: [karunprem45.github.io/null-hypothesis](https://karunprem45.github.io/null-hypothesis/)**: replay a real agent board gene by gene and see the score with and without coordination.
+### 1. Nature already ran the experiment
 
-## Results
+Some people are born with a broken copy of a gene, and they end up **healthier** for it. People with a broken **PCSK9** gene have low cholesterol all their lives and far fewer heart attacks. That discovery became a medicine, evolocumab. Human genetics ran the trial for free.
 
-| Arm | AUROC (95% CI) | What it is |
-| --- | --- | --- |
-| A3 | 0.782 (0.641–0.895) | Collective: four specialists + skeptic on a shared board |
-| A1 | 0.774 (0.616–0.903) | One agent that sees every view |
-| S4 | 0.750 (0.542–0.910) | Scripted baseline: all features, z-scored, equal weights |
-| A3, round 0 only | 0.853 (0.729–0.948) | Same boards, before any coordination (re-scored, 0 extra calls) |
+### 2. Finding the next one is hard
 
-- **Pre-registered headline:** Δ AUROC (A3 − A1) = **+0.008** (−0.074 to +0.103). A tie. A3 beats chance (permutation p = 0.003).
-- **Strongest finding:** isolated specialists that never talk score about 0.85 on both Gemini (0.853) and GPT-5 mini (0.857). The full coordination loop scores lower on both; an over-eager skeptic is the main reason.
-- **Extensions (not pre-registered):** an NVIDIA Evo 2 40B Variant agent adds +0.038 AUROC (CI includes zero).
+The clues for the next gene like PCSK9 are scattered across different datasets:
 
-Full tables: [`frozen_results/arms_table.md`](frozen_results/arms_table.md), [`frozen_results/FINDINGS.md`](frozen_results/FINDINGS.md), [`frozen_results/exploratory/explore_table.md`](frozen_results/exploratory/explore_table.md).
+- **Burden studies:** do people with a broken copy get less disease?
+- **GWAS:** does a second kind of study agree?
+- **Tolerance:** can a person live normally without the gene?
+- **Safety:** does breaking it cause harm somewhere else?
 
-## How it works
+No single dataset answers the question on its own.
 
-| Agent | Sees only | Question |
-| --- | --- | --- |
-| Burden | In-scope rare-variant burden rows | Do carriers get less disease? |
-| GWAS | In-scope fine-mapped credible sets | Does a second study type agree? |
-| Tolerance | LOEUF, pLI, DepMap | Can a human live without it? |
-| Safety | Out-of-scope traits (Mendelian disease as categories) | Does breaking it harm elsewhere? |
-| Skeptic | Only the other agents' verdicts | Is this evidence trustworthy? |
-| Variant (extension) | Lead variant, scored by NVIDIA Evo 2 | Is the variant really disruptive? |
+### 3. The ScienceClaw question
 
-Round 0: independent verdicts. Round 1: each agent bids on the open need it can answer, ranked by `pressure = 2·novelty + centrality + 0.5·depth + 0.2·age`. Round 2: skeptic challenges, then revisions. A pure-Python scorer turns the latest verdicts into one number per gene. Nothing in the loop assigns work.
+The [ScienceClaw paper](https://arxiv.org/abs/2603.14312) (*Autonomous Agents Coordinating Distributed Discovery Through Emergent Artifact Exchange*) asks a simple question:
 
-## Rigor
+> Is it better to have **one agent that sees everything**, or **many agents that each see a part** and coordinate without a boss?
 
-| Tag | Commit | What was fixed |
+That is **single vs collective**, and **centralized vs decentralized**. We tested it on real human genetics.
+
+### 4. What we built
+
+Five AI agents. Each one can open **only its own folder** of evidence, and **no planner** tells them what to do.
+
+```mermaid
+flowchart LR
+    subgraph Evidence["Separate evidence folders"]
+        B[(Burden)]
+        G[(GWAS)]
+        T[(Tolerance)]
+        S[(Safety)]
+    end
+    B --> AB[Burden agent]
+    G --> AG[GWAS agent]
+    T --> AT[Tolerance agent]
+    S --> AS[Safety agent]
+    AB & AG & AT & AS --> Board{{Shared board}}
+    Board <--> SK[Skeptic agent<br>sees only verdicts]
+    Board --> Score[Python score<br>one number per gene]
+```
+
+How a gene gets scored:
+
+1. **Round 0:** each agent reads its own folder and posts a verdict, plus questions it can't answer itself.
+2. **Round 1:** agents answer each other's questions. Nobody assigns the work; each agent picks the open question it can answer best.
+3. **Round 2:** the skeptic challenges weak claims. A challenged channel counts half.
+4. **Score:** plain Python adds up the latest verdicts.
+
+We check that no agent can peek at another's data with **203 automated tests**. A planted leak makes them fail.
+
+### 5. A fair, blind test
+
+- **40 genes:** 12 real drug targets hidden among 28 look-alikes.
+- **Names hidden:** agents only ever see codes like `Gene_08`.
+- **Plan locked first:** the panel, the scoring rule and the metrics were frozen in git at commit `12b8c58` **before the first run**.
+
+### 6. What happened
+
+| Setup | Score (AUROC, 0.5 = coin flip, 1.0 = perfect) |
+| --- | --- |
+| One agent that sees everything (A1) | 0.774 |
+| The agent collective, coordinating (A3) | 0.782 |
+| A central planner choosing specialists *(added later)* | 0.829 |
+| **The same specialists, before they talked** | **0.853** |
+
+- **The pre-registered answer is a tie.** Collective minus single = **+0.008** (95% CI −0.074 to +0.103). We report it as one.
+- **Talking made the specialists worse.** We reran the same genes 5 times. Coordinating lowered the score **in all 5 runs**: mean **−0.053** (95% CI −0.090 to −0.017).
+
+### 7. Why: the skeptic didn't spare real targets
+
+The skeptic's most common challenge ("biomarker only") hit **83% of real targets** and **84% of look-alikes**. Halving good evidence and bad evidence equally just added noise.
+
+You can watch it happen on PCSK9, a real drug target. It scored **3.450** before coordination and **2.525** after. Step through that board yourself on the [live site](https://karunprem45.github.io/null-hypothesis/).
+
+### 8. More tests, written down before we ran them
+
+- **NVIDIA Evo 2 (40B), a DNA language model:** it clearly spots damaging variants (median percentile 4.4 vs 59.1). But it scores real targets and look-alikes the same (3.4 vs 5.2). We wrote that prediction down first, it failed, and we published it.
+- **OpenAI GPT-5 mini:** a second model gives the same pattern. Specialists apart score 0.857.
+
+### 9. Something real came out of it
+
+Our top-ranked look-alike, still hidden as `Gene_06`, turned out to be **ACVR1C**. A 2019 study found that people born with a damaging copy have **54% lower type 2 diabetes risk** (odds ratio 0.46, 95% CI 0.27–0.81; Emdin et al., *Diabetes* 2019;68:226–234). The agents never saw the name. That is "surfaced blind", not a new discovery.
+
+---
+
+## Try it
+
+**No keys and no network needed** to check every number (about 1 minute):
+
+```bash
+git clone https://github.com/karunprem45/null-hypothesis.git && cd null-hypothesis
+make setup                                     # virtual env + dependencies
+make test                                      # unit and isolation tests
+make demo GENE=Gene_01                         # replay one gene's frozen board
+.venv/bin/python -m exploratory.scripts.verify_frozen   # 63 hashes, 12 arms, round-0 re-score
+```
+
+To rebuild everything from scratch (needs Google Cloud for Gemini):
+
+```bash
+gcloud auth application-default login   # Vertex AI (Gemini) for all pre-registered arms
+make probe                              # Gemini, Open Targets, Ensembl, Evo 2 checks
+make data panel                         # Open Targets pull, blind panel, views, isolation tests
+make baselines                          # scripted baselines S1–S4
+make allarms ablations report           # A1, A3 x2 seeds, ablations, table, figures
+make explore                            # extensions: Evo 2 and other models
+```
+
+Keys go in `.env` (see `.env.example`). Full guide: [`REPRODUCE.md`](REPRODUCE.md).
+
+## How we kept it honest
+
+| Tag | Commit | What was locked |
 | --- | --- | --- |
 | `prereg` | `12b8c58` | Panel, metrics and scoring weights, before any arm ran |
 | `results-raw` | `28a0e95` | Every arm's scores and boards, hashed, before any metric |
 | `results-final` | `4729a6b` | Arms table, figures, findings |
 
-- `tests/test_views_isolation.py`: 203 checks that no agent's view holds another channel's data, a gene symbol, an Ensembl ID or drug data. A planted leak fails it.
-- Amendments after `prereg`, both before any LLM arm ran: [`frozen/AMENDMENTS.md`](frozen/AMENDMENTS.md).
-- Limitations, stated up front: [`frozen_results/FINDINGS.md`](frozen_results/FINDINGS.md).
+- Every result file is hashed in [`frozen_results/SHA256SUMS`](frozen_results/SHA256SUMS), and `verify_frozen` re-checks them all.
+- Changes made after `prereg`, all before any agent ran: [`frozen/AMENDMENTS.md`](frozen/AMENDMENTS.md).
+- Limitations, stated up front: [`frozen_results/FINDINGS.md`](frozen_results/FINDINGS.md). Anything added after the freeze is marked as an extension, not pre-registered.
 
-## Reproduce
+## Built with
 
-```bash
-make setup                              # venv + dependencies
-gcloud auth application-default login   # Vertex AI (Gemini) for all pre-registered arms
-make probe                              # Gemini, Open Targets, Ensembl, Evo 2 checks
-make data panel                         # Open Targets pull, blind panel, views, isolation tests
-make baselines                          # S1–S4
-make allarms ablations report           # A1, A3 x2 seeds, ablations, table, figures
-make explore                            # exploratory: Evo 2 and other-model comparisons
-make demo GENE=Gene_01                  # two-minute replay of one gene's board (no API calls)
-make test
-```
-
-Keys go in `.env` (see `.env.example`); `.env` and `data/` are gitignored.
-
-## Platforms
-
-| Platform | Used for |
+| | Used for |
 | --- | --- |
-| Google Cloud, Vertex AI (Gemini 3 Flash) | Every agent in every pre-registered arm |
-| NVIDIA build.nvidia.com (Evo 2 40B) | Variant agent (extension) |
-| OpenAI (gpt-5-mini) | Robustness check on a second model (extension) |
-| Open Targets, Ensembl | Genetics evidence and reference DNA |
+| **Google Cloud, Vertex AI (Gemini 3 Flash)** | Every agent in every pre-registered arm |
+| **NVIDIA build.nvidia.com (Evo 2 40B)** | The DNA Variant agent, through a hosted endpoint (no GPU to set up) |
+| **OpenAI (GPT-5 mini)** | Robustness rerun on a second model |
+| **Claude Code** | Engineering the whole system end to end |
+| **Open Targets, Ensembl** | Genetics evidence and reference DNA |
 
-## Repository map
+## Reusable skills
 
-`data_layer/` data pull and views · `llm/` the single LLM gateway and guards · `agents/` specialists, skeptic, prompts · `board/` artifacts, needs, loop · `scoring.py` · `arms/` scripted, A1, A3, ablations · `eval/` metrics, report, figures · `tools/` Ensembl and Evo 2 · `skills/` reusable skills · `slides/` the deck · `frozen/` pre-registration · `frozen_results/` hashed outputs.
+Three pieces any team can lift into their own agent project:
 
-Who did what: [`CONTRIBUTORS.md`](CONTRIBUTORS.md). Project report (PDF): [`docs/Null_Hypothesis_Project_Report.pdf`](docs/Null_Hypothesis_Project_Report.pdf). Original build plan: [`BUILD.md`](BUILD.md). Demo script: [`DEMO.md`](DEMO.md).
+| Skill | What it does |
+| --- | --- |
+| [`blind-agent-views`](skills/blind-agent-views/SKILL.md) | Give each agent its own data, provably sealed from the others |
+| [`needs-board-coordination`](skills/needs-board-coordination/SKILL.md) | Agents post needs, others answer, no planner |
+| [`evo2-variant-score`](skills/evo2-variant-score/SKILL.md) | Score DNA variants with NVIDIA Evo 2 |
 
-Explainer site: [live on GitHub Pages](https://karunprem45.github.io/null-hypothesis/), source [`site/index.html`](site/index.html), one self-contained file that also works offline; download it and open it in any browser to replay a real board gene by gene and toggle "score without coordination". Film (170 s, 1080p): [`site/null-hypothesis-keynote.mp4`](site/null-hypothesis-keynote.mp4): the ScienceClaw question, the PCSK9 board round by round, every arm, the five paired reruns, NVIDIA Evo 2 and ACVR1C. Both are rebuilt from frozen and exploratory outputs: `site/build_site.py` writes the pages, `site/make_video.py` renders the film from [`site/keynote.html`](site/keynote.html).
+## What's in the repo
+
+| Folder | What's inside |
+| --- | --- |
+| `data_layer/` | Pull from Open Targets, build the blind panel and each agent's view |
+| `agents/`, `board/`, `llm/` | The agents, the shared board and the single LLM gateway with guards |
+| `arms/`, `scoring.py` | Scripted baselines, single agent, collective, ablations, the scorer |
+| `eval/`, `exploratory/` | Metrics, paired bootstrap, figures; analyses added after the freeze |
+| `frozen/`, `frozen_results/` | The pre-registration and every hashed result |
+| `site/` | The [live explainer](https://karunprem45.github.io/null-hypothesis/) and the film, rebuilt from the frozen results |
+| `slides/`, `docs/` | The deck and the [project report (PDF)](docs/Null_Hypothesis_Project_Report.pdf) |
+| `skills/`, `tests/`, `tools/` | Reusable skills, the test suite, Ensembl and Evo 2 clients |
+
+## Team
+
+| | Area |
+| --- | --- |
+| **Karishma Premnath** · [@karishmapremnath4](https://github.com/karishmapremnath4) | Data: the panel, per-agent views, panel 2 |
+| **Karuniya Premnath** · [@karunprem45](https://github.com/karunprem45) | Agents: specialists, skeptic, needs board, Evo 2 agent, skills |
+| **Dheepak Karan** · [@dheepakkaran](https://github.com/dheepakkaran) | Evaluation: baselines, statistics, reruns, extensions |
+
+More detail: [`CONTRIBUTORS.md`](CONTRIBUTORS.md). The original build plan is in [`BUILD.md`](BUILD.md), and the demo script is in [`DEMO.md`](DEMO.md).
+
+## References
+
+- ScienceClaw: *Autonomous Agents Coordinating Distributed Discovery Through Emergent Artifact Exchange*. [arXiv:2603.14312](https://arxiv.org/abs/2603.14312)
+- Emdin et al., protective ACVR1C variants and type 2 diabetes. *Diabetes* 2019;68:226–234. [doi:10.2337/db18-0857](https://doi.org/10.2337/db18-0857)
