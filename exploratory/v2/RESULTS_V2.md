@@ -22,6 +22,8 @@ The problem is not calibration; skeptic-style self-critique does not pay on this
 
 The primary interval includes zero, and the point estimate (+0.004) is well inside the 0.03 AUROC noise floor between two runs of one configuration (A2 rerun on panel 1). `prereg_v2.md` named the three outcomes but set no threshold for "improvement"; the rule applied here, decided when the results were read, is the conservative one: an improvement must exceed the noise floor and its interval must exclude zero. Under the lenient alternative (any positive point estimate) this run would have read as "calibrated > flat", which the data do not support.
 
+*Note added after T1:* the noise floor was later measured over five replicates of A3 as 0.062 AUROC (`exploratory/noise_floor/RESULTS.md`). The 0.03 above is the single-pair estimate available when this was first written. Against 0.062 the primary contrast (+0.004) is even further inside the floor; the conclusion is unchanged.
+
 ## Why so little room
 
 Panel 2 is much easier than panel 1: round 0 scores 0.954 here against 0.853 on panel 1, so the fresh negatives are easier to separate from the shared positives. The flat skeptic's cost shrank with it, -0.027 here against −0.071 on panel 1, leaving calibration little to recover. `biomarker_only` is again the most frequent challenge and calibration now ignores it, yet the score barely moves. The same direction as panel 1 holds: the skeptic loop scores at or below the isolated specialists on both panels.

@@ -101,6 +101,11 @@ def main():
         "and its interval must exclude zero. Under the lenient alternative (any positive point estimate) this run "
         "would have read as \"calibrated > flat\", which the data do not support.",
         "",
+        "*Note added after T1:* the noise floor was later measured over five replicates of A3 as 0.062 AUROC "
+        "(`exploratory/noise_floor/RESULTS.md`). The 0.03 above is the single-pair estimate available when this was "
+        "first written. Against 0.062 the primary contrast (+0.004) is even further inside the floor; the "
+        "conclusion is unchanged.",
+        "",
         "## Why so little room",
         "",
         f"Panel 2 is much easier than panel 1: round 0 scores {m.auroc(y, s['A3_v2_round0']):.3f} here against "
