@@ -5,7 +5,7 @@ Checked from a clean clone on 31 Oct 2026: tests, demo and the frozen-results ve
 ## 1. Offline: no keys, no network (about 1 minute)
 
 ```bash
-git clone https://github.com/karunprem45/natures-knockouts.git && cd natures-knockouts
+git clone https://github.com/karunprem45/null-hypothesis.git && cd null-hypothesis
 make setup                                   # venv + dependencies (needs pip access once)
 make test                                    # 40 pass; 8 skip until data/ is built (they say why)
 make demo GENE=Gene_01                       # replays one gene's frozen board round by round
