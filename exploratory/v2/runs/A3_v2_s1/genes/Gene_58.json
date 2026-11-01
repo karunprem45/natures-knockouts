@@ -1,0 +1,291 @@
+{
+ "gene_code": "Gene_58",
+ "score": -2.1500000000000004,
+ "calls": 10,
+ "seconds": 19.5,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_58",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "LoF variants are strongly associated with increased risk of cystic liver disease, cirrhosis, and coronary artery disorder across multiple cohorts, despite some biomarker improvements.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_5",
+    "burden_8",
+    "burden_10"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "The high odds ratios for cystic liver disease and malformations suggest this gene may be essential or haploinsufficient, making inhibition unsafe."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there extra-hepatic or developmental phenotypes associated with LoF?",
+     "rationale": "The 'visceral malformation' and 'cystic liver' results suggest a potential syndromic or developmental role that would preclude therapeutic targeting."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "85c6bc41-e924-430b-aa5b-28adf09b5b7b",
+   "content_hash": "0a360a14ed4bfeddfa58ba3ad6ed93ec5effec91cd631fd386cd847bf473bd9b",
+   "timestamp": "2026-11-01T02:59:25.475320+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_58",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong GWAS evidence for metabolic and liver traits. Lead missense variants associate with lower ALT, and a high-confidence locus (l2g 0.74) associates with reduced T2D risk.",
+   "data_refs": [
+    "gwas_5",
+    "gwas_8",
+    "gwas_9"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with lower ALT, lower BMI, or reduced T2D risk?",
+     "rationale": "GWAS lead variants are synonymous or intronic; burden results are needed to confirm that loss-of-function (mimicking inhibition) matches the protective GWAS direction."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "fe83bc69-940d-4f7f-b7f2-4b80a8cd3227",
+   "content_hash": "af7e1bc3de8c570251481ed9db43a087920f7eb9259da4a183e4a31577f1ddbf",
+   "timestamp": "2026-11-01T02:59:25.235822+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_58",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "Loss of function (LoF) is strongly associated with severe renal pathologies, including chronic and polycystic kidney disease, and multiple Mendelian disorders caused by LoF.",
+   "data_refs": [
+    "safety_2",
+    "safety_3",
+    "safety_5",
+    "safety_8",
+    "safety_11",
+    "safety_13",
+    "mendelian_2",
+    "mendelian_3"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI score or LOEUF)?",
+     "rationale": "High intolerance would further confirm the danger of therapeutic inhibition given the severe renal phenotype observed."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a6b7e4d2-91ee-4922-a1aa-403f347e20db",
+   "content_hash": "627a2831db0a87e8715a8b8e366a7bf78e303f58c5d89f316b68e2b576d9460d",
+   "timestamp": "2026-11-01T02:59:30.285936+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_58",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Extremely low LOEUF (0.27) and pLI of 1 indicate strong evolutionary constraint and intolerance to loss-of-function in humans, despite lack of cell-line dependency.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are there any healthy human knockouts or individuals with low-expression variants in this gene?",
+     "rationale": "If healthy individuals with biallelic loss-of-function exist, it would override the population constraint metrics."
+    },
+    {
+     "type": "safety_check",
+     "query": "What are the specific phenotypes associated with haploinsufficiency or loss of this gene in animal models?",
+     "rationale": "The high constraint suggests severe developmental or physiological consequences that may not be captured in cell-line screens."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c9345dbe-4476-450d-9be0-85333ab3dc83",
+   "content_hash": "95b7ad308921e3ef9fb63ee453635b5b8b25e9db57641efbf13bc3bff0107b9d",
+   "timestamp": "2026-11-01T02:59:25.603223+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_58",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "Strong evidence of LoF intolerance (pLI=1, LOEUF=0.27) suggests haploinsufficiency. While not cell-essential in DepMap, human population data indicates lifelong inhibition is likely poorly tolerated.",
+   "data_refs": [
+    "pli",
+    "loeuf",
+    "lof_oe",
+    "depmap_mean_gene_effect"
+   ],
+   "parent_artifact_ids": [
+    "85c6bc41-e924-430b-aa5b-28adf09b5b7b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "27706e54-5ea4-4292-bfc6-835b0cfb84b7",
+   "content_hash": "43a86a8ffb459d7cf9ead2e4100c0fc76be7547ae5f5f893f81a2f95d7c2b30d",
+   "timestamp": "2026-11-01T02:59:31.879528+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_58",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "LoF is strongly associated with extra-hepatic phenotypes, specifically severe renal malformations, polycystic kidney disease, and congenital urinary tract disorders.",
+   "data_refs": [
+    "safety_3",
+    "safety_5",
+    "safety_7",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_6"
+   ],
+   "parent_artifact_ids": [
+    "85c6bc41-e924-430b-aa5b-28adf09b5b7b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "7f54c1fd-4ed5-4db5-b4d4-1ab5d3f81ef6",
+   "content_hash": "b795c9ebf72a3837003f397d59ea89b8c8b8bb35db6ad73da581be0dfd6f8599",
+   "timestamp": "2026-11-01T02:59:33.469616+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_58",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "LoF variants are strongly associated with increased risk of cystic liver disease, cirrhosis, and coronary artery disorder across multiple cohorts, suggesting LoF is not well-tolerated.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_5",
+    "burden_8",
+    "burden_10"
+   ],
+   "parent_artifact_ids": [
+    "c9345dbe-4476-450d-9be0-85333ab3dc83"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "d7f872f5-5452-4999-b306-86ec07941145",
+   "content_hash": "10e61c696e44e6617cda6e10a294c4cbf135e0ab292ef5efbdbdadd9febfdd94",
+   "timestamp": "2026-11-01T02:59:35.028281+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_58",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "0 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "aa755557-19dc-4eed-a786-a3283d170a11",
+   "content_hash": "e6cc137bf173f6b0037c16c510d9e52e5cd645b0006160dd2405497476011ee6",
+   "timestamp": "2026-11-01T02:59:37.061505+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_58",
+   "round": 2,
+   "stance": "against",
+   "strength": 1.0,
+   "rationale": "LoF variants cause severe liver disease and CAD. External evidence of LoF intolerance and renal malformations confirms that carriers suffer significant harm, outweighing minor lipid benefits.",
+   "data_refs": [
+    "burden_1",
+    "burden_5",
+    "burden_8",
+    "burden_10"
+   ],
+   "parent_artifact_ids": [
+    "85c6bc41-e924-430b-aa5b-28adf09b5b7b",
+    "27706e54-5ea4-4292-bfc6-835b0cfb84b7",
+    "7f54c1fd-4ed5-4db5-b4d4-1ab5d3f81ef6"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b6d0991e-c30c-4000-b3b8-72d121e983e1",
+   "content_hash": "a34e0b88d521d8e468a2663681f2a995565e56c7b36fdfda95e20c45c1c26d24",
+   "timestamp": "2026-11-01T02:59:38.691664+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_58",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.95,
+   "rationale": "Extreme population constraint (LOEUF 0.27, pLI 1) is now validated by burden data showing LoF variants increase risk for liver disease and CAD, confirming lifelong inhibition is not tolerated.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "c9345dbe-4476-450d-9be0-85333ab3dc83",
+    "d7f872f5-5452-4999-b306-86ec07941145"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7df66766-1dff-453e-a971-534f225c950c",
+   "content_hash": "ceb6e278becd53e8338f736a99dde518559a18c5f1da472134e00e182d277d6c",
+   "timestamp": "2026-11-01T02:59:42.832797+00:00"
+  }
+ ]
+}

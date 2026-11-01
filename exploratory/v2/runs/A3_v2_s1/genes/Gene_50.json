@@ -1,0 +1,313 @@
+{
+ "gene_code": "Gene_50",
+ "score": -1.6500000000000001,
+ "calls": 10,
+ "seconds": 39.6,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_50",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants significantly increase risk for coronary artery disorder (OR 2.76, p=1e-11). Protective lipid signals are misleading as they show lower HDL and TC, which is not therapeutic.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI/LOEUF) or associated with developmental disorders?",
+     "rationale": "The strong risk for CAD suggests LoF is deleterious; I need to know if this gene is essential or has systemic safety issues."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus associate with coronary artery disease and do they match the LoF direction?",
+     "rationale": "To confirm if the CAD risk is a consistent genetic signal across the frequency spectrum."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "df9bae68-c576-4b16-8175-4f2afe57c279",
+   "content_hash": "e47c2d69da29dc83c9b2980a352147a357502c6c523362b14a8d15a717ab386a",
+   "timestamp": "2026-11-01T02:58:19.509361+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_50",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong GWAS evidence links this gene to T2D and multiple lipid traits (HDL, LDL, ApoA1). High L2G scores and multi-ancestry associations for T2D suggest a causal role in metabolic disease.",
+   "data_refs": [
+    "gwas_10",
+    "gwas_19",
+    "gwas_21",
+    "gwas_29"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function in this gene protect against type 2 diabetes or improve lipid profiles?",
+     "rationale": "GWAS lead variants are mostly intronic; burden results are needed to confirm the direction of effect for therapeutic inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "3929614f-7715-4984-ae4d-fe8eeb312748",
+   "content_hash": "8e44a60297700b6fbe27d47be54d065e795b36b28cc157f40eb2118ad2099e83",
+   "timestamp": "2026-11-01T02:58:39.701971+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_50",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Loss of function (LoF) is strongly associated with increased risk of myeloid leukemias, thrombocytopenia, and other hematologic malignancies across Mendelian and burden evidence.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "safety_7",
+    "safety_12",
+    "safety_15",
+    "safety_18",
+    "safety_22",
+    "safety_34",
+    "safety_37"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would further confirm the danger of therapeutic inhibition given the existing cancer and hematologic risk signals."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ba99ab6f-d6d6-4216-8396-f65b7627342f",
+   "content_hash": "be600cd60195ad0cff111ca3daa27abf5bbfbee530ab13390dbe445582d5174e",
+   "timestamp": "2026-11-01T02:58:19.308894+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_50",
+   "round": 0,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "Extremely high LOEUF (2.3) and pLI (0) indicate no evolutionary constraint. DepMap shows zero dependency across 1258 lines. Lifelong inhibition should be very well tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or reduced expression of this gene associate with improved cardiometabolic or liver health?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit from inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "28417ab5-fb08-43ea-b536-ae7eb6e0e248",
+   "content_hash": "b103360924403cc5ed009747aaf8c68ef6e37ae791fd8c6f87dae46e5d03b5aa",
+   "timestamp": "2026-11-01T02:58:22.584943+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_50",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF associates with a 2.75x risk of coronary artery disorder (hard endpoint) despite lower total cholesterol. Lowering HDL (beta -0.008) is also unfavorable.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [
+    "28417ab5-fb08-43ea-b536-ae7eb6e0e248"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene intolerant to loss-of-function (e.g., high pLI or low LOEUF)?",
+     "rationale": "The strong risk for coronary artery disease suggests LoF is deleterious, which should be reflected in population constraint metrics."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants near this gene associate with coronary artery disease or lipid levels?",
+     "rationale": "To see if common variation mirrors the high-impact rare variant risk for CAD."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "8cf63ddf-e1e1-4cda-a5a4-fe7b1b3f3e60",
+   "content_hash": "b556471ffab59f4efe463742a5abc6d681697712375adef6c05548183513bdbd",
+   "timestamp": "2026-11-01T02:58:41.820480+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_50",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly tolerant of loss-of-function: LOEUF is 2.3, pLI is 0, and it is not essential in any DepMap cell lines. Lifelong inhibition should be very well tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "ba99ab6f-d6d6-4216-8396-f65b7627342f"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "516ae12d-2c7f-46e7-b0d7-8a9d93668f65",
+   "content_hash": "299a0bfb92180b84ef1c5f02381ac56c00aa2e8a56289f0f67873db5862d0c66",
+   "timestamp": "2026-11-01T02:58:43.379332+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_50",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "GWAS data shows strong associations with HDL subfractions and T2D, but no CAD associations are present in the provided evidence to confirm a consistent signal or direction.",
+   "data_refs": [
+    "gwas_19",
+    "gwas_21",
+    "gwas_29"
+   ],
+   "parent_artifact_ids": [
+    "df9bae68-c576-4b16-8175-4f2afe57c279"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "44926731-e5b7-4b10-ad9f-56f99c272734",
+   "content_hash": "239eb70a34e719cabbd5f9f13c8766cbc6dff3a7929f7bac11de66d6c9f2b4a3",
+   "timestamp": "2026-11-01T02:58:45.020466+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_50",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "3 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "28417ab5-fb08-43ea-b536-ae7eb6e0e248",
+    "3929614f-7715-4984-ae4d-fe8eeb312748",
+    "516ae12d-2c7f-46e7-b0d7-8a9d93668f65"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "3929614f-7715-4984-ae4d-fe8eeb312748",
+     "rationale": "GWAS claims support for metabolic disease, but A7 (fulfillment) notes no CAD associations and A1/A5 (burden) show LoF increases CAD risk, suggesting conflicting metabolic directions."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "tolerance",
+     "target_artifact_id": "28417ab5-fb08-43ea-b536-ae7eb6e0e248",
+     "rationale": "Tolerance agent claims high safety (LOEUF 2.3), but Safety agent (A3) identifies strong associations with myeloid leukemias and hematologic malignancies from LoF."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "tolerance",
+     "target_artifact_id": "516ae12d-2c7f-46e7-b0d7-8a9d93668f65",
+     "rationale": "The claim that lifelong inhibition is well-tolerated based on LOEUF/DepMap is directly contradicted by the Safety agent's evidence of hematologic malignancy risk in A3."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7b410908-7801-413d-b7be-bbaa78ae8452",
+   "content_hash": "2f9b2efa6079e6c103c57d1704d02181719f69a8b6919304ee0a67eee0811ed7",
+   "timestamp": "2026-11-01T02:58:47.091498+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_50",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "High LOEUF (2.3) and pLI (0) suggest tolerance, but external reports of hematologic malignancy and CAD risk associated with LoF contradict the feasibility of healthy lifelong inhibition.",
+   "data_refs": [
+    "burden_check",
+    "safety_check"
+   ],
+   "parent_artifact_ids": [
+    "28417ab5-fb08-43ea-b536-ae7eb6e0e248",
+    "8cf63ddf-e1e1-4cda-a5a4-fe7b1b3f3e60"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "99247e20-e280-451e-808f-b5b5fb827dff",
+   "content_hash": "e163386becb429b5059f2236efc21013a6e2a5859798a98da2caf7c84ce10b26",
+   "timestamp": "2026-11-01T02:58:55.091894+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_50",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "LoF variants significantly increase risk for coronary artery disorder (OR 2.76, p=1e-11). Protective lipid signals are misleading as they show lower HDL and TC, which is not therapeutic.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [
+    "df9bae68-c576-4b16-8175-4f2afe57c279",
+    "44926731-e5b7-4b10-ad9f-56f99c272734"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8374133a-f5f9-4d49-aca0-4192c2a52319",
+   "content_hash": "a8b5d10f3591772b759c3b31be7c8f91df679e0ef2496e819650acdebf15e156",
+   "timestamp": "2026-11-01T02:58:56.452966+00:00"
+  }
+ ]
+}

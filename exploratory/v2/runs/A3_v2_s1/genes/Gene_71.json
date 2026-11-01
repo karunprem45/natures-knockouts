@@ -1,0 +1,321 @@
+{
+ "gene_code": "Gene_71",
+ "score": 0.0,
+ "calls": 10,
+ "seconds": 24.7,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_71",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong LoF associations with lower TC and LDL (p < 1e-12). However, evidence is limited to biomarkers in one ancestry/consortium with no hard endpoints shown.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "The strong LoF signal suggests therapeutic potential, but we must ensure complete inhibition isn't developmentally or physiologically harmful."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with the same lipid traits?",
+     "rationale": "Consistency between rare and common variant signals increases confidence in the target's validity."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "50580886-6d01-42cf-b95d-e27916d824a2",
+   "content_hash": "1e790ff7d58314ce593a4316a4b624729b9900a3a7f007ddaf1baaa59252810c",
+   "timestamp": "2026-11-01T03:01:16.881127+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_71",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "GWAS shows a strong, fine-mapped missense variant where the allele that lowers LDL and ApoB significantly increases risk for liver cirrhosis and liver disorders.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_4",
+    "gwas_30",
+    "gwas_34"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with liver disease or protection from lipids?",
+     "rationale": "To confirm if the observed GWAS trade-off (low lipids vs high liver risk) is recapitulated by gene-level loss-of-function."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "29949767-dac8-4324-b2aa-9b2e380988a1",
+   "content_hash": "883b92f8b644b59870c2d736068ca42a3a339ddd318025f6e6d88c92798167e6",
+   "timestamp": "2026-11-01T03:01:17.404599+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_71",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.7,
+   "rationale": "Strong burden and GWAS signals link this gene to myeloproliferative disorders, clonal hematopoiesis, and neoplasms. LoF is explicitly linked to increased neoplasm risk.",
+   "data_refs": [
+    "safety_1",
+    "safety_9",
+    "safety_10",
+    "safety_14",
+    "safety_20",
+    "safety_21"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would further increase the safety risk profile for a therapeutic inhibitor."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7f85875c-b581-4a5d-bff1-fc2cb5f41947",
+   "content_hash": "9fa5debbe3d61981913e7431964a4bbf3e1439c1535b3f3b0e396e76ca0262db",
+   "timestamp": "2026-11-01T03:01:16.535749+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_71",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "High LOEUF (0.74), pLI of 0, and lack of cell-line dependency (mean effect 0.12) strongly suggest that loss of function is well-tolerated in humans.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function in this gene associate with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; there must be evidence of therapeutic benefit from inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any clinical phenotypes or syndromes associated with rare biallelic loss-of-function variants in humans?",
+     "rationale": "Population constraint metrics may not capture specific recessive phenotypes or late-onset safety issues."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "582a2ed3-4583-4226-8d66-da73275b9f5c",
+   "content_hash": "5986416028a31ef93b09edaa766f9d5f5955d5ca6eafacc33907b84a5a12d801",
+   "timestamp": "2026-11-01T03:01:19.158568+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_71",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "LoF associates with lower total cholesterol and HDL. No liver disease data provided. Evidence is strong for lipids (p<1e-17) but limited to one consortium and European ancestry.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [
+    "29949767-dac8-4324-b2aa-9b2e380988a1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "29def991-a414-4410-88cc-8642529ebcaf",
+   "content_hash": "2948269a7dd4f1cbc59c11a176dbc774f1f4ee4f6ac6240982ec05fd70b656b7",
+   "timestamp": "2026-11-01T03:01:20.790158+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_71",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.74), pLI near 0, and lack of cell-line dependency (mean effect 0.13) strongly suggest that loss of function is well-tolerated in humans.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "50580886-6d01-42cf-b95d-e27916d824a2"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "60df433a-8192-4c28-8c93-c502deaaba9a",
+   "content_hash": "1cc6c19c017bc5bda3b03c2d7daa370f5cf432867a7260e103db05a391ddf9a8",
+   "timestamp": "2026-11-01T03:01:25.166948+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_71",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "Common missense variants strongly associate with lower LDL, ApoB, and total cholesterol (L2G > 0.93), though they increase risk for liver cirrhosis.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_4",
+    "gwas_34"
+   ],
+   "parent_artifact_ids": [
+    "50580886-6d01-42cf-b95d-e27916d824a2"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "933e8c01-e840-4808-aae5-6b723572b422",
+   "content_hash": "654f9a77e2ac70234bdf6bbf587c83865dcdf22497d6ba5a666f5b90b59be0f4",
+   "timestamp": "2026-11-01T03:01:26.911684+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_71",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "29def991-a414-4410-88cc-8642529ebcaf",
+    "50580886-6d01-42cf-b95d-e27916d824a2",
+    "933e8c01-e840-4808-aae5-6b723572b422"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "50580886-6d01-42cf-b95d-e27916d824a2",
+     "rationale": "The rationale explicitly states evidence is limited to biomarkers with no hard clinical endpoints shown."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "50580886-6d01-42cf-b95d-e27916d824a2",
+     "rationale": "The rationale admits evidence is limited to one ancestry and one consortium."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "933e8c01-e840-4808-aae5-6b723572b422",
+     "rationale": "The agent marks this as 'supports' despite noting the variant increases risk for liver cirrhosis, contradicting the 'against' stance in A2 for the same data."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "29def991-a414-4410-88cc-8642529ebcaf",
+     "rationale": "The rationale confirms evidence is limited to European ancestry and a single consortium."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "29def991-a414-4410-88cc-8642529ebcaf",
+     "rationale": "The evidence provided only covers lipid biomarkers (TC, HDL) without clinical outcomes."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0a43fab0-5378-4929-b3b3-c2069f424e77",
+   "content_hash": "c890d0b9180f9b3e6d0837da9ea75a3e36e1a5e66ca377fc0fc6bcf3de9aaac0",
+   "timestamp": "2026-11-01T03:01:29.532717+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_71",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong lipid-lowering LoF signals (p<1e-12) confirmed by GWAS and tolerated in humans. Evidence remains limited to biomarkers in one ancestry with no hard endpoints in burden data.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [
+    "50580886-6d01-42cf-b95d-e27916d824a2",
+    "60df433a-8192-4c28-8c93-c502deaaba9a",
+    "933e8c01-e840-4808-aae5-6b723572b422"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0e89dcb3-2941-41e2-9dfa-1d44222229e1",
+   "content_hash": "05c3ce61f26e451b32d2d71f801a390dd0cb82488d744f5c02d250831a927207",
+   "timestamp": "2026-11-01T03:01:37.076175+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_71",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "GWAS shows a strong missense variant where the allele lowering LDL/ApoB significantly increases risk for liver cirrhosis. Burden data confirms lipid effects but lacks liver safety context.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_4",
+    "gwas_30",
+    "gwas_34"
+   ],
+   "parent_artifact_ids": [
+    "29949767-dac8-4324-b2aa-9b2e380988a1",
+    "29def991-a414-4410-88cc-8642529ebcaf"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a768eac9-0998-4219-b125-bbe3d7961b16",
+   "content_hash": "dc965935b07897367c41da918ccce72072604765a7e5062a9bbf6b3ef83e9f73",
+   "timestamp": "2026-11-01T03:01:38.969474+00:00"
+  }
+ ]
+}

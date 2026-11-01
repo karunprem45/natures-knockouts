@@ -1,0 +1,348 @@
+{
+ "gene_code": "Gene_78",
+ "score": -0.5,
+ "calls": 10,
+ "seconds": 41.1,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_78",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.3,
+   "rationale": "Significant LoF association with HDL (p=1e-11) in Europeans. However, evidence is limited to biomarkers with no hard disease endpoints or multi-ancestry data to confirm clinical benefit.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with hard clinical endpoints like myocardial infarction or coronary artery disease?",
+     "rationale": "Burden data only shows biomarker effects; GWAS is needed to see if these translate to reduced disease risk."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene loss-of-function tolerant (e.g., pLI or LOEUF scores)?",
+     "rationale": "To determine if therapeutic inhibition would be tolerated without developmental or systemic issues."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any associations with adverse traits in other systems (e.g., neurological or immunological)?",
+     "rationale": "Inhibiting a gene for lipids may have off-target safety risks not visible in my cardiometabolic view."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f959833a-2141-4383-9423-da18474df885",
+   "content_hash": "584ea7a827f49f37834ae187b20d3f6cd308c9c519191b14fcc5f7b7e0d4664b",
+   "timestamp": "2026-11-01T03:02:18.235646+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_78",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong L2G score (0.8) for liver fibrosis with a negative beta suggests inhibition could be beneficial. However, BMI/cholesterol signals have very low L2G scores and lack hard endpoints.",
+   "data_refs": [
+    "gwas_3"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene protect against liver fibrosis or cirrhosis?",
+     "rationale": "GWAS signals are intronic; burden data is needed to confirm that loss of gene function (mimicking inhibition) replicates the protective effect seen in the liver fibrosis GWAS."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with loss of function in this gene, particularly metabolic or hepatic?",
+     "rationale": "To ensure that inhibiting the gene to treat fibrosis doesn't cause unintended metabolic dysfunction."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "97870fc3-91a6-46f3-944c-7d341f08af50",
+   "content_hash": "a753e2a99c82b85b98516c0915a051236ca5695454522e0ec92b200b42f5bedd",
+   "timestamp": "2026-11-01T03:02:10.127362+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_78",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Loss-of-function (LoF) is linked to multiple Mendelian diseases, including cancer and cardiovascular disorders, and a strong burden signal for myeloproliferative disorder.",
+   "data_refs": [
+    "mendelian_2",
+    "mendelian_5",
+    "safety_28",
+    "safety_16"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would further strengthen the safety argument against systemic inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "cbfac02b-862e-4fc3-bd08-0d7733c7cf43",
+   "content_hash": "641bca11affc8112ab7d9fdd420bf2b533a90ca3462c8d7da307c0e894a32ee4",
+   "timestamp": "2026-11-01T03:02:09.768441+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_78",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Extremely low pLI (0.0005) and moderate LOEUF (0.6) suggest loss of function is well-tolerated in humans. DepMap data confirms it is not essential for cell viability across 1258 lines.",
+   "data_refs": [
+    "pli",
+    "loeuf",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are there human loss-of-function carriers with beneficial cardiometabolic or liver phenotypes?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence that inhibiting this gene provides therapeutic benefit."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "94477c3b-253a-44d4-a689-5c5aae565a86",
+   "content_hash": "ba4dd5002a17a4e2465b4f763a5a613ca4cb6985f8423f8eb8e72b2e2d35931c",
+   "timestamp": "2026-11-01T03:02:11.772710+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_78",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.4,
+   "rationale": "LoF is associated with HDL levels (p=1e-11), but no hard endpoints are present. Directionality is ambiguous for therapeutic benefit without knowing if HDL increases or decreases.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "94477c3b-253a-44d4-a689-5c5aae565a86"
+   ],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Does LoF in this gene associate with adverse outcomes in other systems?",
+     "rationale": "High HDL is not always protective; we need to ensure no off-target risks exist before considering it a target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "05f6a191-f458-4b54-9abd-cc0ed1a250ac",
+   "content_hash": "81006800f9b51cfa242acbf891a44d3b085ec917058419438a95210e12e31809",
+   "timestamp": "2026-11-01T03:02:20.319672+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_78",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Loss of function (LoF) is linked to myeloproliferative disorders and multiple Mendelian diseases across cancer, cardiovascular, and immune categories, suggesting significant safety risks.",
+   "data_refs": [
+    "safety_28",
+    "mendelian_2",
+    "mendelian_5",
+    "mendelian_7",
+    "mendelian_1"
+   ],
+   "parent_artifact_ids": [
+    "97870fc3-91a6-46f3-944c-7d341f08af50"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "7d3bc55a-dc1a-4d97-9b5a-30cdc6b0dcaa",
+   "content_hash": "b03d1bb0539dad9f5052998c498ca276ee34bf1a5314017fc98bdd19b9ab9360",
+   "timestamp": "2026-11-01T03:02:22.146202+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_78",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "The gene is highly tolerant of LoF (pLI ~0, LOEUF ~0.6) and is not essential for cell survival (DepMap effect > 0, not core-essential), suggesting systemic inhibition may be well-tolerated.",
+   "data_refs": [
+    "pli",
+    "loeuf",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "cbfac02b-862e-4fc3-bd08-0d7733c7cf43"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "62f5320d-73e5-4282-b224-fccee3d1bbb9",
+   "content_hash": "4d24757867d8c7bca60a96d56ecef6c11826b8fd199b684c1dbce6a54df01fcf",
+   "timestamp": "2026-11-01T03:02:26.618078+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_78",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "7 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "05f6a191-f458-4b54-9abd-cc0ed1a250ac",
+    "62f5320d-73e5-4282-b224-fccee3d1bbb9",
+    "94477c3b-253a-44d4-a689-5c5aae565a86",
+    "97870fc3-91a6-46f3-944c-7d341f08af50",
+    "f959833a-2141-4383-9423-da18474df885"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "f959833a-2141-4383-9423-da18474df885",
+     "rationale": "Rationale admits evidence is limited to biomarkers (HDL) with no hard disease endpoints."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "f959833a-2141-4383-9423-da18474df885",
+     "rationale": "Rationale states evidence is limited to Europeans with no multi-ancestry data to confirm clinical benefit."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "97870fc3-91a6-46f3-944c-7d341f08af50",
+     "rationale": "Rationale admits BMI and cholesterol signals lack hard endpoints and have low L2G scores."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "tolerance",
+     "target_artifact_id": "94477c3b-253a-44d4-a689-5c5aae565a86",
+     "rationale": "Safety reports LoF linked to Mendelian cancer and CV disorders, contradicting the claim that LoF is well-tolerated."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "05f6a191-f458-4b54-9abd-cc0ed1a250ac",
+     "rationale": "Rationale explicitly states no hard endpoints are present for the HDL association."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "05f6a191-f458-4b54-9abd-cc0ed1a250ac",
+     "rationale": "Rationale admits directionality is ambiguous for therapeutic benefit."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "tolerance",
+     "target_artifact_id": "62f5320d-73e5-4282-b224-fccee3d1bbb9",
+     "rationale": "Safety reports LoF linked to Mendelian cancer and CV disorders, contradicting the claim that LoF is well-tolerated."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "3f2fc812-8a5e-45c8-aacd-0f43dad17460",
+   "content_hash": "8fd88456ee69e92fb49c8b06a84cf18b86930d3fd4f40e269c7e95771d049725",
+   "timestamp": "2026-11-01T03:02:45.064650+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_78",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Strong LoF signal for HDL (p=1e-11) in Europeans, but lacks hard endpoints, multi-ancestry data, and clinical directionality is ambiguous for therapeutic benefit.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "f959833a-2141-4383-9423-da18474df885"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans?",
+     "rationale": "High pLI or low LOEUF would suggest LoF is deleterious, countering the potential benefit of the HDL association."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants show association with cardiovascular disease or lipids?",
+     "rationale": "GWAS evidence for hard endpoints would validate the biomarker-only burden signal."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there pleiotropic effects on other metabolic or liver traits?",
+     "rationale": "HDL-raising variants can sometimes have adverse effects on other systems like the liver or blood pressure."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "5f6cfbf3-7bbf-4cc9-ae9b-fe27eb5e3f94",
+   "content_hash": "a01087225366ba24ae6ddb2db27bf7d0f62d07d59c95d6914569aedc8e48d7d3",
+   "timestamp": "2026-11-01T03:02:47.359874+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_78",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.5,
+   "rationale": "Initial tolerance metrics (pLI 0.0005, LOEUF 0.6) were strong, but safety reports of Mendelian cancer and CV disorders suggest LoF is not benign, despite lack of cell-line essentiality.",
+   "data_refs": [
+    "safety_check",
+    "direction_conflict"
+   ],
+   "parent_artifact_ids": [
+    "94477c3b-253a-44d4-a689-5c5aae565a86",
+    "05f6a191-f458-4b54-9abd-cc0ed1a250ac"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "094c7d4f-f572-4fd0-b572-468f8d8fb3de",
+   "content_hash": "0c92739ec9be6a7c6189114a7e9896d5d850b876e9c36debacbae0feafd9ac26",
+   "timestamp": "2026-11-01T03:02:48.654856+00:00"
+  }
+ ]
+}

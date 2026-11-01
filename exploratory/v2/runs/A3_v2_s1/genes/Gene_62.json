@@ -1,0 +1,325 @@
+{
+ "gene_code": "Gene_62",
+ "score": -0.9,
+ "calls": 10,
+ "seconds": 37.6,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_62",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LoF variants consistently associate with lower waist-hip ratio across multiple cohorts (UKB, MDCS, MCPS). However, evidence is limited to biomarkers with no hard clinical endpoints reported.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (pLI/LOEUF)?",
+     "rationale": "To determine if therapeutic inhibition would be tolerated without developmental or essentiality issues."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF carriers in non-metabolic traits?",
+     "rationale": "Lowering WHR is beneficial, but I need to ensure LoF doesn't cause harm in other organ systems."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus associate with WHR or metabolic disease?",
+     "rationale": "Convergence between rare LoF and common variant signals would significantly increase confidence in the target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ff9df37e-b29a-4b1f-9200-681700f11071",
+   "content_hash": "997a013dda769b170b63cafe173d7f33dec4742a7b0f1d856156111e53eb93a7",
+   "timestamp": "2026-11-01T02:59:56.286438+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_62",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong GWAS evidence links this gene to metabolic traits. The lead allele increases WHR, BMI, LDL, and TC while decreasing T2D risk and triglycerides, suggesting a complex metabolic role.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_4",
+    "gwas_5",
+    "gwas_7",
+    "gwas_8",
+    "gwas_14"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function in this gene protect against type 2 diabetes or coronary artery disease?",
+     "rationale": "GWAS signals are primarily non-coding; rare-variant burden data is needed to confirm the direction of effect for therapeutic inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "2766c97d-e084-4610-b32f-305992e492d1",
+   "content_hash": "f3707d852232a966612c9f83e8c9e7570dabbe0f693bd8388f08055deb462a2d",
+   "timestamp": "2026-11-01T02:59:56.167972+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_62",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.4,
+   "rationale": "Mendelian evidence shows loss-of-function causes cardiovascular and congenital disorders. GWAS shows strong pleiotropy across hematological and anthropometric traits.",
+   "data_refs": [
+    "mendelian_2",
+    "mendelian_3",
+    "safety_1",
+    "safety_3",
+    "safety_4"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would significantly strengthen the 'against' stance given the Mendelian LoF signals."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant burden signals for cardiovascular or developmental phenotypes?",
+     "rationale": "Confirms if the Mendelian LoF risk translates to the general population."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "168a0246-d08d-4974-911b-92b5bbb86220",
+   "content_hash": "079eac4c7e8e131b445c003a34dbf1d67b5e5265d8f1898a7678c60393c98e4d",
+   "timestamp": "2026-11-01T02:59:56.058727+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_62",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.75,
+   "rationale": "High pLI (1.0) and low LOEUF (0.34) indicate strong intolerance to loss-of-function in humans, suggesting systemic inhibition may not be well-tolerated despite low cell-line dependency.",
+   "data_refs": [
+    "pli",
+    "loeuf",
+    "depmap_mean_gene_effect"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ee8b1aa8-5d85-4d29-a7b8-ba25285507e6",
+   "content_hash": "e0f34e039de32e1ceb60dbd9f93375e3cfb434537ddbea915b6ec367ac466080",
+   "timestamp": "2026-11-01T02:59:58.959784+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_62",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "The gene is highly LoF-intolerant (pLI=1, LOEUF=0.34), suggesting strong evolutionary constraint. While not cell-essential, systemic inhibition is likely poorly tolerated in humans.",
+   "data_refs": [
+    "pli",
+    "loeuf",
+    "lof_oe",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "168a0246-d08d-4974-911b-92b5bbb86220"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "38fb49dd-0d50-49c6-8507-d39acfd187f5",
+   "content_hash": "2f1649f4e846cfb50831de0ac224db099a1e486cee6a4830df1ec9a7bbd0841f",
+   "timestamp": "2026-11-01T03:00:00.663372+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_62",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Rare LoF variants associate with lower WHR across multiple cohorts (UKB, MDCS, MCPS). However, evidence is limited to metabolic biomarkers; no hard cardiovascular endpoints are present.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "168a0246-d08d-4974-911b-92b5bbb86220"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "aafb57b4-df46-4be9-a15f-53c8de76be27",
+   "content_hash": "83bd3caf0a03315506aaf833ebec312a9f70e25dd139eb8b873ced94b75c2c23",
+   "timestamp": "2026-11-01T03:00:02.003243+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_62",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "Loss of function is linked to Mendelian cardiovascular and congenital disorders. GWAS also shows strong signals for platelet and immune traits, suggesting pleiotropic risks.",
+   "data_refs": [
+    "mendelian_2",
+    "mendelian_3",
+    "safety_1",
+    "safety_3",
+    "safety_4"
+   ],
+   "parent_artifact_ids": [
+    "ff9df37e-b29a-4b1f-9200-681700f11071"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "f0e96008-272f-40a3-9a08-c64df7d018ee",
+   "content_hash": "ef3c5e0104fba050fc563a4c718571abe2d560b127f80a29617baff9a5c8f1e1",
+   "timestamp": "2026-11-01T03:00:04.258798+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_62",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "6 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "2766c97d-e084-4610-b32f-305992e492d1",
+    "aafb57b4-df46-4be9-a15f-53c8de76be27",
+    "ff9df37e-b29a-4b1f-9200-681700f11071"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "ff9df37e-b29a-4b1f-9200-681700f11071",
+     "rationale": "The rationale explicitly states that evidence is limited to biomarkers with no hard clinical endpoints reported."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "burden",
+     "target_artifact_id": "ff9df37e-b29a-4b1f-9200-681700f11071",
+     "rationale": "High pLI (1.0) and low LOEUF (0.34) indicate the gene is LoF-intolerant, making the supportive LoF-based verdict unsafe."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "2766c97d-e084-4610-b32f-305992e492d1",
+     "rationale": "The lead allele shows conflicting metabolic directions, increasing BMI and LDL while decreasing T2D risk and triglycerides."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "gwas",
+     "target_artifact_id": "2766c97d-e084-4610-b32f-305992e492d1",
+     "rationale": "The gene's high intolerance to loss-of-function (pLI 1.0) suggests that any therapeutic targeting (supported by GWAS) may be unsafe."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "aafb57b4-df46-4be9-a15f-53c8de76be27",
+     "rationale": "The rationale admits that rare LoF variant associations are limited to metabolic biomarkers without hard clinical endpoints."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "burden",
+     "target_artifact_id": "aafb57b4-df46-4be9-a15f-53c8de76be27",
+     "rationale": "Strong evolutionary constraint (LOEUF 0.34) and LoF intolerance (pLI 1.0) suggest that systemic inhibition is likely poorly tolerated."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7cecc860-11e1-4484-a72f-1d6a640283d4",
+   "content_hash": "ac3a19c222d44ee4c9172842c8a181a4ad05bda38568c23c73a53a2543b8a9f3",
+   "timestamp": "2026-11-01T03:00:27.923987+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_62",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.3,
+   "rationale": "Rare LoF variants associate with lower WHR across cohorts, but high LoF-intolerance (pLI 1.0) and pleiotropic safety risks for immune/platelet traits make systemic inhibition unsafe.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "ff9df37e-b29a-4b1f-9200-681700f11071",
+    "f0e96008-272f-40a3-9a08-c64df7d018ee"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0d59b137-1d9a-402e-b411-3500358253d5",
+   "content_hash": "0c3672f95bbc4630a52b886755e6ff4903c93b3fbfe24a0816b383334a183490",
+   "timestamp": "2026-11-01T03:00:29.499795+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_62",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.5,
+   "rationale": "Strong GWAS signals link the gene to WHR and lipids. However, conflicting metabolic directions and high LoF intolerance (pLI 1.0) suggest significant safety risks for systemic inhibition.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_4",
+    "gwas_5",
+    "gwas_7",
+    "gwas_8",
+    "gwas_14"
+   ],
+   "parent_artifact_ids": [
+    "2766c97d-e084-4610-b32f-305992e492d1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c957860e-664e-4285-9a6f-c1a3a769adb5",
+   "content_hash": "e8c0438fb53df330e241d2512fd85a305118da35230677e8834effb9d4d43755",
+   "timestamp": "2026-11-01T03:00:31.591883+00:00"
+  }
+ ]
+}

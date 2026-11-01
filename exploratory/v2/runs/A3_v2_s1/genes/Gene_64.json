@@ -1,0 +1,317 @@
+{
+ "gene_code": "Gene_64",
+ "score": -1.6,
+ "calls": 10,
+ "seconds": 16.4,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_64",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants strongly associate with increased risk of Type 2 Diabetes (p=1e-19) and higher waist-hip ratio, despite lowering LDL and Total Cholesterol.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_6",
+    "burden_7"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Does this gene have known roles in insulin secretion or pancreatic function?",
+     "rationale": "The strong T2D risk despite favorable lipid profiles suggests a potential mechanism of harm that would preclude therapeutic inhibition."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI/LOEUF)?",
+     "rationale": "To assess if the metabolic risk observed in carriers reflects a broader developmental or physiological intolerance."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "23f0086b-31b2-444f-9eda-06c69e46877b",
+   "content_hash": "753784334d124bd7a048c3a6e06c1d1f4f86fe514aa96f52c94ebca329054874",
+   "timestamp": "2026-11-01T03:00:27.518808+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_64",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong GWAS evidence across multiple populations linking this gene to lower LDL, total cholesterol, and ApoB. T2D association exists but lacks beta direction in this view.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_40"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene reduce LDL cholesterol and T2D risk?",
+     "rationale": "GWAS lead variants are mostly non-coding; burden results would confirm the effect of gene inhibition and the direction of the T2D effect."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "46bb1858-66b3-4400-9b5b-3407501ac8c3",
+   "content_hash": "277dae2056a1274c61feaeecb0676ced977d2337e9ff59b8e5da2869dcbf4499",
+   "timestamp": "2026-11-01T03:00:27.747294+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_64",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Loss of function (LoF) is linked to 3 nervous system and 1 psychiatric Mendelian disorders. Burden signals also link LoF to increased risk of diabetes, HbA1c, and lower educational attainment.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "safety_14",
+    "safety_26",
+    "safety_29"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "High intolerance would further confirm the risk of systemic harm from therapeutic inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e611cdba-ae06-4eed-ad9d-75eafb3de393",
+   "content_hash": "432acc79a2d28b673558dc4cbd56e61cd7dc8185aa29b02d23790b952bd52372",
+   "timestamp": "2026-11-01T03:00:27.207501+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_64",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "High LOEUF (0.68) and pLI near 0 indicate high tolerance for loss-of-function in humans. Low DepMap dependency and non-essential status suggest inhibition is likely safe at a cellular level.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function or inhibition of this gene provide protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance evidence shows inhibition is safe, but we need evidence of therapeutic benefit to confirm it as a viable target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a17d863a-da76-4b62-a3f5-b16b7b52cada",
+   "content_hash": "c27ce43ac19e594050c85cb5a92e278e8805d0ce1f9ef0a0181dbaeeab5618af",
+   "timestamp": "2026-11-01T03:00:27.209458+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_64",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.68) and near-zero pLI indicate LoF tolerance. DepMap data confirms it is not core-essential, with minimal cell-line dependency (-0.136).",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [
+    "23f0086b-31b2-444f-9eda-06c69e46877b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "0e252f35-b58b-4e36-8f4b-901ba49258a1",
+   "content_hash": "e19bf33b68c1e2c82850e6f0ec8a6e9cb067d4fb0f074eaa26d1d97d47c973a8",
+   "timestamp": "2026-11-01T03:00:32.975959+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_64",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF reduces LDL and ApoB (strong evidence, multiple cohorts), but significantly increases T2D risk (p=10^-19) and waist-hip ratio, suggesting metabolic harm despite lipid lowering.",
+   "data_refs": [
+    "burden_1",
+    "burden_3",
+    "burden_4",
+    "burden_6"
+   ],
+   "parent_artifact_ids": [
+    "46bb1858-66b3-4400-9b5b-3407501ac8c3"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "e492020a-a0b6-43e8-be53-78223510fdb6",
+   "content_hash": "6a475772625b3109e9cc9108f6a8aeede6f9318965b35d2d12cf901c8360ca1a",
+   "timestamp": "2026-11-01T03:00:34.309371+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_64",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF is associated with increased risk of diabetes, HbA1c, and glucose. Mendelian data shows LoF causes nervous system and psychiatric disorders, suggesting significant pleiotropic harm.",
+   "data_refs": [
+    "safety_12",
+    "safety_14",
+    "safety_15",
+    "safety_26",
+    "mendelian_1",
+    "mendelian_2"
+   ],
+   "parent_artifact_ids": [
+    "23f0086b-31b2-444f-9eda-06c69e46877b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "426a8b9d-8926-4328-b1b1-d9b1b2c56f50",
+   "content_hash": "9252056a2d293b0ebd922699c5a0630a7812dd05fbb9f8107dd364b17373dbb4",
+   "timestamp": "2026-11-01T03:00:35.996779+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_64",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "0e252f35-b58b-4e36-8f4b-901ba49258a1",
+    "46bb1858-66b3-4400-9b5b-3407501ac8c3",
+    "a17d863a-da76-4b62-a3f5-b16b7b52cada"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "46bb1858-66b3-4400-9b5b-3407501ac8c3",
+     "rationale": "GWAS supports the target based on lipids but acknowledges a T2D association without a known direction, which conflicts with the strong T2D risk (against) reported in burden and safety."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "46bb1858-66b3-4400-9b5b-3407501ac8c3",
+     "rationale": "The support stance relies on lipid measurements (LDL, ApoB) rather than clinical endpoints, ignoring the clinical T2D risk identified in other channels."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "tolerance",
+     "target_artifact_id": "a17d863a-da76-4b62-a3f5-b16b7b52cada",
+     "rationale": "Tolerance claims LoF is safe based on LOEUF/pLI, but safety and burden agents report Mendelian nervous system disorders and T2D risk from LoF, indicating significant phenotypic intolerance."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "tolerance",
+     "target_artifact_id": "0e252f35-b58b-4e36-8f4b-901ba49258a1",
+     "rationale": "The claim of LoF tolerance based on cellular essentiality and LOEUF is contradicted by the clinical evidence of Mendelian disorders and metabolic harm in safety and burden reports."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "bd57e9ce-7426-4e9a-aed6-01c2d72a0542",
+   "content_hash": "d1e251a55d80f7ba97d0060783f479d26ceb8279ccc58fc59431bf45ec0f903d",
+   "timestamp": "2026-11-01T03:00:38.448506+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_64",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "GWAS shows strong lipid-lowering signals, but the burden evidence reveals a critical T2D risk (p=10^-19) that GWAS could not previously sign, indicating inhibition is likely harmful.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_4",
+    "gwas_29",
+    "gwas_40"
+   ],
+   "parent_artifact_ids": [
+    "46bb1858-66b3-4400-9b5b-3407501ac8c3",
+    "e492020a-a0b6-43e8-be53-78223510fdb6"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "083c9626-241c-4094-b3d8-53115fdc2e82",
+   "content_hash": "eebd5495c6dbfbbe6514a78e338736cd027e06c591f175a15355f53a3314ad7b",
+   "timestamp": "2026-11-01T03:00:40.278424+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_64",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "LoF variants strongly increase risk for T2D (p=1e-19), a hard endpoint. Protective lipid signals are outweighed by this metabolic risk and confirmed safety concerns regarding pleiotropy.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_6",
+    "burden_7"
+   ],
+   "parent_artifact_ids": [
+    "23f0086b-31b2-444f-9eda-06c69e46877b",
+    "0e252f35-b58b-4e36-8f4b-901ba49258a1",
+    "426a8b9d-8926-4328-b1b1-d9b1b2c56f50"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "5fbb1d17-c7c6-4448-bfd7-72841fff64f2",
+   "content_hash": "01b5cc39652fb4174eaf72010977b093f8e6520562021e59ac913be6fa7d046c",
+   "timestamp": "2026-11-01T03:00:41.691087+00:00"
+  }
+ ]
+}

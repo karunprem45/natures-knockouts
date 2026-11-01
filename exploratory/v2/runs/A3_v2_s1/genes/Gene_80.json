@@ -1,0 +1,307 @@
+{
+ "gene_code": "Gene_80",
+ "score": 2.1,
+ "calls": 10,
+ "seconds": 30.9,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_80",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LoF variants consistently associate with lower waist-hip ratio across multiple cohorts (UKB, MDCS, MCPS). However, evidence is limited to biomarkers with no hard clinical endpoints shown.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (pLI/LOEUF)?",
+     "rationale": "To ensure therapeutic inhibition is safe and doesn't cause developmental or essentiality issues."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any risk associations for LoF variants in non-metabolic traits?",
+     "rationale": "To identify potential off-target or pleiotropic adverse effects of inhibiting this gene."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with metabolic disease or hard endpoints like T2D?",
+     "rationale": "Common variant evidence for disease endpoints would significantly strengthen the case beyond biomarker associations."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "59aa04cc-a1ce-4053-8eba-20ab820ffa50",
+   "content_hash": "b458933db8a6dc4cab4212036bdf9c4a2b70786b8ad21dd9c2c5274750724f03",
+   "timestamp": "2026-11-01T03:02:38.954365+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_80",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "Strong associations with increased HDL subfractions and decreased triglycerides. However, L2G scores are modest and lead variants are non-coding, requiring burden data to confirm causality.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_7",
+    "gwas_19",
+    "gwas_28",
+    "gwas_30"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with increased HDL, decreased triglycerides, or protection from T2D?",
+     "rationale": "GWAS signals are primarily non-coding with modest L2G scores; burden data would confirm the gene is the causal driver and that inhibition is the correct therapeutic direction."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "6b30e766-1f64-437e-b87c-9612cfb01755",
+   "content_hash": "4438f379988992e05db65f8aa91a2b3d267c63a4679b904f5399bef1eff9b2fb",
+   "timestamp": "2026-11-01T03:02:39.207871+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_80",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function. GWAS hits are primarily biomarkers. A burden signal for birth weight exists, but no severe safety events or LoF-driven pathologies.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "safety_26"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High LoF intolerance would suggest essentiality not captured by the current disease evidence, potentially moving the stance to neutral or against."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "9b8e1f3e-73f6-45c7-b1d1-dde04f51d03e",
+   "content_hash": "10e0cdcd1ccacbcde5b5893bf5d0b06676a3b75e8e10ae4320790baeccf6473e",
+   "timestamp": "2026-11-01T03:02:38.552550+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_80",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "High LOEUF (1.0) and near-zero pLI indicate strong tolerance to LoF. Low DepMap dependency and secreted status suggest inhibition would be well-tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are loss-of-function variants in this gene associated with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance data suggests safety, but I need evidence of therapeutic benefit to confirm it as a viable target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "1968d7e2-68b0-4f48-9c0a-026a1ec9aa5b",
+   "content_hash": "548d6c38f0e2b4b0daea1693ea54aa14717b2a483f3460603f76bb2452c59f89",
+   "timestamp": "2026-11-01T03:02:40.950854+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_80",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LoF variants associate with lower waist-hip ratio across multiple cohorts (UKB, MDCS, MCPS). However, evidence is limited to biomarkers; no hard clinical endpoints are present in the data.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "1968d7e2-68b0-4f48-9c0a-026a1ec9aa5b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "af8a3b92-f110-4fa0-a248-6726ba14f252",
+   "content_hash": "637baaffc19f954b6ee8deae8d93e464235fa7d1d3db0477a92f63bf9635f09c",
+   "timestamp": "2026-11-01T03:02:42.344562+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_80",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.00) and near-zero pLI indicate strong LoF tolerance in humans. Low DepMap dependency and non-essential status suggest inhibition is likely safe.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [
+    "59aa04cc-a1ce-4053-8eba-20ab820ffa50"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "826ad8da-24fe-4a8b-99f7-44c08962846a",
+   "content_hash": "16e84ca79878489092f59ef7351e256e1f1167f8fc5c34e0ebeebe91b64ab533",
+   "timestamp": "2026-11-01T03:02:46.903107+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_80",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by LoF. The only LoF burden signal is for birth weight, which is not a severe safety contraindication. GWAS hits are primarily biomarkers.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "safety_26"
+   ],
+   "parent_artifact_ids": [
+    "59aa04cc-a1ce-4053-8eba-20ab820ffa50"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "cf1f596c-ef57-4a1f-bec1-ae70f6bde9a1",
+   "content_hash": "3b8e70f65d9a062c4f0115ce0968690774a14a9a7c44fef57d3610451f72864e",
+   "timestamp": "2026-11-01T03:02:48.453498+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_80",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "3 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "59aa04cc-a1ce-4053-8eba-20ab820ffa50",
+    "6b30e766-1f64-437e-b87c-9612cfb01755",
+    "af8a3b92-f110-4fa0-a248-6726ba14f252"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "59aa04cc-a1ce-4053-8eba-20ab820ffa50",
+     "rationale": "The agent explicitly notes that evidence is limited to biomarkers (waist-hip ratio) with no hard clinical endpoints shown."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "6b30e766-1f64-437e-b87c-9612cfb01755",
+     "rationale": "Associations are limited to lipid subfractions and triglycerides, which are measurements rather than clinical disease endpoints."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "af8a3b92-f110-4fa0-a248-6726ba14f252",
+     "rationale": "The rationale acknowledges that findings are restricted to biomarkers and lack hard clinical endpoints."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a05ec1fe-0337-480d-ad17-19552487e9ea",
+   "content_hash": "341a07d46faeb9341e73f116155e1b1cb51ac5eb4642fa85a547796bdddefbd6",
+   "timestamp": "2026-11-01T03:03:03.161024+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_80",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.65,
+   "rationale": "LoF variants consistently lower waist-hip ratio across multiple cohorts (UKB, MDCS, MCPS). Tolerance and safety data confirm LoF is viable, though evidence remains limited to biomarkers.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "59aa04cc-a1ce-4053-8eba-20ab820ffa50",
+    "826ad8da-24fe-4a8b-99f7-44c08962846a",
+    "cf1f596c-ef57-4a1f-bec1-ae70f6bde9a1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "05586aa5-a88b-46d2-8d89-959db8a0bddb",
+   "content_hash": "72cfbdb88a4d7a51d94e1e12674680fdcb1119110d497e11abd83a47840dc5c4",
+   "timestamp": "2026-11-01T03:03:04.891874+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_80",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.45,
+   "rationale": "Strong lipid associations (HDL, TG) across populations. While mostly biomarkers, a high L2G splice variant for WHR and a T2D signal suggest broader metabolic impact beyond just lipid levels.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_19",
+    "gwas_28",
+    "gwas_30"
+   ],
+   "parent_artifact_ids": [
+    "6b30e766-1f64-437e-b87c-9612cfb01755"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "fe1a4a8e-b344-4f49-a098-be06ae6a669b",
+   "content_hash": "42287b9c508ac0675287c57529639ef71596b1987caee5f86de67046b5cdd2e5",
+   "timestamp": "2026-11-01T03:03:07.403137+00:00"
+  }
+ ]
+}

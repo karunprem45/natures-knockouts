@@ -1,0 +1,322 @@
+{
+ "gene_code": "Gene_75",
+ "score": 0.44999999999999996,
+ "calls": 10,
+ "seconds": 43.4,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_75",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong, consistent LoF association with lower TC and LDL-C across multiple ancestries and >700k samples. Highly significant, but lacks hard clinical endpoints and shows lower HDL.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene tolerant to loss-of-function in humans (LOEUF/pLI)?",
+     "rationale": "To ensure therapeutic inhibition would not cause severe developmental or survival issues."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with LoF in other organ systems?",
+     "rationale": "To evaluate potential off-target or systemic risks of gene inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e23a1a9e-d188-448f-b367-27f71b45a49c",
+   "content_hash": "841946ef68993bda067550e8a42e879b4ad1a5ae4e92e878967299fad4659384",
+   "timestamp": "2026-11-01T03:01:48.217053+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_75",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Strong evidence from stop-gain variants (L2G > 0.8) linking the gene to reduced total cholesterol and hypercholesterolemia risk across multiple populations.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_4",
+    "gwas_5"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant burden analysis confirm that loss-of-function in this gene reduces hypercholesterolemia risk and clarify the direction of effect for T2D nephropathy?",
+     "rationale": "The lead variant for T2D nephropathy is missense; I need to know if LoF is protective or harmful for this hard endpoint to confirm the therapeutic window."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene intolerant to loss-of-function (e.g., high pLI or low LOEUF)?",
+     "rationale": "Stop-gain variants are present in the population, but I need to ensure systemic inhibition won't cause adverse developmental or essentiality issues."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d4e0d8dc-3387-457e-9dec-9f5d3d879659",
+   "content_hash": "10d5203030b611d762f9d4427117ad281b684ae07723012115a58d876cb8933a",
+   "timestamp": "2026-11-01T03:01:51.938070+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_75",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "Loss of function is strongly associated with severe hematologic disorders, including thalassemia and hemolytic anemia, supported by both Mendelian evidence and high-significance burden tests.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "safety_3",
+    "safety_4",
+    "safety_5",
+    "safety_10",
+    "safety_18",
+    "safety_21"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would further confirm the risk of systemic harm from inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "762fd64c-5b91-498b-96fb-64dd24ada36f",
+   "content_hash": "333e3f078fde6f5908e2427c583687e76c5e9990ac5037dd435c5186d1f3f3b6",
+   "timestamp": "2026-11-01T03:01:43.194597+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_75",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Extremely high LOEUF (2.76) and pLI near 0, plus no DepMap dependency, indicate that loss of this gene is likely very well tolerated in humans.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are loss-of-function variants in this gene associated with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit from loss of function."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "00c9a784-e98b-4c3a-88d2-f78457bab12e",
+   "content_hash": "c22c1bdb6489da0b180930c6f290bd3a615f514c790dce15765ec85bb45aec77",
+   "timestamp": "2026-11-01T03:01:45.783393+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_75",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly tolerant of loss-of-function; LOEUF (2.76) is very high, pLI is near zero, and it is not essential in DepMap cell lines.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "762fd64c-5b91-498b-96fb-64dd24ada36f"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "903acf86-f87f-428b-8b1e-7c580246c0df",
+   "content_hash": "6786c04ba8a1dfd4afec46c9f73ba9ae1efc7cb8758d0a77c1d7995399d7e4ea",
+   "timestamp": "2026-11-01T03:01:53.644571+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_75",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong LoF burden for lower LDL and total cholesterol across multiple cohorts and ancestries. However, evidence is limited to biomarkers; no hard clinical endpoints are present in the data.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4"
+   ],
+   "parent_artifact_ids": [
+    "00c9a784-e98b-4c3a-88d2-f78457bab12e"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "53af0051-2fd1-4dc9-a87f-be2db6a9ba50",
+   "content_hash": "1c0d4c03789a9f564479ad17d3eaf4d12ae99c046b3c48ab4906358e6eed157d",
+   "timestamp": "2026-11-01T03:01:55.134584+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_75",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "LoF is strongly associated with severe hematologic disorders including thalassemia and hemolytic anemia, supported by both burden signals and Mendelian evidence.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "safety_3",
+    "safety_4",
+    "safety_5",
+    "safety_10",
+    "safety_21"
+   ],
+   "parent_artifact_ids": [
+    "e23a1a9e-d188-448f-b367-27f71b45a49c"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "7def413f-1d7a-4469-a825-313370de97c9",
+   "content_hash": "a52ee253dcc806998bc48d562b9ceea919c7522618d8f8a09e9c544c63bb7ffc",
+   "timestamp": "2026-11-01T03:01:56.891089+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_75",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "00c9a784-e98b-4c3a-88d2-f78457bab12e",
+    "53af0051-2fd1-4dc9-a87f-be2db6a9ba50",
+    "903acf86-f87f-428b-8b1e-7c580246c0df",
+    "e23a1a9e-d188-448f-b367-27f71b45a49c"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "e23a1a9e-d188-448f-b367-27f71b45a49c",
+     "rationale": "The agent explicitly states the evidence lacks hard clinical endpoints and is limited to lipid measurements."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "tolerance",
+     "target_artifact_id": "00c9a784-e98b-4c3a-88d2-f78457bab12e",
+     "rationale": "High tolerance metrics (LOEUF 2.76) directly contradict the Safety agent's report of severe Mendelian hematologic disorders resulting from loss of function."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "tolerance",
+     "target_artifact_id": "903acf86-f87f-428b-8b1e-7c580246c0df",
+     "rationale": "The claim that LoF is well-tolerated is inconsistent with the Safety agent's findings of severe clinical hematologic phenotypes."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "53af0051-2fd1-4dc9-a87f-be2db6a9ba50",
+     "rationale": "The agent admits evidence is limited to biomarkers with no hard clinical endpoints present in the data."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f5b5b503-d1ed-47cf-bc35-3926eb7ca660",
+   "content_hash": "5e251cb3d24757c6659be9de0203c370e7cce3ae689fd47b5a6621e7a55f47e4",
+   "timestamp": "2026-11-01T03:02:08.213413+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_75",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "Strong lipid-lowering burden signals across ancestries, but downgraded due to lack of hard endpoints and severe hematologic safety risks (anemia) reported by other agents.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4"
+   ],
+   "parent_artifact_ids": [
+    "e23a1a9e-d188-448f-b367-27f71b45a49c",
+    "7def413f-1d7a-4469-a825-313370de97c9"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0a65d2f9-a37a-4ce0-b19a-73e6408e47c8",
+   "content_hash": "3ae1974a535a3619e58b60deaf3b67f446ade8e28e7ffea838dc66d01b20c8b3",
+   "timestamp": "2026-11-01T03:02:22.682897+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_75",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Population metrics (LOEUF 2.76, pLI 0) strongly support tolerance. However, I have lowered strength due to reported severe hematologic phenotypes from the Safety agent, suggesting niche essentiality.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "burden_check"
+   ],
+   "parent_artifact_ids": [
+    "00c9a784-e98b-4c3a-88d2-f78457bab12e",
+    "53af0051-2fd1-4dc9-a87f-be2db6a9ba50"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "26ef1d3e-fd85-4768-b55c-39b7f563703f",
+   "content_hash": "d2c9eabebd1166ea4f6e4918382a30a0989c0b14c465ae4d0210a6d4101534b5",
+   "timestamp": "2026-11-01T03:02:24.423248+00:00"
+  }
+ ]
+}

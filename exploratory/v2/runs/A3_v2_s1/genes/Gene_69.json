@@ -1,0 +1,325 @@
+{
+ "gene_code": "Gene_69",
+ "score": 0.5,
+ "calls": 10,
+ "seconds": 18.2,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_69",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Evidence limited to HDL subfraction biomarkers in one cohort (EUR) with few carriers (34). No hard clinical endpoints; 'protective' direction on these specific biomarkers is clinically unclear.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Check for associations with hard endpoints like CAD, MI, or T2D.",
+     "rationale": "Burden data only shows biomarker changes; GWAS could provide evidence for clinical disease protection."
+    },
+    {
+     "type": "safety_check",
+     "query": "Check for adverse associations in other metabolic or liver traits.",
+     "rationale": "Inhibiting the gene may have off-target effects not visible in the current lipid subfraction view."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant (pLI/LOEUF)?",
+     "rationale": "Low carrier count (34) suggests the gene might be under evolutionary constraint, impacting safety."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4aeff349-9e42-4ce8-a008-970b74a26f93",
+   "content_hash": "59cfc5151c4ebe1b560073f324134272b736d84eef4fee187d4b12603bf61753",
+   "timestamp": "2026-11-01T03:00:59.774530+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_69",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "GWAS shows strong associations with HDL subfractions and BMI/T2D, but L2G scores are very low (<0.1 for lipids, ~0.24 for T2D), suggesting the causal gene may be a neighbor.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_6",
+    "gwas_20",
+    "gwas_25"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare variant burden for T2D, BMI, and HDL cholesterol",
+     "rationale": "Low L2G scores in GWAS make gene assignment uncertain; rare variant burden would confirm if this specific gene is the driver."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "pLI and LOEUF scores for this gene",
+     "rationale": "To assess if inhibiting this gene is likely to be tolerated based on natural selection."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e7efd7ae-823f-4455-a34e-d059a2d95c5f",
+   "content_hash": "293bf548585a55bf8d58965e26e17ef4fa4938580272b16839cd35535dccea75",
+   "timestamp": "2026-11-01T03:00:55.780990+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_69",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.4,
+   "rationale": "Mendelian evidence shows LoF causes reproductive and congenital diseases. GWAS shows strong signals for immune/hematologic traits and skin cancer, suggesting pleiotropic risks.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "safety_1",
+    "safety_2",
+    "safety_18",
+    "safety_27",
+    "safety_31"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would significantly strengthen the 'against' stance given the Mendelian LoF findings."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant burden signals for skin cancer or autoimmune conditions?",
+     "rationale": "Confirms if the GWAS signals for cancer and lupus are driven by loss of function."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4ca9aa3e-83bb-4187-8c45-be3eca9b06d1",
+   "content_hash": "3f03bf772f926227967615561d48a4b9503e6136f1b471d4c3ee1d9b701c41a8",
+   "timestamp": "2026-11-01T03:00:55.780622+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_69",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.81), pLI near 0, and zero DepMap dependency indicate high tolerance for loss-of-function. Secreted protein status is favorable for druggability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or reduced expression of this gene associate with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone doesn't justify a target; we need evidence of therapeutic benefit."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific phenotypes in LoF carriers or knockout models that suggest risks not captured by constraint metrics?",
+     "rationale": "Population metrics might miss specific, late-onset, or context-dependent toxicities."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "5e2cc6df-ed31-4d5f-bf6f-70efb1a441ea",
+   "content_hash": "0a94d9f11243e3bc711e03b938059cbf56be6e5ea2c9330f30d043f9e3637be2",
+   "timestamp": "2026-11-01T03:00:59.172452+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_69",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.81) and pLI near 0 indicate high LoF tolerance. DepMap shows no cell dependency (0% dependent), and the protein is secreted, suggesting lifelong inhibition is likely safe.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [
+    "4aeff349-9e42-4ce8-a008-970b74a26f93"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "bd21301e-2a5f-43f4-bad7-5145f801dfe0",
+   "content_hash": "af2f7c9b48deba942f0724cfd9cda76e385a7dfe3c009541f8090a70a43e44b6",
+   "timestamp": "2026-11-01T03:01:01.402236+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_69",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "My evidence only covers lipid biomarkers in one cohort (UKB) and ancestry (EUR). I have no data regarding skin cancer or autoimmune conditions to confirm the safety agent's query.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "4ca9aa3e-83bb-4187-8c45-be3eca9b06d1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "5dd9d0d1-8aaf-46ac-a42f-6e193ff29594",
+   "content_hash": "ac4c824ea3eb337bc898069e015f9f94bf0ebdaa0bf7ad5d21822139d2a42428",
+   "timestamp": "2026-11-01T03:01:02.985382+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_69",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.3,
+   "rationale": "GWAS shows a significant association with T2D (hard endpoint) and BMI, though L2G scores are low (~0.23-0.25) and variants are intronic, suggesting the locus may belong to a neighbor.",
+   "data_refs": [
+    "gwas_6",
+    "gwas_20",
+    "gwas_27"
+   ],
+   "parent_artifact_ids": [
+    "4aeff349-9e42-4ce8-a008-970b74a26f93"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "36dbd350-631d-44b5-9245-75337d361d9b",
+   "content_hash": "c7429d48057e617d976c2c025ec67b08a0de513b227cbf7c939ebcbcfd06b240",
+   "timestamp": "2026-11-01T03:01:05.444270+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_69",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "4aeff349-9e42-4ce8-a008-970b74a26f93",
+    "5dd9d0d1-8aaf-46ac-a42f-6e193ff29594"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "4aeff349-9e42-4ce8-a008-970b74a26f93",
+     "rationale": "The evidence is restricted to HDL subfraction biomarkers with no hard clinical endpoints reported."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "4aeff349-9e42-4ce8-a008-970b74a26f93",
+     "rationale": "The burden evidence is derived exclusively from a European (EUR) cohort."
+    },
+    {
+     "type": "underpowered",
+     "channel": "burden",
+     "target_artifact_id": "4aeff349-9e42-4ce8-a008-970b74a26f93",
+     "rationale": "The verdict relies on a very small sample size of only 34 carriers."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "5dd9d0d1-8aaf-46ac-a42f-6e193ff29594",
+     "rationale": "The agent acknowledges the evidence is limited to a single cohort (UKB)."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0d075c4e-81dc-4396-b1d3-c929406399e3",
+   "content_hash": "b3ddde06386a9f362b4692a70380abad3740534e957477282de17f356591d950",
+   "timestamp": "2026-11-01T03:01:07.910360+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_69",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Burden evidence remains weak: only 34 carriers in one EUR cohort (UKB) for biomarkers only. Tolerance data is reassuring, but GWAS support for hard endpoints is low-confidence (L2G ~0.24).",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "4aeff349-9e42-4ce8-a008-970b74a26f93",
+    "bd21301e-2a5f-43f4-bad7-5145f801dfe0",
+    "36dbd350-631d-44b5-9245-75337d361d9b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "93e5fd37-70a9-4905-925e-6629dec2a7a5",
+   "content_hash": "c22c816ffdadf605715f5ee63125880bb13c8d7b8168c0c6cf26f0dbe2987dee",
+   "timestamp": "2026-11-01T03:01:09.562383+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_69",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.4,
+   "rationale": "Mendelian LoF causes reproductive and congenital disease. GWAS shows strong pleiotropic signals for immune traits, SLE, and skin cancer. Burden agent could not confirm or refute these risks.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "safety_1",
+    "safety_18",
+    "safety_27",
+    "safety_31"
+   ],
+   "parent_artifact_ids": [
+    "4ca9aa3e-83bb-4187-8c45-be3eca9b06d1",
+    "5dd9d0d1-8aaf-46ac-a42f-6e193ff29594"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "70d5e9b9-3c02-47c3-a4c3-b5495d4efae6",
+   "content_hash": "a574fa71bfca108f54f7a922a47931b8e5cb0ab01e8a6d1fc0aa6f13bf80b1af",
+   "timestamp": "2026-11-01T03:01:11.326261+00:00"
+  }
+ ]
+}

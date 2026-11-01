@@ -1,0 +1,304 @@
+{
+ "gene_code": "Gene_56",
+ "score": 1.0,
+ "calls": 10,
+ "seconds": 20.5,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_56",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "LoF variants associate with lower HDL (unfavorable) and BMI. No hard endpoints; only 2 traits across 3 cohorts. Lowering HDL is generally considered a risk factor, not a therapeutic goal.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Does this gene have associations with malabsorption, liver fat, or developmental disorders?",
+     "rationale": "Low HDL and BMI can sometimes reflect systemic malabsorption or metabolic dysfunction rather than healthy leanness."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus associate with coronary artery disease or myocardial infarction?",
+     "rationale": "If common variants show that lower HDL increases cardiovascular risk, it confirms inhibiting this gene is a poor strategy."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b5567b0a-2868-4958-b2f0-f5e4af774988",
+   "content_hash": "4c9fb3fc1661973afa21de60f2d240719f6f23da8e8219171010d49a25e0d443",
+   "timestamp": "2026-11-01T02:58:59.975588+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_56",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "GWAS shows strong associations with reduced T2D risk, lower BMI, and lower triglycerides, alongside increased HDL subfractions. The T2D association is a hard endpoint with a high L2G score.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_3",
+    "gwas_5",
+    "gwas_18"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene protect against type 2 diabetes or obesity?",
+     "rationale": "GWAS lead variants are intronic; confirming that loss-of-function mimics the protective metabolic profile is essential for therapeutic validation."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function mutations in the general population?",
+     "rationale": "To assess if systemic inhibition would be safe."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7a0ca3c6-75de-4e0d-949e-7a109ebeda70",
+   "content_hash": "f0a9b85a5f08b566b923d1f3a20d691345c28b291d195b6c9914cc11a0545185",
+   "timestamp": "2026-11-01T02:58:58.929226+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_56",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.4,
+   "rationale": "Mendelian evidence shows LoF causes disease in hematologic, immune, and metabolic categories. GWAS shows strong signals for neutrophil and lymphocyte counts, suggesting potential toxicity.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "safety_9",
+    "safety_11",
+    "safety_21"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI > 0.9 or high LOEUF)?",
+     "rationale": "High intolerance would confirm that the observed Mendelian LoF associations represent a significant safety risk for systemic inhibition."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant LoF burden signals for immune or hematologic traits?",
+     "rationale": "Strong burden signals would strengthen the evidence that inhibiting this gene causes the blood-count changes seen in GWAS."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8f1b8cea-66aa-4be4-ba73-58bfce6ce67b",
+   "content_hash": "496df37eca881c2a775ec7aa4ec3fcf3e55b31095630766ba33bd7a7fa7d5a62",
+   "timestamp": "2026-11-01T02:59:02.961968+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_56",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Low pLI (0.0009) and near-zero DepMap dependency indicate the gene is non-essential for cell survival and tolerant to loss-of-function in the general population.",
+   "data_refs": [
+    "pli",
+    "depmap_mean_gene_effect",
+    "loeuf",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function or inhibition of this gene correlate with improved cardiometabolic or liver health?",
+     "rationale": "Tolerance alone does not justify a target; there must be a therapeutic benefit to warrant inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ae3e6954-1d43-4668-b7b9-4448f26bd451",
+   "content_hash": "7c5faa30907d64bf37b10f521e8b272a49e1bbc09b5d941e9f3b84d1fe9e8253",
+   "timestamp": "2026-11-01T02:59:01.203774+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_56",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "LoF burden is significantly associated with lower BMI (p=10^-8.5) in a large multi-cohort study (700k samples). No hard endpoint data for T2D is shown, but BMI reduction is a strong proxy.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "7a0ca3c6-75de-4e0d-949e-7a109ebeda70"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "163b2256-aa6a-4487-a5eb-131ad2e25186",
+   "content_hash": "a734bea8b602d24c827fb6c21dcf168014e908b5cd5b3355a5c291ca316f0c55",
+   "timestamp": "2026-11-01T02:59:04.531328+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_56",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "High tolerance indicated by near-zero pLI (0.0009) and lack of cell-line dependency (mean effect 0.03). LOEUF (0.59) suggests moderate constraint but supports viability.",
+   "data_refs": [
+    "pli",
+    "depmap_mean_gene_effect",
+    "loeuf",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [
+    "7a0ca3c6-75de-4e0d-949e-7a109ebeda70"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "0744acbd-3e88-4aeb-b052-32247c7adcee",
+   "content_hash": "f8665db61eeff00c686b5d73446bed6cbea6a1a4eb497610823c777ed3af6875",
+   "timestamp": "2026-11-01T02:59:09.512103+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_56",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.4,
+   "rationale": "LoF is linked to Mendelian nutritional/metabolic disease. GWAS shows strong signals for body composition and diet, but no direct evidence of malabsorption or liver fat in out-of-scope data.",
+   "data_refs": [
+    "mendelian_4",
+    "safety_1",
+    "safety_6",
+    "safety_28",
+    "safety_31"
+   ],
+   "parent_artifact_ids": [
+    "b5567b0a-2868-4958-b2f0-f5e4af774988"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "410160fe-95bb-4826-b30a-a100ee95705b",
+   "content_hash": "6b8ae938c51c82b51e07d497a8516eacb29f285aa7ad0002650dc5a1fe439737",
+   "timestamp": "2026-11-01T02:59:11.517708+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_56",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "2 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "163b2256-aa6a-4487-a5eb-131ad2e25186"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "163b2256-aa6a-4487-a5eb-131ad2e25186",
+     "rationale": "A5 supports based on BMI reduction, but A1 uses the same data (burden_1) to argue against, citing unfavorable HDL reduction. The burden evidence is internally contradictory on stance."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "163b2256-aa6a-4487-a5eb-131ad2e25186",
+     "rationale": "The rationale explicitly states there is no hard endpoint data for T2D, relying solely on BMI as a proxy."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ebb0fad9-e0ed-4646-9075-1126154c69e7",
+   "content_hash": "2c8169029b04d73bac39695298defb8ace9d818c55622ffd1eced3da07e8aed6",
+   "timestamp": "2026-11-01T02:59:13.267992+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_56",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.5,
+   "rationale": "LoF reduces BMI but also lowers HDL (unfavorable). Safety agent confirms LoF links to Mendelian metabolic disease. No hard endpoints; contradictory biomarker signals reduce therapeutic appeal.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "b5567b0a-2868-4958-b2f0-f5e4af774988",
+    "410160fe-95bb-4826-b30a-a100ee95705b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d11a2b9b-2490-4db3-9a32-ef13ef9b23c1",
+   "content_hash": "48b06c7f136baf86ab6e591a07538c9c7277858f8341fde446c28ef0b153ca7d",
+   "timestamp": "2026-11-01T02:59:15.014763+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_56",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "GWAS shows a robust protective profile (lower T2D risk, BMI, and triglycerides) confirmed by independent LoF burden evidence for BMI. High tolerance (pLI 0.0009) supports therapeutic viability.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_3",
+    "gwas_5",
+    "gwas_18"
+   ],
+   "parent_artifact_ids": [
+    "7a0ca3c6-75de-4e0d-949e-7a109ebeda70",
+    "163b2256-aa6a-4487-a5eb-131ad2e25186",
+    "0744acbd-3e88-4aeb-b052-32247c7adcee"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f4038ed8-0ea7-40da-8d45-7b6b64f3cd93",
+   "content_hash": "114e0a9984b66ad902fbdf2d81c1ce92d348a8092911af621cc93c320141597c",
+   "timestamp": "2026-11-01T02:59:16.919261+00:00"
+  }
+ ]
+}

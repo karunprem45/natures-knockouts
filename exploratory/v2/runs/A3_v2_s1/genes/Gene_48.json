@@ -1,0 +1,360 @@
+{
+ "gene_code": "Gene_48",
+ "score": 1.4500000000000002,
+ "calls": 10,
+ "seconds": 28.3,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_48",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "LoF variants consistently lower VLDL and triglycerides (p < 1e-7). However, evidence is limited to biomarkers in a single EUR cohort (UKB) with no hard clinical endpoints yet observed.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4",
+    "burden_5",
+    "burden_6",
+    "burden_7"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (pLI/LOEUF)?",
+     "rationale": "Therapeutic inhibition requires knowing if lifelong LoF is well-tolerated."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with cardiovascular disease or liver outcomes?",
+     "rationale": "Burden results only show biomarker changes; GWAS could provide the missing link to hard clinical endpoints."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF carriers in non-cardiometabolic traits?",
+     "rationale": "To ensure that lowering VLDL/triglycerides doesn't come at the cost of other organ toxicity."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "816d5164-9b37-4c11-93c4-e9f22197a5d4",
+   "content_hash": "285ea056aa18e905e49c07b89a0a6ddb104597b7f50a32a0a9847c7e02668a3f",
+   "timestamp": "2026-11-01T02:57:57.184637+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_48",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No GWAS evidence is available for this gene in the provided view to assess its impact on cardiometabolic or liver disease.",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "aeaae96e-9d40-4111-bc48-9d2444161fa9",
+   "content_hash": "7a463e72a44addd554cdc5b5cf5e6833fa631316c72f017fb5bd50026c71d853",
+   "timestamp": "2026-11-01T02:57:55.667779+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_48",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss-of-function, and out-of-scope burden signals are limited to lipid biomarkers which appear protective. No curated safety events reported.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "safety_1",
+    "safety_2",
+    "safety_3",
+    "safety_4",
+    "safety_5",
+    "safety_6",
+    "safety_7",
+    "safety_8",
+    "safety_9",
+    "safety_10",
+    "safety_11",
+    "safety_12"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "Absence of Mendelian LoF disease is encouraging, but high evolutionary constraint would suggest potential developmental or fitness costs not captured in the current view."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8dbbaa3f-040f-4d05-8e48-c09aaeb9da60",
+   "content_hash": "492facc65a7b71fc57e9b4a79916053366a93cf9af3591cec9adbd1c4a7cd1af",
+   "timestamp": "2026-11-01T02:57:56.532927+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_48",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.3) and pLI (~0) indicate strong tolerance for loss-of-function. DepMap confirms it is non-essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or inhibition of this gene provide protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone doesn't justify a target; there must be a therapeutic benefit."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific organ-system toxicities or phenotypes associated with loss of this gene in humans or models?",
+     "rationale": "Population-level tolerance might mask specific, late-onset, or context-dependent adverse effects."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "974000ca-a1d1-4712-8038-b28c84452779",
+   "content_hash": "f6a7378474a34da31d51088233fd38d814a350f8fa1dacbc7a9d71f6a333778d",
+   "timestamp": "2026-11-01T02:57:58.807841+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_48",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly tolerant to loss-of-function: LOEUF (1.3) and pLI (0) indicate no evolutionary constraint, and DepMap data shows it is not essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "816d5164-9b37-4c11-93c4-e9f22197a5d4"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "929f0060-4833-48b7-b716-27e411d67036",
+   "content_hash": "e3e376142815619a51433880575f0aa4c0c1dc3f7a38d30c6b726c5be6d5e273",
+   "timestamp": "2026-11-01T02:58:00.351398+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_48",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No GWAS associations were provided for this gene, so I cannot confirm any link to cardiovascular or liver outcomes.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "816d5164-9b37-4c11-93c4-e9f22197a5d4"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "59b80ac7-d02d-4300-a220-2392f2bd9126",
+   "content_hash": "e56e998af5978a2af64fc6ef575aaed721d100f13558e0c9587e8b6a3dce993e",
+   "timestamp": "2026-11-01T02:58:03.205920+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_48",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "No Mendelian diseases are caused by LoF across 10 categories. Burden signals for LoF carriers are exclusively protective for VLDL/lipid traits with no adverse non-cardiometabolic associations.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "safety_1",
+    "safety_2",
+    "safety_3",
+    "safety_4",
+    "safety_5",
+    "safety_6",
+    "safety_7",
+    "safety_8",
+    "safety_9",
+    "safety_10",
+    "safety_11",
+    "safety_12"
+   ],
+   "parent_artifact_ids": [
+    "816d5164-9b37-4c11-93c4-e9f22197a5d4"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "476a5b07-786f-45b8-9b9f-ae815f0bad7f",
+   "content_hash": "174e30f56f22a45708f951d3083ca7c9173efb72fecdbf1d39b2e9d77b49b7b4",
+   "timestamp": "2026-11-01T02:58:05.124223+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_48",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "476a5b07-786f-45b8-9b9f-ae815f0bad7f",
+    "816d5164-9b37-4c11-93c4-e9f22197a5d4",
+    "8dbbaa3f-040f-4d05-8e48-c09aaeb9da60"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "816d5164-9b37-4c11-93c4-e9f22197a5d4",
+     "rationale": "The rationale explicitly states that evidence is limited to biomarkers with no hard clinical endpoints yet observed."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "816d5164-9b37-4c11-93c4-e9f22197a5d4",
+     "rationale": "The rationale admits that the evidence is restricted to a single cohort (UKB)."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "816d5164-9b37-4c11-93c4-e9f22197a5d4",
+     "rationale": "The rationale specifies that the evidence is limited to a single ancestry (EUR)."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "8dbbaa3f-040f-4d05-8e48-c09aaeb9da60",
+     "rationale": "The safety evidence relies on burden signals that are limited to lipid biomarkers."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "476a5b07-786f-45b8-9b9f-ae815f0bad7f",
+     "rationale": "The safety fulfillment rationale notes that burden signals are exclusively for lipid biomarkers rather than clinical endpoints."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "17a8fd5e-e58f-4e7a-8fcb-78397a3cdd2a",
+   "content_hash": "066cd1d6c79067718143cd62e096351741122095447e8a2f3e4f0b1b6bf11874",
+   "timestamp": "2026-11-01T02:58:18.414230+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_48",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.5,
+   "rationale": "LoF variants consistently lower VLDL/triglycerides (p<1e-7). Tolerance and safety data now mitigate LoF-intolerance concerns, though evidence remains biomarker-only in a single EUR cohort.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4",
+    "burden_5",
+    "burden_6",
+    "burden_7"
+   ],
+   "parent_artifact_ids": [
+    "816d5164-9b37-4c11-93c4-e9f22197a5d4",
+    "929f0060-4833-48b7-b716-27e411d67036",
+    "59b80ac7-d02d-4300-a220-2392f2bd9126",
+    "476a5b07-786f-45b8-9b9f-ae815f0bad7f"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "303afe94-48d3-42a3-b858-87db6a2b5f19",
+   "content_hash": "9b37499c1e8bf7ddc7dcf7fd282c633df7856fc1af19095f1ea0b41483e16807",
+   "timestamp": "2026-11-01T02:58:20.308443+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_48",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "No Mendelian LoF diseases or safety events. Strength reduced as out-of-scope burden signals are limited to lipid biomarkers, lacking clinical endpoints to confirm safety.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "safety_1",
+    "safety_12"
+   ],
+   "parent_artifact_ids": [
+    "8dbbaa3f-040f-4d05-8e48-c09aaeb9da60"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "aa745510-a29a-4fdf-a8e0-2a2fa4515845",
+   "content_hash": "d3ede47bd22a0cac61db801c71ba279f197798c425d344f2424507cafb27a273",
+   "timestamp": "2026-11-01T02:58:22.227707+00:00"
+  }
+ ]
+}

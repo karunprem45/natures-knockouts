@@ -1,0 +1,321 @@
+{
+ "gene_code": "Gene_43",
+ "score": -0.4500000000000001,
+ "calls": 10,
+ "seconds": 34.5,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_43",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants strongly associate with lower HDL cholesterol and smaller HDL particles across multiple cohorts. Lowering HDL is generally considered unfavorable for cardiovascular health.",
+   "data_refs": [
+    "burden_1",
+    "burden_4",
+    "burden_7",
+    "burden_14",
+    "burden_28"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Does common variant evidence link this gene to coronary artery disease or myocardial infarction?",
+     "rationale": "While LoF lowers HDL (a biomarker), I need to know if this translates to increased risk of hard clinical endpoints like heart disease."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse metabolic or liver phenotypes associated with low HDL in this gene?",
+     "rationale": "Inhibiting a gene that lowers HDL might have off-target risks or indicate a dysfunctional lipid transport pathway."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "85df8b7d-df62-41eb-b26f-ee8d7d18355a",
+   "content_hash": "f639a33f859a4114e13ce3a6b8c5e553d0ff07f859ab848bc6569f23c16a0b54",
+   "timestamp": "2026-11-01T02:57:15.603581+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_43",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Massive GWAS evidence across multiple populations linking this locus to lipid traits. Lowering triglycerides and VLDL while raising HDL is consistent with cardiometabolic benefit.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_16",
+    "gwas_32"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene reduce triglycerides and protect against coronary artery disease?",
+     "rationale": "GWAS signals are strong but L2G scores are low-to-moderate and lead variants are non-coding; burden data would confirm the gene identity and the effect of inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse liver or metabolic phenotypes associated with loss of this gene?",
+     "rationale": "Strong lipid effects can sometimes be associated with hepatic steatosis depending on the mechanism of triglyceride reduction."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ad8c629a-21d4-4f62-8014-de19dccec998",
+   "content_hash": "bbf8241a3a1509bf2905cf4b7dd9f07a185532afcf82412d85dc69a86ea03798",
+   "timestamp": "2026-11-01T02:57:15.613997+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_43",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Multiple Mendelian diseases caused by loss-of-function (LoF) in severe categories, including nervous system and genetic/congenital disorders, suggest significant safety risks.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "High intolerance would confirm that even partial inhibition could be deleterious, reinforcing the 'against' stance."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "227e3b9b-8dcc-42e3-bb5b-7acdf9c9fb19",
+   "content_hash": "62fb4ede278ebe178f56fdf30fabc5de19a9c467dcebe4cf9609829cb7820cdc",
+   "timestamp": "2026-11-01T02:57:15.134835+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_43",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.21) and pLI (~0) indicate strong LoF tolerance. Not essential in DepMap screens. Secreted location suggests druggability and likely safety of systemic inhibition.",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function in this gene correlate with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit from inhibition."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Are there common variants in this gene associated with lipid levels, glucose, or liver enzymes?",
+     "rationale": "To confirm if the gene has a relevant physiological role in the target disease areas."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e26aac6d-2d78-4f4f-9128-3af51e6b106c",
+   "content_hash": "8cbec460001dc3037c18d1d3c38b34ba5402d3eeee4e1c417eaa9c2862133778",
+   "timestamp": "2026-11-01T02:57:17.608196+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_43",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "GWAS data shows strong lipid associations (TG, VLDL, HDL), but no coronary artery disease or myocardial infarction endpoints are present in the provided top 40 rows to confirm clinical impact.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_7",
+    "gwas_16"
+   ],
+   "parent_artifact_ids": [
+    "85df8b7d-df62-41eb-b26f-ee8d7d18355a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "7418ce23-1fb1-4a23-982c-c70ae2ccf00c",
+   "content_hash": "ce91fa05ce54c82e46d643299e574ad9b3f6f3eb2563bd80146da1d1a9a0f400",
+   "timestamp": "2026-11-01T02:57:19.587091+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_43",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.7,
+   "rationale": "Loss of function in this gene is linked to Mendelian metabolic and nutritional diseases, and GWAS shows strong associations with metabolic syndrome and diverse lipid fractions.",
+   "data_refs": [
+    "mendelian_4",
+    "safety_40",
+    "safety_1",
+    "safety_25"
+   ],
+   "parent_artifact_ids": [
+    "85df8b7d-df62-41eb-b26f-ee8d7d18355a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "85174691-0785-4f96-b8c4-ea0ef6632e28",
+   "content_hash": "5d456d98ea3750db345e24f27a8558fa5974f3265a0ffabe3f3bb5579a331dad",
+   "timestamp": "2026-11-01T02:57:21.847329+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_43",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LoF strongly reduces HDL-C and related lipid fractions across 5 cohorts. While TG in HDL is reduced, CAD endpoints are not shown. Stance is based on strong lipid modulation.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_25"
+   ],
+   "parent_artifact_ids": [
+    "ad8c629a-21d4-4f62-8014-de19dccec998"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "c3a0e96a-bcfc-4eee-b9dc-c3950ff0d066",
+   "content_hash": "9c99ee614dfa5440bff54f5c813b41829d63062c4323ad1581c48556548daa72",
+   "timestamp": "2026-11-01T02:57:27.983500+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_43",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "ad8c629a-21d4-4f62-8014-de19dccec998",
+    "c3a0e96a-bcfc-4eee-b9dc-c3950ff0d066",
+    "e26aac6d-2d78-4f4f-9128-3af51e6b106c"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "c3a0e96a-bcfc-4eee-b9dc-c3950ff0d066",
+     "rationale": "A7 and A1 report the same biological effect (LoF lowers HDL) but reach opposite stances (supports vs against), indicating inconsistent interpretation of the same evidence."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "ad8c629a-21d4-4f62-8014-de19dccec998",
+     "rationale": "A5 explicitly states that no coronary artery disease or myocardial infarction endpoints are present in the GWAS data, leaving the clinical impact unconfirmed."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "c3a0e96a-bcfc-4eee-b9dc-c3950ff0d066",
+     "rationale": "The rationale admits that CAD endpoints are not shown, relying entirely on lipid fractions to support the verdict."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "tolerance",
+     "target_artifact_id": "e26aac6d-2d78-4f4f-9128-3af51e6b106c",
+     "rationale": "A3 and A6 report severe Mendelian disorders resulting from loss-of-function, contradicting the claim that the gene is LoF-tolerant and that systemic inhibition is likely safe."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e189f684-633a-4bcf-b2a4-9f4f05a44eb2",
+   "content_hash": "9691d6719369825a4c0bb33fbff2b050f8dad07141b757fa98419c0a30b1a0b0",
+   "timestamp": "2026-11-01T02:57:43.861701+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_43",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants strongly associate with lower HDL and smaller HDL particles across multiple cohorts. Lowering HDL is generally considered unfavorable for cardiovascular health.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_4",
+    "burden_7",
+    "burden_28"
+   ],
+   "parent_artifact_ids": [
+    "85df8b7d-df62-41eb-b26f-ee8d7d18355a",
+    "7418ce23-1fb1-4a23-982c-c70ae2ccf00c",
+    "85174691-0785-4f96-b8c4-ea0ef6632e28"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "772a7405-c3b8-4607-ac48-9634f53b5d9d",
+   "content_hash": "aa27f168774b193ac00234e60d5bca175c78f2b7d4cc2bba4be45866751a86ab",
+   "timestamp": "2026-11-01T02:57:45.540758+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_43",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Massive GWAS lipid signals across populations. However, strength is reduced because all top signals are biomarkers without hard endpoints, and l2g scores for the lead variants are relatively low.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_15",
+    "gwas_16",
+    "gwas_32"
+   ],
+   "parent_artifact_ids": [
+    "ad8c629a-21d4-4f62-8014-de19dccec998",
+    "c3a0e96a-bcfc-4eee-b9dc-c3950ff0d066"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "9839c228-39f3-4d29-a99a-598fd51499bf",
+   "content_hash": "c0f377a35358743e084d264786773060353f24453cf517757e6dfe21827fc33d",
+   "timestamp": "2026-11-01T02:57:47.294572+00:00"
+  }
+ ]
+}

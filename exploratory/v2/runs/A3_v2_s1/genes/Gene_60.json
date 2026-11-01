@@ -1,0 +1,325 @@
+{
+ "gene_code": "Gene_60",
+ "score": 1.45,
+ "calls": 10,
+ "seconds": 42.9,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_60",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants are strongly associated with increased triglycerides and VLDL subfractions across multiple cohorts. Protective signals for HDL and ALT are outweighed by risk-direction lipid rows.",
+   "data_refs": [
+    "burden_1",
+    "burden_4",
+    "burden_5",
+    "burden_6",
+    "burden_7",
+    "burden_8",
+    "burden_10",
+    "burden_11"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Does LoF in this gene cause any developmental or multi-systemic syndromes?",
+     "rationale": "The strong lipid-increasing effect of LoF suggests inhibition might be harmful; I need to know if natural LoF is associated with clinical pathology."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus show the same direction of effect on triglycerides and VLDL?",
+     "rationale": "To confirm if the rare-variant risk signal is consistent with common-variant biology."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "00845294-a570-4866-ba27-4e34296fae4a",
+   "content_hash": "22e7f51c7f5405183b052af483e4d6312b0d2f70429ac93555f66ecc5ed3473d",
+   "timestamp": "2026-11-01T02:59:44.630422+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_60",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "GWAS shows strong associations with triglycerides and HDL. Missense variants (l2g=0.81) link the gene to familial lipoprotein lipase deficiency and HDL levels.",
+   "data_refs": [
+    "gwas_3",
+    "gwas_32",
+    "gwas_36"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene reduce triglycerides or increase HDL, and is it associated with lower risk of cardiovascular disease?",
+     "rationale": "GWAS associations are primarily for biomarkers; burden data would confirm if inhibiting the gene product mimics the beneficial lipid profile and protects against hard endpoints."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b7d5bf87-839e-4ddb-b0b8-b125e2b8b1da",
+   "content_hash": "937c5fff056cafcd824e3149219d8da7b8f713730cc01191bd6b0a1b7bb5834a",
+   "timestamp": "2026-11-01T02:59:44.412872+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_60",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF). GWAS/burden signals are primarily lipid/metabolic biomarkers. Aging signal is strong but directionless; LoF protects against HbA1c.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_6",
+    "mendelian_9",
+    "safety_1",
+    "safety_32"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-intolerant (pLI or LOEUF)?",
+     "rationale": "To confirm that the lack of LoF Mendelian diseases isn't due to embryonic lethality or extreme intolerance."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "789e5b8d-40b6-40c1-80e7-73094f86f07f",
+   "content_hash": "3b887cb32a7390c0dd28399237da1be6e0acde32ee771121283acee2702efbd1",
+   "timestamp": "2026-11-01T02:59:44.608182+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_60",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.17) and pLI (~0) indicate strong tolerance to LoF. DepMap shows no cellular dependency across 1240 lines. Lifelong inhibition is likely safe.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or reduced expression of this gene associate with improved cardiometabolic or liver health?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "2e28c14c-c736-4666-909e-4b73c8a457bb",
+   "content_hash": "ecd935c50fb9e5aed664b028bdd6775790d2628da027ee284f6d81d705b50e3f",
+   "timestamp": "2026-11-01T02:59:46.535569+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_60",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF associates with higher triglycerides and VLDL (risk) across multiple cohorts. Protective signals for HDL and ALT are biomarker-only and outweighed by the pro-atherogenic lipid profile.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_4",
+    "burden_5",
+    "burden_6",
+    "burden_9"
+   ],
+   "parent_artifact_ids": [
+    "2e28c14c-c736-4666-909e-4b73c8a457bb"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "255e2026-d84e-4321-a8bb-9dba3bd5b354",
+   "content_hash": "8d9f46dba6cc8bcc83c1ace129cee48d33244ba47027370b7ed971b97c64ed9a",
+   "timestamp": "2026-11-01T02:59:48.081017+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_60",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by LoF across 10 categories, including genetic/congenital and nervous system. Burden signals for LoF are limited to lipid/metabolic traits, not syndromes.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_6",
+    "mendelian_9",
+    "safety_34",
+    "safety_35",
+    "safety_36",
+    "safety_37",
+    "safety_38"
+   ],
+   "parent_artifact_ids": [
+    "00845294-a570-4866-ba27-4e34296fae4a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "0dc75686-569b-48bd-8011-8185677d5118",
+   "content_hash": "79765fc905a8ade51df9d67b058f864763754a0391120489f4f9c0bc0fa88875",
+   "timestamp": "2026-11-01T02:59:49.833026+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_60",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Common variants show consistent positive effects on triglycerides and VLDL-related triglyceride percentages, supporting the rare-variant signal direction.",
+   "data_refs": [
+    "gwas_3",
+    "gwas_13",
+    "gwas_25",
+    "gwas_29",
+    "gwas_38"
+   ],
+   "parent_artifact_ids": [
+    "00845294-a570-4866-ba27-4e34296fae4a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "5d167716-e43d-46da-b834-3e7042b0b64d",
+   "content_hash": "53f35211c8e8e614e795aeb01f1cacd415c21f276ef59cea1605cf0b3397b43b",
+   "timestamp": "2026-11-01T02:59:51.404803+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_60",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "00845294-a570-4866-ba27-4e34296fae4a",
+    "255e2026-d84e-4321-a8bb-9dba3bd5b354",
+    "5d167716-e43d-46da-b834-3e7042b0b64d",
+    "b7d5bf87-839e-4ddb-b0b8-b125e2b8b1da"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "00845294-a570-4866-ba27-4e34296fae4a",
+     "rationale": "The evidence is limited to lipid subfractions and ALT levels, which are surrogate biomarkers rather than hard clinical endpoints like cardiovascular events."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "255e2026-d84e-4321-a8bb-9dba3bd5b354",
+     "rationale": "The agent acknowledges protective signals for HDL and ALT that contradict the risk-direction signals for triglycerides and VLDL."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "5d167716-e43d-46da-b834-3e7042b0b64d",
+     "rationale": "The fulfillment relies entirely on triglyceride and VLDL percentages, which are measurements rather than clinical disease outcomes."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "b7d5bf87-839e-4ddb-b0b8-b125e2b8b1da",
+     "rationale": "The 'supports' stance contradicts the 'against' stance of the burden agent (A1) despite both agents identifying the same triglyceride and HDL associations."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "93af8066-3825-4498-ab5b-342dfa4d0042",
+   "content_hash": "73f1f95e1d1d276211b6d257d663e450b696b912762c2018a888043616baa72b",
+   "timestamp": "2026-11-01T03:00:19.736846+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_60",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants strongly associate with increased triglycerides and VLDL subfractions across multiple cohorts. Protective signals for HDL and ALT are outweighed by risk-direction lipid rows.",
+   "data_refs": [
+    "burden_1",
+    "burden_4",
+    "burden_5",
+    "burden_6",
+    "burden_7",
+    "burden_8",
+    "burden_10",
+    "burden_11"
+   ],
+   "parent_artifact_ids": [
+    "00845294-a570-4866-ba27-4e34296fae4a",
+    "0dc75686-569b-48bd-8011-8185677d5118",
+    "5d167716-e43d-46da-b834-3e7042b0b64d"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "01fa8b45-1563-4ef0-832b-9bbe44685a05",
+   "content_hash": "c41e31c0b9e5da3d010aa54fa7dff72771478ff30c2d90505cf587729ba274db",
+   "timestamp": "2026-11-01T03:00:21.487917+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_60",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.5,
+   "rationale": "GWAS shows strong lipid associations. While mostly biomarkers, the missense variant (l2g=0.81) links to familial lipoprotein lipase deficiency, providing a clinical anchor despite burden conflict.",
+   "data_refs": [
+    "gwas_3",
+    "gwas_32",
+    "gwas_36"
+   ],
+   "parent_artifact_ids": [
+    "b7d5bf87-839e-4ddb-b0b8-b125e2b8b1da"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d9b47d4c-455e-48e7-a9f1-c7686187d17a",
+   "content_hash": "3b11e6d748928f7b3e1f918ec843e8cc584c02f9a6fea530e9337dd0bee53ab0",
+   "timestamp": "2026-11-01T03:00:25.337652+00:00"
+  }
+ ]
+}

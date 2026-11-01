@@ -1,0 +1,336 @@
+{
+ "gene_code": "Gene_59",
+ "score": 0.6500000000000001,
+ "calls": 10,
+ "seconds": 20.8,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_59",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "LoF variants consistently associate with lower BMI and waist circumference across 7 rows. However, evidence is limited to EUR ancestry, UK Biobank, and lacks hard clinical endpoints.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene loss-of-function tolerant (LOEUF/pLI)?",
+     "rationale": "Therapeutic inhibition requires evidence that humans can tolerate a lack of this gene without severe developmental or fitness costs."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF variants in non-metabolic systems?",
+     "rationale": "Weight loss signals are only viable if not accompanied by significant safety risks in other organs."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus show the same direction of effect on BMI/obesity?",
+     "rationale": "Consistency between rare LoF and common variants increases confidence in the causal link between the gene and the metabolic phenotype."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d0d17c4a-f161-41ef-8c3c-b2f63d8b8fe7",
+   "content_hash": "c620297ae594681404cc5231a15f6c73e2e6ab9a666bbe93d87ffe1bb2b13be5",
+   "timestamp": "2026-11-01T02:59:35.706788+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_59",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.75,
+   "rationale": "Lead stop-gain variants (l2g > 0.97) associate with reduced BMI and waist circumference, suggesting that loss-of-function/inhibition is metabolically protective.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_3"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Do rare loss-of-function variants in this gene associate with reduced BMI or protection from metabolic disease?",
+     "rationale": "Confirming the GWAS stop-gain effect with rare-variant burden would significantly strengthen the evidence for a causal LoF mechanism."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with the stop-gain variants or gene deficiency?",
+     "rationale": "Inhibition may have off-target or pleiotropic risks not captured in metabolic GWAS."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "5000335f-67d6-4a1a-9129-59ea4626c424",
+   "content_hash": "568b416e9c7ac63cf97a589a3959f679bad58850e2e80728e93e22cd89074298",
+   "timestamp": "2026-11-01T02:59:40.965011+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_59",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.7,
+   "rationale": "Mendelian evidence shows loss-of-function causes disease in nervous system and congenital categories. GWAS signals for placental abruption and premature birth add safety concerns.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "safety_5",
+    "safety_38"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would confirm that breaking this gene is likely to be deleterious, supporting the Mendelian LoF evidence."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0002c6ea-b3ba-45fe-be9c-45731b741f21",
+   "content_hash": "1e6c6b7ae933d447bf863c2241da1e5c532a21015f7fa1bb26bd84bf9471b5a0",
+   "timestamp": "2026-11-01T02:59:35.368512+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_59",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.337) and pLI (~0) indicate LoF is well-tolerated in humans. DepMap shows no essentiality. Cell membrane location supports druggability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or inhibition of this gene provide protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; evidence of therapeutic benefit is required to confirm it as a viable drug target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "70b19478-3cc7-4936-8a3e-8111ca15380b",
+   "content_hash": "0812acd9a5c091e66bbcd06f5c9a0a82da701121f5d0f4f1b43b6ce82f50e6ae",
+   "timestamp": "2026-11-01T02:59:37.629057+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_59",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly LoF-tolerant (LOEUF 1.34, pLI ~0) and non-essential in cell lines, suggesting lifelong inhibition may be well-tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "0002c6ea-b3ba-45fe-be9c-45731b741f21"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "b42624b8-1353-42e1-b3db-d478f623a0a8",
+   "content_hash": "ef1bbde878bcb92adf666fa6a34a9b10f656e4e7f0ac90ad05eb5c13e84a8c24",
+   "timestamp": "2026-11-01T02:59:45.131121+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_59",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Rare LoF variants consistently associate with reduced BMI and waist circumference across 2 projects in UKB (EUR). However, evidence is limited to biomarkers with no hard clinical endpoints.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [
+    "5000335f-67d6-4a1a-9129-59ea4626c424"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "743a9f57-de0a-45d4-8aba-b9fba71c47aa",
+   "content_hash": "5e76c6344a0964be704624beed5661ba15ba7b00307c470f340e036851df20e0",
+   "timestamp": "2026-11-01T02:59:46.711757+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_59",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Loss of function (LoF) is linked to Mendelian diseases in nervous system and genetic/congenital categories. GWAS/burden signals also link to placental abruption and premature birth.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "safety_5",
+    "safety_38",
+    "safety_11",
+    "safety_15",
+    "safety_16"
+   ],
+   "parent_artifact_ids": [
+    "5000335f-67d6-4a1a-9129-59ea4626c424"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "aa0c7dfa-dc6e-4178-b957-e4d5fb918809",
+   "content_hash": "54b99424ca39b8f5d722f8a00eb8a186d1215b376790c964d0246cffe446113f",
+   "timestamp": "2026-11-01T02:59:48.280559+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_59",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "7 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "743a9f57-de0a-45d4-8aba-b9fba71c47aa",
+    "b42624b8-1353-42e1-b3db-d478f623a0a8",
+    "d0d17c4a-f161-41ef-8c3c-b2f63d8b8fe7"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "d0d17c4a-f161-41ef-8c3c-b2f63d8b8fe7",
+     "rationale": "The rationale explicitly states that evidence is limited to EUR ancestry."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "d0d17c4a-f161-41ef-8c3c-b2f63d8b8fe7",
+     "rationale": "The rationale explicitly states that evidence is limited to the UK Biobank."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "d0d17c4a-f161-41ef-8c3c-b2f63d8b8fe7",
+     "rationale": "The rationale explicitly states that the evidence lacks hard clinical endpoints, only measuring BMI and waist circumference."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "743a9f57-de0a-45d4-8aba-b9fba71c47aa",
+     "rationale": "The rationale explicitly states that evidence is limited to EUR ancestry."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "743a9f57-de0a-45d4-8aba-b9fba71c47aa",
+     "rationale": "The rationale explicitly states that evidence is limited to UKB."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "743a9f57-de0a-45d4-8aba-b9fba71c47aa",
+     "rationale": "The rationale explicitly states that evidence is limited to biomarkers with no hard clinical endpoints."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "tolerance",
+     "target_artifact_id": "b42624b8-1353-42e1-b3db-d478f623a0a8",
+     "rationale": "Tolerance agent claims LoF is well-tolerated, but Safety agent (A7) links LoF to Mendelian diseases and pregnancy complications."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b477dd03-66ed-4174-95aa-0e98cb5b5a08",
+   "content_hash": "b77de59d076228cac458036966831f67be7f401ddaa94c0ea2482177bd26ec4b",
+   "timestamp": "2026-11-01T02:59:50.703519+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_59",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.3,
+   "rationale": "LoF variants consistently associate with lower BMI and waist circumference, but evidence is limited to EUR ancestry, UKB, and lacks hard clinical endpoints.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [
+    "d0d17c4a-f161-41ef-8c3c-b2f63d8b8fe7"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e5d6d02e-a986-4873-9e40-37b8b148c2f9",
+   "content_hash": "eba6fc517c302cc085c4c3aa57a8bec28de49b621ce1f66f0bb81ddf26663385",
+   "timestamp": "2026-11-01T02:59:52.186031+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_59",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.75,
+   "rationale": "Lead stop-gain variants (l2g > 0.97) associate with reduced BMI and waist circumference. Burden evidence confirms this direction, though safety concerns regarding Mendelian disease are noted.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_3"
+   ],
+   "parent_artifact_ids": [
+    "5000335f-67d6-4a1a-9129-59ea4626c424",
+    "743a9f57-de0a-45d4-8aba-b9fba71c47aa",
+    "aa0c7dfa-dc6e-4178-b957-e4d5fb918809"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "fc112c47-ac26-4dd0-9a8b-00aad3b27ba5",
+   "content_hash": "c954ccb02fa0426cee3741365c605eed2b9aba94de8fd0989b896c4389adfc13",
+   "timestamp": "2026-11-01T02:59:54.022092+00:00"
+  }
+ ]
+}

@@ -1,0 +1,350 @@
+{
+ "gene_code": "Gene_44",
+ "score": 2.5999999999999996,
+ "calls": 10,
+ "seconds": 64.0,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_44",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Strong LoF burden evidence for lower triglycerides and T2D protection across 5 cohorts and multiple ancestries, including a hard endpoint (FinnGen). HDL risk is likely a biomarker shift.",
+   "data_refs": [
+    "burden_1",
+    "burden_8",
+    "burden_9",
+    "burden_16",
+    "burden_23"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "To ensure therapeutic inhibition is safe and not developmentally deleterious."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with LoF in non-metabolic traits?",
+     "rationale": "To identify potential off-target risks before recommending as a target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "1cb6a473-f93f-434f-9516-2e3cc40e1c5a",
+   "content_hash": "0d1dc79df8c9eb80e7de042efd6b24da2c508b3a001b0e957c1f1b082096f4a0",
+   "timestamp": "2026-11-01T02:57:15.426982+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_44",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Strong GWAS evidence shows a missense variant associated with lower triglycerides and higher HDL-C across multiple populations, with high L2G scores (0.96).",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_6",
+    "gwas_19",
+    "gwas_32"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with lower triglycerides and protection from coronary artery disease?",
+     "rationale": "GWAS identifies a missense variant, but confirming that loss-of-function mimics this beneficial lipid profile is essential for validating an inhibitory therapeutic strategy."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any associations with liver fat, steatosis, or inflammatory markers?",
+     "rationale": "Lowering circulating triglycerides can sometimes lead to hepatic lipid accumulation (e.g., as seen with [gene] or [gene] inhibition)."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "identity_named:2"
+   ],
+   "artifact_id": "a662ac33-5757-42ad-b4af-281c87238821",
+   "content_hash": "4a7938828f7a6b00e0e8ea95bf481569dc372d59abada09486b644f1a8ed5ebb",
+   "timestamp": "2026-11-01T02:57:15.626003+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_44",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss-of-function, and no serious curated safety events are reported. GWAS signals are predominantly lipid-related biomarkers.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "safety_1",
+    "safety_40"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-intolerant (e.g., high pLI or low LOEUF)?",
+     "rationale": "If the gene is highly intolerant to loss-of-function in the general population, it would suggest potential developmental or systemic harm not captured by disease databases."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "98044c62-6a19-44bb-b6c1-2b8e705c11bb",
+   "content_hash": "421359946b846f298065ee1e2c2d9a5bdb084d980de56b0abceed9efbcee3d83",
+   "timestamp": "2026-11-01T02:57:16.650167+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_44",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Extremely high LOEUF (1.3) and pLI near 0 indicate high tolerance for LoF. No cell dependency and predicted secretion suggest inhibition would be well-tolerated and druggable.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are loss-of-function variants in this gene associated with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence that inhibiting this gene provides a therapeutic benefit."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c7cd6dd7-cc02-4c89-b854-1212e9eb2a4b",
+   "content_hash": "b7ce38b82db0e0d910e20082b43dc65d0390539fde48f59cce699f897c46eb34",
+   "timestamp": "2026-11-01T02:57:15.250985+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_44",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "Extremely high tolerance: LOEUF (1.3) and pLI (~0) indicate no constraint in humans. DepMap shows no essentiality across 1258 cell lines. Predicted to be secreted, making it a viable target.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [
+    "1cb6a473-f93f-434f-9516-2e3cc40e1c5a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "ea046ef6-16b5-4f43-9421-dc147909f5ef",
+   "content_hash": "94946c58c5d6f95f523f54367875d58bd51586122edadbb4922819eee5b219d0",
+   "timestamp": "2026-11-01T02:57:18.287392+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_44",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "LoF burden strongly associates with lower triglycerides (p=1e-73) and protection from T2D (p=1e-9). While CAD is not shown, the lipid profile and T2D protection strongly support the target.",
+   "data_refs": [
+    "burden_1",
+    "burden_3",
+    "burden_6",
+    "burden_8",
+    "burden_16",
+    "burden_23"
+   ],
+   "parent_artifact_ids": [
+    "a662ac33-5757-42ad-b4af-281c87238821"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (LOEUF/pLI)?",
+     "rationale": "Strong protective effects are only therapeutic if the gene is not essential for survival or development."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with LoF in this gene?",
+     "rationale": "The risk rows for HDL-related traits (burden_2, burden_12) require investigation to ensure no net harm."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "fca5ad52-eb8d-4a2a-abba-a1211e7d24e3",
+   "content_hash": "0e75aa51869a70ee9a55e091275f4e8734f653b0e9df8ea7772c8700e270e72c",
+   "timestamp": "2026-11-01T02:57:21.049617+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_44",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 17 identified conditions. GWAS/burden signals are primarily lipid-related biomarkers with no severe adverse phenotypes.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "safety_1",
+    "safety_4",
+    "safety_6",
+    "safety_9",
+    "safety_12",
+    "safety_13",
+    "safety_19",
+    "safety_23",
+    "safety_33",
+    "safety_39"
+   ],
+   "parent_artifact_ids": [
+    "1cb6a473-f93f-434f-9516-2e3cc40e1c5a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "3d98f153-356f-4d53-accf-995273283837",
+   "content_hash": "da7727e7854e3f1e6c670e4688bb708ac1772ad0854ef150fee4e209aa2bc931",
+   "timestamp": "2026-11-01T02:57:23.073234+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_44",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "3 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "1cb6a473-f93f-434f-9516-2e3cc40e1c5a",
+    "3d98f153-356f-4d53-accf-995273283837",
+    "98044c62-6a19-44bb-b6c1-2b8e705c11bb"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "1cb6a473-f93f-434f-9516-2e3cc40e1c5a",
+     "rationale": "Burden rationale mentions 'HDL risk' (implying lower HDL), contradicting the GWAS rationale (A2) which reports 'higher HDL-C' for the same target direction."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "98044c62-6a19-44bb-b6c1-2b8e705c11bb",
+     "rationale": "Safety rationale discounts GWAS signals as 'predominantly lipid-related biomarkers' without evaluating potential clinical endpoints."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "3d98f153-356f-4d53-accf-995273283837",
+     "rationale": "Safety verdict discounts GWAS and burden signals as 'primarily lipid-related biomarkers', potentially overlooking clinical endpoint associations like T2D mentioned by other agents."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7669147c-e849-4333-be83-324746eab0af",
+   "content_hash": "2ddd281c205712606e45a72d5900b6709651a460fe6c27a05d949530bd24ccf9",
+   "timestamp": "2026-11-01T02:58:12.822454+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_44",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Strong LoF burden evidence for T2D protection (FinnGen) and lower triglycerides across 5 cohorts. High tolerance and safety data from other agents reinforce the therapeutic potential.",
+   "data_refs": [
+    "burden_1",
+    "burden_8",
+    "burden_9",
+    "burden_16",
+    "burden_23"
+   ],
+   "parent_artifact_ids": [
+    "1cb6a473-f93f-434f-9516-2e3cc40e1c5a",
+    "ea046ef6-16b5-4f43-9421-dc147909f5ef",
+    "3d98f153-356f-4d53-accf-995273283837"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "158a8b7e-2a6d-436b-9097-b6a51f215e1c",
+   "content_hash": "85490d36b7a249cd978b46d83c71a324369704ab26ffaf61d457301d5c745614",
+   "timestamp": "2026-11-01T02:58:14.568000+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_44",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian LoF diseases or safety events. GWAS signals are lipid-centric. Strength reduced slightly to acknowledge potential clinical endpoints like T2D noted in quality-control feedback.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "safety_1",
+    "safety_40"
+   ],
+   "parent_artifact_ids": [
+    "98044c62-6a19-44bb-b6c1-2b8e705c11bb"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "77549ce4-0f5f-49cf-8240-a262ee104b04",
+   "content_hash": "f1cca840a54a6cf502a45e097a0d2acda5065308f9737ed048bdad375e63a503",
+   "timestamp": "2026-11-01T02:58:16.867664+00:00"
+  }
+ ]
+}

@@ -1,0 +1,323 @@
+{
+ "gene_code": "Gene_41",
+ "score": -1.55,
+ "calls": 10,
+ "seconds": 268.8,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_41",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Single cohort/ancestry shows LoF associated with lower HDL (unfavorable). No hard endpoints or other metabolic traits present to support therapeutic benefit.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Does common variant evidence for this gene show associations with LDL, triglycerides, or cardiovascular disease?",
+     "rationale": "The current burden evidence only shows a decrease in HDL, which is generally considered unfavorable; I need to see if it improves other lipid parameters."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene loss-of-function tolerant in humans (pLI/LOEUF)?",
+     "rationale": "To determine if therapeutic inhibition is viable without causing developmental or systemic harm."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "9920b17f-3123-4d77-b9aa-a73ec330df08",
+   "content_hash": "9e5d231bec852b4adecd843fad39c83b34fdad25846560de5e4bfdf3f0d39d1c",
+   "timestamp": "2026-11-01T02:57:15.261244+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_41",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Associations for AST and cholesterol have very low L2G scores (<0.14), suggesting the signals may belong to neighboring genes. No hard clinical endpoints are present.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare variant associations for liver enzymes and lipid levels",
+     "rationale": "Low L2G scores make gene assignment uncertain; burden results would clarify if this gene is the driver."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "pLI or LOEUF scores for this gene",
+     "rationale": "Assess if the gene is essential before considering inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "61cd3b53-80cd-4d5e-b723-573e98e717b1",
+   "content_hash": "c8af4c9513574cb0e65bf9ff42ae4b89a09ae30d00041f54682077b3c11710d4",
+   "timestamp": "2026-11-01T02:57:18.516132+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_41",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Loss of function (LoF) is linked to Mendelian disorders in the nervous system and genetic/congenital categories, suggesting significant safety risks for systemic inhibition.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or high LOEUF)?",
+     "rationale": "High intolerance would confirm that breaking this gene is likely to cause severe developmental or physiological harm."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant burden signals for nervous system or congenital disorders?",
+     "rationale": "Burden signals would provide population-level evidence to support the Mendelian LoF findings."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b55c44f6-4140-46a7-aa53-60c9385a4f43",
+   "content_hash": "2366259675a3d739ebd6cfb07095e030ece6cb8b096dcf11d8c8a2b6f3deab89",
+   "timestamp": "2026-11-01T02:57:15.426578+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_41",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "High missense constraint (Z=3.66) and elevated pLI (0.82) suggest the gene is under significant evolutionary pressure, making lifelong inhibition potentially poorly tolerated.",
+   "data_refs": [
+    "missense_z",
+    "pli",
+    "loeuf"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Are there any healthy individuals with homozygous loss-of-function variants in this gene in population databases?",
+     "rationale": "The presence of healthy knockouts would override the high constraint scores and suggest that inhibition is safe."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7adf671e-5709-43cf-ae13-96db4a494518",
+   "content_hash": "d0c9d4b9c533affe5414e939908253cb94124ac0fbce94b9682b55c90d4ea049",
+   "timestamp": "2026-11-01T02:57:17.756982+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_41",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.4,
+   "rationale": "LOEUF (0.55) suggests moderate tolerance, but pLI (0.82) and missense Z-score (3.66) indicate significant constraint. No DepMap data is available to assess cell-level essentiality.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "missense_z"
+   ],
+   "parent_artifact_ids": [
+    "61cd3b53-80cd-4d5e-b723-573e98e717b1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "005e419c-b2ef-4617-bc95-e03de54eae9b",
+   "content_hash": "25fea581e0e9d24b30b9bdd1ddbb75bf0dbc3bdce1c117791ef88fb7f33bfdf0",
+   "timestamp": "2026-11-01T02:57:19.941552+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_41",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.3,
+   "rationale": "Single cohort/ancestry shows LoF associated with lower HDL (biomarker), which is typically unfavorable. No hard endpoints or liver data available to support protective effect.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "61cd3b53-80cd-4d5e-b723-573e98e717b1"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "pLI or LOEUF scores for this gene",
+     "rationale": "To determine if LoF variants are tolerated in humans, given the observed effect on HDL."
+    },
+    {
+     "type": "safety_check",
+     "query": "associations with cardiovascular disease or other metabolic harms",
+     "rationale": "Lowering HDL is often a risk factor; I need to see if this translates to clinical disease."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "258b11ba-6131-44a6-bd6f-4ed22d558470",
+   "content_hash": "1c0a82cd4aaf1d965a3edc48bd470424a9c39ae63562d763e8221b1d13f70620",
+   "timestamp": "2026-11-01T02:57:21.847756+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_41",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Loss-of-function variants in this gene are known to cause Mendelian diseases in the nervous system and congenital categories, suggesting breaking the gene is harmful.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2"
+   ],
+   "parent_artifact_ids": [
+    "7adf671e-5709-43cf-ae13-96db4a494518"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "c4583976-3a49-4dd9-ada6-7794633d4ef6",
+   "content_hash": "846f2bd3f0851a8e19f2082bd4fb75d9bd6bcbc73fdcec3eb652aa6989c36d1a",
+   "timestamp": "2026-11-01T02:57:23.780657+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_41",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "6 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "258b11ba-6131-44a6-bd6f-4ed22d558470",
+    "61cd3b53-80cd-4d5e-b723-573e98e717b1",
+    "9920b17f-3123-4d77-b9aa-a73ec330df08"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "9920b17f-3123-4d77-b9aa-a73ec330df08",
+     "rationale": "The rationale explicitly states the evidence is based on a single cohort and single ancestry."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "9920b17f-3123-4d77-b9aa-a73ec330df08",
+     "rationale": "The evidence is limited to HDL measurements with no hard clinical endpoints reported."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "61cd3b53-80cd-4d5e-b723-573e98e717b1",
+     "rationale": "The associations are limited to AST and cholesterol measurements without hard clinical endpoints."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "258b11ba-6131-44a6-bd6f-4ed22d558470",
+     "rationale": "The rationale confirms the evidence relies on a single cohort and single ancestry."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "258b11ba-6131-44a6-bd6f-4ed22d558470",
+     "rationale": "The evidence is restricted to a biomarker (HDL) without supporting hard endpoint data."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "burden",
+     "target_artifact_id": "9920b17f-3123-4d77-b9aa-a73ec330df08",
+     "rationale": "High missense constraint and pLI suggest the gene is essential, making any therapeutic interpretation of LoF variants unsafe."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e756237a-1000-42e4-9fc7-580b4fb0e59e",
+   "content_hash": "9617fb840eb10030d5bd9a3fd953fe60c8fd8e6ae535760d84f33718c005d2f4",
+   "timestamp": "2026-11-01T03:01:33.077759+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_41",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.1,
+   "rationale": "LoF associated with lower HDL (unfavorable) in one cohort. Essentiality challenge (high pLI) suggests LoF is harmful, further weakening the case for therapeutic benefit.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "9920b17f-3123-4d77-b9aa-a73ec330df08"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e489d80f-85a4-4e8b-8a29-f8bcc43d006c",
+   "content_hash": "3723bf4e7be6342d8fc6fdb0872f8bb032bc0cc5342ba311ac76c653f0a743ff",
+   "timestamp": "2026-11-01T03:01:34.659681+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_41",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.2,
+   "rationale": "Low L2G scores (<0.14) suggest GWAS signals belong to neighbors. Burden data linking LoF to lower HDL and high missense constraint suggest inhibition is not beneficial.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2"
+   ],
+   "parent_artifact_ids": [
+    "61cd3b53-80cd-4d5e-b723-573e98e717b1",
+    "005e419c-b2ef-4617-bc95-e03de54eae9b",
+    "258b11ba-6131-44a6-bd6f-4ed22d558470"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c85c7664-556d-44ee-8667-2465995ecf98",
+   "content_hash": "50f02994dc661243233c4adaa38ac79deac5a43cecd51613a6d4c901a0af4bd9",
+   "timestamp": "2026-11-01T03:01:41.625255+00:00"
+  }
+ ]
+}

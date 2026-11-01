@@ -1,0 +1,330 @@
+{
+ "gene_code": "Gene_53",
+ "score": -2.3,
+ "calls": 10,
+ "seconds": 17.9,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_53",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants are strongly associated with increased BMI and T2D risk (hard endpoint) in a large European cohort. Protective HDL signal is weak and likely unfavorable (lower HDL).",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI > 0.9 or low LOEUF)?",
+     "rationale": "The risk associations for BMI and T2D suggest inhibiting this gene would be harmful; high intolerance would further argue against it as a target."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any other adverse phenotypes associated with LoF in this gene?",
+     "rationale": "To confirm if the metabolic risk is part of a broader syndromic or safety profile."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "799839c1-064d-4fad-865f-fa7da8129d39",
+   "content_hash": "d9beda257f4f715e748a2ce007255cfc89e2c88018249a048704492069b9952e",
+   "timestamp": "2026-11-01T02:58:34.117832+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_53",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong GWAS evidence for MI and T2D in EAS population, with consistent lipid/liver biomarker associations. However, L2G scores are moderate and lead variants are non-coding.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_7",
+    "gwas_8",
+    "gwas_9",
+    "gwas_22",
+    "gwas_25"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare-variant burden for myocardial infarction, T2D, and LDL cholesterol",
+     "rationale": "GWAS signals are intronic/upstream; rare-variant burden would confirm the gene's causal role and the effect of loss-of-function."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "pLI score and LOEUF for this gene",
+     "rationale": "To assess if systemic inhibition might be poorly tolerated due to essentiality."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d62bbdc5-1a4f-4f9e-8145-31f1cf85a055",
+   "content_hash": "eadf6b7072baa192547db478fd1c99a09b44ea873ae86c079bb993292860d928",
+   "timestamp": "2026-11-01T02:58:34.283563+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_53",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Loss of function is linked to nervous system and psychiatric disorders. Strong burden signals for multiple hematological traits suggest systemic impact from gene disruption.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_3",
+    "safety_2",
+    "safety_3",
+    "safety_5",
+    "safety_12"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "High intolerance would confirm that the Mendelian LoF signals represent a significant safety risk for systemic inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "59b0f9ca-a956-4eb6-a19d-eb56310af2fb",
+   "content_hash": "3ca1b5109333dfdbbeaa15d479d1b83f977e412e3ae9b4a83fceb96559a5b8b3",
+   "timestamp": "2026-11-01T02:58:33.939278+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_53",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.85,
+   "rationale": "Extreme population constraint (pLI=1, LOEUF=0.28) and high missense Z-score (10.13) strongly suggest LoF is not tolerated in humans, despite non-essentiality in cell lines.",
+   "data_refs": [
+    "pli",
+    "loeuf",
+    "missense_z",
+    "depmap_mean_gene_effect"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Are there any healthy individuals with biallelic loss-of-function variants in this gene in population databases?",
+     "rationale": "The population constraint is severe, but identifying healthy 'human knockouts' would be the only evidence that could override these metrics."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "377a2ea8-8be4-4254-9d8e-528d82a9d9ff",
+   "content_hash": "e626a3169ec3a9c99c28fd6f3bfb9f6792adc61b9c55f4c97778d4388926692f",
+   "timestamp": "2026-11-01T02:58:36.560036+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_53",
+   "round": 1,
+   "stance": "against",
+   "strength": 1.0,
+   "rationale": "Highly LoF-intolerant (pLI=1, LOEUF=0.28) with strong missense constraint (Z=10.13), indicating lifelong inhibition is likely poorly tolerated despite lack of cell-line essentiality.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "missense_z",
+    "depmap_mean_gene_effect"
+   ],
+   "parent_artifact_ids": [
+    "59b0f9ca-a956-4eb6-a19d-eb56310af2fb"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "3c44a541-b4b3-463d-adc5-b96c7e75f50e",
+   "content_hash": "121514eb4d9fb6bb814ab7a7f4c6e1f80582e9a3fe629d8d2b9854f54e3e2ed5",
+   "timestamp": "2026-11-01T02:58:40.752805+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_53",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Loss-of-function (LoF) in this gene is known to cause Mendelian nervous system and psychiatric disorders, making the existence of healthy human knockouts highly unlikely.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_3"
+   ],
+   "parent_artifact_ids": [
+    "377a2ea8-8be4-4254-9d8e-528d82a9d9ff"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "fffe5825-e733-48ca-96ef-ab4e9585d14d",
+   "content_hash": "abda77a55eb676ea025582e39927294ec026a5f7c01dd58b61201e21f754a166",
+   "timestamp": "2026-11-01T02:58:42.329262+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_53",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants are associated with increased risk of T2D and higher BMI. Protective HDL effect is likely unfavorable (lower HDL). Evidence is from one large consortium in Europeans.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [
+    "d62bbdc5-1a4f-4f9e-8145-31f1cf85a055"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant in humans?",
+     "rationale": "The burden data suggests LoF is harmful (risk for T2D/BMI); high intolerance would reinforce that breaking this gene is detrimental."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any protective associations for cardiovascular disease?",
+     "rationale": "If LoF increases BMI and T2D risk, it likely increases MI risk, but I need to confirm if any protective signals exist for hard CV endpoints."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "a0352e30-9814-4e31-b1a4-3cab25795fc8",
+   "content_hash": "98f333ca70ea30bac50f2f0bfe4b5024e9c951ada0a4def73e694d7bcd4abafe",
+   "timestamp": "2026-11-01T02:58:44.525685+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_53",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "799839c1-064d-4fad-865f-fa7da8129d39",
+    "a0352e30-9814-4e31-b1a4-3cab25795fc8",
+    "d62bbdc5-1a4f-4f9e-8145-31f1cf85a055"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "799839c1-064d-4fad-865f-fa7da8129d39",
+     "rationale": "The burden evidence for BMI and T2D risk is derived exclusively from a single European cohort."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "gwas",
+     "target_artifact_id": "d62bbdc5-1a4f-4f9e-8145-31f1cf85a055",
+     "rationale": "The GWAS evidence for MI and T2D is restricted to an East Asian (EAS) population only."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "burden",
+     "target_artifact_id": "799839c1-064d-4fad-865f-fa7da8129d39",
+     "rationale": "The gene is highly LoF-intolerant (pLI=1, LOEUF=0.28), making the reported LoF burden associations potentially unreliable or subject to selection bias."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "gwas",
+     "target_artifact_id": "d62bbdc5-1a4f-4f9e-8145-31f1cf85a055",
+     "rationale": "Extreme constraint (pLI=1) suggests that common variants associated with disease may not reflect the true impact of gene disruption."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "a0352e30-9814-4e31-b1a4-3cab25795fc8",
+     "rationale": "The rationale explicitly states the evidence is from one large consortium in Europeans only."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f1be1416-67ff-402c-814c-0a5a4a4c0d85",
+   "content_hash": "dab2c25e8896957963efb2acf860a5d7483b2dcb736432d845899839ff130ae4",
+   "timestamp": "2026-11-01T02:58:46.873916+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_53",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "LoF burden links to T2D risk (hard endpoint) and BMI. Strength reduced due to extreme LoF intolerance (pLI=1) and single-ancestry (European) data, suggesting potential selection bias.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "799839c1-064d-4fad-865f-fa7da8129d39"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "88bd22b7-cd79-41d5-852b-c5ba321b2d42",
+   "content_hash": "f1ca0cb46ad8daa9d4052e1cf341c746f02a61905b2a263c8f3e7e6c40deaa76",
+   "timestamp": "2026-11-01T02:58:48.174997+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_53",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.7,
+   "rationale": "GWAS shows associations with MI and T2D, but burden evidence indicates LoF increases T2D/BMI risk. High pLI (1) suggests common variant signals may not reflect therapeutic inhibition effects.",
+   "data_refs": [
+    "gwas_3",
+    "gwas_7",
+    "gwas_25"
+   ],
+   "parent_artifact_ids": [
+    "d62bbdc5-1a4f-4f9e-8145-31f1cf85a055",
+    "a0352e30-9814-4e31-b1a4-3cab25795fc8"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "27869297-cdfd-4c5d-bb77-17664758fc98",
+   "content_hash": "66b59ceca9409f5fc649542bd43d983ebb55adc244ad862230f537fd5f49f9bb",
+   "timestamp": "2026-11-01T02:58:49.689296+00:00"
+  }
+ ]
+}

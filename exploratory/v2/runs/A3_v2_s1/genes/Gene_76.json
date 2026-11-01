@@ -1,0 +1,332 @@
+{
+ "gene_code": "Gene_76",
+ "score": 0.9,
+ "calls": 10,
+ "seconds": 54.8,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_76",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants are strongly associated with unfavorable lipid profiles (high triglycerides, high non-HDL/HDL ratio, low HDL cholesterol) across multiple cohorts and ancestries.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_6",
+    "burden_11",
+    "burden_13",
+    "burden_18",
+    "burden_25"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with coronary artery disease or myocardial infarction?",
+     "rationale": "While biomarkers are unfavorable, I need to see if this translates to hard clinical endpoints like cardiovascular disease."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene loss-of-function tolerant in humans (pLI/LOEUF)?",
+     "rationale": "The high number of LoF carriers suggests it might be tolerant, but I need to confirm if complete inhibition is safe."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ed291893-fbc2-4d00-805c-81cd81d831e7",
+   "content_hash": "0e0617a23fb6a834ec3e6730dcb93574f9edb2da2d3632eae9dd78a358ed317e",
+   "timestamp": "2026-11-01T03:01:44.024712+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_76",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Extremely strong, multi-ancestry GWAS associations with lipids (HDL, LDL, TG). High L2G scores (>0.98) strongly link these effects to the gene, though lead variants are non-coding.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5",
+    "gwas_6",
+    "gwas_11",
+    "gwas_12"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with a beneficial lipid profile or reduced cardiovascular risk?",
+     "rationale": "GWAS lead variants are upstream/intronic; burden data is needed to confirm that loss of gene function (inhibition) mimics the protective lipid directions."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f3d7127a-8436-44bd-9e94-4e90256caad8",
+   "content_hash": "dc95812ffefbf73f983820acf7b9de4e3ae8a7773c238362d8f2735d1ac109e7",
+   "timestamp": "2026-11-01T03:01:44.252745+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_76",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.4,
+   "rationale": "Extensive lipid/metabolic GWAS signals are present, but one Mendelian disease is caused by LoF. I need to check if the gene is LoF-intolerant in the general population to assess risk.",
+   "data_refs": [
+    "mendelian_1",
+    "safety_1",
+    "safety_2",
+    "safety_17"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "A Mendelian LoF signal exists; if the gene is generally LoF-intolerant, inhibiting it may carry systemic safety risks."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0fb52fc2-698e-4850-b605-a25ba92595ef",
+   "content_hash": "c75510ad480c04484a71ef79686fef0d830f91d75d8cbaebb54b4cbb1291a82e",
+   "timestamp": "2026-11-01T03:01:43.687323+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_76",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Extremely high tolerance for LoF (LOEUF 1.12, pLI ~0). No cell dependency across 1246 screens. Secreted protein biotype is highly druggable and loss is likely well-tolerated systemically.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function or genetic variation in this gene associate with improved cardiometabolic or liver phenotypes?",
+     "rationale": "Tolerance data shows inhibition is safe, but we need evidence of therapeutic benefit to confirm it as a target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d9f69f2b-e17d-4ddd-9cdb-4f71449c8bf6",
+   "content_hash": "76d6e66dc1c08f738fc7fe26d8d5cf3af42066208a76d1e053dcb74f66d69cbf",
+   "timestamp": "2026-11-01T03:01:43.705495+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_76",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly LoF-tolerant (LOEUF 1.115, pLI ~0) and not essential in any DepMap cell lines. It is also a secreted protein, suggesting low systemic safety risk from inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "is_core_essential",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [
+    "0fb52fc2-698e-4850-b605-a25ba92595ef"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "47f4a1a7-1c7d-4c13-8996-4ddffc18d974",
+   "content_hash": "a203ad41984ec18cdb0d68cc9c0fe4d0d795d650dec355f7a4f0c1025d65143f",
+   "timestamp": "2026-11-01T03:01:45.916986+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_76",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants strongly associate with unfavorable lipid profiles (high triglycerides, low HDL-C) across 76 traits and multiple cohorts. No hard endpoint protection is observed.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_11",
+    "burden_18",
+    "burden_25"
+   ],
+   "parent_artifact_ids": [
+    "d9f69f2b-e17d-4ddd-9cdb-4f71449c8bf6"
+   ],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Does loss-of-function in this gene associate with increased risk of cardiovascular disease or pancreatitis?",
+     "rationale": "The lipid profile (high TG, low HDL) suggests potential for harm rather than therapeutic benefit."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "17d53440-6119-4410-8ace-c442ea0aef86",
+   "content_hash": "b0ff13e6c5e130d4dfa995cc12b8d5234f508da5f1521a929cc30272b3577959",
+   "timestamp": "2026-11-01T03:01:48.011249+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_76",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "GWAS data shows extremely strong associations with lipid biomarkers, but no hard clinical endpoints like CAD or MI are present in the provided evidence to confirm translation.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_5",
+    "gwas_6",
+    "gwas_12"
+   ],
+   "parent_artifact_ids": [
+    "ed291893-fbc2-4d00-805c-81cd81d831e7"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "7af29c2d-cb95-42cd-8366-1a1354311f19",
+   "content_hash": "ad2890dda8625ecf35b65ffcfc5b89764cb2ddeb4efa8645710ef74d1fc51143",
+   "timestamp": "2026-11-01T03:01:49.762605+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_76",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "17d53440-6119-4410-8ace-c442ea0aef86",
+    "ed291893-fbc2-4d00-805c-81cd81d831e7",
+    "f3d7127a-8436-44bd-9e94-4e90256caad8"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "ed291893-fbc2-4d00-805c-81cd81d831e7",
+     "rationale": "Evidence is limited to lipid biomarkers (TG, HDL) without demonstrating impact on hard clinical endpoints like CAD or MI."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "f3d7127a-8436-44bd-9e94-4e90256caad8",
+     "rationale": "Strong GWAS associations are reported for lipid measurements only, lacking evidence for clinical disease endpoints."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "17d53440-6119-4410-8ace-c442ea0aef86",
+     "rationale": "The rationale explicitly states no hard endpoint protection is observed, yet maintains a high-strength verdict based on biomarkers."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "ed291893-fbc2-4d00-805c-81cd81d831e7",
+     "rationale": "Burden (A1) is 'against' while GWAS (A2) 'supports' based on the same lipid associations, showing inconsistent interpretation of the same data."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "f3d7127a-8436-44bd-9e94-4e90256caad8",
+     "rationale": "GWAS evidence (A2) claims 'supports' while its fulfillment (A7) is 'neutral' due to lack of clinical endpoints, creating an internal contradiction."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d68275a5-fde5-4b8b-a0e4-ad533f0a0541",
+   "content_hash": "886b6fe7a895b8c650f4365dcd9412974335009a71a681eebff82c718423f744",
+   "timestamp": "2026-11-01T03:02:33.134811+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_76",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.7,
+   "rationale": "LoF variants consistently worsen lipid profiles (high TG, high non-HDL/HDL ratio) across multiple cohorts. However, evidence is limited to biomarkers with no hard clinical endpoints.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_11",
+    "burden_25"
+   ],
+   "parent_artifact_ids": [
+    "ed291893-fbc2-4d00-805c-81cd81d831e7",
+    "7af29c2d-cb95-42cd-8366-1a1354311f19"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8f1195fa-bb66-49d0-93eb-9b6b20e05842",
+   "content_hash": "df507734567b28c7389a2dc980f8d7ab6939e7d80d1777142d0a1b9e4eb3d3ab",
+   "timestamp": "2026-11-01T03:02:34.774338+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_76",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Massive multi-ancestry GWAS for lipids with high L2G scores. Strength reduced because associations are biomarker-only and lack hard clinical endpoints in the provided data.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_5",
+    "gwas_6",
+    "gwas_12"
+   ],
+   "parent_artifact_ids": [
+    "f3d7127a-8436-44bd-9e94-4e90256caad8"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7e800e3b-8a92-44bd-b332-d269ce47945b",
+   "content_hash": "43ec676ff2a1d91eb0ef3a0f5913ac225f90d5769f72cd8f36cdeca8d7c0b613",
+   "timestamp": "2026-11-01T03:02:36.461190+00:00"
+  }
+ ]
+}

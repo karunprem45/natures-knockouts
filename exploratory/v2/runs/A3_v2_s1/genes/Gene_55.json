@@ -1,0 +1,341 @@
+{
+ "gene_code": "Gene_55",
+ "score": 1.5,
+ "calls": 10,
+ "seconds": 43.6,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_55",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Single protective LoF association with BMI in one EUR cohort (UKB). No hard endpoints or multi-ancestry data. Evidence is weak and limited to a biomarker.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function (pLI/LOEUF)?",
+     "rationale": "If the gene is essential or constrained, therapeutic inhibition may be unfeasible despite the BMI association."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus associate with BMI or metabolic disease?",
+     "rationale": "GWAS support would increase confidence that the observed rare-variant effect is robust and not a cohort-specific artifact."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse pleiotropic effects associated with LoF in this gene?",
+     "rationale": "Lowering BMI is only therapeutic if it doesn't cause significant harm in other organ systems."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e9a8cdbc-1838-40ab-bdb7-cb5c501c0bc8",
+   "content_hash": "de05ce807549ac93181b010711ac39ff62cc84c6903569804c1c68bbe3bbeaa9",
+   "timestamp": "2026-11-01T02:58:51.960315+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_55",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "GWAS shows consistent associations with LDL-C, non-HDL, and T2D. However, L2G scores are generally low (<0.1) for most traits, making gene assignment uncertain.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_19",
+    "gwas_23"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare variant burden for LDL cholesterol and type 2 diabetes",
+     "rationale": "Low L2G scores in GWAS mean the signal might belong to a neighbor; burden results would confirm this gene is the causal driver."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "pLI and LOEUF scores for this gene",
+     "rationale": "To assess if loss-of-function is tolerated before recommending inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "183635a3-d832-4393-9687-617e0ee13d4e",
+   "content_hash": "f713c605d4108682a1fd6b5f351229ddeb071f273c388b933f29d8499739796d",
+   "timestamp": "2026-11-01T02:59:15.452318+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_55",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function. GWAS signals are primarily blood biomarkers (platelets, leukocytes, CRP) without clear evidence of severe adverse pathology.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_6",
+    "safety_1",
+    "safety_3",
+    "safety_4",
+    "safety_19"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance to loss-of-function would suggest essentiality or developmental risks not captured by the current disease list."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant burden signals for infectious meningitis or placenta praevia?",
+     "rationale": "GWAS hits for these traits exist; if LoF variants increase risk, it would shift the stance to 'against'."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "908a9c46-da83-4f54-8fde-a741b595725d",
+   "content_hash": "dfc23764eb2ed7ab94e45f2cdc1b9e912b65acf437300b010023c770511aef95",
+   "timestamp": "2026-11-01T02:58:51.944417+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_55",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.85), pLI near 0, and zero DepMap dependency indicate high tolerance for loss-of-function. Secreted status is favorable for druggability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or genetic variation in this gene associate with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone doesn't justify a target; we need evidence of therapeutic benefit."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific phenotypes in LoF carriers or knockout models that suggest risks not captured by constraint metrics?",
+     "rationale": "Population metrics might miss specific organ-system toxicities or late-onset effects."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c486e46f-184a-488e-a793-fdc471c9b567",
+   "content_hash": "22c996f93f48945b6064332d9798e0fdd8536c8ba1e94318e701739cc961b1cf",
+   "timestamp": "2026-11-01T02:58:54.388734+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_55",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.86) and pLI near 0 indicate high tolerance for loss-of-function. DepMap data shows no cell dependency, and the protein is likely secreted, making it a viable drug target.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [
+    "183635a3-d832-4393-9687-617e0ee13d4e"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "b50cf3b1-4699-4f25-affc-0116c787f1d0",
+   "content_hash": "b618830c9857280c14654a7012997397dc077401a28504629fcd2cd960950082",
+   "timestamp": "2026-11-01T02:59:17.378385+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_55",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "My evidence only shows a protective LoF association for BMI in one EUR cohort. I have no data for LDL cholesterol or type 2 diabetes to confirm the GWAS agent's query.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "183635a3-d832-4393-9687-617e0ee13d4e"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "b9276ced-deb2-4fd7-ad9d-aaadb2c08dac",
+   "content_hash": "51e5e2674184572874747962fb7b6409d2978b91d4b2a3ddd92bc21ce507a1df",
+   "timestamp": "2026-11-01T02:59:18.728714+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_55",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss-of-function (LoF) across 12 categories. GWAS signals are primarily blood biomarkers and show no severe organ-system toxicity signals.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "safety_1",
+    "safety_3",
+    "safety_4",
+    "safety_19",
+    "safety_35"
+   ],
+   "parent_artifact_ids": [
+    "c486e46f-184a-488e-a793-fdc471c9b567"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "4f76a8a5-5d48-4203-8442-360b99bcb450",
+   "content_hash": "38217eac633368a8658c537a40780ba95e890d3525dfba7801e20621213d7585",
+   "timestamp": "2026-11-01T02:59:21.080775+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_55",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "183635a3-d832-4393-9687-617e0ee13d4e",
+    "4f76a8a5-5d48-4203-8442-360b99bcb450",
+    "908a9c46-da83-4f54-8fde-a741b595725d",
+    "b9276ced-deb2-4fd7-ad9d-aaadb2c08dac",
+    "e9a8cdbc-1838-40ab-bdb7-cb5c501c0bc8"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "e9a8cdbc-1838-40ab-bdb7-cb5c501c0bc8",
+     "rationale": "Evidence relies solely on the UK Biobank cohort, limiting the generalizability of the protective LoF association."
+    },
+    {
+     "type": "underpowered",
+     "channel": "gwas",
+     "target_artifact_id": "183635a3-d832-4393-9687-617e0ee13d4e",
+     "rationale": "Low L2G scores (<0.1) indicate weak evidence for linking the observed GWAS signals to this specific gene."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "908a9c46-da83-4f54-8fde-a741b595725d",
+     "rationale": "Safety assessment relies on blood biomarkers (platelets, CRP) rather than hard clinical endpoints or organ-system pathology."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "b9276ced-deb2-4fd7-ad9d-aaadb2c08dac",
+     "rationale": "The burden evidence is restricted to a single ancestry (European), lacking validation in other populations."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "4f76a8a5-5d48-4203-8442-360b99bcb450",
+     "rationale": "The safety profile is based on blood biomarkers rather than hard clinical outcomes or comprehensive toxicity data."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "351079a4-f19b-41b3-ada9-20a24d6918d5",
+   "content_hash": "ddbbdcf99bdedeb0ab3a5e2d6f947f3be5426961d7852247a3a2d0cbc1670f6a",
+   "timestamp": "2026-11-01T02:59:29.833948+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_55",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.5,
+   "rationale": "GWAS shows robust associations with LDL-C, T2D, and CAD. While most L2G scores are low, the T2D signal (gwas_23) has a high L2G (0.79), significantly strengthening the gene-trait link.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_19",
+    "gwas_23"
+   ],
+   "parent_artifact_ids": [
+    "183635a3-d832-4393-9687-617e0ee13d4e",
+    "b50cf3b1-4699-4f25-affc-0116c787f1d0",
+    "b9276ced-deb2-4fd7-ad9d-aaadb2c08dac"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b23369b4-b31c-4bcb-8f5d-dda2d9553cdf",
+   "content_hash": "ee6b34edb94dea2d5abaec797dbea7af4ee441c395c9e11c18decdc7617d7861",
+   "timestamp": "2026-11-01T02:59:31.879988+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_55",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Evidence remains weak: single cohort (UKB), single ancestry (EUR), and no hard endpoints. The BMI association is a biomarker only, and QC challenges correctly highlight limited generalizability.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "e9a8cdbc-1838-40ab-bdb7-cb5c501c0bc8"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "47788697-8c44-4977-8260-0ed23c06437e",
+   "content_hash": "86149baa0236771bf55d789d5c6e38fbcf921a79f3ed371aacc08ea714ff2093",
+   "timestamp": "2026-11-01T02:59:33.270538+00:00"
+  }
+ ]
+}

@@ -1,0 +1,279 @@
+{
+ "gene_code": "Gene_70",
+ "score": 1.4,
+ "calls": 10,
+ "seconds": 21.7,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_70",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No rare-variant burden association data provided for this gene across any cohorts or traits.",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with cardiometabolic or liver traits?",
+     "rationale": "To identify any genetic signal that might support the target in the absence of burden data."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene loss-of-function tolerant in humans (e.g., pLI or LOEUF scores)?",
+     "rationale": "To evaluate the potential safety of inhibiting this gene based on natural human variation."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b61a7548-3301-4162-9e09-886f1d93186d",
+   "content_hash": "6ca15e2c6e044c2dccf0f2bbee1cd33b1aa1614abe374e762d4f35b22986d8d8",
+   "timestamp": "2026-11-01T03:01:16.536041+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_70",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Weak evidence: low L2G score (0.08) suggests the T2D association likely belongs to a neighboring gene. Lead variant is upstream and only seen in one population (Finnish).",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant burden associations for type 2 diabetes or related metabolic traits for this specific gene?",
+     "rationale": "The current GWAS signal is likely misassigned due to the low L2G score; burden results would clarify if this gene actually influences the phenotype."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "19198732-0eb0-4e63-8264-7a7a2eb7baa9",
+   "content_hash": "d517d9391b4967ddee33dee47d9b829e453e3df97264ef435ac0c15770f0f7fc",
+   "timestamp": "2026-11-01T03:01:13.401720+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_70",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss-of-function (LoF) variants across 29 categories. LoF burden signals for HbA1c and glucose are protective, suggesting safety for metabolic targeting.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_6",
+    "mendelian_11",
+    "safety_1",
+    "safety_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "Confirmation that the gene can tolerate loss-of-function in the general population would solidify the safety profile for therapeutic inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "abc2fe13-9f12-45c2-8430-ea452cc36f39",
+   "content_hash": "ea7eac8f2a5d65af2861fdf53d77bbc3fffc1682e30c995fbb23d66b733dd369",
+   "timestamp": "2026-11-01T03:01:13.094071+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_70",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Extremely high LOEUF (1.45) and pLI of 0 indicate high tolerance for LoF. DepMap confirms it is not essential for cell survival. Lifelong inhibition is likely safe.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or reduced expression of this gene protect against cardiometabolic or liver disease?",
+     "rationale": "High tolerance indicates safety, but therapeutic utility requires evidence of benefit from inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "6aa396ea-52b0-4e69-a68e-30709d5648bf",
+   "content_hash": "449d6ec76e72e193edb56830408df6861a682983b56963dc15c024a3e3d1f4e3",
+   "timestamp": "2026-11-01T03:01:16.195886+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_70",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "High LOEUF (1.45) and pLI (0) indicate the gene is highly tolerant of LoF variants in humans. DepMap data confirms it is not essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "abc2fe13-9f12-45c2-8430-ea452cc36f39"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "15caf62f-5cff-482a-be03-7421586fbcf9",
+   "content_hash": "2275baa476f6b43b72f43567007544c8c2d5fadfb0f8658120e13282a260a07a",
+   "timestamp": "2026-11-01T03:01:20.219852+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_70",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No rare-variant burden associations for type 2 diabetes or metabolic traits were found in the provided data across any cohorts or ancestries.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "19198732-0eb0-4e63-8264-7a7a2eb7baa9"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "243de7f3-20a4-4189-aa73-c6d99fdb3e0a",
+   "content_hash": "b7ad80524e1a201f5dbdc4375fe1c5f8e1afadb9222b9bff6592c74b86e42fd1",
+   "timestamp": "2026-11-01T03:01:24.068356+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_70",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Significant T2D association exists (gwas_1), but the very low L2G score (0.08) suggests the locus likely belongs to a neighboring gene rather than this one.",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [
+    "b61a7548-3301-4162-9e09-886f1d93186d"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "ce187347-4dce-4cf6-a815-d516793fbee3",
+   "content_hash": "47b05bff1fb7062b7cfed05466ae7b5c28a6ddf70f799b6105bf97c2aefb9ae6",
+   "timestamp": "2026-11-01T03:01:28.662584+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_70",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "2 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "19198732-0eb0-4e63-8264-7a7a2eb7baa9",
+    "abc2fe13-9f12-45c2-8430-ea452cc36f39"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_ancestry",
+     "channel": "gwas",
+     "target_artifact_id": "19198732-0eb0-4e63-8264-7a7a2eb7baa9",
+     "rationale": "The GWAS evidence for T2D is based on a lead variant only observed in a single population (Finnish)."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "abc2fe13-9f12-45c2-8430-ea452cc36f39",
+     "rationale": "The safety rationale relies on protective signals for HbA1c and glucose, which are biomarkers rather than hard clinical endpoints."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7389af91-6fd3-47cd-b60d-effe10dc595c",
+   "content_hash": "22f4c4c631da9217154bb9064d4dcdf30c81becc9893b5fc8d6527e115879fa1",
+   "timestamp": "2026-11-01T03:01:30.155152+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_70",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "GWAS evidence is very weak (L2G 0.08) and limited to one population. Burden results are null, confirming the locus likely belongs to a neighboring gene rather than this target.",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [
+    "19198732-0eb0-4e63-8264-7a7a2eb7baa9",
+    "243de7f3-20a4-4189-aa73-c6d99fdb3e0a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "20143971-d5a6-4e3f-af92-b460c98b8532",
+   "content_hash": "55f2495c48a1e8422ab75f301ee4e6c92e08d5147c6ec0f2fef42c110dbdb69f",
+   "timestamp": "2026-11-01T03:01:31.541742+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_70",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "LoF variants are not associated with Mendelian disease across 29 categories. High LOEUF (1.45) and pLI (0) confirm human tolerance to LoF, mitigating safety concerns.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_6",
+    "mendelian_11",
+    "safety_1",
+    "safety_2"
+   ],
+   "parent_artifact_ids": [
+    "abc2fe13-9f12-45c2-8430-ea452cc36f39",
+    "15caf62f-5cff-482a-be03-7421586fbcf9"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "65e6d3de-052b-422e-aa4d-f215314195cb",
+   "content_hash": "3ef7d49d3de46aa50bb28b371e735270bdd74ddf421129ddf28302519f5cf824",
+   "timestamp": "2026-11-01T03:01:33.077192+00:00"
+  }
+ ]
+}
