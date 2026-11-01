@@ -1,0 +1,335 @@
+{
+ "gene_code": "Gene_06",
+ "score": 2.1,
+ "calls": 10,
+ "seconds": 55.4,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_06",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong protective LoF signal for WHR (p<1e-19) across 3 cohorts. However, evidence is limited to biomarkers; no hard endpoints (T2D/CVD) are reported in my view.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "Strong LoF associations with metabolic traits suggest therapeutic potential, but we must ensure lifelong deficiency is not deleterious."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus associate with T2D or CAD?",
+     "rationale": "To see if the biomarker effect (WHR) translates to hard clinical endpoints in larger GWAS datasets."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "fc3ba9b4-618a-469e-a370-09c9384c3d2a",
+   "content_hash": "17e3984f72df7d48cf45dbe710a8dcb26a66c2dcfd2982384475d8ca7b6d0205",
+   "timestamp": "2026-11-01T05:21:56.605231+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_06",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Strong GWAS evidence across multiple populations linking this gene to reduced LDL, total cholesterol, and BMI-adjusted waist-hip ratio. Includes a hard endpoint (T2D) and missense variants.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_4",
+    "gwas_5",
+    "gwas_6",
+    "gwas_7"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with lower LDL-C and protection from T2D?",
+     "rationale": "GWAS signals are strong but don't definitively prove that loss-of-function (mimicking inhibition) is the protective mechanism."
+    },
+    {
+     "type": "variant_check",
+     "query": "Are the missense variants in gwas_5, gwas_6, and gwas_7 predicted to be damaging or loss-of-function?",
+     "rationale": "Confirming if the lead variants associated with beneficial metabolic profiles are actually disruptive to the protein."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f07459cf-bfbf-44de-918a-e3ac871c821f",
+   "content_hash": "d907540a4f67be4b659756e5acc9bc86342a5963358239f27e81d86ecfb40cd8",
+   "timestamp": "2026-11-01T05:21:56.735288+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_06",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss-of-function. GWAS signals are primarily biomarkers. LoF burden signal for birth weight risk is noted but not definitive for severe harm.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "safety_3"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would suggest essentiality and potential for systemic harm not captured by Mendelian disease reports."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "77fdb812-d4cc-4dcf-91ba-1c141806e429",
+   "content_hash": "482d2c27192f7814edcef958042825fca17dd543ae994a3d861ae28b74cd3b55",
+   "timestamp": "2026-11-01T05:21:56.494639+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_06",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "DepMap shows no cell-line dependency. Population constraint (LOEUF 0.56, pLI 0.5) is moderate, suggesting inhibition may be tolerated, though the gene is not completely unconstrained.",
+   "data_refs": [
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "loeuf",
+    "pli"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function or reduced expression of this gene associate with improved cardiometabolic or liver phenotypes?",
+     "rationale": "Tolerance alone does not justify a target; I need to know if inhibiting it provides the desired therapeutic benefit."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse clinical phenotypes associated with natural loss-of-function variants in this gene in population cohorts?",
+     "rationale": "The pLI of 0.5 is ambiguous; I need to see if human 'knockouts' have any silent pathologies not captured by basic constraint metrics."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "04191bf6-2df1-428e-901c-5ddab1d0e34e",
+   "content_hash": "9749f56ff184d02c5f662c7d88b4298942374d51f59e5feae9bed05fca95deec",
+   "timestamp": "2026-11-01T05:22:14.784646+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_06",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "LoF variants strongly associate with lower WHR across multiple cohorts (UKB, MDCS, MCPS). However, evidence is limited to biomarkers; no hard clinical endpoints are reported.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "04191bf6-2df1-428e-901c-5ddab1d0e34e"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "bef333c0-97a3-43ea-a104-b63a717a6f4a",
+   "content_hash": "e0cbed2327d717c0b9588d4060b8b9209ff6f6ab6795dea13f3372d81e248fb5",
+   "timestamp": "2026-11-01T05:22:16.166027+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_06",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LOEUF (0.56) and pLI (0.5) suggest moderate tolerance. DepMap data shows no cell-line dependency, and it is not core-essential, supporting potential for lifelong inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "77fdb812-d4cc-4dcf-91ba-1c141806e429"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "f62ce11a-f505-4f18-9584-126e2da21be4",
+   "content_hash": "c5837b224b35e43f0f66966416ef914c23098a5fdaef9362f9c0485976108137",
+   "timestamp": "2026-11-01T05:22:18.081857+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_06",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by LoF variants. The only LoF-specific burden signal is for birth weight, which is not a severe safety contraindication.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "safety_3"
+   ],
+   "parent_artifact_ids": [
+    "04191bf6-2df1-428e-901c-5ddab1d0e34e"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "32ea7ced-468b-4181-b5ea-e3f6f2762c70",
+   "content_hash": "acd9d1c700d40cbc896ae142698cb3174b3b9d26ebbd00aa1dce71f7740db4aa",
+   "timestamp": "2026-11-01T05:22:20.294837+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_06",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "77fdb812-d4cc-4dcf-91ba-1c141806e429",
+    "bef333c0-97a3-43ea-a104-b63a717a6f4a",
+    "fc3ba9b4-618a-469e-a370-09c9384c3d2a"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "fc3ba9b4-618a-469e-a370-09c9384c3d2a",
+     "rationale": "The agent explicitly states that evidence is limited to biomarkers (WHR) and lacks hard clinical endpoints like T2D or CVD."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "fc3ba9b4-618a-469e-a370-09c9384c3d2a",
+     "rationale": "The burden agent claims no hard endpoints are reported, contradicting the GWAS agent (A2) who identifies T2D as a linked clinical endpoint."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "bef333c0-97a3-43ea-a104-b63a717a6f4a",
+     "rationale": "The agent admits evidence is limited to biomarkers with no hard clinical endpoints reported."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "bef333c0-97a3-43ea-a104-b63a717a6f4a",
+     "rationale": "The agent claims no hard clinical endpoints are reported, contradicting the GWAS agent (A2) who reports a T2D association."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "safety",
+     "target_artifact_id": "77fdb812-d4cc-4dcf-91ba-1c141806e429",
+     "rationale": "The safety agent claims GWAS signals are primarily biomarkers, contradicting the GWAS agent (A2) who reports a hard clinical endpoint (T2D)."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "eec2aa03-08f3-4fef-838e-62177872ae33",
+   "content_hash": "bc41d7df526964c988f5dd7d7abbf1dbbbf0529bea76a3fb2d9db7db876031c5",
+   "timestamp": "2026-11-01T05:22:45.882800+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_06",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong LoF burden for WHR (p<1e-19) across 3 cohorts. While my data lacks hard endpoints, GWAS agent confirms T2D link, elevating the clinical relevance of this protective metabolic signal.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "fc3ba9b4-618a-469e-a370-09c9384c3d2a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "da1e526a-fb2b-4c25-adce-37af60900e52",
+   "content_hash": "4148b11005def68eeae255faf84eee565fcfac0ba2f5bcdc31fa9235a4d94103",
+   "timestamp": "2026-11-01T05:22:47.282260+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_06",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian LoF diseases. Tolerance data (LOEUF 0.56) and lack of cell dependency support safety. T2D/glucose signals are in-scope and don't indicate out-of-scope harm.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_8",
+    "safety_3",
+    "safety_12",
+    "safety_15"
+   ],
+   "parent_artifact_ids": [
+    "77fdb812-d4cc-4dcf-91ba-1c141806e429",
+    "f62ce11a-f505-4f18-9584-126e2da21be4"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "64d50300-9551-4dbf-ac74-dc273cc2fa9c",
+   "content_hash": "d43f3b45db0f5d389ba0888781366e5f49c067219ca1e13b8b6b66899be12ad2",
+   "timestamp": "2026-11-01T05:22:49.359008+00:00"
+  }
+ ]
+}

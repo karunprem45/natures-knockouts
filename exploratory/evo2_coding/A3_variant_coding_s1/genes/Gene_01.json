@@ -1,0 +1,342 @@
+{
+ "gene_code": "Gene_01",
+ "score": 0.7,
+ "calls": 10,
+ "seconds": 41.6,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_01",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "LoF variants consistently lower HDL cholesterol and its subfractions (p < 1e-15). Lowering HDL is generally considered unfavorable for cardiometabolic health.",
+   "data_refs": [
+    "burden_1",
+    "burden_3",
+    "burden_5",
+    "burden_7",
+    "burden_13",
+    "burden_15",
+    "burden_18"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Does common variant evidence for this gene show an association with coronary artery disease or myocardial infarction?",
+     "rationale": "While LoF lowers HDL, the causal link between HDL levels and cardiovascular disease is complex; GWAS on hard endpoints would clarify the therapeutic direction."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any associations with liver enzymes, steatosis, or other metabolic harms in the full PheWAS?",
+     "rationale": "Inhibiting a gene that lowers HDL might have adverse effects on lipid metabolism or liver function."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c0d3c88c-5d76-4fd6-9afe-3c5bb893b025",
+   "content_hash": "4f62bdb933e598a8f99a4a0cc11a60681aa522e3732fac3030b839a931992bd9",
+   "timestamp": "2026-11-01T05:21:43.133603+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_01",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.3,
+   "rationale": "GWAS shows strong lipid associations and some CAD signals, but L2G scores are very low (<0.22), suggesting the signal may belong to a neighboring gene. Lead variants are non-coding.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_6",
+    "gwas_7",
+    "gwas_9",
+    "gwas_10"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant burden in this gene associate with lipids or CAD?",
+     "rationale": "Low L2G scores in GWAS make gene assignment uncertain; rare-variant burden would confirm if this specific gene is the causal driver."
+    },
+    {
+     "type": "variant_check",
+     "query": "Are the lead non-coding variants in this locus predicted to be regulatory for this gene?",
+     "rationale": "To determine if the GWAS signal is mechanistically linked to this gene's expression."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "867f5c91-2bc6-4140-961c-4dcfa1bf2d49",
+   "content_hash": "3233e3b7d3bf59a034f6c82adab22c628118792441a793900f8fcd7807060d18",
+   "timestamp": "2026-11-01T05:21:45.437137+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_01",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss-of-function. GWAS signals for aneurysms and cancer are present but lack LoF burden support, suggesting inhibition may be safe.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "safety_3",
+    "safety_5",
+    "safety_6",
+    "safety_11",
+    "safety_12"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would suggest essentiality and increase safety risk despite the lack of known LoF Mendelian diseases."
+    },
+    {
+     "type": "variant_check",
+     "query": "Check if the lead variants for abdominal aortic aneurysm (safety_3) are predicted to be disruptive.",
+     "rationale": "If the aneurysm signal is driven by LoF-like variants, it would change my stance to 'against'."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0fb68134-2469-426e-ae67-99f0ee3f75fd",
+   "content_hash": "4494989f44a82bef7f30ef27231c37d03129dc4ae656a0d33f5ec0e98c4a9422",
+   "timestamp": "2026-11-01T05:21:43.134915+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_01",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Metrics indicate extreme tolerance: LOEUF > 1.5, pLI ~0, and zero DepMap dependency. Lifelong inhibition is highly likely to be safe based on population genetics.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Is there evidence that loss-of-function or reduced expression of this gene protects against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit from gene inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific physiological risks or adverse phenotypes associated with loss of this gene in animal models or clinical reports?",
+     "rationale": "Population genetics may miss specific organ-system risks or phenotypes not captured by viability metrics."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0d3ce8bb-2dce-4c5c-9e5c-903ab680ad0d",
+   "content_hash": "acc38ee9fbfc966ce051ee969e691108fb9336bc09fc7349f830fa0ebf1edb08",
+   "timestamp": "2026-11-01T05:21:45.747137+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "variant",
+   "gene_code": "Gene_01",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Evo 2 scores for stop-gained variants show high disruption (median percentile 6.26, 80% < 10th percentile), suggesting LoF variants in this gene are likely to be genuinely functional.",
+   "data_refs": [
+    "evo2_1"
+   ],
+   "parent_artifact_ids": [
+    "0fb68134-2469-426e-ae67-99f0ee3f75fd"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "evo2_percentile:1.55",
+    "pressure:3.20"
+   ],
+   "artifact_id": "843970f5-acdf-44bc-a219-553c00ba586f",
+   "content_hash": "60910072eed7195cf3969a76f4d18c54e71936f178b9ca0f6ec5c1507f765fbb",
+   "timestamp": "2026-11-01T05:21:51.044312+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_01",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "LoF is associated with lower HDL cholesterol and particle size across multiple cohorts. Lowering HDL is generally not considered protective for cardiometabolic disease.",
+   "data_refs": [
+    "burden_13",
+    "burden_15",
+    "burden_18"
+   ],
+   "parent_artifact_ids": [
+    "0d3ce8bb-2dce-4c5c-9e5c-903ab680ad0d"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "d92495df-ba7a-42f3-873a-297509f56d79",
+   "content_hash": "5496f6407f13e90592fc3b7fa1a859a7649fc129c87f89fb62b05416cae252f3",
+   "timestamp": "2026-11-01T05:21:52.866970+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_01",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF). GWAS signals for aneurysms and cancer lack LoF burden evidence, and LoF is protective for brain attributes.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "safety_3",
+    "safety_5",
+    "safety_6",
+    "safety_11",
+    "safety_12",
+    "safety_26"
+   ],
+   "parent_artifact_ids": [
+    "0d3ce8bb-2dce-4c5c-9e5c-903ab680ad0d"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "4561c425-903f-4cfb-8636-97e5783fc52c",
+   "content_hash": "bbff46699791c8c109f6dd94608be29b3fa82581438fe0fd3b075fae82edab21",
+   "timestamp": "2026-11-01T05:21:54.886013+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_01",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "0fb68134-2469-426e-ae67-99f0ee3f75fd",
+    "4561c425-903f-4cfb-8636-97e5783fc52c",
+    "c0d3c88c-5d76-4fd6-9afe-3c5bb893b025",
+    "d92495df-ba7a-42f3-873a-297509f56d79"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "c0d3c88c-5d76-4fd6-9afe-3c5bb893b025",
+     "rationale": "The verdict relies on HDL cholesterol levels and subfractions, which are biomarkers and not definitive clinical endpoints for cardiometabolic disease."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "safety",
+     "target_artifact_id": "0fb68134-2469-426e-ae67-99f0ee3f75fd",
+     "rationale": "The rationale identifies GWAS signals for aneurysms and cancer, which are adverse findings that conflict with a 'supports' stance for safety."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "d92495df-ba7a-42f3-873a-297509f56d79",
+     "rationale": "The evidence is based on HDL cholesterol and particle size, which are biomarkers rather than hard clinical outcomes."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "safety",
+     "target_artifact_id": "4561c425-903f-4cfb-8636-97e5783fc52c",
+     "rationale": "The rationale acknowledges GWAS signals for aneurysms and cancer, creating a conflict with the 'supports' stance."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4435d4d1-08bf-4025-afdf-f9902afb4ac2",
+   "content_hash": "927d951a15799ce1e6f230bce08ef90d61256b3318e67a73f70c9ecbad7f0747",
+   "timestamp": "2026-11-01T05:22:17.440846+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_01",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.4,
+   "rationale": "While no Mendelian LoF diseases exist, GWAS signals for aneurysms and cancer are significant. Variant agent confirms LoF variants are likely functional, increasing concern for these signals.",
+   "data_refs": [
+    "safety_3",
+    "safety_5",
+    "safety_6",
+    "safety_11",
+    "safety_12",
+    "mendelian_1"
+   ],
+   "parent_artifact_ids": [
+    "0fb68134-2469-426e-ae67-99f0ee3f75fd",
+    "843970f5-acdf-44bc-a219-553c00ba586f"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "6789eeae-db47-4220-8629-00a8d761e9e6",
+   "content_hash": "b865fba4745a3a5e5589ab304cf44f5300265443f316b2c86bad2245ff36d0ac",
+   "timestamp": "2026-11-01T05:22:19.562576+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_01",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.5,
+   "rationale": "LoF variants strongly lower HDL cholesterol (p < 1e-15). While labeled 'protect', lowering HDL is typically unfavorable. No hard clinical endpoints are present to prove benefit.",
+   "data_refs": [
+    "burden_1",
+    "burden_13",
+    "burden_15",
+    "burden_18"
+   ],
+   "parent_artifact_ids": [
+    "c0d3c88c-5d76-4fd6-9afe-3c5bb893b025"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8e2239d4-4fa9-4f20-b1c1-f71632916a29",
+   "content_hash": "040fcdea2f74db18ab4b0d9f20fc64b5745cc50635a31d221dbad9becd773729",
+   "timestamp": "2026-11-01T05:22:20.949463+00:00"
+  }
+ ]
+}

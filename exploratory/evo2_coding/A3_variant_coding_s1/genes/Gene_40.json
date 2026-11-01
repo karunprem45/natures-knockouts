@@ -1,0 +1,326 @@
+{
+ "gene_code": "Gene_40",
+ "score": 1.8,
+ "calls": 10,
+ "seconds": 19.5,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_40",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Single protective LoF signal for triglycerides in one EUR cohort (UKB). No hard endpoints or multi-ancestry data. Signal is based on synonymous burden, which is unusual for LoF interpretation.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "variant_check",
+     "query": "Verify if the synonymous variants in this burden mask are actually disruptive or in linkage with true LoF variants.",
+     "rationale": "The signal is labeled LoF but the method is synonymous; I need to know if this represents a real loss of function."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Does common variant evidence support the triglyceride association?",
+     "rationale": "To see if the rare-variant signal is corroborated by common-variant associations."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with this gene in other domains?",
+     "rationale": "A single biomarker association is insufficient to determine if inhibition is safe."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "bbe2be48-45d4-4bcf-8971-70f15636eb49",
+   "content_hash": "7a324819e22472330a6ee289fa525e2168220ab4c75f22e903dc262e16be447c",
+   "timestamp": "2026-11-01T05:26:14.471483+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_40",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Associations are limited to biomarkers with very low L2G scores (<0.16), suggesting the causal gene at these loci may be a neighbor. No hard endpoints or coding variants identified.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5",
+    "gwas_6"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare-variant associations for lipids and cardiovascular endpoints",
+     "rationale": "Low L2G scores in GWAS mean we need rare coding variant evidence to confirm this gene actually influences these traits."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "pLI or LOEUF scores for this gene",
+     "rationale": "To assess if the gene is essential or can tolerate the loss of function required for an inhibitory therapy."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c2e62686-a8ca-4767-8914-5eda4f774bcc",
+   "content_hash": "701043bd072ba3a4ed2a089dc7624febb28c5c88f634c406ae35755a3a4e6f71",
+   "timestamp": "2026-11-01T05:26:18.673099+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_40",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss-of-function variants. GWAS hits are primarily biomarkers (lipids, fatty acids) or have low effect sizes, suggesting no severe safety contraindications.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "mendelian_11",
+    "mendelian_12",
+    "safety_1",
+    "safety_2",
+    "safety_8",
+    "safety_13"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "Confirmation that the gene can be safely inhibited in humans without developmental or essentiality issues would increase confidence."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4da068d8-4568-4045-bf66-051115930b34",
+   "content_hash": "2a119e7b58881ab920c7ffd3551c72cef011df2a61fe4d8a24cb6a39d8b01414",
+   "timestamp": "2026-11-01T05:26:14.581568+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_40",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "High LOEUF (0.71) and near-zero pLI (0.0016) indicate LoF is well-tolerated in humans. DepMap data confirms the gene is non-essential for cell viability across 1258 lines.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function in this gene associate with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit from inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any clinical phenotypes or syndromes associated with biallelic loss of function in humans?",
+     "rationale": "While generally tolerated, specific rare phenotypes (e.g., developmental or reproductive) might not be captured by pLI/LOEUF."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "26ca5956-b325-4e45-b04a-373ee21319dc",
+   "content_hash": "853008d7f58fcf0713a4011d75e8d8fef3fd4c0c0e99ae73af39a6fc1ac6cc36",
+   "timestamp": "2026-11-01T05:26:17.141916+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_40",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "There are no Mendelian diseases caused by loss of function across 12 categories, and no rare-variant burden signals for out-of-scope traits, suggesting biallelic LoF is likely safe.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "mendelian_11",
+    "mendelian_12"
+   ],
+   "parent_artifact_ids": [
+    "26ca5956-b325-4e45-b04a-373ee21319dc"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "d150cfd5-2e89-4e92-9d97-1ae1c34e4a90",
+   "content_hash": "26b93b11034993071809dc83a6dd2e92bf5a2110eb47993e2edfce36cea489f8",
+   "timestamp": "2026-11-01T05:26:20.629907+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_40",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "LOEUF (0.71) and pLI (0.0016) indicate high tolerance to LoF. DepMap data confirms the gene is not essential for cell viability across 1258 screens.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "4da068d8-4568-4045-bf66-051115930b34"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "c8e708a5-156e-4fc3-858d-272ad21ae918",
+   "content_hash": "061ee6196fe4e1b16a3165f9cbed935124ebaa6330f18c2bad9dc5a30da2e189",
+   "timestamp": "2026-11-01T05:26:24.906432+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_40",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.2,
+   "rationale": "LoF associates with lower triglycerides in UKB, but evidence is weak: single cohort, EUR only, biomarker only, and no hard clinical endpoints.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "26ca5956-b325-4e45-b04a-373ee21319dc"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "ee29fc9f-bca3-4ac0-b3f6-72c2b49a802f",
+   "content_hash": "b92c419f9b4cf334148fb8079b860977642b74541b1e9a90a76558fa1eca53c9",
+   "timestamp": "2026-11-01T05:26:26.328376+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_40",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "0 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "32cc408e-9081-4f2b-aba3-380b14c1aee9",
+   "content_hash": "0d5884073e7017a0e8039033d500311094bc103f1b2082e2ec8755fe42b21b5e",
+   "timestamp": "2026-11-01T05:26:28.411272+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_40",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Strong population tolerance (LOEUF 0.71, pLI 0.00) and lack of cell dependency are now reinforced by safety data showing no Mendelian LoF phenotypes.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "safety_1"
+   ],
+   "parent_artifact_ids": [
+    "26ca5956-b325-4e45-b04a-373ee21319dc",
+    "d150cfd5-2e89-4e92-9d97-1ae1c34e4a90",
+    "ee29fc9f-bca3-4ac0-b3f6-72c2b49a802f"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "43b54c60-2c48-45db-a47d-bce24259144b",
+   "content_hash": "fd579e7a9512aa3e72273dbdbd60874ff7fda77c73bdd440124ce0bf5c8e4728",
+   "timestamp": "2026-11-01T05:26:29.846773+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_40",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "No LoF-driven Mendelian diseases or safety events. High LoF tolerance (LOEUF 0.71, pLI 0.0016) and non-essentiality in DepMap strongly support safety for therapeutic inhibition.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "mendelian_11",
+    "mendelian_12",
+    "safety_1",
+    "safety_2",
+    "safety_8",
+    "safety_13"
+   ],
+   "parent_artifact_ids": [
+    "4da068d8-4568-4045-bf66-051115930b34",
+    "c8e708a5-156e-4fc3-858d-272ad21ae918"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8d50e117-fbb3-461d-a676-552eacb3445d",
+   "content_hash": "51d40097236b3835d3206426193716d666e121c1827b2eb176ebbb8216226c50",
+   "timestamp": "2026-11-01T05:26:31.745124+00:00"
+  }
+ ]
+}

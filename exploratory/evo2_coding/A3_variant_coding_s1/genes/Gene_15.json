@@ -1,0 +1,299 @@
+{
+ "gene_code": "Gene_15",
+ "score": 3.25,
+ "calls": 10,
+ "seconds": 36.3,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_15",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong LoF burden associations with lower ApoB and LDL-C across multiple cohorts (UKB, Genes & Health). However, evidence is limited to biomarkers with no hard clinical endpoints shown.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function (pLI/LOEUF)?",
+     "rationale": "To ensure therapeutic inhibition is safe, I need to know if humans naturally lack this gene without severe developmental or fitness costs."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF carriers in non-metabolic traits?",
+     "rationale": "I need to rule out pleiotropic risks before supporting it as a safe target."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with coronary artery disease or myocardial infarction?",
+     "rationale": "My view only shows biomarkers; GWAS evidence for hard endpoints would significantly strengthen the case for efficacy."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a06b31c0-82e8-47f3-93c7-53689328b8ed",
+   "content_hash": "745cf36b1ae454feccf9a55ee20fc83d7994398c8137f2a2e47d75f53cb51f44",
+   "timestamp": "2026-11-01T05:23:18.184664+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_15",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong GWAS evidence for LDL-C and ApoB reduction. A missense variant (l2g 0.93) and 3' UTR variants show consistent lipid-lowering effects. Hard endpoint (CAD) data is present but has low l2g.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_5",
+    "gwas_12"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with lower LDL-C and protection from CAD?",
+     "rationale": "GWAS signals are strong but primarily non-coding or missense; burden data would confirm that inhibiting the gene product replicates the protective lipid profile."
+    },
+    {
+     "type": "variant_check",
+     "query": "Evaluate the impact of the missense variant in gwas_5 and the 3' UTR variants.",
+     "rationale": "Confirms if the lead variants are truly disruptive or regulatory, strengthening the link between gene function and the observed phenotype."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d005d55e-ff08-40f1-99bc-610ab67de8fc",
+   "content_hash": "1d0270789acfda0769f9432a8cd1e127e1b7af66b2423fa3a0208c587cea5e33",
+   "timestamp": "2026-11-01T05:22:57.492882+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_15",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across multiple categories. GWAS hits are primarily metabolic biomarkers or lack strong clinical severity.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "safety_1",
+    "safety_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant in the general population (e.g., pLI or LOEUF scores)?",
+     "rationale": "If the gene is highly LoF-intolerant, it suggests developmental or survival constraints not captured in the Mendelian disease summary."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there any rare-variant burden signals for respiratory insufficiency or hypoventilation?",
+     "rationale": "GWAS hits for respiratory traits (safety_11, safety_12) are present; I need to know if LoF variants specifically increase risk for these conditions."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "599f1249-5567-4c37-b237-5b3eefe86ff1",
+   "content_hash": "9962436b5a902ee113a69ffa541a3fdc452c1f529e36c71e6efa3152f65d0390",
+   "timestamp": "2026-11-01T05:22:56.890799+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_15",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Extremely high tolerance for loss-of-function (LOEUF 1.15, pLI ~0). The gene is not constrained in the human population, suggesting lifelong inhibition is likely safe.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "lof_oe",
+    "missense_oe"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are there human LoF carriers with improved cardiometabolic or liver phenotypes?",
+     "rationale": "While inhibition is safe, we need evidence that loss of function provides a therapeutic benefit for the target diseases."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b8ffc4e4-8cd9-42d2-83d3-3807a3e3234f",
+   "content_hash": "4421f73603d19679bac7b2763cc6ca40217350e02e76d7f6cb81b321181fd22c",
+   "timestamp": "2026-11-01T05:22:56.345078+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_15",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.15) and pLI near 0 indicate the gene is highly tolerant to loss-of-function variants in the general population, suggesting no strong evolutionary constraint.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "lof_oe"
+   ],
+   "parent_artifact_ids": [
+    "599f1249-5567-4c37-b237-5b3eefe86ff1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "8bc02489-0f36-4413-8899-8b90fa7d8ca5",
+   "content_hash": "41cd4b59ee635502e9db6384cee2faf5959353fca074ec0bd1ceed3bf6b7c285",
+   "timestamp": "2026-11-01T05:23:21.447359+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_15",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "My evidence only covers lipid biomarkers (ApoB, LDL, TC). I have no rare-variant burden data for respiratory insufficiency or hypoventilation to address the safety agent's query.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "599f1249-5567-4c37-b237-5b3eefe86ff1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "1a878080-4249-4677-83d8-fe0e73ff0507",
+   "content_hash": "297f29d7f7fcbf4103f733c40115460fe6217868382d0004402d4f13bac3c1f4",
+   "timestamp": "2026-11-01T05:23:22.714604+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_15",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 11 identified conditions. GWAS hits are primarily biomarkers; respiratory signals lack LoF burden evidence here.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "safety_11",
+    "safety_12"
+   ],
+   "parent_artifact_ids": [
+    "a06b31c0-82e8-47f3-93c7-53689328b8ed"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "f15d48c9-078b-494b-aa0b-6beacaed9cda",
+   "content_hash": "db123c71cb15e466136466e7e9105ee94f7e20dce8c1dbee3246f8d46e189b48",
+   "timestamp": "2026-11-01T05:23:24.330884+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_15",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "0 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "dbfe224a-7aab-47eb-814c-00c410db3348",
+   "content_hash": "abd8ad2af99597c6d27af9ec500da861f034842ee10dba86f22ac2601e7ebe9f",
+   "timestamp": "2026-11-01T05:23:26.457765+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_15",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "No LoF-driven Mendelian diseases. High LOEUF (1.15) and pLI (0) confirm the gene is highly tolerant to loss-of-function, mitigating concerns over weak respiratory GWAS signals.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "safety_11",
+    "safety_12"
+   ],
+   "parent_artifact_ids": [
+    "599f1249-5567-4c37-b237-5b3eefe86ff1",
+    "8bc02489-0f36-4413-8899-8b90fa7d8ca5",
+    "1a878080-4249-4677-83d8-fe0e73ff0507"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "df6fb3e8-5597-41f7-90d8-63c2900a04a8",
+   "content_hash": "b7906dbd3ee28377628b9dc13f0ab405abf8211d51cedcc776312605b4143f5e",
+   "timestamp": "2026-11-01T05:23:28.962870+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_15",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.75,
+   "rationale": "Strong LoF burden for lower LDL-C/ApoB across cohorts. Safety agent confirms no Mendelian LoF harm, increasing confidence despite lack of hard clinical endpoints in my data.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3"
+   ],
+   "parent_artifact_ids": [
+    "a06b31c0-82e8-47f3-93c7-53689328b8ed",
+    "f15d48c9-078b-494b-aa0b-6beacaed9cda"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a5d774de-0a1c-4ffd-a4e9-f9e38745f843",
+   "content_hash": "0e3a6c6b15449aea4853b0e28fb6b95c23b374e776f6a7b1007c8154e144d677",
+   "timestamp": "2026-11-01T05:23:30.600418+00:00"
+  }
+ ]
+}

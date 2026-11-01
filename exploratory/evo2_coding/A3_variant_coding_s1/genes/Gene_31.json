@@ -1,0 +1,319 @@
+{
+ "gene_code": "Gene_31",
+ "score": 2.175,
+ "calls": 10,
+ "seconds": 20.7,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_31",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LoF variants consistently associate with lower WHR across multiple cohorts (UKB, MDCS, MCPS). However, evidence is limited to biomarkers; no hard clinical endpoints are present.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "To ensure therapeutic inhibition wouldn't cause developmental or systemic harm."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF in non-metabolic traits?",
+     "rationale": "To assess potential off-target risks of inhibiting this gene."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus associate with metabolic disease (T2D, CAD)?",
+     "rationale": "To see if the biomarker signal translates to hard disease endpoints in larger populations."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "2f6f479d-0785-4718-b2be-7d79c4487c94",
+   "content_hash": "07b5daaec9607dfcfbfcc7365eb0acbed16f260fd730df73fbd653e16e650d40",
+   "timestamp": "2026-11-01T05:25:12.666043+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_31",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong associations with increased HDL and decreased triglycerides. A splice acceptor variant (l2g 0.85) links the gene to BMI-adjusted WHR, suggesting a role in metabolic health.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_19",
+    "gwas_28",
+    "gwas_30"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare-variant burden for HDL, triglycerides, and type 2 diabetes",
+     "rationale": "GWAS signals are mostly upstream/intronic; burden data would confirm if loss-of-function mimics the beneficial lipid profile and protects against T2D."
+    },
+    {
+     "type": "variant_check",
+     "query": "Evo 2 analysis of the splice acceptor variant in gwas_30",
+     "rationale": "This is the strongest L2G link to a metabolic trait; confirming its disruptive effect would solidify the gene's causal role."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4233cbdf-3a2a-4de6-8780-8e375e6d1564",
+   "content_hash": "8f6820f51a00783de62c2c07b4d1bc5f41653205c7e26dc5f68bf257ab36dcd1",
+   "timestamp": "2026-11-01T05:25:12.691178+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_31",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function. GWAS hits are primarily biomarkers. Burden signal for birth weight exists but is not a severe safety contraindication.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "safety_26"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF)?",
+     "rationale": "To confirm if systemic loss of function is tolerated in the general population, as Mendelian data is currently limited."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "2dce8c60-9f0a-4515-b254-18904ae23407",
+   "content_hash": "fef468e80b22c527c208ae8bab165b884acdaae8c833045ca2419d65ea42bc41",
+   "timestamp": "2026-11-01T05:25:12.315636+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_31",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.0) and near-zero pLI indicate LoF is well-tolerated in humans. Low DepMap dependency and secreted status further support safety for therapeutic inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Is there evidence that loss-of-function variants in this gene protect against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit from inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific clinical phenotypes or syndromes associated with rare homozygous loss-of-function in humans?",
+     "rationale": "General population constraint metrics may miss specific, rare adverse effects of complete deficiency."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c815f443-c299-4ae9-ad38-3fb3313283f9",
+   "content_hash": "ff15a0d7efa7d60e90d908adc363cfa2971285146ba96b04cfb72e27488e5558",
+   "timestamp": "2026-11-01T05:25:14.945370+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_31",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "High LOEUF (1.00) and near-zero pLI indicate the gene is highly tolerant of LoF. DepMap data confirms it is not core-essential and has low cell-line dependency.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [
+    "2dce8c60-9f0a-4515-b254-18904ae23407"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "dbeaeb0d-1e61-4e47-8f20-28923e1f38be",
+   "content_hash": "336b5bd28e8783a8524af9a7fec2e22f54b2f5dfdbd26be69b900d84ec5c2b7b",
+   "timestamp": "2026-11-01T05:25:20.107955+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_31",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by LoF. The only LoF burden signal is for birth weight, and GWAS hits are primarily biomarkers or common traits without severe safety implications.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "safety_26",
+    "safety_17",
+    "safety_23"
+   ],
+   "parent_artifact_ids": [
+    "2f6f479d-0785-4718-b2be-7d79c4487c94"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "83b8bd0d-d18b-4f32-9e6d-8b389f3ff179",
+   "content_hash": "dc3cbd1494eece50325af4494ce840bf7413efec75728c240738a14ead2386ea",
+   "timestamp": "2026-11-01T05:25:21.918526+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_31",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "Common variants associate strongly with HDL subfractions and triglycerides. A T2D association exists but with low L2G confidence; BMI-adj WHR has high L2G and a splice-site lead variant.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_19",
+    "gwas_28",
+    "gwas_30"
+   ],
+   "parent_artifact_ids": [
+    "2f6f479d-0785-4718-b2be-7d79c4487c94"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "84729cc6-bf4d-44db-92b2-590128b3a8c9",
+   "content_hash": "a7f04bbd15cd265ae14334f92f8a0669907c4242c1ee005c2f24760b2a180e97",
+   "timestamp": "2026-11-01T05:25:24.717178+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_31",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "3 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "2f6f479d-0785-4718-b2be-7d79c4487c94",
+    "4233cbdf-3a2a-4de6-8780-8e375e6d1564",
+    "84729cc6-bf4d-44db-92b2-590128b3a8c9"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "2f6f479d-0785-4718-b2be-7d79c4487c94",
+     "rationale": "The agent explicitly states evidence is limited to biomarkers with no hard clinical endpoints present."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "4233cbdf-3a2a-4de6-8780-8e375e6d1564",
+     "rationale": "Associations are limited to lipid measurements (HDL, triglycerides) and WHR, which are biomarkers rather than clinical disease endpoints."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "84729cc6-bf4d-44db-92b2-590128b3a8c9",
+     "rationale": "The fulfillment acknowledges associations are primarily with HDL subfractions and triglycerides; the T2D clinical endpoint has low confidence."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "33c24d65-28bf-4be0-ae17-c751c34698eb",
+   "content_hash": "16d87aa00c4683c85209b52eac205721d2be5bd72cf2e115fa1ca47746253d9d",
+   "timestamp": "2026-11-01T05:25:26.664300+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_31",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.65,
+   "rationale": "LoF burden consistently reduces WHR across 3 cohorts and 2 projects. GWAS support for WHR and lack of LoF safety issues increase confidence, though hard endpoints are still missing.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "2f6f479d-0785-4718-b2be-7d79c4487c94",
+    "83b8bd0d-d18b-4f32-9e6d-8b389f3ff179",
+    "84729cc6-bf4d-44db-92b2-590128b3a8c9"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "29a4be8b-846b-48b5-a4a9-ad5791d513e4",
+   "content_hash": "d05141298757d437cc7867a4339be0039b8efb48bf5c8ee1884e38acaf086af4",
+   "timestamp": "2026-11-01T05:25:28.735942+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_31",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.5,
+   "rationale": "Strong lipid biomarker signals (HDL, TG) and a high-confidence splice variant for WHR (l2g 0.85) support metabolic influence, but the T2D endpoint has low l2g (0.12) and lacks beta direction.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_19",
+    "gwas_28",
+    "gwas_30"
+   ],
+   "parent_artifact_ids": [
+    "4233cbdf-3a2a-4de6-8780-8e375e6d1564"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f7ebc2cf-b306-4510-a5f8-787873e68930",
+   "content_hash": "a16f9274151ca4169de1ba9e4c2905613bd0c20313837d89282adbe67b390d0d",
+   "timestamp": "2026-11-01T05:25:30.587176+00:00"
+  }
+ ]
+}

@@ -1,0 +1,307 @@
+{
+ "gene_code": "Gene_38",
+ "score": -1.6,
+ "calls": 10,
+ "seconds": 50.4,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_38",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "LoF variants associate with lower BMI in a large European cohort (N>700k). However, evidence is limited to a single biomarker trait, one ancestry, and no hard clinical endpoints.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "BMI reduction via LoF is promising, but we must ensure the gene is not essential or under strong purifying selection."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse pleiotropic effects associated with LoF in this gene?",
+     "rationale": "Lowering BMI is only therapeutic if it does not cause significant harm in other systems."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene also associate with BMI or metabolic disease?",
+     "rationale": "Consistency between rare LoF and common variant signals would significantly increase confidence in the target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b07f164c-d850-4f62-8cf0-725747af2170",
+   "content_hash": "5a4f70ac7ff7d2cc5112d7fb1f6fd4b8084fbf9bbef4ebc0097336209387cb4b",
+   "timestamp": "2026-11-01T05:26:04.656348+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_38",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Weak evidence: the very low l2g score (0.097) suggests the LDL-C association likely belongs to a neighboring gene. No hard endpoints are reported.",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant burden in this gene associate with LDL cholesterol or cardiovascular events?",
+     "rationale": "Rare-variant data would clarify if this gene is truly the causal driver of the observed lipid signal, given the low GWAS l2g confidence."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b388a3ae-1c66-45b1-bc26-85aedaf82467",
+   "content_hash": "5f3b63d7265baad91d2ec5664004350c02cb747665bb773433f7a54c27bee617",
+   "timestamp": "2026-11-01T05:26:07.888365+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_38",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "Evidence of a Mendelian nervous system disorder caused by loss-of-function (LoF) and significant burden signals for hematological and anthropometric traits suggest pleiotropic risks.",
+   "data_refs": [
+    "mendelian_1",
+    "safety_2",
+    "safety_6",
+    "safety_7",
+    "safety_11"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "A Mendelian LoF signal in the nervous system is a major safety concern; high intolerance would solidify the 'against' stance."
+    },
+    {
+     "type": "variant_check",
+     "query": "Does the lead variant for the hematological burden signals (safety_2, safety_6) cause protein disruption?",
+     "rationale": "Confirming that the observed phenotypic changes are driven by loss of function is critical for assessing the safety of therapeutic inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "773d3d51-018a-4f40-b538-6e7f889d8474",
+   "content_hash": "d8513e9eca93f591674eb87a3ff1ad8f2e0d96173cfc7811938433ea3c631ca2",
+   "timestamp": "2026-11-01T05:26:05.525055+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_38",
+   "round": 0,
+   "stance": "against",
+   "strength": 1.0,
+   "rationale": "Extreme LoF intolerance (pLI=1, LOEUF=0.16) and core essentiality in DepMap (-1.39) indicate that inhibiting this gene would likely be cell-lethal and not tolerated in humans.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4be21dcf-c234-4c56-9e70-1ddb225e8ac6",
+   "content_hash": "99a55fa611bd02bd54b326b4d0173a68843aa28bc37c48e9e843dd7b4c51b2fb",
+   "timestamp": "2026-11-01T05:26:05.776316+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_38",
+   "round": 1,
+   "stance": "against",
+   "strength": 1.0,
+   "rationale": "Extreme LoF intolerance (pLI=1, LOEUF=0.157) and core-essentiality (99% DepMap dependency) indicate lifelong inhibition would likely be lethal or highly toxic.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "is_core_essential",
+    "depmap_frac_dependent",
+    "depmap_mean_gene_effect"
+   ],
+   "parent_artifact_ids": [
+    "773d3d51-018a-4f40-b538-6e7f889d8474"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "916a1e2a-f5fd-4040-9380-c7b5be2ee4e4",
+   "content_hash": "13fb8c881aaaf2364b445ebca9405194fdcb5daae96e4123d06050409a1613b8",
+   "timestamp": "2026-11-01T05:26:09.424420+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "variant",
+   "gene_code": "Gene_38",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Evo 2 scores show high disruption: strongest delta_ll is -134.13 and the lowest site percentile is 4.68, indicating these LoF variants hit highly constrained, functional sequence.",
+   "data_refs": [
+    "Evo 2 summary"
+   ],
+   "parent_artifact_ids": [
+    "773d3d51-018a-4f40-b538-6e7f889d8474"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "evo2_percentile:4.68",
+    "pressure:2.20"
+   ],
+   "artifact_id": "ecc46e30-973a-4336-bd66-c5b695b154d6",
+   "content_hash": "71e2d290ac06c9245a8dbe9e894cb6e63db8ab12a2bc69dce0dcde8d582e66b5",
+   "timestamp": "2026-11-01T05:26:11.022869+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_38",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.4,
+   "rationale": "LoF is linked to a nervous system disorder. Strong burden signals for erythrocyte volume and lean mass suggest pleiotropic effects, though clinical severity is unclear.",
+   "data_refs": [
+    "mendelian_1",
+    "safety_2",
+    "safety_6",
+    "safety_7",
+    "safety_8",
+    "safety_9"
+   ],
+   "parent_artifact_ids": [
+    "b07f164c-d850-4f62-8cf0-725747af2170"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "61478759-1555-4a83-9f2d-62671e402624",
+   "content_hash": "248bbb8713ed061605fbd3deab6331b832c7c4ff933cd8a454ca3b416b24a63f",
+   "timestamp": "2026-11-01T05:26:12.659011+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_38",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "b07f164c-d850-4f62-8cf0-725747af2170",
+    "b388a3ae-1c66-45b1-bc26-85aedaf82467"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "b07f164c-d850-4f62-8cf0-725747af2170",
+     "rationale": "The rationale explicitly states that the evidence is limited to a single ancestry (European)."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "b07f164c-d850-4f62-8cf0-725747af2170",
+     "rationale": "The rationale explicitly states that the evidence is limited to a single biomarker (BMI) and lacks hard clinical endpoints."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "burden",
+     "target_artifact_id": "b07f164c-d850-4f62-8cf0-725747af2170",
+     "rationale": "Tolerance data (A4, A5) indicates the gene is core-essential and LoF-intolerant (pLI=1), making the reported LoF burden signal suspect."
+    },
+    {
+     "type": "underpowered",
+     "channel": "gwas",
+     "target_artifact_id": "b388a3ae-1c66-45b1-bc26-85aedaf82467",
+     "rationale": "The very low l2g score (0.097) suggests the association is marginal and likely belongs to a neighboring gene."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "b388a3ae-1c66-45b1-bc26-85aedaf82467",
+     "rationale": "The rationale explicitly states that no hard clinical endpoints are reported for the LDL-C association."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8e991b89-8a0c-49a7-ad10-5ab3bf86e704",
+   "content_hash": "9cb1746f32a94acaf43d9b337f1be3c622ac5df8a3305b2b66102e4935aa73cf",
+   "timestamp": "2026-11-01T05:26:49.325193+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_38",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "LoF burden for lower BMI is significant but suspect given the gene is core-essential (pLI=1) and linked to nervous system disorders. Evidence lacks hard endpoints and ancestral diversity.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "b07f164c-d850-4f62-8cf0-725747af2170",
+    "61478759-1555-4a83-9f2d-62671e402624"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "fe9456eb-bf57-4093-b6da-908143aa9549",
+   "content_hash": "861f5554aac240eeffeafb3f7e265d8f463c8119506898e5d97a04ec4b865db7",
+   "timestamp": "2026-11-01T05:26:50.721442+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_38",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.05,
+   "rationale": "The L2G score (0.097) is extremely low, indicating the LDL-C signal likely belongs to a neighbor. No hard endpoints or multi-ancestry data support this gene as the causal driver.",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [
+    "b388a3ae-1c66-45b1-bc26-85aedaf82467"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "436e8849-7972-4305-9d04-c43bfcabf160",
+   "content_hash": "2294e8cafc2fdbbf144ab8ebc096ce99b0aa327e7546ceb951cb09d1c189cf08",
+   "timestamp": "2026-11-01T05:26:52.458191+00:00"
+  }
+ ]
+}

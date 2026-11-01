@@ -1,0 +1,323 @@
+{
+ "gene_code": "Gene_14",
+ "score": 1.6,
+ "calls": 10,
+ "seconds": 161.8,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_14",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants strongly associate with increased HDL-C and particle size (risk label), but also increased total cholesterol and lipoprotein levels across multiple cohorts and projects.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_10",
+    "burden_25",
+    "burden_27"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Does common variant evidence for this gene link increased HDL to reduced cardiovascular risk?",
+     "rationale": "While LoF increases HDL (usually protective), it also increases total cholesterol; I need to see if this translates to clinical benefit or harm."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (pLI/LOEUF)?",
+     "rationale": "High effect sizes on lipids suggest a major metabolic role; I need to know if complete inhibition is viable."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "aae8b125-fc76-47fb-8e65-79abf25ca976",
+   "content_hash": "1487cce118a55555f926014d7e622327beb5cdaccbf7aa26a0a121699f917ea9",
+   "timestamp": "2026-11-01T05:22:54.095409+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_14",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.4,
+   "rationale": "Strong GWAS signals for HDL subfractions and ApoA1 (L2G > 0.9), but no hard endpoints (e.g., CAD) are visible in the top results. Directionality for HDL is mixed across particle sizes.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_5",
+    "gwas_6",
+    "gwas_11",
+    "gwas_14",
+    "gwas_22",
+    "gwas_29"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with coronary artery disease or myocardial infarction?",
+     "rationale": "GWAS hits are biomarkers only; burden data is needed to link loss-of-function to clinical outcomes and confirm therapeutic direction."
+    },
+    {
+     "type": "variant_check",
+     "query": "Test if the lead variants for HDL (e.g., in gwas_1 or gwas_22) are predicted to be functionally disruptive.",
+     "rationale": "Lead variants are mostly intronic or synonymous; confirming a functional effect on the gene would strengthen the target link."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "6500f127-b218-46a1-b410-1ff4aa3d6474",
+   "content_hash": "a8020bc7b16b8e51c522a2250856a32e1d45a37005ec883ee19feb247e9d317f",
+   "timestamp": "2026-11-01T05:22:54.492310+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_14",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss-of-function (LoF) variants. GWAS signals for cancer and aortic stenosis lack LoF burden evidence, suggesting they may not be driven by gene inhibition.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_8",
+    "mendelian_10",
+    "safety_1",
+    "safety_20",
+    "safety_24"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would suggest essentiality and potential for systemic harm despite the lack of known LoF Mendelian diseases."
+    },
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant LoF burden associate with renal cell carcinoma or aortic stenosis?",
+     "rationale": "If LoF burden drives these risks, the stance would shift to 'against'."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4f9b7716-a8cc-4c26-a9ab-6ec9575d8418",
+   "content_hash": "ae5046eedeabb0573cab67f67a8bd2069ac5f6e3e41bd8584492044960a0baf4",
+   "timestamp": "2026-11-01T05:22:53.972113+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_14",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "High LOEUF (0.71) and near-zero pLI (0.0001) indicate LoF is well-tolerated in humans. Low DepMap dependency confirms it is not core-essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or reduced expression of this gene associate with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; there must be a clear therapeutic benefit from inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific clinical phenotypes or syndromes associated with rare homozygous loss-of-function variants in this gene?",
+     "rationale": "Population metrics like pLI can miss specific recessive phenotypes that would pose a safety risk for complete inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e503dab7-c6b0-4bc0-b299-c2cae2b0f1c0",
+   "content_hash": "ec53b3b191bfe81f7f098517990d0fea148fbe5d73e2e2a4dc15cc34a8b0a2be",
+   "timestamp": "2026-11-01T05:22:56.345944+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_14",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "The provided burden data contains only lipid and metabolic biomarkers. There is no evidence regarding renal cell carcinoma or aortic stenosis in the current view.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "4f9b7716-a8cc-4c26-a9ab-6ec9575d8418"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "dcce85fd-26c3-4c92-a6e4-61f1ce7535bd",
+   "content_hash": "39043331ff2872f88a6894decc3504f51dccc5d1ef050301778216bfea8ce437",
+   "timestamp": "2026-11-01T05:22:58.091671+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_14",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Low pLI (0.0001) and high LOEUF (0.71) indicate LoF tolerance. DepMap data confirms it is not core-essential and has minimal cell-line dependency.",
+   "data_refs": [
+    "pli",
+    "loeuf",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [
+    "4f9b7716-a8cc-4c26-a9ab-6ec9575d8418"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "87c05b27-d164-4976-93ec-7dbe7e6e4843",
+   "content_hash": "d882ea064a31fc38755b511a3ae8b1b62464957ee3d9df6f987f4327f9ae5da6",
+   "timestamp": "2026-11-01T05:23:02.998988+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "variant",
+   "gene_code": "Gene_14",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Evo 2 predicts high disruption: 80% of LoF variants are in the bottom 10th percentile, with a median site percentile of 0.59, indicating these changes hit highly constrained sequence.",
+   "data_refs": [
+    "evo2_summary"
+   ],
+   "parent_artifact_ids": [
+    "6500f127-b218-46a1-b410-1ff4aa3d6474"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "evo2_percentile:0.23",
+    "pressure:2.20"
+   ],
+   "artifact_id": "bfc73948-cfdf-4b00-90fc-764c611c49c1",
+   "content_hash": "8e2601b4fddf013ebfe795052803798cfab867683deff377fddb9beb230dc33a",
+   "timestamp": "2026-11-01T05:23:08.580504+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_14",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "6500f127-b218-46a1-b410-1ff4aa3d6474",
+    "aae8b125-fc76-47fb-8e65-79abf25ca976"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "aae8b125-fc76-47fb-8e65-79abf25ca976",
+     "rationale": "The evidence for the 'against' stance relies entirely on lipid biomarkers and particle sizes rather than clinical disease outcomes."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "aae8b125-fc76-47fb-8e65-79abf25ca976",
+     "rationale": "LoF associates with both increased HDL-C (typically protective) and increased total cholesterol (typically risk), creating a conflict in the interpreted direction of effect."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "6500f127-b218-46a1-b410-1ff4aa3d6474",
+     "rationale": "GWAS results are limited to HDL subfractions and ApoA1; the agent explicitly notes there is no evidence of association with hard endpoints like coronary artery disease."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "6500f127-b218-46a1-b410-1ff4aa3d6474",
+     "rationale": "The agent notes that directionality for HDL is mixed across different particle sizes, which prevents a clear interpretation of the GWAS signal."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "6ee9d66d-5698-4aa7-8fbc-8d47c3d36c34",
+   "content_hash": "f1588aacd48742601db94963d86b28272e98d0227569988a9cec2bc52b052173",
+   "timestamp": "2026-11-01T05:25:29.489128+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_14",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "GWAS shows massive signals for HDL subfractions (L2G > 0.9). While directionality is complex, variant evidence confirms high constraint, suggesting these lipid associations are functional.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_5",
+    "gwas_11",
+    "gwas_22",
+    "gwas_29"
+   ],
+   "parent_artifact_ids": [
+    "6500f127-b218-46a1-b410-1ff4aa3d6474",
+    "bfc73948-cfdf-4b00-90fc-764c611c49c1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f69d392b-f167-4ca9-b808-3a4e9cef8157",
+   "content_hash": "36deb9f266cac0706be7f203b26baffb500d4e5f8d91ea43003821789564b2e0",
+   "timestamp": "2026-11-01T05:25:31.683633+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_14",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.7,
+   "rationale": "LoF variants strongly increase HDL-C and particle size, but also total cholesterol. The lack of hard clinical endpoints and conflicting lipid directions warrant a slightly lower strength.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_25"
+   ],
+   "parent_artifact_ids": [
+    "aae8b125-fc76-47fb-8e65-79abf25ca976"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "2d93196a-8d12-4b5e-8674-37e505bb10f2",
+   "content_hash": "8a1b70368115f87bd2b34889e4ea452491cc2de9bf72ed8eee6f52e69a361c54",
+   "timestamp": "2026-11-01T05:25:33.304069+00:00"
+  }
+ ]
+}

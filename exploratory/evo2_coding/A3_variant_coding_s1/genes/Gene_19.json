@@ -1,0 +1,243 @@
+{
+ "gene_code": "Gene_19",
+ "score": 1.4,
+ "calls": 9,
+ "seconds": 15.2,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_19",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No rare-variant burden data provided for this gene. Cannot assess protective or risk associations for cardiometabolic or liver traits.",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "2a5f6582-be13-4598-a5e7-8d7803160cef",
+   "content_hash": "bf3fc8676db18b95baf6f16029fd6294dbe447f67b9d86563ab6eba1f30e09c4",
+   "timestamp": "2026-11-01T05:23:17.661781+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_19",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "The T2D association is protective but the L2G score (0.08) is very low, suggesting the signal likely belongs to a neighboring gene rather than this one.",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant burden in this gene associate with type 2 diabetes or glycemic biomarkers?",
+     "rationale": "A low L2G score in GWAS means the locus is poorly assigned; rare-variant burden would provide definitive evidence that this specific gene is the driver."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene constrained or tolerant to loss-of-function variants?",
+     "rationale": "To evaluate if inhibiting this gene would be tolerated without severe adverse effects."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8b1de70e-290a-4f3c-9e02-5f4bf794a680",
+   "content_hash": "1479dc2020244b2abc6aeeed7b4e660d9697fe2d4f7040a4c7fc0970ec27a950",
+   "timestamp": "2026-11-01T05:23:21.057054+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_19",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 29 categories. LoF burden signals for HbA1c and glucose are protective, and other GWAS hits are mostly biomarkers.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_6",
+    "mendelian_11",
+    "safety_1",
+    "safety_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "Confirmation that the gene can tolerate loss of function in the general population would solidify the safety profile for inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7b6c6b41-4f8c-42bc-b510-57b23c80e0fa",
+   "content_hash": "7073e44566ca4f6c4bc1ae67f1c4fc22cee1def0d30332501944dbc4e678dcea",
+   "timestamp": "2026-11-01T05:23:17.662126+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_19",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Exceptional tolerance: LOEUF 1.45 and pLI 0 indicate no evolutionary constraint. DepMap confirms non-essentiality. Lifelong inhibition is likely very well tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are loss-of-function variants in this gene associated with improved cardiometabolic or liver health outcomes?",
+     "rationale": "While tolerance is extremely high, I need evidence of therapeutic benefit to confirm it as a viable target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "bf221725-ba29-4754-92dd-8a0af891351d",
+   "content_hash": "aa7d2fa0e824535509d6a86c5419ce347689ab18ebdfdbaadcee8a88dd23b3d5",
+   "timestamp": "2026-11-01T05:23:20.460247+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_19",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "Extremely high LOEUF (1.45) and pLI (0) indicate high LoF tolerance in humans. DepMap data confirms the gene is not essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "lof_oe"
+   ],
+   "parent_artifact_ids": [
+    "7b6c6b41-4f8c-42bc-b510-57b23c80e0fa"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "4a40d7f5-0169-410a-a73b-95eeb394df30",
+   "content_hash": "16f9768e3c53af9302f15411a71eae0cf31efa6ecd6f4e37ed2e259d43a8913b",
+   "timestamp": "2026-11-01T05:23:24.473466+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_19",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "The burden dataset contains no rows or summary data. I cannot confirm any rare-variant associations with type 2 diabetes or glycemic biomarkers from my view.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "8b1de70e-290a-4f3c-9e02-5f4bf794a680"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "b2587474-626a-419b-b169-c760aef0f3ff",
+   "content_hash": "c0646cc2d6110a6a679df51344d0bb1c245698eb98e1997f4e5256f83bce8199",
+   "timestamp": "2026-11-01T05:23:26.231824+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_19",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "1 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "7b6c6b41-4f8c-42bc-b510-57b23c80e0fa"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "7b6c6b41-4f8c-42bc-b510-57b23c80e0fa",
+     "rationale": "The safety agent relies on HbA1c and glucose biomarkers to support safety, rather than clinical endpoints, and notes other GWAS hits are also biomarkers."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e4e8cbe1-d05f-498e-85be-b568fc1d36d8",
+   "content_hash": "00832bf8eb2c02c2ee9ad8bd62199e3332698faa9537500496feb72c8a42874a",
+   "timestamp": "2026-11-01T05:23:27.806423+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_19",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.45) and pLI (0) confirm LoF tolerance. No Mendelian LoF diseases exist across 29 categories, and burden signals for HbA1c/glucose are protective, suggesting a safe profile.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_6",
+    "mendelian_11",
+    "safety_1",
+    "safety_2"
+   ],
+   "parent_artifact_ids": [
+    "7b6c6b41-4f8c-42bc-b510-57b23c80e0fa",
+    "4a40d7f5-0169-410a-a73b-95eeb394df30"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "00e56979-5017-46f8-889b-82bcf497cf28",
+   "content_hash": "82854dd257b1f467557e8b9d1948f8888478144c6a33aa74e4d0d61217dfb151",
+   "timestamp": "2026-11-01T05:23:29.369838+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_19",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.05,
+   "rationale": "The T2D association is protective but the L2G score (0.08) is very low. Burden results are empty, providing no independent validation to overcome the weak locus-to-gene assignment.",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [
+    "8b1de70e-290a-4f3c-9e02-5f4bf794a680",
+    "b2587474-626a-419b-b169-c760aef0f3ff"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "dd7801af-fc0a-4a19-a96a-0e8dad1065bf",
+   "content_hash": "97d212da3f439c47d89884ac88814a852d0a7527af9bde36c46bf5b261c843f2",
+   "timestamp": "2026-11-01T05:23:30.946608+00:00"
+  }
+ ]
+}

@@ -1,0 +1,338 @@
+{
+ "gene_code": "Gene_39",
+ "score": 2.0,
+ "calls": 10,
+ "seconds": 18.3,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_39",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.75,
+   "rationale": "Strong LoF burden for lower triglycerides and LDL across 4 cohorts and multiple ancestries. However, elevated ALT suggests potential liver safety issues; no hard endpoints are yet observed.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_5"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "The ALT elevation (burden_5) suggests potential hepatotoxicity; I need to know if humans can safely lack this gene."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with LoF in non-cardiometabolic systems?",
+     "rationale": "To determine if the lipid-lowering benefit is outweighed by systemic risks."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4cdc2a3b-7185-499c-b4ad-6224d44d34fc",
+   "content_hash": "ed89e44d80d788ffdf7dd925a96e82995477c565b71bc94045a688bbcb80276e",
+   "timestamp": "2026-11-01T05:26:09.430065+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_39",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Strong GWAS evidence (high L2G, missense leads) linking the gene to lower lipids (LDL, TG, ApoB) and increased liver fat/ALT. Direction suggests inhibition mimics the lipid-lowering effect.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5",
+    "gwas_14",
+    "gwas_25",
+    "gwas_27"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with lower LDL/triglycerides and increased liver fat?",
+     "rationale": "GWAS missense variants suggest a direction, but burden results are needed to confirm that loss-of-function (inhibition) is the driver of the beneficial lipid profile and the liver risk."
+    },
+    {
+     "type": "safety_check",
+     "query": "Is there a risk of progression to NASH or cirrhosis associated with this gene's variants?",
+     "rationale": "GWAS shows increased liver fat and ALT; we need to know if this leads to severe clinical liver endpoints before recommending inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0166e37f-a162-4116-8a38-4f31549967a4",
+   "content_hash": "5497c8533ba8a908b67c03baa70e33def85900259c5d4a53d9fb1d4d4f82539b",
+   "timestamp": "2026-11-01T05:26:09.979908+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_39",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss-of-function (LoF). GWAS signals are primarily lipid/fatty acid biomarkers, which are likely related to the target's mechanism rather than safety risks.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "safety_1",
+    "safety_13"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "To confirm that breaking the gene is tolerated in the general population, as Mendelian data shows no LoF-driven disease but doesn't rule out essentiality."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there any significant rare-variant burden signals for non-lipid traits, especially in the nervous system or cancer?",
+     "rationale": "To ensure that rare LoF variants in the population do not associate with severe adverse phenotypes not captured in the GWAS summary."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0dcc079d-c694-46b1-8dd1-6f0c77475a54",
+   "content_hash": "9f678ebb742d14f29139efdcf1eee6ac4bd488d7c7269d57dd60bddee9a3cb5b",
+   "timestamp": "2026-11-01T05:26:09.979505+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_39",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.96) and near-zero pLI indicate high tolerance for LoF. DepMap confirms non-essentiality in cell lines. Lifelong inhibition is likely well-tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function in this gene associate with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit from inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific organ-system toxicities or clinical phenotypes associated with LoF in humans or mice?",
+     "rationale": "Population metrics can miss specific, late-onset, or non-lethal adverse phenotypes."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "30dad5b0-354b-44e9-9e07-91ede606145d",
+   "content_hash": "8bc83a4e6a7dbad02bdd4bfe98a6b557e820a984b344acc6c29012696b08def2",
+   "timestamp": "2026-11-01T05:26:12.492472+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_39",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "LoF burden strongly associates with lower LDL and triglycerides across 4 cohorts (p<1e-10). Elevated ALT (liver risk) is also observed, confirming the GWAS hypothesis.",
+   "data_refs": [
+    "burden_1",
+    "burden_3",
+    "burden_5"
+   ],
+   "parent_artifact_ids": [
+    "0166e37f-a162-4116-8a38-4f31549967a4"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "3add6ecc-5f11-46a0-a209-0efd89dcc29b",
+   "content_hash": "3d5573f287ce52179de601c73bbe5b8b142543613361c4b8185035e1f58a8473",
+   "timestamp": "2026-11-01T05:26:14.413265+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_39",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "No Mendelian LoF diseases or severe safety events reported. Hepatobiliary Mendelian signals exist but are not LoF-driven. GWAS shows liver biomarkers but no severe endpoints.",
+   "data_refs": [
+    "mendelian_7",
+    "safety_13",
+    "safety_30",
+    "safety_31"
+   ],
+   "parent_artifact_ids": [
+    "0166e37f-a162-4116-8a38-4f31549967a4"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "0cecd442-1136-4065-b64e-f5ec2c5f0d3d",
+   "content_hash": "aff475f89073a7fac6c52cf1a33c5e87356990e14e93dac57a0cee77a3dfb02e",
+   "timestamp": "2026-11-01T05:26:15.922279+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_39",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "High LOEUF (0.96) and pLI near 0 indicate strong LoF tolerance in humans. DepMap data confirms the gene is not core-essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [
+    "0dcc079d-c694-46b1-8dd1-6f0c77475a54"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "3b70deff-82ae-4327-b806-cbc4676343e4",
+   "content_hash": "cda4a1d5a9cb471e3450e74d0cccfe168fc29cecd7a6547c3ddaa9bee7b85236",
+   "timestamp": "2026-11-01T05:26:19.557224+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_39",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "0166e37f-a162-4116-8a38-4f31549967a4",
+    "0cecd442-1136-4065-b64e-f5ec2c5f0d3d",
+    "3add6ecc-5f11-46a0-a209-0efd89dcc29b",
+    "4cdc2a3b-7185-499c-b4ad-6224d44d34fc"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "4cdc2a3b-7185-499c-b4ad-6224d44d34fc",
+     "rationale": "The rationale explicitly states that no hard clinical endpoints have been observed yet, only lipid and ALT measurements."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "0166e37f-a162-4116-8a38-4f31549967a4",
+     "rationale": "The evidence is restricted to lipid biomarkers (LDL, TG, ApoB) and liver fat/ALT measurements without clinical disease outcomes."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "3add6ecc-5f11-46a0-a209-0efd89dcc29b",
+     "rationale": "The fulfillment relies on LDL, triglycerides, and ALT biomarkers; it lacks evidence of impact on hard clinical endpoints like MACE."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "0cecd442-1136-4065-b64e-f5ec2c5f0d3d",
+     "rationale": "The agent acknowledges liver biomarkers are present but notes a lack of severe clinical endpoints, making the safety profile incomplete."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "833545f6-eb78-4986-8463-f4fc47b5ce82",
+   "content_hash": "26a206f4551c8ca3b8465167603ebad0f4b0b4a2cf893c17f178c1ebd6fd0f44",
+   "timestamp": "2026-11-01T05:26:22.108372+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_39",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "GWAS shows massive, multi-ancestry lipid-lowering effects (LDL, TG, ApoB) with high L2G and missense leads. Burden data confirms LoF mimics this, despite the liver fat/ALT biomarker trade-off.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5",
+    "gwas_11",
+    "gwas_14",
+    "gwas_25"
+   ],
+   "parent_artifact_ids": [
+    "0166e37f-a162-4116-8a38-4f31549967a4",
+    "3add6ecc-5f11-46a0-a209-0efd89dcc29b",
+    "0cecd442-1136-4065-b64e-f5ec2c5f0d3d"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c3c36496-cc00-4afe-8c98-a824b1170c1b",
+   "content_hash": "4e9a4067661b9ea20e65471c92b02959b9900c8107aab5e5409174c0dd7401b9",
+   "timestamp": "2026-11-01T05:26:23.889459+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_39",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong LoF burden for lower lipids across 4 cohorts, but strength is reduced as evidence is biomarker-only with no hard endpoints and a risk signal for elevated ALT.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4",
+    "burden_5"
+   ],
+   "parent_artifact_ids": [
+    "4cdc2a3b-7185-499c-b4ad-6224d44d34fc"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "86c0fc56-cfa8-410c-904f-41380526fafe",
+   "content_hash": "43404b2194ba6264b32a2466e0e3aafb6d791ad59882e6435ecaf6bc3d0a8083",
+   "timestamp": "2026-11-01T05:26:25.483604+00:00"
+  }
+ ]
+}

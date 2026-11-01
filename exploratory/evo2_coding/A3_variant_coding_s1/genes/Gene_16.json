@@ -1,0 +1,314 @@
+{
+ "gene_code": "Gene_16",
+ "score": 2.2,
+ "calls": 10,
+ "seconds": 18.3,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_16",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.3,
+   "rationale": "LoF variants associate with lower AST (liver health biomarker) in UKB, but evidence is limited to one ancestry, one cohort, and no hard clinical endpoints like cirrhosis or NASH.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function (LOEUF/pLI)?",
+     "rationale": "If the gene is essential or constrained, therapeutic inhibition may be unfeasible despite the biomarker benefit."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with LoF in this gene?",
+     "rationale": "Lower AST is positive, but I need to ensure LoF doesn't cause harm in other systems not in my view."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene also associate with liver enzymes or liver disease?",
+     "rationale": "Convergence between rare LoF and common variant signals would significantly strengthen the target validation."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "547d6d41-b155-49cd-91db-e20ae0341d18",
+   "content_hash": "1d06b6a70756456f979a4f09a351b374480f23985221b19079c3f402eeb13c32",
+   "timestamp": "2026-11-01T05:22:59.566220+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_16",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "Strong associations with lipids (VLDL, LDL, TG) and liver enzymes. However, L2G scores are low for many traits, and lead variants are non-coding, making gene assignment uncertain.",
+   "data_refs": [
+    "gwas_16",
+    "gwas_18",
+    "gwas_19",
+    "gwas_20",
+    "gwas_24",
+    "gwas_35",
+    "gwas_36"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare-variant burden for lipids, T2D, and NAFLD",
+     "rationale": "Low L2G scores and intronic leads mean the signal could belong to a neighbor; burden evidence would confirm this gene is the causal driver."
+    },
+    {
+     "type": "variant_check",
+     "query": "disruptive potential of lead intronic variants in gwas_1, gwas_16, and gwas_18",
+     "rationale": "To determine if these common variants have a clear functional impact on the gene."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7759f353-b821-4c38-8ce9-715e59eef68f",
+   "content_hash": "c66fb096f75134dc0ab05e03689972a53d70cd8d70624f7732bd069bdf243667",
+   "timestamp": "2026-11-01T05:22:59.655846+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_16",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 16 categories. The only LoF burden signal is for SHBG, which is not a severe safety concern. GWAS hits are mostly lipid-related.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_5",
+    "mendelian_12",
+    "safety_32"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "Confirmation of population tolerance to LoF would solidify the safety profile for therapeutic inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b3fa6af7-08ad-4aaf-b112-7a0de7981a47",
+   "content_hash": "ed0393e00b5ff68becc5834eb9b7e8cb3a83e5cb4708d7330af8fa04d2f3772a",
+   "timestamp": "2026-11-01T05:22:58.988177+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_16",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.21) and near-zero pLI indicate strong tolerance to LoF. DepMap data confirms the gene is non-essential for cell viability across 1258 lines.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are loss-of-function variants in this gene associated with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; I need to know if inhibiting this gene provides a therapeutic benefit."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "cfbb129e-bc7f-448a-aaa5-4c3eb0590988",
+   "content_hash": "6fd1f5ca10d4bf6df22adaea74a443c4ca3412e56e3b44eb0e8d383223a2d6b6",
+   "timestamp": "2026-11-01T05:23:02.341974+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_16",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "High LOEUF (1.21), pLI near 0, and negligible DepMap dependency indicate the gene is highly tolerant to loss-of-function and not essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "547d6d41-b155-49cd-91db-e20ae0341d18"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "605b6595-f3ac-457d-b7ff-67c26c88977f",
+   "content_hash": "8385c74b519cfe6bb5424991e7673ce8e654ccbb1dd36fdd03b29618440ae1ce",
+   "timestamp": "2026-11-01T05:23:06.666592+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_16",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 13 categories. The only LoF burden signal is for SHBG levels, which is a biomarker, not a clinical harm.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_5",
+    "mendelian_12",
+    "safety_32"
+   ],
+   "parent_artifact_ids": [
+    "547d6d41-b155-49cd-91db-e20ae0341d18"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "f306a65d-f29a-40ad-b170-d4a05b565c52",
+   "content_hash": "b48bca1de0f6710e725964581428f11cccdfde0d83594df6b4c3669f3b171fba",
+   "timestamp": "2026-11-01T05:23:08.398971+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_16",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "Common variants associate with AST and NAFLD, though L2G scores are low (0.11-0.27). Stronger evidence exists for lipid traits (VLDL, LDL, TG) with higher L2G scores.",
+   "data_refs": [
+    "gwas_20",
+    "gwas_35",
+    "gwas_18",
+    "gwas_24"
+   ],
+   "parent_artifact_ids": [
+    "547d6d41-b155-49cd-91db-e20ae0341d18"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "23567c89-f37f-4bd7-8144-7b0a831a03a7",
+   "content_hash": "5639e8772a801084a1460ae3a8f3e9227c5f8215a5e080def38acaad7c8c5c93",
+   "timestamp": "2026-11-01T05:23:10.150231+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_16",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "3 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "23567c89-f37f-4bd7-8144-7b0a831a03a7",
+    "547d6d41-b155-49cd-91db-e20ae0341d18"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "23567c89-f37f-4bd7-8144-7b0a831a03a7",
+     "rationale": "The GWAS evidence relies heavily on lipid levels and liver enzymes (AST) rather than hard clinical endpoints, with low L2G scores for NAFLD."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "547d6d41-b155-49cd-91db-e20ae0341d18",
+     "rationale": "The burden evidence is restricted to a single cohort (UKB) and a single ancestry, limiting its generalizability."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "547d6d41-b155-49cd-91db-e20ae0341d18",
+     "rationale": "The signal is limited to AST, a liver health biomarker, without evidence for clinical outcomes like cirrhosis or NASH."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "30c1d7a1-c092-4c2c-b602-360ce585c1a6",
+   "content_hash": "45512f25b0e82239c3e07bacdb4c97b4ed822177dc336031509317c0cff3b12e",
+   "timestamp": "2026-11-01T05:23:12.019289+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_16",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.5,
+   "rationale": "Burden signal for lower AST is now supported by GWAS evidence for NAFLD and high gene tolerance (LOEUF 1.21), though evidence remains limited to one cohort and a biomarker endpoint.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "547d6d41-b155-49cd-91db-e20ae0341d18",
+    "605b6595-f3ac-457d-b7ff-67c26c88977f",
+    "f306a65d-f29a-40ad-b170-d4a05b565c52",
+    "23567c89-f37f-4bd7-8144-7b0a831a03a7"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "2ed9f02e-2e60-4c0b-9234-d37365984cbb",
+   "content_hash": "682f171db43030ea3a23279e085d8f88be853eb98bb43f18739ab76f5a5f0a0f",
+   "timestamp": "2026-11-01T05:23:13.252497+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_16",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.5,
+   "rationale": "Strong lipid and AST associations across populations. L2G scores for non-HDL cholesterol and small LDL are high (0.7-0.8), though NAFLD and T2D signals remain weak and lack effect direction.",
+   "data_refs": [
+    "gwas_16",
+    "gwas_17",
+    "gwas_19",
+    "gwas_20",
+    "gwas_35",
+    "gwas_36"
+   ],
+   "parent_artifact_ids": [
+    "7759f353-b821-4c38-8ce9-715e59eef68f"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "77174e0a-2f28-4714-bb99-7e8641059f46",
+   "content_hash": "2a242f2a755d3d30722e5d86ae4ebcfb8fc91c831e6731fab0ffc9a88d883106",
+   "timestamp": "2026-11-01T05:23:15.179319+00:00"
+  }
+ ]
+}

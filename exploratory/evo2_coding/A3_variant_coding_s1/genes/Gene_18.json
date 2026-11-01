@@ -1,0 +1,323 @@
+{
+ "gene_code": "Gene_18",
+ "score": 3.075,
+ "calls": 10,
+ "seconds": 15.8,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_18",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LoF variants show strong protection against T2D (OR=0.37, p<1e-8) in a South Asian cohort. This is a hard endpoint, but evidence is currently limited to one ancestry and one cohort.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (pLI/LOEUF)?",
+     "rationale": "The protective effect is via LoF; I need to know if complete inhibition is viable without developmental or fitness costs."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with LoF in this gene in other systems?",
+     "rationale": "To ensure T2D protection doesn't come at the cost of other organ system damage."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene also associate with T2D or glycemic traits?",
+     "rationale": "Consistency between rare LoF and common variant signals would significantly increase confidence in the target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e0894d5f-4b6f-4734-8ee0-bb775ae49271",
+   "content_hash": "3c01995554c682f961201e69130ffa0358118897484663bfce47db6a4ec85fe7",
+   "timestamp": "2026-11-01T05:23:17.662439+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_18",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Strong GWAS evidence for T2D and diabetic nephropathy with high L2G scores and missense lead variants. Consistent lipid profile (lower triglycerides) suggests metabolic benefit.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_5",
+    "gwas_6",
+    "gwas_9"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene protect against type 2 diabetes and lower triglycerides?",
+     "rationale": "GWAS identifies associations but burden results would confirm that inhibiting/loss of the gene product is the mechanism for the observed metabolic benefits."
+    },
+    {
+     "type": "variant_check",
+     "query": "Is the missense variant in gwas_1/gwas_5/gwas_6 predicted to be damaging or loss-of-function?",
+     "rationale": "If the lead variant is a natural loss-of-function, it directly models the effect of a therapeutic inhibitor."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f3f95103-3e96-4483-9073-94e4c293a4e2",
+   "content_hash": "9057dce6a1dba4942d14f5d2d8d5f628d35f172ce89a86311915aa6dc74b3a46",
+   "timestamp": "2026-11-01T05:23:18.210359+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_18",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss-of-function (LoF). GWAS signals are dominated by glucose/diabetes traits, which are likely in-scope or beneficial. No serious safety events reported.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "safety_1",
+    "safety_5"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "To confirm that lifelong inhibition/loss of this gene is well-tolerated in the general population despite the lack of known Mendelian LoF diseases."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c7e14a9d-b675-4630-817f-a0b5d7e46150",
+   "content_hash": "bae390c5cfcf7b6bc31a3b608be8612e62dd094866117dd93b5a4f7003260a25",
+   "timestamp": "2026-11-01T05:23:17.662676+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_18",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Extremely high tolerance for LoF (LOEUF 1.01, pLI ~0). No cell dependency in DepMap. Multi-pass membrane location is druggable. Lifelong inhibition appears very safe.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or genetic variation in this gene associate with improved cardiometabolic or liver phenotypes?",
+     "rationale": "Tolerance is high, but I need evidence of therapeutic benefit (efficacy) to confirm it as a viable target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "5476d1d2-848c-4d34-8a95-c98bbbad6576",
+   "content_hash": "3a339049046a3771cd3bcfc3a216c8e9f9555df0f49b9587f6351ac16cf1cbbb",
+   "timestamp": "2026-11-01T05:23:17.135271+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_18",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "LoF variants strongly protect against Type 2 Diabetes (OR=0.38, p=3.2e-9) in a South Asian cohort. This is a hard clinical endpoint, though evidence is currently limited to one ancestry.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "5476d1d2-848c-4d34-8a95-c98bbbad6576"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "e7059cd8-6bd2-4303-ae97-1657b8dee680",
+   "content_hash": "1986b6cd82a0c7c00511989f27d680d82c742ac153a732eca578b24e5fc37767",
+   "timestamp": "2026-11-01T05:23:19.754136+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_18",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "LOEUF of 1.01 and pLI near 0 strongly support LoF tolerance. DepMap results confirm the gene is not essential for cell survival across 1,232 lines.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "c7e14a9d-b675-4630-817f-a0b5d7e46150"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "cb0744e3-4ff9-46cf-86e1-b262a8f8c5f5",
+   "content_hash": "f8d867fcc404d4e01e6fad7edf0603262ebe97027a444a8c063519059b9e1ed7",
+   "timestamp": "2026-11-01T05:23:24.272755+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_18",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 8 categories. GWAS hits are primarily glycemic/metabolic, with no severe LoF-driven adverse phenotypes reported.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "safety_1",
+    "safety_5"
+   ],
+   "parent_artifact_ids": [
+    "e0894d5f-4b6f-4734-8ee0-bb775ae49271"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "316ce480-c67d-4c92-8efd-4072a44dd985",
+   "content_hash": "81e7d230f40670e216def290a190f3e3617636b32199f936db1dad0e11cf7839",
+   "timestamp": "2026-11-01T05:23:25.879336+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_18",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "3 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "e0894d5f-4b6f-4734-8ee0-bb775ae49271",
+    "e7059cd8-6bd2-4303-ae97-1657b8dee680"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "e0894d5f-4b6f-4734-8ee0-bb775ae49271",
+     "rationale": "The rationale explicitly states that evidence for the protective effect against T2D is currently limited to one ancestry (South Asian)."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "e0894d5f-4b6f-4734-8ee0-bb775ae49271",
+     "rationale": "The rationale confirms that the burden evidence is currently limited to a single cohort."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "e7059cd8-6bd2-4303-ae97-1657b8dee680",
+     "rationale": "The fulfillment rationale acknowledges that the LoF protection evidence is limited to a single ancestry (South Asian)."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4d1abe5e-fc66-439d-bda9-a9100c38ae10",
+   "content_hash": "1a094554213edcb2516d0f9490feeec427e6fd9f4ae960021b88235556dfa8ee",
+   "timestamp": "2026-11-01T05:23:27.805176+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_18",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.65,
+   "rationale": "LoF protects against T2D (OR=0.37, p<1e-8) in a hard endpoint. Safety data confirms LoF is well-tolerated, though burden evidence remains limited to one cohort and ancestry.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "e0894d5f-4b6f-4734-8ee0-bb775ae49271",
+    "316ce480-c67d-4c92-8efd-4072a44dd985"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e0febbbd-d11f-4bcd-8219-4827253488f1",
+   "content_hash": "e79920c32df6ff4055edbf58c8f9dc23c578eee88710e2e8c300296ee20a74b5",
+   "timestamp": "2026-11-01T05:23:29.063419+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_18",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "No Mendelian LoF diseases or serious safety events. GWAS signals are primarily metabolic. Tolerance data (LOEUF 1.01, pLI 0) and non-essentiality in DepMap confirm LoF is well-tolerated.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "safety_1",
+    "safety_5"
+   ],
+   "parent_artifact_ids": [
+    "c7e14a9d-b675-4630-817f-a0b5d7e46150",
+    "cb0744e3-4ff9-46cf-86e1-b262a8f8c5f5"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0d379319-15c5-474b-91bf-bfe117b1614b",
+   "content_hash": "c5fff930c35d00ffd15ba65550588ee4230e448ca6441e5a82712266250dc380",
+   "timestamp": "2026-11-01T05:23:30.946845+00:00"
+  }
+ ]
+}

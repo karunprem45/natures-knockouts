@@ -1,0 +1,337 @@
+{
+ "gene_code": "Gene_02",
+ "score": 2.125,
+ "calls": 10,
+ "seconds": 19.2,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_02",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "LoF variants associate with lower AST/ALT (liver health biomarkers) in UK Biobank. However, evidence is limited to one cohort, one ancestry, and lacks hard clinical endpoints like NAFLD/NASH.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (pLI/LOEUF)?",
+     "rationale": "If the gene is essential or constrained, therapeutic inhibition may be unsafe despite the liver-protective biomarker signal."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with LoF in this gene outside of liver/metabolic traits?",
+     "rationale": "Lowering liver enzymes is beneficial, but I need to ensure LoF doesn't cause harm in other organ systems."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with liver disease or lipid levels?",
+     "rationale": "Concordance between rare LoF burden and common variant GWAS would significantly strengthen the target validation."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "15e23d98-8d20-4e39-93dc-b1ee680a62e7",
+   "content_hash": "2bf9789efe23aeb87dffa58fac039ac21fda45915019a59f85875cc79e9f08de",
+   "timestamp": "2026-11-01T05:21:43.134040+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_02",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong GWAS evidence links this gene to liver enzymes and triglycerides with high L2G scores. Lower ALT/AST and higher TG/VLDL suggest a metabolic role, but hard endpoints are missing.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5",
+    "gwas_14"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare variant burden for ALT, AST, and NAFLD/MASLD",
+     "rationale": "GWAS signals are intronic; burden results would confirm if loss-of-function mimics the beneficial liver enzyme reduction seen in GWAS."
+    },
+    {
+     "type": "safety_check",
+     "query": "association with hepatic steatosis or liver fat content",
+     "rationale": "The combination of lower serum ALT and higher circulating triglycerides/VLDL could indicate a risk of hepatic fat accumulation (steatosis) if inhibited."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "62ef7424-1ce7-43d6-a1c7-3ff5c08f8263",
+   "content_hash": "b1c9bb3ae1567dce66072dc8c97ad6063a3764ce914b2e38ced6c752c7b60cbb",
+   "timestamp": "2026-11-01T05:21:43.134609+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_02",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss-of-function (LoF) for this gene. GWAS signals are primarily for height, bone density, and eye traits, which are not typically contraindications.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "safety_2",
+    "safety_3",
+    "safety_5",
+    "safety_9"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF)?",
+     "rationale": "High LoF intolerance would suggest essentiality and potential systemic risk not captured by Mendelian disease reports."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant burden signals for serious out-of-scope phenotypes?",
+     "rationale": "Burden signals can reveal safety risks that GWAS and Mendelian data might miss."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0fe0f474-eb31-46d1-91a3-4f0aac60cb1a",
+   "content_hash": "c87a706e3ced0683546e06e1c0a51130caa994fa9a527a79c7666534973b42db",
+   "timestamp": "2026-11-01T05:21:43.134369+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_02",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "High LOEUF (0.7), low pLI (0.13), and lack of DepMap dependency indicate loss of function is well-tolerated. Secreted/membrane location suggests good druggability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Do loss-of-function variants in this gene associate with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit from inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific organ-system toxicities or late-onset phenotypes associated with human LoF carriers?",
+     "rationale": "Population constraint metrics may miss late-onset or tissue-specific pathologies not affecting reproductive fitness."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d826e580-a3dc-435e-a209-3c9e17e95cdc",
+   "content_hash": "cfff3cb551fe6393b10c86d91dae8865801d8aee2bd71cce17ba2a2ed4f4f998",
+   "timestamp": "2026-11-01T05:21:45.994158+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_02",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 11 categories. GWAS signals for bone density and height are strong but do not indicate severe LoF-driven pathology.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "mendelian_11",
+    "safety_2",
+    "safety_3"
+   ],
+   "parent_artifact_ids": [
+    "15e23d98-8d20-4e39-93dc-b1ee680a62e7"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "0a9468e6-15a6-454b-aff5-fa041899b8cb",
+   "content_hash": "8d665f545d10f9f240a8d3432c72a4d00d7570b25ed508743ef3db2f3e7158f4",
+   "timestamp": "2026-11-01T05:21:47.738984+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_02",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "LOEUF (0.7) and pLI (0.13) indicate the gene is LoF-tolerant. DepMap data confirms it is not core-essential, and its secreted/membrane location suggests druggability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [
+    "0fe0f474-eb31-46d1-91a3-4f0aac60cb1a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "98e54748-7156-49fd-a004-7147d0879359",
+   "content_hash": "a16fdc51615c5d5b8760915ceebc664432ed19902d91e103329dea7f0c07d308",
+   "timestamp": "2026-11-01T05:21:51.665904+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_02",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "My evidence is limited to in-scope liver biomarkers (ALT/AST) and contains no data on out-of-scope phenotypes to address the safety agent's query.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "0fe0f474-eb31-46d1-91a3-4f0aac60cb1a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "4d125c08-ee44-42e9-a294-48519538cc56",
+   "content_hash": "9ba3e1e8abe968521955f316e5ed486f2cd010bb8903bce777e01496580722d4",
+   "timestamp": "2026-11-01T05:21:53.059402+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_02",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "15e23d98-8d20-4e39-93dc-b1ee680a62e7",
+    "62ef7424-1ce7-43d6-a1c7-3ff5c08f8263"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "15e23d98-8d20-4e39-93dc-b1ee680a62e7",
+     "rationale": "The agent explicitly states evidence is limited to one cohort (UK Biobank)."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "15e23d98-8d20-4e39-93dc-b1ee680a62e7",
+     "rationale": "The agent explicitly states evidence is limited to one ancestry."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "15e23d98-8d20-4e39-93dc-b1ee680a62e7",
+     "rationale": "The agent notes a lack of hard clinical endpoints, relying only on liver health biomarkers (AST/ALT)."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "62ef7424-1ce7-43d6-a1c7-3ff5c08f8263",
+     "rationale": "The rationale confirms that hard clinical endpoints are missing, relying on liver enzymes and triglycerides."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d567fcae-5257-43db-8fd2-0e32fd81e731",
+   "content_hash": "c5952a25682fb4614555b4cd2c93a8ad88d2b261e97493a3949199fcbd89b770",
+   "timestamp": "2026-11-01T05:21:55.342948+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_02",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.35,
+   "rationale": "LoF variants associate with lower AST/ALT in UKB. Safety data confirms no Mendelian disease, but evidence remains weak due to single cohort, single ancestry, and lack of hard endpoints.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "15e23d98-8d20-4e39-93dc-b1ee680a62e7",
+    "0a9468e6-15a6-454b-aff5-fa041899b8cb"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "aab1ab9b-eddd-4007-a4e2-851362e961be",
+   "content_hash": "8f4babb04dee159fd815b8f4e02e677ee02587a2ee42316367b534d7c955f81a",
+   "timestamp": "2026-11-01T05:21:56.719657+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_02",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss-of-function (LoF). Tolerance data confirms the gene is LoF-tolerant (LOEUF 0.7, pLI 0.13) and non-essential. GWAS signals are not contraindications.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "safety_2",
+    "safety_3",
+    "safety_35"
+   ],
+   "parent_artifact_ids": [
+    "0fe0f474-eb31-46d1-91a3-4f0aac60cb1a",
+    "98e54748-7156-49fd-a004-7147d0879359",
+    "4d125c08-ee44-42e9-a294-48519538cc56"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7d01c4d0-8c66-480a-a6cd-8866fe82769c",
+   "content_hash": "f8f6a7b33a98d74f48b958e354cbdea937512b5bc4022ff821ea0d6537d9529c",
+   "timestamp": "2026-11-01T05:21:58.549295+00:00"
+  }
+ ]
+}

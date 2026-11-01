@@ -1,0 +1,330 @@
+{
+ "gene_code": "Gene_08",
+ "score": 2.425,
+ "calls": 10,
+ "seconds": 32.9,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_08",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Massive LoF burden for lower LDL, ApoB, and VLDL across 7 projects and multiple ancestries. However, all 100 traits are biomarkers; no hard clinical endpoints (e.g. CAD) are shown in my view.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_11",
+    "burden_29"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Does common variant evidence for this gene show protection against myocardial infarction or coronary artery disease?",
+     "rationale": "My view lacks hard clinical endpoints; GWAS can confirm if these lipid reductions translate to reduced disease risk."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (LOEUF/pLI)?",
+     "rationale": "The lipid effects are strong, but I need to know if therapeutic inhibition would be tolerated without developmental or systemic harm."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "258dcb47-42b8-4ef4-9ef3-87a69a60c685",
+   "content_hash": "801c6eb0966ccd72f7183a505b6f289893b227fcfb32024d698eb7d2aa92ff07",
+   "timestamp": "2026-11-01T05:22:05.855360+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_08",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Extremely strong GWAS evidence for lipid lowering (LDL, ApoB, TC) with high L2G scores and missense lead variants across multiple populations. Direction is consistent with benefit.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_4",
+    "gwas_28",
+    "gwas_37"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene reduce LDL cholesterol and protect against coronary artery disease?",
+     "rationale": "GWAS shows strong association, but confirming that loss-of-function (mimicking inhibition) is beneficial and safe is the final step for target validation."
+    },
+    {
+     "type": "variant_check",
+     "query": "Is the missense variant (lead for gwas_1) predicted to be damaging or disruptive to protein function?",
+     "rationale": "The lead variants are missense; confirming they are disruptive would strengthen the case that inhibiting the gene product is the mechanism of action."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a9e52bb3-46c5-4efc-94fa-a99d5099e6ce",
+   "content_hash": "ac8f158ac2cebc32be6830a13799b784b4809145088184d8100a35c918e179a9",
+   "timestamp": "2026-11-01T05:22:05.742873+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_08",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 9 categories. GWAS signals are dominated by lipid/metabolic traits, with no severe out-of-scope safety signals reported.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "safety_1",
+    "safety_13",
+    "safety_15",
+    "safety_39"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "Confirmation that the gene can be safely inhibited in humans without developmental or essentiality issues would increase confidence."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "babdbed4-d95b-4162-8675-58d8ca2c1b81",
+   "content_hash": "3f26d1618efbe4e897510b9421596c12f294c7c1a4c72ccea21bbff4571e6e0a",
+   "timestamp": "2026-11-01T05:22:05.502372+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_08",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.14) and pLI (~0) indicate strong LoF tolerance in humans. Low DepMap dependency and non-essential status suggest systemic inhibition would be well tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function in this gene associate with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; there must be a therapeutic benefit to inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any clinical phenotypes or syndromes associated with homozygous loss-of-function variants in this gene?",
+     "rationale": "Population constraint metrics can sometimes mask specific recessive phenotypes or late-onset safety issues."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "87bd8d7a-f4ee-4679-b9f0-db5332bebd85",
+   "content_hash": "ec51d5740bd45b1541c41811032eda520e2e5dea06342678fbb487984ff5323a",
+   "timestamp": "2026-11-01T05:22:07.840795+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_08",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "The gene is highly tolerant to loss-of-function (LOEUF 1.14, pLI ~0) and is not core-essential in DepMap screens. Subcellular locations like 'Secreted' and 'Cell surface' favor druggability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "is_core_essential",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [
+    "258dcb47-42b8-4ef4-9ef3-87a69a60c685"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "bd1af7d0-610f-466c-9e7f-13ee5739ae6d",
+   "content_hash": "d1ba8432cbe83ded16fbb43726c6e732839a0ac4ef741441aafb4ffe951cdf37",
+   "timestamp": "2026-11-01T05:22:09.348169+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_08",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Strong LoF burden for lower LDL, ApoB, and total cholesterol across multiple cohorts and ancestries. However, evidence is limited to biomarkers; no hard clinical endpoints are reported.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_11",
+    "burden_29"
+   ],
+   "parent_artifact_ids": [
+    "87bd8d7a-f4ee-4679-b9f0-db5332bebd85"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "0d89b11b-876e-408a-a82d-279860db9f4e",
+   "content_hash": "941389a5260eeb2102cce8868c7bda420e963e76123e178adfc5b436b2948fa0",
+   "timestamp": "2026-11-01T05:22:12.359231+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_08",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "While I see massive reductions in LDL-C and ApoB (beta ~-0.4), the provided rows only show biomarker data. I cannot confirm protection against MI or CAD from the visible data subset.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_4",
+    "gwas_28"
+   ],
+   "parent_artifact_ids": [
+    "258dcb47-42b8-4ef4-9ef3-87a69a60c685"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "95fbe859-dbaa-4cbd-a846-fc3d1f1ce446",
+   "content_hash": "3387f40eb76f4bbc449c82155e18f9b267364ab59204ab64399783bfb8cade38",
+   "timestamp": "2026-11-01T05:22:14.259515+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_08",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "0d89b11b-876e-408a-a82d-279860db9f4e",
+    "258dcb47-42b8-4ef4-9ef3-87a69a60c685",
+    "a9e52bb3-46c5-4efc-94fa-a99d5099e6ce"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "258dcb47-42b8-4ef4-9ef3-87a69a60c685",
+     "rationale": "The agent admits all 100 traits are biomarkers and no hard clinical endpoints (e.g., CAD) are shown."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "a9e52bb3-46c5-4efc-94fa-a99d5099e6ce",
+     "rationale": "The evidence is restricted to lipid biomarkers (LDL, ApoB, TC) without demonstrating impact on hard clinical endpoints."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "0d89b11b-876e-408a-a82d-279860db9f4e",
+     "rationale": "The rationale explicitly acknowledges that evidence is limited to biomarkers with no hard clinical endpoints reported."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "a9e52bb3-46c5-4efc-94fa-a99d5099e6ce",
+     "rationale": "A2 claims strong support while A7 remains neutral using the same data, citing a lack of clinical endpoints."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "09f6f91a-f4cb-4795-b9ea-9570a6d7980e",
+   "content_hash": "d83849d67e5db65b278c8467372b28d26b5afb53037d9b7de459a2c63deaf667",
+   "timestamp": "2026-11-01T05:22:32.263186+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_08",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Massive LoF burden for lower LDL/ApoB across 7 projects and multiple ancestries. Tolerance data confirms LoF is viable, though lack of hard endpoints in burden/GWAS prevents a 1.0 score.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_11",
+    "burden_29"
+   ],
+   "parent_artifact_ids": [
+    "258dcb47-42b8-4ef4-9ef3-87a69a60c685",
+    "bd1af7d0-610f-466c-9e7f-13ee5739ae6d",
+    "95fbe859-dbaa-4cbd-a846-fc3d1f1ce446"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "22b4dc1a-2a41-41de-b2e2-971f98d69cfa",
+   "content_hash": "0e0d994c87ba66d1f07db7c84c9445024c7a917095ad4c823a32e7aa78d407cc",
+   "timestamp": "2026-11-01T05:22:34.329208+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_08",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Extremely strong GWAS evidence for lipid lowering (LDL, ApoB) with missense leads and high L2G. Strength slightly reduced as shown traits are biomarkers, though hypercholesterolemia is present.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_4",
+    "gwas_28"
+   ],
+   "parent_artifact_ids": [
+    "a9e52bb3-46c5-4efc-94fa-a99d5099e6ce"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "821b73fc-8f2d-4ea4-958c-3baa7267cff5",
+   "content_hash": "4db6b54f8b0c9dab0af0939242318ea89dc6834c41694b7af984b03329b29612",
+   "timestamp": "2026-11-01T05:22:36.016262+00:00"
+  }
+ ]
+}

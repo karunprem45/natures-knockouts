@@ -1,0 +1,449 @@
+{
+ "Gene_01": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -39.4639,
+  "lowest_site_percentile": 1.55,
+  "median_site_percentile": 6.26,
+  "share_below_10th_percentile": 0.8,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_02": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -30.3428,
+  "lowest_site_percentile": 0.08,
+  "median_site_percentile": 1.45,
+  "share_below_10th_percentile": 1.0,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_03": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -41.2415,
+  "lowest_site_percentile": 4.02,
+  "median_site_percentile": 28.34,
+  "share_below_10th_percentile": 0.4,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_04": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -44.4849,
+  "lowest_site_percentile": 0.9,
+  "median_site_percentile": 4.7,
+  "share_below_10th_percentile": 0.6,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_05": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -130.8755,
+  "lowest_site_percentile": 0.24,
+  "median_site_percentile": 5.61,
+  "share_below_10th_percentile": 1.0,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_06": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -60.3975,
+  "lowest_site_percentile": 0.02,
+  "median_site_percentile": 1.1,
+  "share_below_10th_percentile": 0.8,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_07": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -35.7424,
+  "lowest_site_percentile": 1.16,
+  "median_site_percentile": 3.96,
+  "share_below_10th_percentile": 0.8,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_08": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -34.0312,
+  "lowest_site_percentile": 0.31,
+  "median_site_percentile": 6.06,
+  "share_below_10th_percentile": 1.0,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_09": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -51.4216,
+  "lowest_site_percentile": 1.52,
+  "median_site_percentile": 2.65,
+  "share_below_10th_percentile": 0.6,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_10": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -49.1581,
+  "lowest_site_percentile": 2.23,
+  "median_site_percentile": 29.48,
+  "share_below_10th_percentile": 0.2,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_11": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -19.1096,
+  "lowest_site_percentile": 0.03,
+  "median_site_percentile": 1.26,
+  "share_below_10th_percentile": 0.8,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_12": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -61.2039,
+  "lowest_site_percentile": 0.02,
+  "median_site_percentile": 5.77,
+  "share_below_10th_percentile": 0.6,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_13": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -20.9937,
+  "lowest_site_percentile": 1.72,
+  "median_site_percentile": 40.83,
+  "share_below_10th_percentile": 0.2,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_14": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -97.6924,
+  "lowest_site_percentile": 0.23,
+  "median_site_percentile": 0.59,
+  "share_below_10th_percentile": 0.8,
+  "variant_types": [
+   "splice_acceptor_variant",
+   "stop_gained"
+  ]
+ },
+ "Gene_15": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -31.0415,
+  "lowest_site_percentile": 0.01,
+  "median_site_percentile": 0.35,
+  "share_below_10th_percentile": 1.0,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_16": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -63.2139,
+  "lowest_site_percentile": 0.66,
+  "median_site_percentile": 2.04,
+  "share_below_10th_percentile": 0.6,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_17": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -45.8472,
+  "lowest_site_percentile": 1.69,
+  "median_site_percentile": 4.0,
+  "share_below_10th_percentile": 0.6,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_18": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -66.647,
+  "lowest_site_percentile": 0.37,
+  "median_site_percentile": 2.9,
+  "share_below_10th_percentile": 0.6,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_19": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -41.9839,
+  "lowest_site_percentile": 0.05,
+  "median_site_percentile": 0.18,
+  "share_below_10th_percentile": 1.0,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_20": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -22.4236,
+  "lowest_site_percentile": 3.04,
+  "median_site_percentile": 13.4,
+  "share_below_10th_percentile": 0.4,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_21": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -82.5056,
+  "lowest_site_percentile": 6.64,
+  "median_site_percentile": 8.1,
+  "share_below_10th_percentile": 0.6,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_22": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -82.9226,
+  "lowest_site_percentile": 1.47,
+  "median_site_percentile": 3.01,
+  "share_below_10th_percentile": 1.0,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_23": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -38.2429,
+  "lowest_site_percentile": 0.11,
+  "median_site_percentile": 2.76,
+  "share_below_10th_percentile": 1.0,
+  "variant_types": [
+   "splice_donor_variant",
+   "stop_gained"
+  ]
+ },
+ "Gene_24": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -193.8374,
+  "lowest_site_percentile": 0.16,
+  "median_site_percentile": 0.36,
+  "share_below_10th_percentile": 0.8,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_25": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -56.9116,
+  "lowest_site_percentile": 1.44,
+  "median_site_percentile": 8.29,
+  "share_below_10th_percentile": 0.6,
+  "variant_types": [
+   "splice_acceptor_variant",
+   "stop_gained"
+  ]
+ },
+ "Gene_26": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -50.5295,
+  "lowest_site_percentile": 0.01,
+  "median_site_percentile": 0.98,
+  "share_below_10th_percentile": 0.8,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_27": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -42.2197,
+  "lowest_site_percentile": 0.14,
+  "median_site_percentile": 2.68,
+  "share_below_10th_percentile": 0.8,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_28": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -25.5105,
+  "lowest_site_percentile": 1.06,
+  "median_site_percentile": 3.65,
+  "share_below_10th_percentile": 0.6,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_29": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -51.3735,
+  "lowest_site_percentile": 4.43,
+  "median_site_percentile": 20.45,
+  "share_below_10th_percentile": 0.2,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_30": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -71.8152,
+  "lowest_site_percentile": 0.96,
+  "median_site_percentile": 3.85,
+  "share_below_10th_percentile": 0.8,
+  "variant_types": [
+   "splice_donor_variant",
+   "stop_gained"
+  ]
+ },
+ "Gene_31": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -91.3668,
+  "lowest_site_percentile": 3.04,
+  "median_site_percentile": 12.45,
+  "share_below_10th_percentile": 0.4,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_32": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -18.8918,
+  "lowest_site_percentile": 0.58,
+  "median_site_percentile": 10.66,
+  "share_below_10th_percentile": 0.4,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_33": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -79.5918,
+  "lowest_site_percentile": 3.13,
+  "median_site_percentile": 17.82,
+  "share_below_10th_percentile": 0.5,
+  "variant_types": [
+   "frameshift_variant",
+   "splice_acceptor_variant",
+   "splice_donor_variant"
+  ]
+ },
+ "Gene_34": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -62.823,
+  "lowest_site_percentile": 1.6,
+  "median_site_percentile": 2.89,
+  "share_below_10th_percentile": 0.8,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_35": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -51.5283,
+  "lowest_site_percentile": 12.23,
+  "median_site_percentile": 27.86,
+  "share_below_10th_percentile": 0.0,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_36": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -50.0474,
+  "lowest_site_percentile": 0.18,
+  "median_site_percentile": 0.45,
+  "share_below_10th_percentile": 1.0,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_37": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -85.665,
+  "lowest_site_percentile": 0.0,
+  "median_site_percentile": 3.57,
+  "share_below_10th_percentile": 0.6,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_38": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -134.1328,
+  "lowest_site_percentile": 4.68,
+  "median_site_percentile": 11.74,
+  "share_below_10th_percentile": 0.4,
+  "variant_types": [
+   "splice_acceptor_variant",
+   "stop_gained"
+  ]
+ },
+ "Gene_39": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -24.582,
+  "lowest_site_percentile": 0.08,
+  "median_site_percentile": 0.71,
+  "share_below_10th_percentile": 0.8,
+  "variant_types": [
+   "stop_gained"
+  ]
+ },
+ "Gene_40": {
+  "n_variants_scored": 5,
+  "n_errors": 0,
+  "strongest_delta_ll": -51.6055,
+  "lowest_site_percentile": 3.46,
+  "median_site_percentile": 32.16,
+  "share_below_10th_percentile": 0.4,
+  "variant_types": [
+   "stop_gained"
+  ]
+ }
+}

@@ -1,0 +1,201 @@
+gene_code,chrom,pos,ref,alt,consequence,variant_id,snv,clinical,source,n_lof_in_gene
+Gene_01,20,45888787,C,A,stop_gained,rs1283461918,1,,Ensembl overlap (dbSNP),28
+Gene_01,20,45890311,G,A,stop_gained,rs367770819,1,,Ensembl overlap (dbSNP),28
+Gene_01,20,45890464,A,C,stop_gained,rs760597081,1,,Ensembl overlap (dbSNP),28
+Gene_01,20,45890259,C,A,stop_gained,rs772492087,1,,Ensembl overlap (dbSNP),28
+Gene_01,20,45890700,C,A,stop_gained,rs773009939,1,,Ensembl overlap (dbSNP),28
+Gene_02,3,172514886,C,T,stop_gained,rs1168753905,1,,Ensembl overlap (dbSNP),35
+Gene_02,3,172514898,C,T,stop_gained,rs1192799592,1,,Ensembl overlap (dbSNP),35
+Gene_02,3,172509316,G,A,stop_gained,rs1317076462,1,,Ensembl overlap (dbSNP),35
+Gene_02,3,172514885,C,G,stop_gained,rs1471740683,1,,Ensembl overlap (dbSNP),35
+Gene_02,3,172506896,C,T,stop_gained,rs1713010380,1,,Ensembl overlap (dbSNP),35
+Gene_03,20,32434738,G,A,stop_gained,rs1026621329,1,uncertain significance,Ensembl overlap (dbSNP),483
+Gene_03,20,32434579,C,G,stop_gained,rs111316898,1,pathogenic,Ensembl overlap (dbSNP),483
+Gene_03,20,32434864,A,C,stop_gained,rs1158922559,1,uncertain significance;benign;likely benign,Ensembl overlap (dbSNP),483
+Gene_03,20,32434990,C,T,stop_gained,rs1167715259,1,pathogenic,Ensembl overlap (dbSNP),483
+Gene_03,20,32428378,C,T,stop_gained,rs1179121574,1,likely pathogenic;pathogenic,Ensembl overlap (dbSNP),483
+Gene_04,16,67942967,G,A,stop_gained,rs121908055,1,likely pathogenic;pathogenic,Ensembl overlap (dbSNP),42
+Gene_04,16,67943113,C,T,stop_gained,rs1328187167,1,likely pathogenic,Ensembl overlap (dbSNP),42
+Gene_04,16,67943987,T,A,stop_gained,rs1389355640,1,likely pathogenic,Ensembl overlap (dbSNP),42
+Gene_04,16,67940210,G,A,stop_gained,rs138943456,1,likely benign,Ensembl overlap (dbSNP),42
+Gene_04,16,67940378,C,T,stop_gained,rs2544403082,1,pathogenic,Ensembl overlap (ClinVar),42
+Gene_05,17,4790062,C,A,stop_gained,rs1354110702,1,uncertain significance,Ensembl overlap (dbSNP),56
+Gene_05,17,4790189,G,A,stop_gained,rs1375502403,1,likely benign,Ensembl overlap (dbSNP),56
+Gene_05,17,4789235,C,A,stop_gained,rs533353189,1,uncertain significance,Ensembl overlap (dbSNP),56
+Gene_05,17,4789049,G,A,stop_gained,rs1183150814,1,,Ensembl overlap (dbSNP),56
+Gene_05,17,4789995,G,A,stop_gained,rs1205838117,1,,Ensembl overlap (dbSNP),56
+Gene_06,2,157541093,C,A,stop_gained,rs149435555,1,uncertain significance,Ensembl overlap (dbSNP),36
+Gene_06,2,157556180,C,A,stop_gained,rs1573917370,1,uncertain significance,Ensembl overlap (dbSNP),36
+Gene_06,2,157534037,G,A,stop_gained,rs368036845,1,uncertain significance,Ensembl overlap (dbSNP),36
+Gene_06,2,157550300,T,A,stop_gained,rs1169917743,1,,Ensembl overlap (dbSNP),36
+Gene_06,2,157587319,G,A,stop_gained,rs1212670725,1,,Ensembl overlap (dbSNP),36
+Gene_07,2,53853352,G,A,stop_gained,rs1678139419,1,uncertain significance,Ensembl overlap (dbSNP),44
+Gene_07,2,53854474,C,A,stop_gained,rs1278409445,1,,Ensembl overlap (dbSNP),44
+Gene_07,2,53854057,G,A,stop_gained,rs148952285,1,,Ensembl overlap (dbSNP),44
+Gene_07,2,53853541,G,A,stop_gained,rs1558628444,1,,Ensembl overlap (dbSNP),44
+Gene_07,2,53853277,C,A,stop_gained,rs1678136935,1,,Ensembl overlap (dbSNP),44
+Gene_08,1,55043930,C,T,stop_gained,rs1235327649,1,uncertain significance,Ensembl overlap (dbSNP),121
+Gene_08,1,55039979,G,A,stop_gained,rs1278890129,1,uncertain significance;likely benign;pathogenic,Ensembl overlap (dbSNP),121
+Gene_08,1,55063449,C,A,stop_gained,rs138178437,1,uncertain significance;likely benign,Ensembl overlap (dbSNP),121
+Gene_08,1,55061548,C,T,stop_gained,rs142118418,1,likely benign,Ensembl overlap (dbSNP),121
+Gene_08,1,55040006,G,A,stop_gained,rs145886902,1,uncertain significance;benign;likely benign,Ensembl overlap (dbSNP),121
+Gene_09,19,11123200,G,T,stop_gained,rs1057516127,1,likely pathogenic;pathogenic,Ensembl overlap (dbSNP),801
+Gene_09,19,11105233,C,A,stop_gained,rs1057519654,1,pathogenic,Ensembl overlap (dbSNP),801
+Gene_09,19,11106653,C,A,stop_gained,rs1057519663,1,uncertain significance;benign;likely benign;pathogenic,Ensembl overlap (dbSNP),801
+Gene_09,19,11116894,A,T,stop_gained,rs1060499927,1,pathogenic,Ensembl overlap (dbSNP),801
+Gene_09,19,11120470,C,A,stop_gained,rs112954220,1,likely benign;likely pathogenic;pathogenic,Ensembl overlap (dbSNP),801
+Gene_10,19,45409478,C,A,stop_gained,rs3212986,1,benign,Ensembl overlap (dbSNP),64
+Gene_10,19,45408209,C,G,stop_gained,rs769657381,1,uncertain significance,Ensembl overlap (dbSNP),64
+Gene_10,19,45409431,C,A,stop_gained,rs1029847463,1,,Ensembl overlap (dbSNP),64
+Gene_10,19,45409487,C,A,stop_gained,rs1178992969,1,,Ensembl overlap (dbSNP),64
+Gene_10,19,45408896,C,T,stop_gained,rs1339584823,1,,Ensembl overlap (dbSNP),64
+Gene_11,8,144547255,G,A,stop_gained,rs1045146610,1,,Ensembl overlap (dbSNP),74
+Gene_11,8,144530789,G,A,stop_gained,rs112342135,1,,Ensembl overlap (dbSNP),74
+Gene_11,8,144533169,C,A,stop_gained,rs1176365398,1,,Ensembl overlap (dbSNP),74
+Gene_11,8,144545403,G,T,stop_gained,rs1216439948,1,,Ensembl overlap (dbSNP),74
+Gene_11,8,144547879,G,A,stop_gained,rs1230965145,1,,Ensembl overlap (dbSNP),74
+Gene_12,12,111446792,C,T,stop_gained,rs1317022254,1,uncertain significance,Ensembl overlap (dbSNP),125
+Gene_12,12,111418336,C,A,stop_gained,rs1871245947,1,uncertain significance,Ensembl overlap (dbSNP),125
+Gene_12,12,111418767,G,A,stop_gained,rs202080221,1,uncertain significance;likely benign;affects,Ensembl overlap (dbSNP),125
+Gene_12,12,111447686,C,A,stop_gained,rs267603308,1,uncertain significance,Ensembl overlap (dbSNP),125
+Gene_12,12,111418594,C,A,stop_gained,rs769643863,1,uncertain significance,Ensembl overlap (dbSNP),125
+Gene_13,16,71986399,G,A,stop_gained,rs377673240,1,uncertain significance,Ensembl overlap (dbSNP),354
+Gene_13,16,71973397,G,A,stop_gained,rs777422869,1,uncertain significance,Ensembl overlap (dbSNP),354
+Gene_13,16,71973369,G,A,stop_gained,rs1032751476,1,,Ensembl overlap (dbSNP),354
+Gene_13,16,71937310,A,T,stop_gained,rs1038927096,1,,Ensembl overlap (dbSNP),354
+Gene_13,16,71986319,G,A,stop_gained,rs117071849,1,,Ensembl overlap (dbSNP),354
+Gene_14,12,124786425,G,A,stop_gained,rs2135540455,1,uncertain significance,Ensembl overlap (dbSNP),57
+Gene_14,12,124786420,G,A,stop_gained,rs528859014,1,likely benign,Ensembl overlap (dbSNP),57
+Gene_14,12,124787416,C,T,stop_gained,rs757231326,1,uncertain significance,Ensembl overlap (dbSNP),57
+Gene_14,12,124810291,T,C,splice_acceptor_variant,rs201068540,1,pathogenic,Ensembl overlap (dbSNP),57
+Gene_14,12,124817667,C,T,stop_gained,rs1198907959,1,,Ensembl overlap (dbSNP),57
+Gene_15,19,45153740,C,A,stop_gained,rs1045285830,1,uncertain significance,Ensembl overlap (dbSNP),112
+Gene_15,19,45153767,G,A,stop_gained,rs1352239036,1,uncertain significance,Ensembl overlap (dbSNP),112
+Gene_15,19,45153641,C,A,stop_gained,rs1170599659,1,,Ensembl overlap (dbSNP),112
+Gene_15,19,45153746,C,A,stop_gained,rs1216248534,1,,Ensembl overlap (dbSNP),112
+Gene_15,19,45153656,G,A,stop_gained,rs1288017435,1,,Ensembl overlap (dbSNP),112
+Gene_16,1,62863998,A,C,stop_gained,rs781531420,1,uncertain significance,Ensembl overlap (dbSNP),121
+Gene_16,1,62819107,C,G,stop_gained,rs1163664884,1,,Ensembl overlap (dbSNP),121
+Gene_16,1,62834089,C,T,stop_gained,rs1199449842,1,,Ensembl overlap (dbSNP),121
+Gene_16,1,62805175,G,A,stop_gained,rs1209972254,1,,Ensembl overlap (dbSNP),121
+Gene_16,1,62819089,C,G,stop_gained,rs1237219941,1,,Ensembl overlap (dbSNP),121
+Gene_17,7,44533808,G,A,stop_gained,rs1340269959,1,uncertain significance,Ensembl overlap (dbSNP),157
+Gene_17,7,44539181,G,A,stop_gained,rs145297799,1,association,Ensembl overlap (dbSNP),157
+Gene_17,7,44513605,C,A,stop_gained,rs217435,1,benign,Ensembl overlap (dbSNP),157
+Gene_17,7,44540086,G,A,stop_gained,rs374252961,1,uncertain significance,Ensembl overlap (dbSNP),157
+Gene_17,7,44517325,T,A,stop_gained,rs1034796415,1,,Ensembl overlap (dbSNP),157
+Gene_18,8,117153084,C,T,stop_gained,rs200185429,1,protective,Ensembl overlap (dbSNP),68
+Gene_18,8,117161757,C,T,stop_gained,rs2537141678,1,uncertain significance,Ensembl overlap (ClinVar),68
+Gene_18,8,117146967,C,T,stop_gained,rs1226820997,1,,Ensembl overlap (dbSNP),68
+Gene_18,8,117146988,C,T,stop_gained,rs1821928621,1,,Ensembl overlap (dbSNP),68
+Gene_18,8,117153080,G,A,stop_gained,rs1822275660,1,,Ensembl overlap (dbSNP),68
+Gene_19,X,19515057,C,A,stop_gained,rs1025499625,1,uncertain significance,Ensembl overlap (dbSNP),204
+Gene_19,X,19413434,G,A,stop_gained,rs2063705392,1,uncertain significance,Ensembl overlap (dbSNP),204
+Gene_19,X,19415189,G,A,stop_gained,rs372180658,1,uncertain significance,Ensembl overlap (dbSNP),204
+Gene_19,X,19374582,C,A,stop_gained,rs748945931,1,uncertain significance,Ensembl overlap (dbSNP),204
+Gene_19,X,19361561,G,A,stop_gained,rs770697702,1,uncertain significance,Ensembl overlap (dbSNP),204
+Gene_20,19,44428355,G,A,stop_gained,rs772774366,1,uncertain significance,Ensembl overlap (dbSNP),132
+Gene_20,19,44428813,G,C,stop_gained,rs1185431760,1,,Ensembl overlap (dbSNP),132
+Gene_20,19,44432245,G,T,stop_gained,rs1208332706,1,,Ensembl overlap (dbSNP),132
+Gene_20,19,44429817,T,A,stop_gained,rs1230114981,1,,Ensembl overlap (dbSNP),132
+Gene_20,19,44429010,G,A,stop_gained,rs1271961020,1,,Ensembl overlap (dbSNP),132
+Gene_21,15,39593107,C,T,stop_gained,rs796320749,1,association,Ensembl overlap (dbSNP),61
+Gene_21,15,39587372,G,A,stop_gained,rs1162793784,1,,Ensembl overlap (dbSNP),61
+Gene_21,15,39587549,G,A,stop_gained,rs1194535417,1,,Ensembl overlap (dbSNP),61
+Gene_21,15,39587381,G,A,stop_gained,rs1197143439,1,,Ensembl overlap (dbSNP),61
+Gene_21,15,39587427,C,T,stop_gained,rs1300429296,1,,Ensembl overlap (dbSNP),61
+Gene_22,14,24306394,G,A,stop_gained,rs1196718207,1,,Ensembl overlap (dbSNP),99
+Gene_22,14,24307473,C,T,stop_gained,rs1385944592,1,,Ensembl overlap (dbSNP),99
+Gene_22,14,24311302,G,A,stop_gained,rs1415477861,1,,Ensembl overlap (dbSNP),99
+Gene_22,14,24311375,G,A,stop_gained,rs1443337695,1,,Ensembl overlap (dbSNP),99
+Gene_22,14,24306386,C,T,stop_gained,rs2041507897,1,,Ensembl overlap (dbSNP),99
+Gene_23,11,116830637,C,G,stop_gained,rs76353203,1,uncertain significance;likely benign;protective,Ensembl overlap (dbSNP),21
+Gene_23,11,116830638,G,A,splice_donor_variant,rs138326449,1,uncertain significance;likely benign;protective,Ensembl overlap (dbSNP),21
+Gene_23,11,116830897,G,T,splice_donor_variant,rs140621530,1,uncertain significance;likely benign;pathogenic;protective,Ensembl overlap (dbSNP),21
+Gene_23,11,116830877,C,T,stop_gained,rs1298711631,1,,Ensembl overlap (dbSNP),21
+Gene_23,11,116830886,C,T,stop_gained,rs1374818631,1,,Ensembl overlap (dbSNP),21
+Gene_24,11,61781625,G,A,stop_gained,rs1367545625,1,pathogenic,Ensembl overlap (dbSNP),82
+Gene_24,11,61771909,C,G,stop_gained,rs1421001042,1,pathogenic,Ensembl overlap (dbSNP),82
+Gene_24,11,61780991,C,T,stop_gained,rs1565304230,1,pathogenic,Ensembl overlap (dbSNP),82
+Gene_24,11,61777378,G,T,stop_gained,rs2066412135,1,pathogenic,Ensembl overlap (dbSNP),82
+Gene_24,11,61771724,G,A,stop_gained,rs2135791768,1,likely pathogenic,Ensembl overlap (dbSNP),82
+Gene_25,1,62597637,C,A,stop_gained,rs1364780951,1,uncertain significance,Ensembl overlap (dbSNP),92
+Gene_25,1,62603978,G,A,stop_gained,rs1462694532,1,uncertain significance,Ensembl overlap (dbSNP),92
+Gene_25,1,62597951,G,A,stop_gained,rs200785483,1,pathogenic,Ensembl overlap (dbSNP),92
+Gene_25,1,62602284,G,C,splice_acceptor_variant,rs1177976784,1,likely benign,Ensembl overlap (dbSNP),92
+Gene_25,1,62603967,A,G,splice_acceptor_variant,rs780152435,1,likely pathogenic,Ensembl overlap (dbSNP),92
+Gene_26,17,7176833,C,A,stop_gained,rs1169494948,1,,Ensembl overlap (dbSNP),67
+Gene_26,17,7178500,T,A,stop_gained,rs1281617914,1,,Ensembl overlap (dbSNP),67
+Gene_26,17,7173820,C,A,stop_gained,rs1324208498,1,,Ensembl overlap (dbSNP),67
+Gene_26,17,7173993,C,T,stop_gained,rs1345441330,1,,Ensembl overlap (dbSNP),67
+Gene_26,17,7178506,G,A,stop_gained,rs1347566170,1,,Ensembl overlap (dbSNP),67
+Gene_27,4,87310247,G,A,stop_gained,rs1734500710,1,likely benign,Ensembl overlap (dbSNP),51
+Gene_27,4,87310353,C,A,stop_gained,rs1005156609,1,,Ensembl overlap (dbSNP),51
+Gene_27,4,87313916,G,C,stop_gained,rs142648167,1,,Ensembl overlap (dbSNP),51
+Gene_27,4,87315535,G,T,stop_gained,rs1734632848,1,,Ensembl overlap (dbSNP),51
+Gene_27,4,87310334,C,A,stop_gained,rs2110098936,1,,Ensembl overlap (dbSNP),51
+Gene_28,8,144510422,G,A,stop_gained,rs773043880,1,uncertain significance,Ensembl overlap (dbSNP),100
+Gene_28,8,144509748,C,G,stop_gained,rs1024386237,1,,Ensembl overlap (dbSNP),100
+Gene_28,8,144509390,C,A,stop_gained,rs1041660614,1,,Ensembl overlap (dbSNP),100
+Gene_28,8,144510598,G,A,stop_gained,rs1169210622,1,,Ensembl overlap (dbSNP),100
+Gene_28,8,144509490,A,C,stop_gained,rs1184341129,1,,Ensembl overlap (dbSNP),100
+Gene_29,3,52523689,G,A,stop_gained,rs748728975,1,affects,Ensembl overlap (dbSNP),396
+Gene_29,3,52519526,C,T,stop_gained,rs1042799954,1,,Ensembl overlap (dbSNP),396
+Gene_29,3,52503088,C,T,stop_gained,rs1044523872,1,,Ensembl overlap (dbSNP),396
+Gene_29,3,52505021,A,T,stop_gained,rs1173197788,1,,Ensembl overlap (dbSNP),396
+Gene_29,3,52501702,C,T,stop_gained,rs1179593440,1,,Ensembl overlap (dbSNP),396
+Gene_30,19,8369320,A,C,stop_gained,rs587777517,1,association,Ensembl overlap (dbSNP),69
+Gene_30,19,8366320,G,A,splice_donor_variant,rs368451562,1,uncertain significance,Ensembl overlap (dbSNP),69
+Gene_30,19,8373712,G,A,stop_gained,rs1033145581,1,,Ensembl overlap (dbSNP),69
+Gene_30,19,8364514,C,T,stop_gained,rs1050250066,1,,Ensembl overlap (dbSNP),69
+Gene_30,19,8366032,C,T,stop_gained,rs1166216231,1,,Ensembl overlap (dbSNP),69
+Gene_31,12,57455645,C,A,stop_gained,rs1037487696,1,,Ensembl overlap (dbSNP),47
+Gene_31,12,57456225,C,T,stop_gained,rs1200579113,1,,Ensembl overlap (dbSNP),47
+Gene_31,12,57455741,C,G,stop_gained,rs1421396144,1,,Ensembl overlap (dbSNP),47
+Gene_31,12,57456753,C,T,stop_gained,rs1440312005,1,,Ensembl overlap (dbSNP),47
+Gene_31,12,57456554,C,A,stop_gained,rs146517777,1,,Ensembl overlap (dbSNP),47
+Gene_32,8,144722582,G,A,stop_gained,rs749634414,1,uncertain significance,Ensembl overlap (dbSNP),86
+Gene_32,8,144721952,C,A,stop_gained,rs768462124,1,uncertain significance,Ensembl overlap (dbSNP),86
+Gene_32,8,144754303,G,A,stop_gained,rs1177890113,1,,Ensembl overlap (dbSNP),86
+Gene_32,8,144754713,G,A,stop_gained,rs1196201215,1,,Ensembl overlap (dbSNP),86
+Gene_32,8,144722519,G,A,stop_gained,rs1217671788,1,,Ensembl overlap (dbSNP),86
+Gene_33,8,144268102,A,G,splice_acceptor_variant,rs1422879837,1,,Ensembl overlap (dbSNP),10
+Gene_33,8,144267182,T,G,splice_donor_variant,rs1588591649,1,,Ensembl overlap (dbSNP),10
+Gene_33,8,144267042,CC,CCC,frameshift_variant,rs1295179505,0,,Ensembl overlap (dbSNP),10
+Gene_33,8,144266777,GGGCGGGGGGCCGGCGGGCCGGGGGCGGGGGGCC,GGGCGGGGGGCC,frameshift_variant,rs1345549026,0,,Ensembl overlap (dbSNP),10
+Gene_33,8,144266784,GGGCCGGCGGGCCGG,GGGCCGG,frameshift_variant,rs1588591172,0,,Ensembl overlap (dbSNP),10
+Gene_34,1,219927981,G,A,stop_gained,rs1057519589,1,not provided,Ensembl overlap (dbSNP),55
+Gene_34,1,219915808,G,A,stop_gained,rs1659526183,1,uncertain significance,Ensembl overlap (dbSNP),55
+Gene_34,1,219918291,G,A,stop_gained,rs281860290,1,likely pathogenic,Ensembl overlap (dbSNP),55
+Gene_34,1,219915587,G,A,stop_gained,rs769974391,1,uncertain significance,Ensembl overlap (dbSNP),55
+Gene_34,1,219928038,G,A,stop_gained,rs1178334333,1,,Ensembl overlap (dbSNP),55
+Gene_35,22,49883834,C,T,stop_gained,rs1333906033,1,pathogenic,Ensembl overlap (dbSNP),44
+Gene_35,22,49885609,C,A,stop_gained,rs759274549,1,likely benign,Ensembl overlap (dbSNP),44
+Gene_35,22,49886417,C,T,stop_gained,rs1213294710,1,,Ensembl overlap (dbSNP),44
+Gene_35,22,49884273,C,A,stop_gained,rs1266346530,1,,Ensembl overlap (dbSNP),44
+Gene_35,22,49885237,T,G,stop_gained,rs1272134937,1,,Ensembl overlap (dbSNP),44
+Gene_36,2,168996703,C,A,stop_gained,rs1026511416,1,uncertain significance;pathogenic,Ensembl overlap (dbSNP),210
+Gene_36,2,168944925,G,A,stop_gained,rs1060499579,1,pathogenic,Ensembl overlap (dbSNP),210
+Gene_36,2,168971849,G,A,stop_gained,rs111482608,1,benign;likely benign;likely pathogenic;pathogenic,Ensembl overlap (dbSNP),210
+Gene_36,2,169013494,G,A,stop_gained,rs11568361,1,uncertain significance;likely benign;pathogenic,Ensembl overlap (dbSNP),210
+Gene_36,2,168971927,T,A,stop_gained,rs1162621436,1,likely benign;pathogenic,Ensembl overlap (dbSNP),210
+Gene_37,4,109717678,G,C,stop_gained,rs777370194,1,uncertain significance,Ensembl overlap (dbSNP),29
+Gene_37,4,109717590,G,A,stop_gained,rs1296033628,1,,Ensembl overlap (dbSNP),29
+Gene_37,4,109729744,G,A,stop_gained,rs1470269768,1,,Ensembl overlap (dbSNP),29
+Gene_37,4,109729615,A,T,stop_gained,rs1475644739,1,,Ensembl overlap (dbSNP),29
+Gene_37,4,109729620,G,A,stop_gained,rs1723008530,1,,Ensembl overlap (dbSNP),29
+Gene_38,4,121816368,G,A,splice_acceptor_variant,rs1361964123,1,likely pathogenic,Ensembl overlap (dbSNP),40
+Gene_38,4,121816428,A,G,stop_gained,rs1156334113,1,,Ensembl overlap (dbSNP),40
+Gene_38,4,121816398,G,T,stop_gained,rs1220942967,1,,Ensembl overlap (dbSNP),40
+Gene_38,4,121818162,G,A,stop_gained,rs1346788748,1,,Ensembl overlap (dbSNP),40
+Gene_38,4,121816776,C,T,stop_gained,rs1368783513,1,,Ensembl overlap (dbSNP),40
+Gene_39,19,19271049,C,A,stop_gained,rs199996201,1,uncertain significance,Ensembl overlap (dbSNP),68
+Gene_39,19,19270249,C,A,stop_gained,rs771388055,1,uncertain significance,Ensembl overlap (dbSNP),68
+Gene_39,19,19271116,C,T,stop_gained,rs1272943322,1,,Ensembl overlap (dbSNP),68
+Gene_39,19,19270211,G,T,stop_gained,rs1455007681,1,,Ensembl overlap (dbSNP),68
+Gene_39,19,19268084,G,A,stop_gained,rs1484479392,1,,Ensembl overlap (dbSNP),68
+Gene_40,3,52421702,C,T,stop_gained,rs1464412804,1,,Ensembl overlap (dbSNP),58
+Gene_40,3,52415696,T,A,stop_gained,rs1578240256,1,,Ensembl overlap (dbSNP),58
+Gene_40,3,52414503,G,A,stop_gained,rs1705560670,1,,Ensembl overlap (dbSNP),58
+Gene_40,3,52415747,T,A,stop_gained,rs1705603639,1,,Ensembl overlap (dbSNP),58
+Gene_40,3,52421044,C,G,stop_gained,rs1705773664,1,,Ensembl overlap (dbSNP),58
