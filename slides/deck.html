@@ -135,22 +135,24 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
       <div><span class="k">hard endpoint</span><span class="v">Far fewer heart attacks</span></div>
       <div><span class="k">drug</span><span class="v">Evolocumab, approved 2015</span></div>
     </div>
-    <p class="lede">To call a gene a target you need every link: carriers get less disease, a second study type agrees, people live fine without it, nothing breaks elsewhere. That evidence sits in separate places.</p>
     <div class="sources">
       <div><b>Rare-variant burden</b>Do carriers get less disease?</div>
       <div><b>GWAS</b>Does common variation agree?</div>
       <div><b>Constraint · DepMap</b>Can a human live without it?</div>
       <div><b>Other traits</b>Does breaking it cause harm elsewhere?</div>
     </div>
-    <p class="lede"><strong style="color:var(--ink)">Question:</strong> does a collective of agents that each see one slice, coordinating with no planner, rank genes better than one agent that sees everything?</p>
+    <p class="lede">No single source answers the question, so we built a collective: agents that each hold one slice of the evidence and coordinate with no planner, tested blind against a single agent that sees everything.</p>
+    <div class="hero-num" style="gap:6px">
+      <span style="font-family:var(--display); font-stretch:85%; font-weight:700; font-size:clamp(19px,1.9vw,24px); line-height:1.25">We designed for the regime where coordination should win. We landed in the regime where it doesn't, and we can show which channel dominated and how the coordination step destroyed signal.</span>
+    </div>
   </div>
 </section>
 
 <!-- 2 · SYSTEM -->
 <section class="slide" id="system" aria-label="Slide 2, system">
   <div class="sheet">
-    <div class="strip"><span><b>System</b> · four specialists, one skeptic, a shared board</span><span>Gemini 3 Flash for every agent in every arm</span><span>2 / 6 · system</span></div>
-    <h2>Each agent reads one directory of evidence. Nothing assigns work; agents pick up each other's needs from the board.</h2>
+    <div class="strip"><span><b>System</b> · four specialists, one skeptic, a shared board</span><span>Gemini 3 Flash for every agent in every pre-registered arm</span><span>2 / 6 · system</span></div>
+    <h2>Each agent reads one directory of evidence. Nothing in the loop assigns work; agents pick up each other's needs from the board.</h2>
     <div class="cols wide-right">
       <div style="display:grid; gap:14px">
         <div class="tbl">
@@ -162,7 +164,7 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
               <tr><td class="agent" style="color:var(--s4)">Tolerance</td><td>LOEUF, pLI, DepMap</td><td>Can a human live without it?</td></tr>
               <tr><td class="agent" style="color:#a87200">Safety</td><td>Out-of-scope traits</td><td>Does breaking it harm elsewhere?</td></tr>
               <tr><td class="agent" style="color:#b3416c">Skeptic</td><td>Only the other agents' verdicts</td><td>Is this evidence trustworthy?</td></tr>
-              <tr class="dim"><td class="agent">Variant</td><td>Lead variant, scored by NVIDIA Evo 2</td><td>Added after the headline; see slide 6</td></tr>
+              <tr class="dim"><td class="agent">Variant</td><td>Lead variant, scored by NVIDIA Evo 2</td><td>Post-freeze extension; slide 6</td></tr>
             </tbody>
           </table>
         </div>
@@ -179,30 +181,32 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
 <!-- 3 · RESULT -->
 <section class="slide" id="result" aria-label="Slide 3, result">
   <div class="sheet">
-    <div class="strip"><span><b>Result</b> · 40-gene blind panel, 12 known targets, 28 hard negatives</span><span>2 seeds · 1,000 paired resamples</span><span>3 / 6 · result</span></div>
+    <div class="strip"><span><b>Result</b> · 40-gene blind panel, 12 known targets, 28 hard negatives</span><span>Paired bootstrap, 1,000 gene resamples · Gemini, 2 seeds</span><span>3 / 6 · result</span></div>
+    <h2>The coordination loop measurably destroyed signal. The collective of isolated specialists points the right way.</h2>
     <div class="cols">
-      <div style="display:grid; gap:16px">
-        <div class="hero-num">
-          <span class="lab">Pre-registered headline · Δ AUROC, collective − single agent</span>
-          <span class="big">+0.008</span>
-          <span class="ci">95% CI −0.074 to +0.103</span>
-        </div>
-        <p class="lede">A tie. The collective is well above chance (permutation p = 0.003) and steadier across seeds, at about the same spend as one agent.</p>
+      <div style="display:grid; gap:14px">
         <div class="tbl">
           <table>
-            <thead><tr><th>Arm</th><th class="num">AUROC (95% CI)</th><th class="num">Calls/gene</th><th class="num">$ / run</th></tr></thead>
+            <thead><tr><th>Rubric comparison</th><th>Our result (Δ AUROC, 95% CI)</th><th>Status</th></tr></thead>
             <tbody>
-              <tr class="a3"><td>A3 collective</td><td class="num">0.782 (0.641–0.895)</td><td class="num">10</td><td class="num">1.32</td></tr>
-              <tr class="a1"><td>A1 single agent</td><td class="num">0.774 (0.616–0.903)</td><td class="num">3</td><td class="num">1.09</td></tr>
-              <tr class="s4"><td>S4 scripted, all features</td><td class="num">0.750 (0.542–0.910)</td><td class="num">0</td><td class="num">0</td></tr>
-              <tr class="dim"><td>S1 tolerance alone</td><td class="num">0.720</td><td class="num">0</td><td class="num">0</td></tr>
+              <tr class="a3"><td>Collaborative vs isolated</td><td><b>−0.071</b> (−0.139 to −0.013)<br><span style="color:var(--ink-2); font-size:12.5px">A3 0.782 vs round 0 0.853; gpt-5-mini −0.106</span></td><td>Coordination hurt; CI excludes 0</td></tr>
+              <tr><td>Multi-agent vs single-agent</td><td><b>+0.080</b> (−0.004 to +0.173)<br><span style="color:var(--ink-2); font-size:12.5px">round 0 0.853 vs A1 0.774; gpt-5-mini +0.037</span></td><td>Positive on both models; CI crosses 0</td></tr>
+              <tr class="dim"><td>Decentralized vs centralized</td><td>Centralized arm not run</td><td>Stated as a limitation</td></tr>
             </tbody>
           </table>
         </div>
+        <div class="callout">
+          <strong>Pre-registered headline: A3 − A1 = +0.008</strong>
+          <p>95% CI −0.074 to +0.103: a null result, reported as pre-registered. A3 beats chance (permutation p = 0.003). The two rows above are secondary contrasts chosen after seeing results; the round-0 arm is one of the pre-registered ablations.</p>
+        </div>
+        <div class="callout">
+          <strong>Mechanism: a skeptic that fires on everything</strong>
+          <p>It challenged the burden channel on 7 of 12 known targets and 21 of 28 negatives, about the same rate whatever the truth. Halving the dominant channel almost everywhere pushed known targets from mean rank 10.8 to 12.5.</p>
+        </div>
       </div>
       <figure>
-        <img src="figures/2_arms_auroc.png" alt="Dot plot of AUROC with 95% confidence intervals for twelve arms. A3 0.782, A1 0.774, S4 0.750; ablations A3 round-0-only 0.853 and A3 without skeptic 0.844.">
-        <figcaption>Same model, same per-gene call cap, same panel. Ablations re-score saved boards with no extra LLM calls.</figcaption>
+        <img src="figures/coordination_effect.png" alt="Slope chart of gene ranks from round 0 to the final A3 score. Most known targets move down; mean known-target rank goes from 10.8 to 12.5.">
+        <figcaption>Each line is one gene, round 0 to final. Blue: known targets. Grey: hard negatives. Same model, same 10-call cap, same scorer in every arm.</figcaption>
       </figure>
     </div>
   </div>
@@ -215,26 +219,27 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
     <h2>Panel and metrics frozen at commit <span style="font-family:var(--mono); color:var(--a3)">12b8c58</span>, before any arm ran.</h2>
     <div class="cols">
       <div>
-        <h3>Ledger</h3>
+        <h3>Safeguards</h3>
         <div class="ledger">
-          <div><code>12b8c58</code><span><b>prereg</b> tag: 40-gene panel, metrics, scoring weights</span></div>
-          <div><code>28a0e95</code><span><b>results-raw</b> tag: every arm's scores and boards, hashed, before any A1/A3 metric</span></div>
-          <div><code>4729a6b</code><span><b>results-final</b> tag: arms table, figures, findings</span></div>
-          <div><code>203 checks</code><span>No view holds another channel's data, a gene symbol, an Ensembl ID or drug data. A planted leak fails it.</span></div>
-          <div><code>p = 0.003</code><span>A3 against 1,000 label shuffles</span></div>
-          <div><code>2 / 800</code><span>A3 artifacts that still named a gene: redacted and flagged</span></div>
+          <div><code>12b8c58</code><span><b>prereg</b>: panel, metrics, scoring weights, before any arm ran</span></div>
+          <div><code>28a0e95</code><span><b>results-raw</b>: every arm's scores and boards, hashed, before any metric</span></div>
+          <div><code>4729a6b</code><span><b>results-final</b>: arms table and figures, per-file SHA-256</span></div>
+          <div><code>leak closed</code><span>Open Targets 26.09 names drug evidence <span style="font-family:var(--mono)">clinical_precedence</span>, not <span style="font-family:var(--mono)">chembl</span>. A naive test would have passed while the answer leaked.</span></div>
+          <div><code>output side</code><span>An agent recognised a gene from eponymous Mendelian diseases; those became categories, and agent outputs are redacted. Logged before any arm ran.</span></div>
+          <div><code>203 checks</code><span>No view holds another channel's data, a gene name, an ID or drug data. A planted leak makes the test fail.</span></div>
+          <div><code>reruns</code><span>Only API-error genes, one rule for every arm, logged in RERUN_LOG.md. Two amendments, both pre-arm.</span></div>
         </div>
       </div>
       <div>
         <h3>Limitations, stated by us</h3>
         <ul class="limits">
-          <li>40 genes: every interval is wide, and S4, A1 and A3 overlap.</li>
+          <li>40 genes: intervals are wide, and S4, A1 and A3 overlap.</li>
+          <li>The slide 3 contrasts are post-hoc, with no multiplicity correction.</li>
+          <li>No centralized (planner) arm: decentralized vs centralized is untested.</li>
           <li>Famous targets carry more evidence rows; any arm can partly score how well studied a gene is.</li>
-          <li>Names, IDs and drug data are removed, but trait patterns remain.</li>
-          <li>Open Targets labels "protective" from the sign of beta, so lower HDL reads as protective.</li>
-          <li>Two amendments after the tag, both before any LLM arm: the model (Gemini 2.5 Flash was not served) and Mendelian diseases shown as categories.</li>
-          <li>16 gene-runs lost to rate limits were rerun under one rule for every arm, logged.</li>
-          <li>Top-ranked negatives are hypotheses, not targets.</li>
+          <li>2 of 800 A3 artifacts still named a gene (redacted, flagged).</li>
+          <li>Open Targets derives "protective" from the sign of beta, so lower HDL reads as protective.</li>
+          <li>Top-ranked negatives are hypotheses; ACVR1C's rank varies by seed.</li>
         </ul>
       </div>
     </div>
@@ -244,68 +249,77 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
 <!-- 5 · DISCOVERY -->
 <section class="slide" id="discovery" aria-label="Slide 5, discovery">
   <div class="sheet">
-    <div class="strip"><span><b>What we learned</b> · and what the collective ranked highly</span><span>Ablations are secondary; the headline stays A3 vs A1</span><span>5 / 6 · discovery</span></div>
-    <h2>Separate views helped. An over-eager skeptic gave the gain back.</h2>
+    <div class="strip"><span><b>Discovery</b> · the deliverable is the ranked list</span><span>Every entry traces back through the artifact graph</span><span>5 / 6 · discovery</span></div>
+    <h2>The deliverable is a ranked candidate list with full provenance, not a benchmark score.</h2>
     <div class="cols">
       <div style="display:grid; gap:14px">
-        <div class="callout">
-          <strong>0.853 → 0.782</strong>
-          <p>Four specialists who never talk (round 0 only) scored 0.853, ahead of the single agent by +0.080 (−0.004 to +0.173). The full loop scored 0.782.</p>
+        <div class="hero-num">
+          <span class="lab">Top-ranked gene our panel labelled a negative (A3, seed-averaged)</span>
+          <span class="big" style="font-size:clamp(44px,6vw,80px)">ACVR1C</span>
+          <span class="ci">Activin receptor-like kinase 7 · coded Gene_06</span>
         </div>
         <div class="callout">
-          <strong>Why: challenges that fire on everything</strong>
-          <p>The skeptic flagged burden evidence as biomarker-only on about 7 in 10 genes, known target or not. Halving the strongest channel everywhere pushed the 12 known targets from mean rank 10.7 to 12.5.</p>
+          <strong>54% lower type 2 diabetes risk</strong>
+          <p>Carriers of predicted damaging ACVR1C variants: OR 0.46 (95% CI 0.27–0.81) in exome sequencing of 55,516 people; in 405,569 UK Biobank participants, lower waist-to-hip ratio through ACVR1C meant 30% lower risk (OR 0.70, P = 5.6 × 10<sup>−13</sup>). Emdin et al., <i>Diabetes</i> 2019.</p>
         </div>
+        <p style="font-size:14.5px">It was a negative only because it has no approved drug or clinical programme. <b>Our agents surfaced it blind:</b> coded ID, isolation-tested views, no drug data, zero identity terms in its five view files.</p>
+      </div>
+      <div style="display:grid; gap:14px">
         <div class="tbl">
           <table>
-            <thead><tr><th>A3 rank</th><th>Top-ranked negatives</th><th>Note</th></tr></thead>
+            <thead><tr><th>A3 run</th><th class="num">Rank of 40</th><th class="num">Rank of 28 negatives</th></tr></thead>
             <tbody>
-              <tr><td class="num">6</td><td><b>ACVR1C</b> (ALK7)</td><td>Protective LoF for fat distribution and type 2 diabetes</td></tr>
-              <tr><td class="num">7</td><td>ZNF229</td><td>Weaker evidence</td></tr>
-              <tr><td class="num">8</td><td>PKD1L3</td><td>Weaker evidence</td></tr>
+              <tr class="a3"><td>Seed-averaged</td><td class="num">6</td><td class="num">1</td></tr>
+              <tr><td>Seed 1</td><td class="num">4</td><td class="num">2</td></tr>
+              <tr><td>Seed 2</td><td class="num">15</td><td class="num">8</td></tr>
             </tbody>
           </table>
         </div>
-        <p style="font-size:14.5px; color:var(--ink-2)">Next: a skeptic whose challenges must cite a row, tested on a fresh panel.</p>
+        <p style="font-size:14.5px; color:var(--ink-2)">In seed 2 the skeptic halved ACVR1C's burden and GWAS channels as "biomarker only": the same failure that cost accuracy across the panel, acting on a gene with published protective evidence. Next two negatives: ZNF229 and PKD1L3, hypotheses only.</p>
+        <div class="callout">
+          <strong>"The retrospective panel is our validation instrument. The deliverable is the ranked list."</strong>
+          <p>The 2019 evidence predates the run and is in Open Targets, so this is "surfaced blind", not "discovered".</p>
+        </div>
       </div>
-      <figure>
-        <img src="figures/4_skeptic_rank_shift.png" alt="Slope chart of gene ranks without and with the skeptic. Most known targets move down; mean positive rank goes from 10.7 to 12.5.">
-        <figcaption>Each line is one gene. Blue: known targets. Grey: hard negatives.</figcaption>
-      </figure>
     </div>
   </div>
 </section>
 
-<!-- 6 · EXTENSIONS -->
-<section class="slide" id="extensions" aria-label="Slide 6, extensions">
+<!-- 6 · ECOSYSTEM AND NEXT -->
+<section class="slide" id="next" aria-label="Slide 6, ecosystem and next steps">
   <div class="sheet">
-    <div class="strip"><span><b>Extensions</b> · run after results-final, not pre-registered</span><span>Google Cloud · NVIDIA · OpenAI</span><span>6 / 6 · extensions</span></div>
-    <h2>The isolated-specialist result holds on a second model, and a DNA language model joins the board.</h2>
+    <div class="strip"><span><b>Ecosystem and next steps</b> · extensions are post-freeze, not pre-registered</span><span>Google Cloud · NVIDIA · OpenAI</span><span>6 / 6 · next</span></div>
+    <h2>Reusable pieces for other teams, two extensions run tonight, and the experiment that would close the story.</h2>
     <div class="cols">
       <div style="display:grid; gap:14px">
         <div class="tbl">
           <table>
-            <thead><tr><th>Run</th><th class="num">AUROC (95% CI)</th><th class="num">Paired Δ</th></tr></thead>
+            <thead><tr><th>Shared</th><th>What it gives another team</th></tr></thead>
             <tbody>
-              <tr class="a3"><td>Gemini · A3 round 0</td><td class="num">0.853 (0.729–0.948)</td><td class="num">+0.080 vs A1</td></tr>
-              <tr class="a3"><td>GPT-5 mini · A3 round 0</td><td class="num">0.857 (0.730–0.961)</td><td class="num">+0.037 vs A1</td></tr>
-              <tr class="dim"><td>GPT-5 mini · A1 / A3</td><td class="num">0.820 / 0.751</td><td class="num">−0.068 A3 vs A1</td></tr>
-              <tr><td style="color:#a87200; font-weight:600">Gemini · A3 + Evo 2</td><td class="num">0.820 (0.671–0.929)</td><td class="num">+0.038 vs A3</td></tr>
+              <tr><td>3 skills</td><td>Blind agent views with an isolation test; a needs board with free ablations; a standalone Evo 2 variant scorer</td></tr>
+              <tr><td>Pressure formula</td><td>The organizers' needs-pressure scoring reimplemented standalone</td></tr>
+              <tr><td>Evo 2 fallback</td><td>The hosted 40B <span style="font-family:var(--mono)">/forward</span> needs layer <span style="font-family:var(--mono)">unembed</span>; <span style="font-family:var(--mono)">output_layer</span> returns 422</td></tr>
+              <tr><td>Public repo</td><td>Frozen results with hashes; <span style="font-family:var(--mono)">make demo</span> replays a board offline</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tbl">
+          <table>
+            <thead><tr><th>Extension</th><th class="num">AUROC</th><th class="num">Paired Δ</th></tr></thead>
+            <tbody>
+              <tr><td>A3 + NVIDIA Evo 2 Variant agent</td><td class="num">0.820</td><td class="num">+0.038 vs A3</td></tr>
+              <tr><td>gpt-5-mini: round 0 / A1 / A3</td><td class="num">0.857 / 0.820 / 0.751</td><td class="num">same direction</td></tr>
             </tbody>
           </table>
         </div>
         <div class="callout">
-          <strong>NVIDIA Evo 2 as the Variant agent</strong>
-          <p>One Evo 2 40B pass over 2,048 bp around the lead variant scores every possible base change in the window; the agent reports where the real variant falls. Agents asked for it 77 times; Evo 2 answered 30, with no errors. Coordinates never reach a prompt.</p>
-        </div>
-        <div class="callout">
-          <strong>What to take from it</strong>
-          <p>On both models, specialists who never talk beat the full coordination loop. Evo 2 leans positive, but GWAS lead variants are mostly non-coding tags (median percentile 59), so it had little to score. Every interval here includes zero.</p>
+          <strong>Next: a calibrated skeptic on a fresh panel</strong>
+          <p>Fit per-challenge discounts on this panel, pre-register them, test on 28 negatives the fit never saw. Then a centralized planner arm, 200 genes, and Evo 2 on coding variants.</p>
         </div>
       </div>
       <figure>
         <img src="figures/6_models_and_evo2.png" alt="Dot plot of AUROC with 95% confidence intervals. Gemini: A1 0.774, A3 0.782, A3 round 0 0.853, A3 plus Evo 2 0.820. GPT-5 mini: A1 0.820, A3 0.751, A3 round 0 0.857.">
-        <figcaption>Same 40 genes, labels and paired bootstrap as the headline. GPT-5 mini rejects temperature 0, so it ran at its default.</figcaption>
+        <figcaption>Same 40 genes, labels and paired bootstrap as the headline. gpt-5-mini rejects temperature 0, so it ran at its default.</figcaption>
       </figure>
     </div>
   </div>
