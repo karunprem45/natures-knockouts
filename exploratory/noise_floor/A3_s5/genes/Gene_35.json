@@ -1,0 +1,302 @@
+{
+ "gene_code": "Gene_35",
+ "score": -1.2,
+ "calls": 10,
+ "seconds": 19.8,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_35",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Single protective LoF association for triglycerides in one EUR cohort (UKB). No hard endpoints or multi-ancestry data. Evidence is biomarker-only and weak.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans?",
+     "rationale": "To determine if therapeutic inhibition is viable without developmental or systemic harm."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus associate with triglycerides or cardiovascular disease?",
+     "rationale": "To see if common-variant evidence reinforces the weak rare-variant signal."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF in this gene across other organ systems?",
+     "rationale": "To assess potential off-target risks of inhibiting this gene."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "331bfe4f-0f57-44f9-8a92-47fb43d56739",
+   "content_hash": "12fe14df8fabd2c62b6534118e851c7e18d8f624e4b0b483f6666cea11f73553",
+   "timestamp": "2026-11-01T04:26:55.594079+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_35",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "GWAS shows associations with HDL subfractions and AST, but L2G scores are low (<0.4), variants are non-coding, and there are no hard clinical endpoints.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_7",
+    "gwas_9",
+    "gwas_18"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare-variant burden for AST, LDL, or liver disease",
+     "rationale": "Common variant signals are weak and non-coding; rare-variant burden would confirm if this gene is the causal driver of the observed metabolic signals."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "pLI or LOEUF score for the gene",
+     "rationale": "Assessing whether loss-of-function is tolerated is essential for safety before considering inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ea5d940c-c336-45ea-bf35-29e014758342",
+   "content_hash": "18ca973879b5e49b725fcbee615a081a46945884ec470a8d9bb946ed279368e3",
+   "timestamp": "2026-11-01T04:26:56.102761+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_35",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "One Mendelian disease is caused by loss of function (LoF). GWAS shows significant associations with hematological traits, bone density, and intracranial hematoma, suggesting pleiotropic risks.",
+   "data_refs": [
+    "mendelian_1",
+    "safety_2",
+    "safety_4",
+    "safety_5",
+    "safety_19"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "If the gene is highly intolerant to loss of function, it increases the safety risk of therapeutic inhibition."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant LoF burden signals for intracranial hematoma or placental abruption?",
+     "rationale": "GWAS hits for these traits are concerning; burden evidence would confirm if LoF specifically drives these risks."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "019bd754-4cf6-43c9-9689-4f6a50fed1d3",
+   "content_hash": "818165b3f58a0e00dbb47f290fc7131130a62cb22aec474fc41ec0baf59de3d0",
+   "timestamp": "2026-11-01T04:26:56.000390+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_35",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "High pLI (0.9) and low lof_oe (0.26) suggest LoF intolerance in humans. Localization in photoreceptors raises specific safety concerns for systemic inhibition.",
+   "data_refs": [
+    "pli",
+    "lof_oe",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Are there known human phenotypes or syndromes associated with loss-of-function variants in this gene, particularly involving the eyes?",
+     "rationale": "The high pLI and photoreceptor localization suggest that inhibiting this gene could lead to developmental or degenerative ocular issues."
+    },
+    {
+     "type": "burden_check",
+     "query": "Is there evidence that loss-of-function variants protect against cardiometabolic or liver disease?",
+     "rationale": "If there is no clear protective benefit, the population constraint data makes this a high-risk target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b26cd349-62f1-4060-83a7-a8f00e60fd64",
+   "content_hash": "b5fe9628f87c77c21d623d6f38dc9131dcb30b5beb74ffc4d0872f9600420e69",
+   "timestamp": "2026-11-01T04:26:58.902451+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_35",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "High pLI (0.90) and low lof_oe (0.26) suggest LoF intolerance in humans, despite the gene not being core-essential in cell lines. LOEUF (0.59) is in the intermediate range.",
+   "data_refs": [
+    "pli",
+    "lof_oe",
+    "loeuf",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "019bd754-4cf6-43c9-9689-4f6a50fed1d3"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "7da8ecd0-44cc-47b9-8674-ec76516b58e6",
+   "content_hash": "264fd0380b9d87ff5b02bec64954d9d52c5cecdf0c870ffe1711d9bec0eb74c5",
+   "timestamp": "2026-11-01T04:27:03.445457+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_35",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Evidence shows a protective effect on triglycerides in one EUR cohort, but lacks data for AST, LDL, or hard endpoints. Strength is low due to single ancestry and biomarker-only data.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "ea5d940c-c336-45ea-bf35-29e014758342"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function variants in humans?",
+     "rationale": "To determine if the observed LoF protective effect on triglycerides is viable for therapeutic targeting without developmental harm."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with LoF in this gene?",
+     "rationale": "To ensure the triglyceride-lowering effect does not come at the cost of liver damage or other metabolic dysfunction."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "2f8f8bb7-1f99-42e5-ad5f-b597839f7232",
+   "content_hash": "c3bcdc9f19dbdb95b425843b56ad8d25b6b91581a7ac7737018199c214196d29",
+   "timestamp": "2026-11-01T04:27:05.541578+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_35",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "GWAS shows associations with HDL subfractions and AST, but evidence for triglycerides and CVD is very weak (low L2G score) or absent. No hard endpoints are associated.",
+   "data_refs": [
+    "gwas_7",
+    "gwas_11",
+    "gwas_12"
+   ],
+   "parent_artifact_ids": [
+    "331bfe4f-0f57-44f9-8a92-47fb43d56739"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "02be3518-d536-498e-ab15-f0cdfaef570f",
+   "content_hash": "ab6ffb6df1bab84d8cdaedf3f484283da0813a798fb7c5f7e84d2ead7bdd6376",
+   "timestamp": "2026-11-01T04:27:07.165985+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_35",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "0 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b65baa56-9f36-4a6b-b276-42d4f6331548",
+   "content_hash": "70995705068a6b41cff3d81d40526d5cbc4adc76fcf14c86b711ef1c7ebd5618",
+   "timestamp": "2026-11-01T04:27:09.777733+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_35",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Burden evidence is limited to a single biomarker (triglycerides) in one EUR cohort. GWAS data confirms weak lipid signals and lacks hard endpoint support, further diluting the case.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "331bfe4f-0f57-44f9-8a92-47fb43d56739",
+    "02be3518-d536-498e-ab15-f0cdfaef570f"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a1153eb0-8ac6-47d1-ba98-8854cf3704dc",
+   "content_hash": "ea3e0a52e5dc780877ab382a4395c502ff27b9855f09d803b05aa302f83f05f2",
+   "timestamp": "2026-11-01T04:27:11.676751+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_35",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "GWAS shows associations with HDL subfractions and AST, but L2G scores are low (<0.4) and variants are non-coding. Burden data confirms a TG effect but is also weak and biomarker-only.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_7",
+    "gwas_9",
+    "gwas_11"
+   ],
+   "parent_artifact_ids": [
+    "ea5d940c-c336-45ea-bf35-29e014758342",
+    "2f8f8bb7-1f99-42e5-ad5f-b597839f7232"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0faf3ad5-a81c-45bf-a8de-b509e5f3611c",
+   "content_hash": "a14b4d740310f4bb4317a66b45dda1d463c7b9b56d9770b1f61a00e2454885aa",
+   "timestamp": "2026-11-01T04:27:13.278885+00:00"
+  }
+ ]
+}

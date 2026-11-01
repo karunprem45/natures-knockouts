@@ -1,0 +1,334 @@
+{
+ "gene_code": "Gene_03",
+ "score": -1.2,
+ "calls": 10,
+ "seconds": 52.6,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_03",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "LoF variants strongly associate with increased risk for CAD, MI, and T2D across multiple hard endpoints in UKB. Protective LDL effect is negligible compared to high disease risk.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4",
+    "burden_6",
+    "burden_7",
+    "burden_8"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI/LOEUF)?",
+     "rationale": "High risk for multiple diseases suggests LoF is deleterious; checking if humans can tolerate loss of this gene."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants show the same risk direction for CAD and T2D?",
+     "rationale": "To confirm if the rare-variant risk signal is consistent with common-variant associations."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "89b8394d-2cf1-4371-9eb6-175a03b012b3",
+   "content_hash": "7dcb3912784cb4b2a3a849c61260ed963c832531b94ee9cc8e3af6828620c8b5",
+   "timestamp": "2026-11-01T04:19:27.774831+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_03",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "GWAS shows strong associations with lipid subfractions and BMI, but L2G scores are low (<0.5), lead variants are non-coding, and there are no hard clinical endpoints.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_10",
+    "gwas_23"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare-variant burden for cardiometabolic or liver disease",
+     "rationale": "Low L2G scores and non-coding GWAS leads make it unclear if this gene is the causal driver; burden evidence would confirm the gene's role and effect direction."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b036d657-0da3-467b-9bdf-9e53125a3a52",
+   "content_hash": "7e0fb3a8c3111356b0713368c9df950a16e1ac03e80440b41a630654f00e131b",
+   "timestamp": "2026-11-01T04:19:27.445219+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_03",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "Strong evidence that LoF increases risk for multiple cancers (myeloid leukemia, MDS) and clonal hematopoiesis. Mendelian data confirms LoF causes severe multi-system disorders.",
+   "data_refs": [
+    "safety_3",
+    "safety_6",
+    "safety_9",
+    "safety_10",
+    "safety_11",
+    "safety_15",
+    "safety_16",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_9"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF)?",
+     "rationale": "High LoF intolerance would further confirm the danger of therapeutic inhibition given the strong cancer and Mendelian signals."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "92f88c9a-0427-439a-87ec-4c5c790f3200",
+   "content_hash": "6d5a5597e0ea1c1340d585cc68e5157c418c6c7a4a6a70203fdfb9a126940aa0",
+   "timestamp": "2026-11-01T04:19:27.595792+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_03",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.9) and pLI (0) indicate LoF is well-tolerated in humans. DepMap data confirms the gene is non-essential for cell viability across 1,257 screens.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or inhibition of this gene provide protection against cardiometabolic or liver disease?",
+     "rationale": "While inhibition is likely safe and tolerated, efficacy for the target indications is unknown from my data."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ea877334-d3c7-480a-9ff5-cf6541978ce5",
+   "content_hash": "546791464aafa0a483566c4e8409629e8d1657e4a263b852a22565454f785a93",
+   "timestamp": "2026-11-01T04:19:29.346017+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_03",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.90) and pLI (~0) indicate strong tolerance for LoF in humans. DepMap data shows no essentiality across 1,257 cell lines (mean effect -0.01).",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "89b8394d-2cf1-4371-9eb6-175a03b012b3"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "9d077de2-5c5d-4035-836a-920d3cb3edea",
+   "content_hash": "170f570c456de6da2f3b82f78a897d5c260774430749e82a08a6db95455e068f",
+   "timestamp": "2026-11-01T04:19:30.920138+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_03",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "LoF variants significantly increase risk for hard endpoints (CAD, MI, T2D) across UKB and BRaVa cohorts. Only LDL-C shows a minor protective beta, but clinical disease risk is high.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4",
+    "burden_6",
+    "burden_7",
+    "burden_8"
+   ],
+   "parent_artifact_ids": [
+    "b036d657-0da3-467b-9bdf-9e53125a3a52"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "pLI or LOEUF scores for this gene",
+     "rationale": "The high odds ratios for multiple diseases suggest this gene might be under strong purifying selection."
+    },
+    {
+     "type": "safety_check",
+     "query": "pleiotropic effects of LoF variants in non-cardiovascular tissues",
+     "rationale": "Strong risk for metabolic and cardiovascular disease suggests systemic harm from loss of function."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "cbf0fab6-098b-4683-bdfb-0c0d889b79d8",
+   "content_hash": "f788b3a8b45c1202d28f3899337cc3c1eacf9d6be962181c22b140cfb090c2ce",
+   "timestamp": "2026-11-01T04:19:33.019079+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_03",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "The GWAS data provided contains no associations for CAD or T2D; it only shows associations for lipid fractions and BMI.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "89b8394d-2cf1-4371-9eb6-175a03b012b3"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "23a68073-5115-4925-9452-5649a5775baf",
+   "content_hash": "32dcd61957425f92c01f0c30740e267e66b617a2bdf3f43646a7d5bff5e53f3b",
+   "timestamp": "2026-11-01T04:19:34.557996+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_03",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "89b8394d-2cf1-4371-9eb6-175a03b012b3",
+    "9d077de2-5c5d-4035-836a-920d3cb3edea",
+    "b036d657-0da3-467b-9bdf-9e53125a3a52",
+    "cbf0fab6-098b-4683-bdfb-0c0d889b79d8",
+    "ea877334-d3c7-480a-9ff5-cf6541978ce5"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "89b8394d-2cf1-4371-9eb6-175a03b012b3",
+     "rationale": "The rare-variant burden evidence is based solely on the UK Biobank cohort."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "b036d657-0da3-467b-9bdf-9e53125a3a52",
+     "rationale": "GWAS evidence is limited to lipid subfractions and BMI, without hard clinical endpoints like CAD or T2D."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "tolerance",
+     "target_artifact_id": "ea877334-d3c7-480a-9ff5-cf6541978ce5",
+     "rationale": "The gene appears essential for health given the severe Mendelian disorders and cancer risks reported in A3, making a 'supports' verdict unsafe."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "tolerance",
+     "target_artifact_id": "9d077de2-5c5d-4035-836a-920d3cb3edea",
+     "rationale": "Tolerance metrics (LOEUF/pLI) contradict the clinical essentiality and safety risks (Mendelian disease, cancer) described in A3."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "cbf0fab6-098b-4683-bdfb-0c0d889b79d8",
+     "rationale": "The agent reports a protective effect on LDL-C alongside an increased risk for CAD and MI, which are contradictory directions."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "57ba6a66-7dbe-4fa6-91c8-79a3e52d0079",
+   "content_hash": "16397cfb3c6da27828edf14635e2d663ce317ad5ffbea6bfda9049976e2c9364",
+   "timestamp": "2026-11-01T04:20:14.446878+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_03",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "LoF variants strongly associate with increased risk for CAD, MI, and T2D across multiple hard endpoints in UKB. Protective LDL effect is negligible compared to high disease risk.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_7"
+   ],
+   "parent_artifact_ids": [
+    "89b8394d-2cf1-4371-9eb6-175a03b012b3",
+    "9d077de2-5c5d-4035-836a-920d3cb3edea",
+    "23a68073-5115-4925-9452-5649a5775baf"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ca471e09-cc0f-4f65-baf5-5463fd64e027",
+   "content_hash": "291437adabf670c8071a1206e21d2f5310686ad1d30e6279747709a5c7453d33",
+   "timestamp": "2026-11-01T04:20:16.014664+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_03",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "GWAS shows only weak biomarker associations with low L2G scores. Crucially, burden evidence indicates LoF variants increase risk for CAD and T2D, contradicting therapeutic benefit.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_10",
+    "gwas_23"
+   ],
+   "parent_artifact_ids": [
+    "b036d657-0da3-467b-9bdf-9e53125a3a52",
+    "cbf0fab6-098b-4683-bdfb-0c0d889b79d8"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "80555b00-834b-4189-b2bf-235811f47074",
+   "content_hash": "574bb735884abf89deb005db75fe46b2cfc5e43279b5759778dc5e9ed63c56e1",
+   "timestamp": "2026-11-01T04:20:17.607769+00:00"
+  }
+ ]
+}

@@ -1,0 +1,338 @@
+{
+ "gene_code": "Gene_22",
+ "score": 2.05,
+ "calls": 10,
+ "seconds": 19.8,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_22",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "LoF variants associate with lower ALT (liver health biomarker) in a large meta-analysis. However, evidence lacks hard clinical endpoints and multi-ancestry validation.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (LOEUF/pLI)?",
+     "rationale": "To determine if therapeutic inhibition would be tolerated without developmental or systemic issues."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF in other organ systems?",
+     "rationale": "Lowering ALT is beneficial, but I need to ensure LoF doesn't cause harm elsewhere."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene also associate with liver disease or ALT levels?",
+     "rationale": "Consistency between rare LoF and common variants would significantly strengthen the target validation."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "48626133-c292-458b-b7f1-6f2c5b9aa82e",
+   "content_hash": "82725ea89659f62529cf1ad6ae6e4155ea9d8778c9ad7467613bee49baab74de",
+   "timestamp": "2026-11-01T04:21:00.306406+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_22",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.3,
+   "rationale": "GWAS shows associations with liver biomarkers (ALT) with high L2G scores, but effects are small, limited to one population, and lack hard endpoint data or coding variants.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare variant burden in this gene associate with liver disease or protection from cirrhosis?",
+     "rationale": "The current GWAS evidence is limited to synonymous variants and biomarkers; rare loss-of-function data would confirm if inhibiting the gene is actually beneficial for disease."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any GWAS associations for this gene with adverse phenotypes in other organ systems?",
+     "rationale": "To determine if inhibition would be safe beyond the liver."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "1b7f378b-634c-4686-9f62-56fa1694aa45",
+   "content_hash": "97bf404ac9737b771483e6ee69e05ac6b548351d71a8d6669a4c630fa6f7da4a",
+   "timestamp": "2026-11-01T04:20:59.945333+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_22",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 13 categories, including cancer and congenital disorders. No out-of-scope GWAS or burden signals are present.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "mendelian_11"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "The absence of known Mendelian LoF diseases is positive, but population-level intolerance would indicate potential developmental or fitness costs not captured in clinical databases."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "6e814f2b-1c85-444b-aaf4-6912efc45a74",
+   "content_hash": "a1c46e35305af7c6fa4bf299e37f4385933352c6886f9b3cf6592fde9bdf4e4e",
+   "timestamp": "2026-11-01T04:20:59.833599+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_22",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Extremely high LOEUF (1.66) and pLI near 0 indicate the gene is highly tolerant to loss-of-function. DepMap data confirms it is not essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or inhibition of this gene provide protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific adverse phenotypes associated with rare homozygous loss-of-function variants in humans?",
+     "rationale": "While population metrics suggest general tolerance, specific rare phenotypes might preclude therapeutic use."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b039bf73-1363-46fd-9b13-bf83586d6894",
+   "content_hash": "7435511b1e6f2428f1ab81ba6fd1afacf235558009467c9ee8094855be3b70d8",
+   "timestamp": "2026-11-01T04:21:02.832299+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_22",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No GWAS associations for out-of-scope traits were found. 13 Mendelian diseases are noted across various categories, but none are caused by loss of function, suggesting LoF is likely safe.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "mendelian_11"
+   ],
+   "parent_artifact_ids": [
+    "1b7f378b-634c-4686-9f62-56fa1694aa45"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "2ead63ee-09a2-47f1-ac33-157ae2b175d3",
+   "content_hash": "215c5f2007d14cb8533b6f15d0a169042b6cc98bd993efa1ff1b5732593607ec",
+   "timestamp": "2026-11-01T04:21:04.829575+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_22",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "LoF burden associates with lower ALT (p=10^-8.33) in a large meta-analysis, suggesting liver protection. However, evidence is biomarker-only with no hard clinical endpoints like cirrhosis.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "1b7f378b-634c-4686-9f62-56fa1694aa45"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function variants in the general population?",
+     "rationale": "To determine if therapeutic inhibition would be well-tolerated given the observed protective biomarker effect."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF variants in this gene across other metabolic or cardiovascular traits?",
+     "rationale": "To ensure that lowering ALT does not come at the cost of increasing risk for other diseases."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "635bbda6-3c33-40bc-b748-d4647cd4a56d",
+   "content_hash": "97322bc101df0baff71b51a5c3fe922f328a8a19e793466524a029ddf26e3552",
+   "timestamp": "2026-11-01T04:21:07.137608+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_22",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly LoF-tolerant (LOEUF 1.66, pLI ~0) and not essential in cell lines (DepMap mean -0.11, <1% dependent). Lifelong inhibition is likely well-tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "48626133-c292-458b-b7f1-6f2c5b9aa82e"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "7e8f14ea-803d-4b33-a0f1-334d72970eb8",
+   "content_hash": "9b2aadd23d40510e8703ce5459c42fb79202d86f160f859ac8f01d081ae176ab",
+   "timestamp": "2026-11-01T04:21:08.760320+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_22",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "1b7f378b-634c-4686-9f62-56fa1694aa45",
+    "48626133-c292-458b-b7f1-6f2c5b9aa82e",
+    "635bbda6-3c33-40bc-b748-d4647cd4a56d"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "48626133-c292-458b-b7f1-6f2c5b9aa82e",
+     "rationale": "The rationale explicitly states the evidence lacks hard clinical endpoints and is based only on a liver health biomarker (ALT)."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "gwas",
+     "target_artifact_id": "1b7f378b-634c-4686-9f62-56fa1694aa45",
+     "rationale": "The agent notes that effects are limited to one population, indicating a lack of multi-ancestry validation."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "1b7f378b-634c-4686-9f62-56fa1694aa45",
+     "rationale": "The rationale confirms the association is limited to liver biomarkers (ALT) and lacks hard clinical endpoint data."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "635bbda6-3c33-40bc-b748-d4647cd4a56d",
+     "rationale": "The agent admits the evidence is biomarker-only with no hard clinical endpoints like cirrhosis."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "9e007b6e-9783-42f4-b51f-1c8355557101",
+   "content_hash": "88d1dad23e235653679dff09f7cc226925bcfab79f93919307d4435b687d98ff",
+   "timestamp": "2026-11-01T04:21:10.791041+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_22",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "Common variant signals for lower ALT align with rare-variant LoF burden direction. High L2G scores support gene assignment, though evidence remains biomarker-only and single-ancestry.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2"
+   ],
+   "parent_artifact_ids": [
+    "1b7f378b-634c-4686-9f62-56fa1694aa45",
+    "2ead63ee-09a2-47f1-ac33-157ae2b175d3",
+    "635bbda6-3c33-40bc-b748-d4647cd4a56d"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "fe35cf38-7ba3-4fac-b1c5-8462d7a3552b",
+   "content_hash": "ac7d06750c3be12072e415c8c53eacbd732adede83b6928099afb2c404cfa7bb",
+   "timestamp": "2026-11-01T04:21:16.029056+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_22",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.5,
+   "rationale": "LoF variants associate with lower ALT (p=10^-8.3) in a large meta-analysis. Tolerance data confirms LoF is safe, though evidence remains limited to a biomarker without hard endpoints.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "48626133-c292-458b-b7f1-6f2c5b9aa82e",
+    "7e8f14ea-803d-4b33-a0f1-334d72970eb8"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "64d38f74-dcc7-491b-b3a7-865e162e240c",
+   "content_hash": "14470b35beddb139a24bba9cec5152321cc79412d448e93474c749742b5ac1f8",
+   "timestamp": "2026-11-01T04:21:17.590976+00:00"
+  }
+ ]
+}

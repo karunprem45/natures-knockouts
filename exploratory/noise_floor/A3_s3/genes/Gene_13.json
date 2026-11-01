@@ -1,0 +1,339 @@
+{
+ "gene_code": "Gene_13",
+ "score": 2.65,
+ "calls": 10,
+ "seconds": 25.5,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_13",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "LoF is significantly associated with lower LDL-C in a large EUR cohort. However, evidence is limited to a single biomarker with no hard clinical endpoints or multi-ancestry data.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (LOEUF/pLI)?",
+     "rationale": "High carrier count (25k) suggests tolerance, but formal metrics are needed to ensure target safety."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants associate with LDL-C or coronary artery disease?",
+     "rationale": "To see if common variant signals triangulate with the observed burden effect on biomarkers and clinical outcomes."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations with liver enzymes or non-alcoholic fatty liver disease?",
+     "rationale": "LDL-lowering mechanisms can sometimes lead to hepatic lipid accumulation."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a82a0369-5fd5-4cdf-81f5-ab50775e0d2a",
+   "content_hash": "dac4e7166c2c3f33cc9160374006e11b37890090c5c29fa70d0ab0e8c3890fd5",
+   "timestamp": "2026-11-01T04:15:36.946329+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_13",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong associations with lipids (non-HDL, ApoB) and coronary artery disorder. A frameshift variant (gwas_10) with high L2G score links the gene to lower ApoB, suggesting inhibition is beneficial.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_10",
+    "gwas_24"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant burden of loss-of-function alleles in this gene associate with lower LDL/ApoB and reduced risk of coronary artery disease?",
+     "rationale": "GWAS lead variants are mostly intronic or synonymous; confirming that true loss-of-function mimics the protective lipid profile would solidify the target."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in the general population (pLI/LOEUF)?",
+     "rationale": "To assess if lifelong inhibition might lead to adverse developmental or systemic effects."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "fd184bfe-0162-438e-b185-b12fabc8d98f",
+   "content_hash": "e3b34b57b8bde17f71a6fe5a60d646705f0ea42c31232b19ac5e1cbff7fc655b",
+   "timestamp": "2026-11-01T04:15:33.571192+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_13",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss-of-function variants across 13 categories. GWAS signals are primarily metabolic biomarkers or anthropometric traits without clear safety red flags.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_12",
+    "safety_1",
+    "safety_5",
+    "safety_29"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "High intolerance to loss-of-function would suggest essentiality or developmental risks not captured by the current Mendelian disease summary."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there any rare-variant burden signals for serious non-metabolic diseases?",
+     "rationale": "Burden signals can reveal risks that GWAS and Mendelian summaries might miss."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f7bd7560-6d09-46c3-90ed-8ea30977188c",
+   "content_hash": "461d98ffb9962aa6e514ee108a8c74a7997998e3a5454ac75f7200255fd340cd",
+   "timestamp": "2026-11-01T04:15:33.421752+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_13",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Exceptional tolerance profile. LOEUF (1.45) and pLI (0) indicate no selection against LoF. Minimal DepMap dependency and non-essentiality suggest high safety for systemic inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function or genetic variation in this gene associate with improved cardiometabolic or liver phenotypes?",
+     "rationale": "Tolerance alone does not imply therapeutic benefit; I need evidence that inhibiting this gene actually improves disease markers."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8a424d21-c0d2-46c5-aa91-c505a5b8995d",
+   "content_hash": "6febe8a5e93c582f9e547af6311b690d8996bb92790c9b3413ca76edec801762",
+   "timestamp": "2026-11-01T04:15:33.238738+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_13",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "High LOEUF (1.45) and pLI (0) indicate strong LoF tolerance in humans. DepMap confirms it is not core-essential for cell survival, supporting the safety of lifelong inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "missense_z"
+   ],
+   "parent_artifact_ids": [
+    "a82a0369-5fd5-4cdf-81f5-ab50775e0d2a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "8331c91a-be80-4be4-9e94-1dcd7b9b0cbe",
+   "content_hash": "ec6edc9504932a147a911d6429e255a287a9c942c9a1dcb27a551db4c0377c4c",
+   "timestamp": "2026-11-01T04:15:40.269792+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_13",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "LoF burden associates with lower LDL in UKB (p=1.6e-8). However, evidence is weak as it lacks hard endpoints (CAD), other ancestries, or independent cohorts.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "fd184bfe-0162-438e-b185-b12fabc8d98f"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (LOEUF/pLI)?",
+     "rationale": "High carrier count (25k) suggests tolerance, but formal metrics are needed to ensure therapeutic LoF is viable."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF carriers in non-metabolic systems?",
+     "rationale": "To ensure that lowering LDL via this target does not cause unintended harm."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "7de2d600-7e96-4a7f-b6dc-0441ebc81dad",
+   "content_hash": "488ca8fd69bf95398c833676522a7584767a851010aceaa1337a211da9614d48",
+   "timestamp": "2026-11-01T04:15:42.107177+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_13",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Common variants associate with LDL-C, ApoB, and CAD. A frameshift variant (l2g=0.92) associates with lower ApoB, suggesting inhibition is beneficial.",
+   "data_refs": [
+    "gwas_3",
+    "gwas_4",
+    "gwas_10",
+    "gwas_24"
+   ],
+   "parent_artifact_ids": [
+    "a82a0369-5fd5-4cdf-81f5-ab50775e0d2a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "8c06b3a1-9280-4264-bf8a-8bcd0e9d77e2",
+   "content_hash": "488c7611305605f66910fb7a325aa55364285f314ea1f89f5f75c321b1473a3c",
+   "timestamp": "2026-11-01T04:15:43.750453+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_13",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "6 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "7de2d600-7e96-4a7f-b6dc-0441ebc81dad",
+    "a82a0369-5fd5-4cdf-81f5-ab50775e0d2a"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "a82a0369-5fd5-4cdf-81f5-ab50775e0d2a",
+     "rationale": "The rationale explicitly states evidence is limited to a single biomarker (LDL-C) with no hard clinical endpoints."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "a82a0369-5fd5-4cdf-81f5-ab50775e0d2a",
+     "rationale": "The rationale admits the evidence is limited to a single EUR cohort and lacks multi-ancestry data."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "a82a0369-5fd5-4cdf-81f5-ab50775e0d2a",
+     "rationale": "The rationale confirms the association is derived from a single cohort."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "7de2d600-7e96-4a7f-b6dc-0441ebc81dad",
+     "rationale": "The agent admits the evidence is weak because it lacks hard clinical endpoints like CAD."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "7de2d600-7e96-4a7f-b6dc-0441ebc81dad",
+     "rationale": "The rationale notes a lack of data from other ancestries."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "7de2d600-7e96-4a7f-b6dc-0441ebc81dad",
+     "rationale": "The rationale states the evidence lacks independent cohorts and is limited to UKB."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e339388f-9710-4dbf-bd6c-9edb2a71dfc1",
+   "content_hash": "1df40e1240d56cbfe608563860350519f82108b0445cf2cbc06f17a5e4344b85",
+   "timestamp": "2026-11-01T04:15:53.855156+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_13",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LoF associates with lower LDL-C in UKB. While burden data is single-cohort/biomarker, GWAS and tolerance data confirm the mechanism is safe and likely translates to hard endpoints like CAD.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "a82a0369-5fd5-4cdf-81f5-ab50775e0d2a",
+    "8331c91a-be80-4be4-9e94-1dcd7b9b0cbe",
+    "8c06b3a1-9280-4264-bf8a-8bcd0e9d77e2"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b5ae44e2-414c-417d-83df-1c24e4f846e7",
+   "content_hash": "5fdc2d8b5a234ea6e335d46f6df0e4a5f12ba9da072e1c2d2a3b3af87ed52d7d",
+   "timestamp": "2026-11-01T04:15:55.180671+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_13",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "GWAS shows a high-confidence frameshift variant (L2G=0.92) linking the gene to lower ApoB. Burden evidence confirms LoF associates with lower LDL, providing independent study type agreement.",
+   "data_refs": [
+    "gwas_10",
+    "gwas_24",
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [
+    "fd184bfe-0162-438e-b185-b12fabc8d98f",
+    "7de2d600-7e96-4a7f-b6dc-0441ebc81dad"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "6cf329f1-be34-40eb-b954-1488520bef96",
+   "content_hash": "82251a75990560ca1e1352ba66a660eb9b116258ec9a6d06e28e9d16e7347b3d",
+   "timestamp": "2026-11-01T04:15:56.851355+00:00"
+  }
+ ]
+}

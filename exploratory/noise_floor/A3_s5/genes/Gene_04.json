@@ -1,0 +1,351 @@
+{
+ "gene_code": "Gene_04",
+ "score": -0.65,
+ "calls": 10,
+ "seconds": 33.4,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_04",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.7,
+   "rationale": "LoF variants strongly associate with lower HDL and ApoA1, and higher TG:HDL ratios across multiple cohorts. This lipid profile is typically pro-atherogenic, not protective.",
+   "data_refs": [
+    "burden_1",
+    "burden_4",
+    "burden_9",
+    "burden_24",
+    "burden_30",
+    "burden_39"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with coronary artery disease or myocardial infarction?",
+     "rationale": "The lipid profile (low HDL, high TG) suggests increased cardiovascular risk, but I need to see if this translates to hard clinical endpoints."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any non-lipid adverse effects associated with LoF in this gene?",
+     "rationale": "Inhibiting a gene that lowers HDL requires a high safety bar to ensure no other systemic harm."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "000d12a5-f4ca-4e17-9035-631c52e2665d",
+   "content_hash": "c4f047eb6c36b1cf304c82737aedd527b6524687f1f650c7e7e67c0ab714e045",
+   "timestamp": "2026-11-01T04:24:24.580522+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_04",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Strong GWAS evidence (high L2G, missense leads) linking the gene to lipid profiles. Missense variants consistently associate with lower HDL and higher LDL/VLDL lipid fractions.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_8",
+    "gwas_9",
+    "gwas_10",
+    "gwas_13",
+    "gwas_15",
+    "gwas_16",
+    "gwas_25"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with a beneficial cardiometabolic profile or reduced risk of hard endpoints?",
+     "rationale": "GWAS shows strong biomarker associations, but burden data is needed to confirm that loss-of-function (mimicking inhibition) is beneficial and to check for hard endpoint protection."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "370504e1-f140-408c-a339-038dbf1a9fb8",
+   "content_hash": "a6d01214359cb3142fbeebcd239fecab473bbbd90214e2cf1ecc46b5f004d9c4",
+   "timestamp": "2026-11-01T04:24:24.581693+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_04",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "Mendelian evidence shows LoF causes disease in multiple categories (phenotype, genetic/congenital, metabolic). Burden signals link LoF to hematological risk and small intestine neoplasm.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "safety_22",
+    "safety_28"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would confirm that breaking the gene is likely to cause systemic harm, reinforcing the 'against' stance."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "1ec31b52-4ff5-434f-bec8-fd70b4cafcfe",
+   "content_hash": "534da402040d7ea18c5491a8e67018884b217c6d7d1c0f9569958ce401016a2d",
+   "timestamp": "2026-11-01T04:24:24.261313+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_04",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.4,
+   "rationale": "Mixed signals: not essential in cell lines, but population metrics (pLI 0.8, LOEUF 0.56) suggest moderate constraint and potential intolerance to lifelong loss of function.",
+   "data_refs": [
+    "pli",
+    "loeuf",
+    "depmap_mean_gene_effect",
+    "missense_z"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Are there any healthy individuals with homozygous loss-of-function variants in this gene in population databases?",
+     "rationale": "The pLI of 0.8 and LOEUF of 0.56 are borderline; seeing healthy knockouts would significantly increase confidence in safety."
+    },
+    {
+     "type": "burden_check",
+     "query": "Is there evidence that loss-of-function variants in this gene protect against cardiometabolic or liver disease?",
+     "rationale": "Tolerance metrics suggest some constraint, so a clear therapeutic benefit (burden) is needed to justify the risk of inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "3c768877-79f7-46a1-9c92-0609bf829598",
+   "content_hash": "c352ebd888f86fc9e703c0d243a44b3a9749545817fa7c4d991e4448834f322c",
+   "timestamp": "2026-11-01T04:24:28.253035+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_04",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "LoF associates with lower HDL, total cholesterol, and ApoA1 across multiple cohorts (BRaVa, UKB) and ancestries. However, all 57 traits are biomarkers; no hard endpoints are present.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_8",
+    "burden_24"
+   ],
+   "parent_artifact_ids": [
+    "370504e1-f140-408c-a339-038dbf1a9fb8"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "6a353f19-c620-4793-8682-bf60348cd709",
+   "content_hash": "c293204d8989cdcea6b7d7ba75c12a91900841ed1a78d89ac1ef0be80c0c6fd7",
+   "timestamp": "2026-11-01T04:24:30.029791+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_04",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "GWAS data shows strong associations with lipid biomarkers (HDL, LDL, total cholesterol) but contains no evidence for coronary artery disease or myocardial infarction endpoints.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_37"
+   ],
+   "parent_artifact_ids": [
+    "000d12a5-f4ca-4e17-9035-631c52e2665d"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "9ecf4172-7c6d-41c4-91f2-da263d1b1bd1",
+   "content_hash": "409d0e7f9f809f3f1ce05a59ea9058514cff396011c5a8ca6e51e03acb586df8",
+   "timestamp": "2026-11-01T04:24:46.476201+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_04",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.7,
+   "rationale": "LoF is linked to Mendelian diseases in phenotype, genetic/congenital, and metabolic categories, plus a burden signal for small intestine neoplasm risk.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "safety_28"
+   ],
+   "parent_artifact_ids": [
+    "000d12a5-f4ca-4e17-9035-631c52e2665d"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "a38b21a3-8d50-4aaf-bc7d-70aa4e62b4f4",
+   "content_hash": "b02716dcd7ae099fbac1ee8387678cc1b3877fdf3675af61cfce440c3062edf9",
+   "timestamp": "2026-11-01T04:24:48.352097+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_04",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "000d12a5-f4ca-4e17-9035-631c52e2665d",
+    "370504e1-f140-408c-a339-038dbf1a9fb8",
+    "6a353f19-c620-4793-8682-bf60348cd709"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "6a353f19-c620-4793-8682-bf60348cd709",
+     "rationale": "The agent explicitly states that all 57 traits are biomarkers with no hard clinical endpoints present."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "370504e1-f140-408c-a339-038dbf1a9fb8",
+     "rationale": "The evidence focuses exclusively on lipid fractions and profiles without demonstrating impact on clinical disease endpoints."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "000d12a5-f4ca-4e17-9035-631c52e2665d",
+     "rationale": "The agent's stance is 'against' due to pro-atherogenic lipid profiles, yet A5 (same channel) uses the same data to 'support' fulfillment."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "burden",
+     "target_artifact_id": "6a353f19-c620-4793-8682-bf60348cd709",
+     "rationale": "A4 indicates moderate constraint (LOEUF 0.56, pLI 0.8), suggesting LoF may be poorly tolerated, complicating the 'supports' stance for LoF burden."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "5e2feda8-4ae5-4de1-a74a-d2b9b425d3c7",
+   "content_hash": "ea5a8df5f2be2eaf24d6d75758a2aa1e728a1cb640d85b29d672b4ebb7007c83",
+   "timestamp": "2026-11-01T04:24:50.644347+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_04",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF burden strongly links to a pro-atherogenic lipid profile (low HDL/ApoA1, high TG:HDL) across cohorts. Safety data confirms LoF is poorly tolerated and linked to Mendelian disease.",
+   "data_refs": [
+    "burden_1",
+    "burden_4",
+    "burden_9",
+    "burden_24",
+    "burden_39"
+   ],
+   "parent_artifact_ids": [
+    "000d12a5-f4ca-4e17-9035-631c52e2665d",
+    "9ecf4172-7c6d-41c4-91f2-da263d1b1bd1",
+    "a38b21a3-8d50-4aaf-bc7d-70aa4e62b4f4"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "43db95bc-2364-4db3-82f5-748f63e3fde4",
+   "content_hash": "8055e5ef3df0d149750f48f5adc538d042b1295ce5a5c97cb2009b0732a87eac",
+   "timestamp": "2026-11-01T04:24:52.367082+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_04",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong GWAS evidence (high L2G, missense leads) for lipid traits across populations. Strength reduced as all evidence (GWAS and burden) is limited to biomarkers without clinical endpoints.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_6",
+    "gwas_7",
+    "gwas_8",
+    "gwas_9",
+    "gwas_10",
+    "gwas_11",
+    "gwas_13",
+    "gwas_15",
+    "gwas_16",
+    "gwas_17",
+    "gwas_19",
+    "gwas_20",
+    "gwas_21",
+    "gwas_22",
+    "gwas_23",
+    "gwas_24",
+    "gwas_25",
+    "gwas_27",
+    "gwas_28",
+    "gwas_29",
+    "gwas_30",
+    "gwas_31",
+    "gwas_33",
+    "gwas_34",
+    "gwas_35",
+    "gwas_38",
+    "gwas_39"
+   ],
+   "parent_artifact_ids": [
+    "370504e1-f140-408c-a339-038dbf1a9fb8",
+    "6a353f19-c620-4793-8682-bf60348cd709"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "5ab428a7-b4c5-4961-9aba-10d7e45af826",
+   "content_hash": "a0e70a33b8649503af9ae5356d97a83825ee0756a3688c88655cc230d8a3f16b",
+   "timestamp": "2026-11-01T04:24:54.986615+00:00"
+  }
+ ]
+}

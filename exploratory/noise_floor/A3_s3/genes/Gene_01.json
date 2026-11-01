@@ -1,0 +1,329 @@
+{
+ "gene_code": "Gene_01",
+ "score": 1.35,
+ "calls": 10,
+ "seconds": 21.0,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_01",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "LoF burden is strongly associated with LOWER HDL cholesterol and particle size (p < 1e-15), which is typically a risk factor, not protective. No hard endpoints show benefit.",
+   "data_refs": [
+    "burden_1",
+    "burden_13",
+    "burden_15",
+    "burden_18"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Does common variant evidence for this gene show associations with coronary artery disease or myocardial infarction?",
+     "rationale": "If low HDL here is not associated with increased cardiovascular disease, the target might be neutral rather than against."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations with liver function or other metabolic health markers for LoF carriers?",
+     "rationale": "Low HDL can be part of a broader metabolic syndrome or liver dysfunction."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "85bbd150-8458-4d34-a14f-7ce05ea9c12f",
+   "content_hash": "fce537de1b0db524d44c9eb0521243fcb4271bbd9cb9ef876a3b40b956827a75",
+   "timestamp": "2026-11-01T04:14:56.875794+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_01",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.3,
+   "rationale": "Low L2G scores (<0.22) across all traits suggest the causal gene may be a neighbor. Contradictory effect directions for CAD and atherosclerosis further reduce confidence.",
+   "data_refs": [
+    "gwas_6",
+    "gwas_7",
+    "gwas_9",
+    "gwas_10"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Association of rare loss-of-function variants with CAD and lipid levels.",
+     "rationale": "Low L2G scores make gene assignment uncertain; rare variant burden would confirm if this specific gene is causal."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in the general population?",
+     "rationale": "To evaluate the safety of long-term inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e8b25cf3-8f44-4b4a-a36b-a6e5298d9104",
+   "content_hash": "1b29267796847385f346cad5089863cef967892d298be3575de1690723ef200e",
+   "timestamp": "2026-11-01T04:15:01.198695+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_01",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function. GWAS signals for aneurysms and cancer lack LoF burden evidence, and the only LoF burden signal (brain attribute) is protective.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "safety_26"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF)?",
+     "rationale": "High GWAS significance for aneurysms and cancer requires checking if the gene is generally essential or intolerant to loss of function in humans."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there LoF burden associations for abdominal aortic aneurysm or carcinomas?",
+     "rationale": "GWAS hits for these traits are significant; knowing if LoF variants increase risk would change the stance to 'against'."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a10fa3e6-d27d-482b-9b99-e0ac741f4c83",
+   "content_hash": "0a8e7f2434ad198ee405829d6f0b724a1c280d4ece3e1de293f2d866bf8b97ff",
+   "timestamp": "2026-11-01T04:14:56.879709+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_01",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.53), pLI near 0, and zero DepMap dependency strongly suggest that lifelong inhibition would be well-tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Is there evidence that loss-of-function variants in this gene protect against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific organ-system toxicities associated with loss of this gene in animal models or clinical reports?",
+     "rationale": "Population genetics might miss specific late-onset or tissue-specific adverse effects not captured by evolutionary constraint."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "45f9d21d-2173-47a4-8cad-2d92b2f8d61a",
+   "content_hash": "24289fada859cb6019655f22acd09bf9a0ead6dbed48657de485f254e33a1827",
+   "timestamp": "2026-11-01T04:14:59.148107+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_01",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "LoF variants are associated with lower HDL cholesterol and smaller HDL particle size, which is generally considered unfavorable, not protective, for cardiometabolic health.",
+   "data_refs": [
+    "burden_13",
+    "burden_15"
+   ],
+   "parent_artifact_ids": [
+    "45f9d21d-2173-47a4-8cad-2d92b2f8d61a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "c8d518e6-a8be-443f-ac9f-afec560e116f",
+   "content_hash": "10771bae58b0d786e86541e5e7d9d0136c7a1cbd75cadb81ba5655cb34dcb392",
+   "timestamp": "2026-11-01T04:15:02.690061+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_01",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 11 categories. GWAS/burden signals are primarily metabolic or vascular, with no severe organ-system toxicity reported.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "safety_1",
+    "safety_3",
+    "safety_26"
+   ],
+   "parent_artifact_ids": [
+    "45f9d21d-2173-47a4-8cad-2d92b2f8d61a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "e479a782-13c9-4a8e-bd65-f5253083335b",
+   "content_hash": "e4bd65bc8c5fcd90030a965b9471117dbe7ff77dc787e889d1dcddc12ff19da1",
+   "timestamp": "2026-11-01T04:15:04.209454+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_01",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "Common variant evidence shows associations with coronary artery disorder and atherosclerosis, though L2G scores are low (<0.2) and lead variants are non-coding.",
+   "data_refs": [
+    "gwas_6",
+    "gwas_7"
+   ],
+   "parent_artifact_ids": [
+    "85bbd150-8458-4d34-a14f-7ce05ea9c12f"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "3413160c-3bbf-497f-813f-906be84027a0",
+   "content_hash": "09923ae88f0c9f8ccf977f7e070a98de1c61839e6ab3b88487eaaee2a95b44ee",
+   "timestamp": "2026-11-01T04:15:05.411288+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_01",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "3413160c-3bbf-497f-813f-906be84027a0",
+    "85bbd150-8458-4d34-a14f-7ce05ea9c12f",
+    "c8d518e6-a8be-443f-ac9f-afec560e116f",
+    "e8b25cf3-8f44-4b4a-a36b-a6e5298d9104"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "85bbd150-8458-4d34-a14f-7ce05ea9c12f",
+     "rationale": "The burden evidence relies entirely on HDL cholesterol and particle size measurements without linking to hard clinical endpoints like CAD or MI."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "e8b25cf3-8f44-4b4a-a36b-a6e5298d9104",
+     "rationale": "The agent explicitly notes contradictory effect directions for CAD and atherosclerosis, undermining the reliability of the common variant signal."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "c8d518e6-a8be-443f-ac9f-afec560e116f",
+     "rationale": "The fulfillment verdict is based solely on metabolic biomarkers (HDL) rather than clinical disease outcomes."
+    },
+    {
+     "type": "underpowered",
+     "channel": "gwas",
+     "target_artifact_id": "3413160c-3bbf-497f-813f-906be84027a0",
+     "rationale": "L2G scores below 0.2 are extremely weak, suggesting the signal likely belongs to a neighboring gene rather than the target."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "71b284f6-9db0-4f00-b745-ea6972025a00",
+   "content_hash": "37d2aa5beb41bff67696294758b4ffc54a061e0db0cf81a0c5986a3085664fe8",
+   "timestamp": "2026-11-01T04:15:07.880415+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_01",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.5,
+   "rationale": "LoF burden strongly links to lower HDL (p<1e-15), usually a risk. GWAS support for CAD/atherosclerosis is noted, but burden lacks hard endpoints and relies on biomarkers of unclear benefit.",
+   "data_refs": [
+    "burden_1",
+    "burden_13",
+    "burden_15",
+    "burden_18"
+   ],
+   "parent_artifact_ids": [
+    "85bbd150-8458-4d34-a14f-7ce05ea9c12f",
+    "3413160c-3bbf-497f-813f-906be84027a0"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "edb1b956-2753-4cce-8b97-4f8f262ae7cb",
+   "content_hash": "22217fcc4eb38b67f7af5be38e7c1e81e17379c80bd8ba9dd8244fe317dbe1d1",
+   "timestamp": "2026-11-01T04:15:09.812374+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_01",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Extremely low L2G scores (<0.22) and conflicting directions for CAD and atherosclerosis suggest the signal likely belongs to a neighboring gene, not this target.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_6",
+    "gwas_7",
+    "gwas_9"
+   ],
+   "parent_artifact_ids": [
+    "e8b25cf3-8f44-4b4a-a36b-a6e5298d9104"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e713ed8f-7bbd-49de-92b2-8857cba6e06d",
+   "content_hash": "3305cc4b2cfc44946372276d2b7525c0c21047b264b6a99a10cafacba92f63ae",
+   "timestamp": "2026-11-01T04:15:15.080792+00:00"
+  }
+ ]
+}

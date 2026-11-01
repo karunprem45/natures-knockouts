@@ -1,0 +1,332 @@
+{
+ "gene_code": "Gene_24",
+ "score": -1.4,
+ "calls": 10,
+ "seconds": 54.5,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_24",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Only one row (HDL) with a synonymous variant, not LoF. No hard endpoints, single cohort (UKB), and single ancestry. Evidence is extremely weak and lacks clinical relevance.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Does common variant evidence support an association with HDL or other cardiometabolic traits?",
+     "rationale": "To see if the weak synonymous signal is mirrored by common variation in the same locus."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (pLI/LOEUF)?",
+     "rationale": "To assess if inhibiting the gene is likely to be tolerated or if it is under strong purifying selection."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "792d658e-29e3-4b8a-a879-d9dfed05c150",
+   "content_hash": "973f928e48d6433b3b4b47bd276be27719214dc0e1891a43a2a44a2839ef46e7",
+   "timestamp": "2026-11-01T04:21:21.600050+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_24",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong GWAS signals for lipid traits (triglycerides, HDL) with high l2g scores (0.82). Synonymous lead variants suggest potential functional impact, though hard endpoint evidence is weak.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_4",
+    "gwas_9",
+    "gwas_39"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare-variant burden for triglycerides and coronary artery disease",
+     "rationale": "GWAS signals are primarily biomarkers; rare-variant burden would confirm the causal link to hard clinical endpoints and the direction of effect for loss-of-function."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "pLI score and LOEUF for this gene",
+     "rationale": "To assess if inhibiting this gene would be tolerated without adverse developmental or systemic effects."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "1977b928-c341-42c8-b5fa-69c490e47dcf",
+   "content_hash": "c120280115239a6119f84256d72ff289d9d49d80b83016e93305aa708f82c234",
+   "timestamp": "2026-11-01T04:21:17.916320+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_24",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Extensive Mendelian evidence shows loss-of-function (LoF) causes disease across multiple severe categories, including cardiovascular, cancer, and congenital disorders.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_3",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_8",
+    "mendelian_10"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would further confirm the risk of therapeutic inhibition given the broad Mendelian LoF signals."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "51f99b55-7159-4ce8-883c-0ae1eb61b9d9",
+   "content_hash": "5264bc37938c72a5862a4a1da489867a1c526ea743012b8fd6657c5c4e1e5a1f",
+   "timestamp": "2026-11-01T04:21:17.591352+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_24",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "Extremely low LOEUF (0.19) and pLI of 1.0 indicate the gene is under intense purifying selection in humans; loss of function is likely deleterious despite low cell-line dependency.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "lof_oe",
+    "missense_z"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Are there any healthy human knockouts (homozygous LoF) in population databases?",
+     "rationale": "If healthy homozygous LoF individuals exist, it would override the high constraint scores and suggest the gene might be safely inhibited."
+    },
+    {
+     "type": "burden_check",
+     "query": "Is there evidence that loss-of-function variants protect against cardiometabolic or liver disease?",
+     "rationale": "A strong protective effect might justify the risk suggested by high evolutionary constraint."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "942cbde6-84f9-49b4-b64c-47fa5cb24a92",
+   "content_hash": "baf68abd447187fcc2cb5e1ea2c027ee235aaf44d42284e75914783673c3776f",
+   "timestamp": "2026-11-01T04:21:17.798482+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_24",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.95,
+   "rationale": "Extremely low LOEUF (0.19) and pLI of 1.0 indicate this gene is under intense purifying selection and highly intolerant to loss-of-function, suggesting severe safety risks.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "lof_oe",
+    "missense_z"
+   ],
+   "parent_artifact_ids": [
+    "1977b928-c341-42c8-b5fa-69c490e47dcf"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "0b94ad8b-631e-4e2f-972f-c2813393ab72",
+   "content_hash": "362737fb30eb1aa4affe9291d31f2229cad65fc3264664fc78407d07cd081930",
+   "timestamp": "2026-11-01T04:21:25.097498+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_24",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "Evidence is limited to a single biomarker (HDL) in one ancestry. No data available for triglycerides or coronary artery disease to confirm a protective effect on hard clinical endpoints.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "1977b928-c341-42c8-b5fa-69c490e47dcf"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "human tolerance for loss-of-function (pLI/LOEUF)",
+     "rationale": "To determine if targeting this gene for LoF is viable in humans without severe developmental or fitness consequences."
+    },
+    {
+     "type": "safety_check",
+     "query": "pleiotropic effects on non-metabolic traits",
+     "rationale": "To ensure that breaking this gene does not cause adverse effects in other organ systems."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "0b0e7165-287e-40d0-8f0a-c8a6c7c629d3",
+   "content_hash": "05c905d758ce3e5d5de841f0027e8c2822cf0c1a986e32c25606d17f2788470d",
+   "timestamp": "2026-11-01T04:21:27.105328+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_24",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Strong common variant evidence (P < 1e-300) links this gene to HDL size and cholesterol content, with high L2G scores (0.82) for synonymous lead variants in the locus.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_5",
+    "gwas_6",
+    "gwas_9",
+    "gwas_13",
+    "gwas_15",
+    "gwas_20"
+   ],
+   "parent_artifact_ids": [
+    "792d658e-29e3-4b8a-a879-d9dfed05c150"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "41163d07-09b1-431a-9a40-bb304e92057f",
+   "content_hash": "b04d5f13774b7c95f48e2debb5dc8df02cab752ef007af9a576a4aae0e499b5e",
+   "timestamp": "2026-11-01T04:21:29.203058+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_24",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "1977b928-c341-42c8-b5fa-69c490e47dcf",
+    "41163d07-09b1-431a-9a40-bb304e92057f"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "1977b928-c341-42c8-b5fa-69c490e47dcf",
+     "rationale": "The agent admits hard endpoint evidence is weak, relying on lipid biomarkers like triglycerides and HDL."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "gwas",
+     "target_artifact_id": "1977b928-c341-42c8-b5fa-69c490e47dcf",
+     "rationale": "LOEUF of 0.19 and pLI of 1.0 (A4, A5) indicate the gene is essential, contradicting the support for targeting it."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "41163d07-09b1-431a-9a40-bb304e92057f",
+     "rationale": "Evidence is limited to measurements of HDL size and cholesterol content rather than clinical outcomes."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "gwas",
+     "target_artifact_id": "41163d07-09b1-431a-9a40-bb304e92057f",
+     "rationale": "The gene's extreme LoF intolerance (A4, A5) suggests that therapeutic modulation could be unsafe."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "41163d07-09b1-431a-9a40-bb304e92057f",
+     "rationale": "Strong support for common variant associations (A7) conflicts with Mendelian evidence of severe disease (A3) and intolerance (A4, A5)."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f08809fe-ce3c-4c6f-bca5-cd65e859fd35",
+   "content_hash": "761368365556d5d93bb3607e539460d0c2b56b2005beda303b8e24012085abbb",
+   "timestamp": "2026-11-01T04:22:06.873030+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_24",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.4,
+   "rationale": "GWAS shows massive signals for lipid sub-fractions with high l2g scores, but the lack of hard endpoint support and extreme LoF intolerance (LOEUF 0.19) makes therapeutic support questionable.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_4",
+    "gwas_9",
+    "gwas_39"
+   ],
+   "parent_artifact_ids": [
+    "1977b928-c341-42c8-b5fa-69c490e47dcf",
+    "0b94ad8b-631e-4e2f-972f-c2813393ab72",
+    "0b0e7165-287e-40d0-8f0a-c8a6c7c629d3"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "caae9a6b-513a-4ea6-a543-c4eb53d9d6b8",
+   "content_hash": "90e8a84a19c71a1ff8e87aafb01a5d79b75be2be3bfc36bf187b216c42bf93d2",
+   "timestamp": "2026-11-01T04:22:08.580626+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_24",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.3,
+   "rationale": "Burden signal is weak (biomarker only, single cohort), but GWAS agent confirms massive common-variant support for the same trait (HDL) at this locus, increasing confidence in the burden row.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "792d658e-29e3-4b8a-a879-d9dfed05c150",
+    "41163d07-09b1-431a-9a40-bb304e92057f"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "34a778ea-1738-4102-937f-679e4a6f987b",
+   "content_hash": "04734b5c710b6faa0f431d6290728cc5ea75e8c99ee3e61bc00d7c75209d25d2",
+   "timestamp": "2026-11-01T04:22:10.002256+00:00"
+  }
+ ]
+}

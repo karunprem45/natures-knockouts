@@ -1,0 +1,327 @@
+{
+ "gene_code": "Gene_35",
+ "score": -0.6,
+ "calls": 10,
+ "seconds": 21.1,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_35",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Single protective LoF association for triglycerides in one EUR cohort (UKB). No hard endpoints or multi-ancestry data. Evidence is biomarker-only and weak.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans?",
+     "rationale": "To determine if therapeutic inhibition is viable without developmental or systemic harm."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus associate with triglycerides or cardiovascular disease?",
+     "rationale": "To see if common-variant evidence reinforces the weak rare-variant signal."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF in this gene across other organ systems?",
+     "rationale": "To assess potential off-target risks of inhibiting this gene."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "acb49c49-64d9-4dd3-be59-2216b5bdeec6",
+   "content_hash": "12fe14df8fabd2c62b6534118e851c7e18d8f624e4b0b483f6666cea11f73553",
+   "timestamp": "2026-11-01T04:22:11.049646+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_35",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "GWAS shows associations with HDL subfractions and AST, but L2G scores are low (<0.4), variants are non-coding, and there are no hard clinical endpoints to confirm therapeutic benefit.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_7",
+    "gwas_9",
+    "gwas_18"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare-variant burden for AST levels, LDL, and coronary artery disease",
+     "rationale": "Low L2G scores and non-coding variants make gene assignment uncertain; rare-variant data would confirm if this specific gene is the causal driver."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4e9f901a-106a-4135-b65b-63fae6baa970",
+   "content_hash": "0a61e11091f7a0160f01d4979378314a1b54a5759aaf152efd292adba9eeb346",
+   "timestamp": "2026-11-01T04:22:11.572306+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_35",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "One Mendelian disease is caused by loss of function (LoF). GWAS shows significant associations with hematological traits, bone density, and intracranial hematoma, suggesting pleiotropic risks.",
+   "data_refs": [
+    "mendelian_1",
+    "safety_2",
+    "safety_4",
+    "safety_5",
+    "safety_19"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "If the gene is highly intolerant to loss of function, it increases the safety risk of therapeutic inhibition."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant LoF burden signals for intracranial hematoma or placental abruption?",
+     "rationale": "GWAS hits for these traits are concerning; burden evidence would confirm if LoF specifically drives these risks."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "3fe14a4c-a00f-4554-8e47-65b2047938a9",
+   "content_hash": "818165b3f58a0e00dbb47f290fc7131130a62cb22aec474fc41ec0baf59de3d0",
+   "timestamp": "2026-11-01T04:22:11.301160+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_35",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.4,
+   "rationale": "Mixed signals: DepMap shows no essentiality, but pLI (0.9) and LOEUF (0.59) suggest moderate constraint in humans. Subcellular location (nucleus/cytoplasm) makes it harder to drug than a secreted prot",
+   "data_refs": [
+    "depmap_mean_gene_effect",
+    "pli",
+    "loeuf",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are there healthy humans with homozygous loss-of-function variants in this gene?",
+     "rationale": "A pLI of 0.9 suggests intolerance; seeing healthy 'knockouts' in the population would significantly increase my confidence in safety."
+    },
+    {
+     "type": "safety_check",
+     "query": "Is there any tissue-specific expression or known toxicity associated with partial inhibition of this gene?",
+     "rationale": "The protein is located in the nucleus and photoreceptor segments, raising potential safety concerns for systemic inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0f876a3f-a024-4f9e-a6d3-555eef4f23ae",
+   "content_hash": "625d8aa6ee70a349cc6a919ad21b91d5a64167db0ceb9957a534b6386ea9aa10",
+   "timestamp": "2026-11-01T04:22:11.283403+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_35",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "High pLI (0.90) and low lof_oe (0.26) suggest LoF intolerance in humans, despite the gene not being core-essential in cell lines. LOEUF (0.59) is in the intermediate range.",
+   "data_refs": [
+    "pli",
+    "lof_oe",
+    "loeuf",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "3fe14a4c-a00f-4554-8e47-65b2047938a9"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "293516c8-069a-4f21-af03-80fccfe3ea0e",
+   "content_hash": "6ae61edea52ddc8e32616659bb7bba4e2b929a04e2c9ac608d022084531958d2",
+   "timestamp": "2026-11-01T04:22:16.195650+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_35",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "The burden data only contains results for triglyceride measurements. There is no evidence regarding intracranial hematoma or placental abruption in the provided rare-variant LoF results.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "3fe14a4c-a00f-4554-8e47-65b2047938a9"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "22db5613-a5f1-4d21-bd49-def89e4be78e",
+   "content_hash": "67b5f23c3b9a4e45bcc878c839a4a163ed47fac5a0cf3e6eff21f6208de33198",
+   "timestamp": "2026-11-01T04:22:19.949369+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_35",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "Loss of function is linked to a Mendelian phenotype. GWAS shows significant associations with hematological, bone, and reproductive traits, suggesting systemic roles.",
+   "data_refs": [
+    "mendelian_1",
+    "safety_1",
+    "safety_2",
+    "safety_4",
+    "safety_5",
+    "safety_15",
+    "safety_19"
+   ],
+   "parent_artifact_ids": [
+    "0f876a3f-a024-4f9e-a6d3-555eef4f23ae"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "645d463e-b9df-4bdb-b160-eaaca0227279",
+   "content_hash": "9f76269aa35cfccdd733c09475ab7c70af858d19b764fb21e531e7cd06f67626",
+   "timestamp": "2026-11-01T04:22:24.501011+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_35",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "6 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "4e9f901a-106a-4135-b65b-63fae6baa970",
+    "acb49c49-64d9-4dd3-be59-2216b5bdeec6"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "acb49c49-64d9-4dd3-be59-2216b5bdeec6",
+     "rationale": "The burden evidence relies exclusively on a single cohort (UK Biobank)."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "acb49c49-64d9-4dd3-be59-2216b5bdeec6",
+     "rationale": "The rare-variant association is limited to European (EUR) ancestry only."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "acb49c49-64d9-4dd3-be59-2216b5bdeec6",
+     "rationale": "The evidence is based on triglyceride measurements rather than hard clinical endpoints."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "4e9f901a-106a-4135-b65b-63fae6baa970",
+     "rationale": "GWAS associations are limited to biomarkers (HDL subfractions, AST) without clinical outcomes."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "burden",
+     "target_artifact_id": "acb49c49-64d9-4dd3-be59-2216b5bdeec6",
+     "rationale": "High pLI (0.9) and low LOEUF (0.59) suggest LoF intolerance, making LoF-based therapeutic claims risky."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "gwas",
+     "target_artifact_id": "4e9f901a-106a-4135-b65b-63fae6baa970",
+     "rationale": "Human constraint metrics (pLI 0.9) suggest the gene is LoF-intolerant, complicating target validation."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4edd515d-08d2-4ea9-ad05-53c4faefe40e",
+   "content_hash": "4c7c3173f1859273ec140fa573e1f0bf201f2cc5038b528afc9ca668ca8e9967",
+   "timestamp": "2026-11-01T04:22:26.922129+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_35",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Evidence is limited to a single EUR cohort and a biomarker (triglycerides). High pLI/low LOEUF suggest LoF intolerance, further weakening the case for LoF-based protection.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "acb49c49-64d9-4dd3-be59-2216b5bdeec6"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "71a7ad8f-6aeb-4957-981b-a253b569f293",
+   "content_hash": "ea0ed545037ab004911d6162c5a4d7f823101bff3f709f2cbd7118fc297c745b",
+   "timestamp": "2026-11-01T04:22:28.351507+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_35",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "GWAS signals are weak (L2G < 0.4) and limited to biomarkers. High pLI (0.9) suggests LoF intolerance, making the lack of hard endpoint associations more concerning for target validation.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_7",
+    "gwas_9",
+    "gwas_18"
+   ],
+   "parent_artifact_ids": [
+    "4e9f901a-106a-4135-b65b-63fae6baa970"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "15a9212e-ac4c-4001-af28-21a0b1091fcd",
+   "content_hash": "bfa4a423bd584f3653e0ab48909a9cf5cc5804a4e7e0ba3dc3d0854dd2e3d5d7",
+   "timestamp": "2026-11-01T04:22:29.927083+00:00"
+  }
+ ]
+}

@@ -1,0 +1,302 @@
+{
+ "gene_code": "Gene_31",
+ "score": 2.0749999999999997,
+ "calls": 10,
+ "seconds": 14.5,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_31",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LoF burden consistently associates with lower WHR across multiple cohorts (UKB, MDCS, MCPS). However, evidence is limited to biomarkers; no hard clinical endpoints are reported.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (pLI/LOEUF)?",
+     "rationale": "To determine if therapeutic inhibition would be tolerated without developmental or systemic issues."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF carriers in non-metabolic traits?",
+     "rationale": "To assess potential off-target risks or pleiotropic harm."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus associate with WHR or metabolic disease?",
+     "rationale": "To see if common-variant evidence converges with the rare-variant burden signal."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "10264d35-1091-455a-9a9c-40646349b85c",
+   "content_hash": "ec2a92fcec14f306491a915cbe6c91d6561f884e3e44d8f45bc6f21e2048f690",
+   "timestamp": "2026-11-01T04:26:27.450066+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_31",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "Strong associations with increased HDL subfractions and decreased triglycerides. However, L2G scores are modest and lead variants are non-coding, requiring burden data to confirm causality.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_7",
+    "gwas_19",
+    "gwas_28",
+    "gwas_30"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with increased HDL, decreased triglycerides, or protection from T2D?",
+     "rationale": "GWAS signals are primarily non-coding with modest L2G scores; burden data would confirm the gene is the causal driver and that inhibition is the correct therapeutic direction."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "2e56e47d-6385-445c-b6f4-f753cd4990fe",
+   "content_hash": "e2d3c4eeffdfc1e164051d531a87c79f5b6aaa696804db9a0712d95b27c7f634",
+   "timestamp": "2026-11-01T04:26:27.268141+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_31",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function. GWAS hits are primarily biomarkers. A burden signal for birth weight exists, but no severe safety events or LoF-driven pathologies.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "safety_26"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High LoF intolerance would suggest essentiality not captured by the current disease evidence, potentially moving the stance to neutral or against."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ac9a9836-b5f0-4c24-8fb0-36f6b5436373",
+   "content_hash": "b4e8f1f941c23b3756e2a18cc6a78c3c0fdc3726e7134a4ab7a20dcf54153665",
+   "timestamp": "2026-11-01T04:26:26.938828+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_31",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.0) and pLI (~0) indicate LoF is well-tolerated in humans. Low DepMap dependency and secreted status further support the safety of systemic inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function in this gene associate with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; I need evidence of therapeutic benefit from inhibiting this gene."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "515b7ecc-d072-4b46-89bc-49b272e1dfad",
+   "content_hash": "a1f366ca78abe2b866fbc8205cf8a14057651ba5478d94d0267ed9dc62a5c988",
+   "timestamp": "2026-11-01T04:26:29.014117+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_31",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "High LOEUF (1.00) and near-zero pLI (3.88e-05) indicate strong tolerance to LoF in humans. Low DepMap dependency and non-essential status suggest inhibition is likely safe.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [
+    "10264d35-1091-455a-9a9c-40646349b85c"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "e4dc0744-a1fa-4900-ad1e-d676af630a3b",
+   "content_hash": "23b12829dec009f7c2e3fda23d4cc7dae2d31aaa7950148c1cd6aea8812bbec2",
+   "timestamp": "2026-11-01T04:26:32.211305+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_31",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "Burden data only covers adiposity (WHR) and lacks evidence for HDL, triglycerides, or T2D. No hard endpoints are present in the current view.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "2e56e47d-6385-445c-b6f4-f753cd4990fe"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "6657dfef-5419-4938-8d45-02572e57ae9c",
+   "content_hash": "bc323b8e239f9509342e10d52426ac5a177b02229c716c4931f78203623a0560",
+   "timestamp": "2026-11-01T04:26:33.461841+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_31",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function. The only significant LoF burden signal is for birth weight, which is not a severe safety contraindication.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "safety_26"
+   ],
+   "parent_artifact_ids": [
+    "10264d35-1091-455a-9a9c-40646349b85c"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "90c28b5e-cfa6-461a-b80a-f291edf4c044",
+   "content_hash": "49dfb8d9af3f6ebb994d7d1b0bffb629495ac415858e8c7355f0e60e845b2fc1",
+   "timestamp": "2026-11-01T04:26:35.111525+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_31",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "2 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "10264d35-1091-455a-9a9c-40646349b85c",
+    "2e56e47d-6385-445c-b6f4-f753cd4990fe"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "10264d35-1091-455a-9a9c-40646349b85c",
+     "rationale": "The agent explicitly states that evidence is limited to biomarkers (WHR) with no hard clinical endpoints reported."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "2e56e47d-6385-445c-b6f4-f753cd4990fe",
+     "rationale": "The associations are limited to lipid subfractions and triglycerides, which are biomarkers rather than clinical disease endpoints."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "82e680fa-69b3-4e3f-9799-f1995cfd600a",
+   "content_hash": "8f46f57a022b1f68e03a08a6396af6d69767690db71a1dfc917aeafb87766d70",
+   "timestamp": "2026-11-01T04:26:36.493939+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_31",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.65,
+   "rationale": "LoF burden consistently reduces WHR across multiple cohorts. While limited to biomarkers, high tolerance (LOEUF 1.0) and safety data increase confidence in the protective signal's relevance.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "10264d35-1091-455a-9a9c-40646349b85c",
+    "e4dc0744-a1fa-4900-ad1e-d676af630a3b",
+    "90c28b5e-cfa6-461a-b80a-f291edf4c044"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f68d8fb8-bc5f-4a73-be1b-2d595652ec53",
+   "content_hash": "63b75e2b6042d8a65f46d1000e389c6643b7df5391bd82127a355499e25b5eaf",
+   "timestamp": "2026-11-01T04:26:37.931429+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_31",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.3,
+   "rationale": "GWAS shows strong, multi-ancestry associations with HDL subfractions and triglycerides. However, L2G scores are modest and burden data failed to replicate these lipid effects.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_19",
+    "gwas_28",
+    "gwas_30"
+   ],
+   "parent_artifact_ids": [
+    "2e56e47d-6385-445c-b6f4-f753cd4990fe",
+    "6657dfef-5419-4938-8d45-02572e57ae9c"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "6917d001-6c3c-4703-b06e-6dfbbfe90723",
+   "content_hash": "06e3db00f34f03c45ddc61e50070c2edc9e22bd0f7d4c94e2e2f4735f108f95d",
+   "timestamp": "2026-11-01T04:26:39.649372+00:00"
+  }
+ ]
+}

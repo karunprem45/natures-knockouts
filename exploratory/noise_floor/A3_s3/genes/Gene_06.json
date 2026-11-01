@@ -1,0 +1,335 @@
+{
+ "gene_code": "Gene_06",
+ "score": 2.05,
+ "calls": 10,
+ "seconds": 31.3,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_06",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong protective LoF associations for WHR across multiple cohorts (UKB, MDCS, MCPS) with high significance. However, evidence is limited to biomarkers; no hard endpoints are reported.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF tolerant in humans (pLI/LOEUF)?",
+     "rationale": "To ensure therapeutic inhibition is safe and doesn't mimic a deleterious developmental phenotype."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF in non-metabolic traits?",
+     "rationale": "Protective metabolic effects may be offset by risks in other organ systems."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "30b6d069-6770-4f09-bf40-88598aa06f18",
+   "content_hash": "547bab94da1c014672b8b9bab0ce0b847105cfa83bc4b884363fed90c28192bd",
+   "timestamp": "2026-11-01T04:14:56.716119+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_06",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong GWAS evidence for lipid and metabolic traits with high L2G scores and missense variants. Directional consistency: alleles lowering LDL/ApoB also lower waist circumference and WHR.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_4",
+    "gwas_5",
+    "gwas_6",
+    "gwas_9"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with lower LDL-C, lower T2D risk, or reduced waist-hip ratio?",
+     "rationale": "GWAS identifies associations but burden results are needed to confirm that loss-of-function (mimicking inhibition) is the protective mechanism."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function (pLI score, LOEUF)?",
+     "rationale": "To assess if systemic inhibition might be poorly tolerated based on evolutionary constraint."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4df05610-7052-430d-a5a7-46b6e4a49c1b",
+   "content_hash": "695dda1a6b9c802223a815f64fc4be4a68556ca1feeefda38c086db444fe4c9d",
+   "timestamp": "2026-11-01T04:14:56.910272+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_06",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function. GWAS hits are primarily blood biomarkers. A burden signal for birth weight exists but lacks severity to preclude targeting.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_8",
+    "safety_3"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF)?",
+     "rationale": "High intolerance would suggest essentiality not captured by the Mendelian disease summary."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f1a01b07-a425-452e-850c-1604b2cc8db7",
+   "content_hash": "2a97b70cea66964c62d655257ffb6d3ab02dd543cb3a25f072144581cd00e37d",
+   "timestamp": "2026-11-01T04:14:56.715621+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_06",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "DepMap shows no cell essentiality. LOEUF (0.56) and pLI (0.50) indicate moderate tolerance, suggesting inhibition may be viable, though not without some selective pressure.",
+   "data_refs": [
+    "depmap_mean_gene_effect",
+    "loeuf",
+    "pli",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Do human LoF carriers show protection against cardiometabolic or liver disease?",
+     "rationale": "Intermediate population constraint requires evidence of benefit to justify the target."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse clinical phenotypes associated with loss-of-function variants in humans?",
+     "rationale": "A pLI of 0.5 suggests potential for deleterious effects that population metrics alone cannot fully characterize."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8e6baa68-a125-440a-ad37-6c372cffe3bd",
+   "content_hash": "75f977259b8b98f1a2a34eb08ee7a1721556a99db97238109479b3943b4c05c3",
+   "timestamp": "2026-11-01T04:14:59.702048+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_06",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LOEUF (0.56) and pLI (0.5) suggest moderate tolerance. DepMap data shows no cell-line dependency, and it is not core-essential, supporting safety for inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "30b6d069-6770-4f09-bf40-88598aa06f18"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "2d90a7b4-002c-4932-af04-c1c361d863ae",
+   "content_hash": "2e4d9b2b95f89cdb4ae3adddea61d530e87c052b14b28520c621d2f74a9d8aa6",
+   "timestamp": "2026-11-01T04:15:01.189404+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_06",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by LoF. The only LoF-specific burden signal is for birth weight risk, which requires monitoring but is not a severe contraindication.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "safety_3"
+   ],
+   "parent_artifact_ids": [
+    "30b6d069-6770-4f09-bf40-88598aa06f18"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "2ef5493e-2ff2-424c-aa1f-0a7cbff2a696",
+   "content_hash": "698b0fab7e2d65c05c693e64674351a58c9fa53631b20f8e9427e759ce813392",
+   "timestamp": "2026-11-01T04:15:02.845799+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_06",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Strong LoF burden evidence for lower WHR across 3 cohorts (UKB, MDCS, MCPS) and multiple ancestries. No hard endpoint data or LDL/T2D results available in this view.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "4df05610-7052-430d-a5a7-46b6e4a49c1b"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (LOEUF/pLI)?",
+     "rationale": "To ensure that mimicking the protective LoF effect via inhibition is likely to be safe and tolerated."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF in this gene in other systems?",
+     "rationale": "To evaluate potential off-target or pleiotropic risks of inhibiting this target."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with LDL-C or T2D?",
+     "rationale": "To see if common variation supports the metabolic benefits seen in rare-variant burden analysis."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "c54263f7-f6aa-4920-820c-6c77da9837e0",
+   "content_hash": "1e1535058b887f1b79f9fc1ec4338ba5f2683cdf7b19324a70ef1ebdccb08ea5",
+   "timestamp": "2026-11-01T04:15:05.118731+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_06",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "3 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "30b6d069-6770-4f09-bf40-88598aa06f18",
+    "4df05610-7052-430d-a5a7-46b6e4a49c1b",
+    "c54263f7-f6aa-4920-820c-6c77da9837e0"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "30b6d069-6770-4f09-bf40-88598aa06f18",
+     "rationale": "The agent explicitly states that evidence is limited to biomarkers and lacks hard clinical endpoints."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "4df05610-7052-430d-a5a7-46b6e4a49c1b",
+     "rationale": "The evidence is based on lipid levels and anthropometric measurements (WHR) rather than clinical disease outcomes."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "c54263f7-f6aa-4920-820c-6c77da9837e0",
+     "rationale": "The agent acknowledges the absence of hard endpoint data, relying entirely on waist-hip ratio measurements."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7bd57f63-cbd2-4e43-8c6a-56192e893545",
+   "content_hash": "9f0737145cb5af8f267d0cdf33a380c8fa9d2999d1ce87a5ac7eb272d2e19ee2",
+   "timestamp": "2026-11-01T04:15:22.037863+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_06",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.65,
+   "rationale": "Strong LoF burden for WHR (p=1e-19) across 3 cohorts and 2 ancestries. Strength slightly reduced as evidence remains biomarker-only, though tolerance and safety data now support viability.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "30b6d069-6770-4f09-bf40-88598aa06f18",
+    "2d90a7b4-002c-4932-af04-c1c361d863ae",
+    "2ef5493e-2ff2-424c-aa1f-0a7cbff2a696"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "805f8b69-8b00-4195-b2bb-10ea068250be",
+   "content_hash": "28e62c2bb162ebbda3d5bce5f96cdbcea7aaf5993a240bfc50dc8086b468ee24",
+   "timestamp": "2026-11-01T04:15:23.610503+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_06",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "GWAS shows strong metabolic/lipid signals with high L2G scores and missense variants. Burden evidence now confirms LoF protects against high WHR, validating the GWAS directionality.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_4",
+    "gwas_5",
+    "gwas_6",
+    "gwas_7",
+    "gwas_9"
+   ],
+   "parent_artifact_ids": [
+    "4df05610-7052-430d-a5a7-46b6e4a49c1b",
+    "c54263f7-f6aa-4920-820c-6c77da9837e0"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c0df44ad-b4d3-4498-99bd-cf1c33837fff",
+   "content_hash": "aa354b66ca570f58366476b71bce7e27c67e2d02dd95a12006167da899d7689b",
+   "timestamp": "2026-11-01T04:15:25.356832+00:00"
+  }
+ ]
+}

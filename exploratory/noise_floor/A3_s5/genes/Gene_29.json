@@ -1,0 +1,325 @@
+{
+ "gene_code": "Gene_29",
+ "score": -0.04999999999999993,
+ "calls": 10,
+ "seconds": 63.0,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_29",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants are strongly associated with increased LDL, total cholesterol, and HDL (risk direction). No hard endpoints shown. Inhibiting this gene likely worsens lipid profiles.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Does loss of function in this gene associate with increased risk of coronary artery disease or myocardial infarction?",
+     "rationale": "While biomarkers show a 'risk' profile (higher LDL/TC), confirming if this translates to hard cardiovascular events is critical for a final verdict."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (pLI/LOEUF)?",
+     "rationale": "If the gene is essential or highly constrained, therapeutic inhibition may be unsafe regardless of the lipid profile."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "2f7b38ee-a197-4d5c-b540-42779e20f255",
+   "content_hash": "dd92d0bbf9c73a5e6551112dce1e3a4e6660632346ef2b0014c8a662c3b9680d",
+   "timestamp": "2026-11-01T04:26:07.698031+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_29",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.3,
+   "rationale": "Strong associations with lipids and BMI, but no hard endpoints. L2G scores are low-to-moderate, and lead variants are mostly non-coding, making gene assignment uncertain.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_5",
+    "gwas_17"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with reduced BMI or improved lipid profiles?",
+     "rationale": "GWAS signals are primarily non-coding and have low L2G scores; burden evidence would confirm the gene's causal role and the direction of effect for inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b977bdac-f3a6-449f-9ddf-867149e75011",
+   "content_hash": "49cfda9918a71ca4e632d3d276f1856ad131c4c1f8432ccc53fd557e00158663",
+   "timestamp": "2026-11-01T04:26:06.713167+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_29",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "Strong LoF-burden signal for brain physiology risk and multiple GWAS hits for brain/cognitive traits. While no Mendelian LoF diseases are reported, the brain burden signal is concerning.",
+   "data_refs": [
+    "safety_6",
+    "safety_17",
+    "safety_21",
+    "safety_22"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "High intolerance would significantly strengthen the 'against' stance given the brain physiology burden signal."
+    },
+    {
+     "type": "burden_check",
+     "query": "What is the specific direction and nature of the 'brain physiology trait' risk associated with LoF?",
+     "rationale": "Clarifying if this refers to neurodegeneration or structural changes is critical for safety assessment."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "aab9f38f-56fa-416c-9ae5-2e24781cef93",
+   "content_hash": "1b57510f46b79afad8c2e6a5e2545330eaa381721435f5c2ecac7a0939a6bd33",
+   "timestamp": "2026-11-01T04:26:06.648962+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_29",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.84), pLI of 0, and minimal DepMap dependency (0.2%) indicate the gene is highly tolerant to loss-of-function. Subcellular location suggests it is accessible for inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function or inhibition of this gene provide protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance data shows inhibition is safe, but does not confirm therapeutic benefit."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "feff02ac-2257-4d62-8f69-55efa05c4fa0",
+   "content_hash": "ba74c30294bd1a9fa06a81771dcac23373c16337b543463717283ede536c6da6",
+   "timestamp": "2026-11-01T04:26:06.180519+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_29",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.84), pLI of 0, and minimal DepMap dependency (-0.07) strongly suggest the gene is not essential and LoF is well-tolerated in humans.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [
+    "2f7b38ee-a197-4d5c-b540-42779e20f255"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "1ea12046-6eec-415b-bf36-5bd2fa55b66e",
+   "content_hash": "661736ad0651781f3650c92045cfdd3d0226a97c0cd764283f41fedb2f7cbc5f",
+   "timestamp": "2026-11-01T04:26:11.140873+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_29",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants strongly associate with increased LDL, total cholesterol, and HDL (risk direction), though they show protective effects for waist-hip ratio. No hard endpoints are available.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_4",
+    "burden_5",
+    "burden_6",
+    "burden_12"
+   ],
+   "parent_artifact_ids": [
+    "b977bdac-f3a6-449f-9ddf-867149e75011"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "e2bb8869-8814-4ff9-bb7d-cdf302f5e814",
+   "content_hash": "3c7b2a0179e0d8940e00aadab5484be3cb7e15b2c5a29cb73252ac02f2beae9d",
+   "timestamp": "2026-11-01T04:26:12.702759+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_29",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "My evidence covers out-of-scope traits and Mendelian categories. I have no data on coronary artery disease or myocardial infarction to confirm or refute the burden agent's query.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "2f7b38ee-a197-4d5c-b540-42779e20f255"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "30818fde-5aee-4cea-8ecf-66c4ef93a465",
+   "content_hash": "a00ee9b5b08fb8e5803b9cfca3e331eac2d2b751f2877603049d0bc4389386a6",
+   "timestamp": "2026-11-01T04:26:13.983248+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_29",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "2f7b38ee-a197-4d5c-b540-42779e20f255",
+    "aab9f38f-56fa-416c-9ae5-2e24781cef93",
+    "b977bdac-f3a6-449f-9ddf-867149e75011",
+    "e2bb8869-8814-4ff9-bb7d-cdf302f5e814"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "2f7b38ee-a197-4d5c-b540-42779e20f255",
+     "rationale": "The agent explicitly states that no hard clinical endpoints were shown, only lipid measurements (LDL, TC, HDL)."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "b977bdac-f3a6-449f-9ddf-867149e75011",
+     "rationale": "The agent notes associations with lipids and BMI but explicitly states there are no hard clinical endpoints."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "aab9f38f-56fa-416c-9ae5-2e24781cef93",
+     "rationale": "The agent identifies brain physiology and cognitive traits as risks but acknowledges that no Mendelian diseases have been reported."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "e2bb8869-8814-4ff9-bb7d-cdf302f5e814",
+     "rationale": "The agent confirms that no hard clinical endpoints are available for the lipid and waist-hip ratio associations."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "burden",
+     "target_artifact_id": "e2bb8869-8814-4ff9-bb7d-cdf302f5e814",
+     "rationale": "The rationale describes LoF as having a risk direction for lipids while simultaneously having protective effects for waist-hip ratio."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "97954315-cb69-4001-8aff-3f0a21314371",
+   "content_hash": "e0761533df3e4a9301b6e0e18b1e4e3320b7d15dae405b58c7e5ccb323a992ac",
+   "timestamp": "2026-11-01T04:26:50.873386+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_29",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.7,
+   "rationale": "LoF variants strongly associate with increased LDL, TC, and HDL (risk). While WHR shows a protective signal and LoF is tolerated, the lack of hard endpoints and lipid risk remains concerning.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4",
+    "burden_5",
+    "burden_6",
+    "burden_13"
+   ],
+   "parent_artifact_ids": [
+    "2f7b38ee-a197-4d5c-b540-42779e20f255",
+    "1ea12046-6eec-415b-bf36-5bd2fa55b66e",
+    "30818fde-5aee-4cea-8ecf-66c4ef93a465"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "29f73300-673d-44a9-baeb-c4ab5f9a931d",
+   "content_hash": "153b643a7a4e119cd7a4261d3f5b0afb3fd34d169811e1a0a8d8e67f984cffa4",
+   "timestamp": "2026-11-01T04:26:52.614862+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_29",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "GWAS shows strong lipid/BMI associations, but burden data confirms LoF increases LDL/TC. This suggests inhibition is likely detrimental for cardiovascular risk, despite WHR benefits.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_5",
+    "gwas_6",
+    "gwas_17"
+   ],
+   "parent_artifact_ids": [
+    "b977bdac-f3a6-449f-9ddf-867149e75011",
+    "e2bb8869-8814-4ff9-bb7d-cdf302f5e814"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c0989d5c-4061-4f9d-982f-c0fc89b29b0c",
+   "content_hash": "848549f1654e72ab95504f7ca3534c3a56dd5d830eac2684eda6b567763d3999",
+   "timestamp": "2026-11-01T04:27:07.259670+00:00"
+  }
+ ]
+}

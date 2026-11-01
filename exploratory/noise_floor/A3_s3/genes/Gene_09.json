@@ -1,0 +1,315 @@
+{
+ "gene_code": "Gene_09",
+ "score": -0.7000000000000001,
+ "calls": 10,
+ "seconds": 44.5,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_09",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "LoF variants strongly associate with increased LDL, ApoB, and hypercholesterolemia across multiple cohorts (BRaVa, UKB) and ancestries. Inhibiting this gene would likely increase CVD risk.",
+   "data_refs": [
+    "burden_1",
+    "burden_3",
+    "burden_4",
+    "burden_24"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (LOEUF/pLI)?",
+     "rationale": "The extreme lipid elevations suggest LoF might be poorly tolerated or cause severe familial hypercholesterolemia-like phenotypes."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with coronary artery disease?",
+     "rationale": "To confirm if the biomarker risk (high LDL) translates to hard clinical cardiovascular endpoints."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "40f420e2-4fb6-413c-977f-c3db87ed9d60",
+   "content_hash": "3365d696b9f290b9dc0edb547445bda04a1b7a3337b8486a5afd2426f782f7d2",
+   "timestamp": "2026-11-01T04:15:15.640687+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_09",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Extremely strong GWAS evidence (p < 1e-2000) across multiple populations linking this gene to LDL and total cholesterol. Negative betas suggest inhibition would lower lipid levels.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with lower LDL-C and protection from CAD?",
+     "rationale": "GWAS lead variants are non-coding; burden results would confirm that loss of gene function mimics the protective lipid-lowering effect."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse pleiotropic effects associated with this gene's variants in other tissues?",
+     "rationale": "The GWAS signal is exceptionally strong; I need to ensure lowering these lipids via this target doesn't cause off-target safety issues."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b30d1883-b5f8-4fa1-9262-b4391875f2cb",
+   "content_hash": "2a3ff30f2de58f8f2c2baec0a607149ff8fc57c6227f76362fa0dd0869666108",
+   "timestamp": "2026-11-01T04:15:15.778927+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_09",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "Mendelian evidence shows 3 loss-of-function (LoF) diseases, including in nutritional/metabolic categories. Curated safety events link target activation to liver lipid accumulation.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "safety_17"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "The presence of 3 LoF-causing Mendelian diseases suggests potential systemic harm from inhibition; knowing population tolerance would confirm the risk level."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ceaaf0c7-069e-41c8-a2ff-8cf36ca36c00",
+   "content_hash": "7853ddbe9849f668925d1c0d2f99baaa5c047b2ec16c4be6d4e3f3d9834dc2bb",
+   "timestamp": "2026-11-01T04:15:15.551008+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_09",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Extremely high LOEUF (1.12) and pLI near 0 indicate the gene is highly tolerant to loss-of-function in humans. Low DepMap dependency and non-essential status suggest safety for inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are there human loss-of-function carriers with beneficial cardiometabolic or liver phenotypes?",
+     "rationale": "Tolerance evidence is strong for safety, but I need evidence of therapeutic benefit from loss-of-function to confirm it as a viable target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "5525ed5e-b9a4-48cf-a875-06f8b4a7a0ec",
+   "content_hash": "da8ad0d04b2f594d8b93fab15cf9ef6fe3fb2f7b2eda8b0e2093076c7972d627",
+   "timestamp": "2026-11-01T04:15:15.397965+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_09",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly LoF-tolerant (LOEUF 1.12, pLI ~0) and not core-essential. Low DepMap dependency suggests cellular viability is maintained without it.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "40f420e2-4fb6-413c-977f-c3db87ed9d60"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "166b556c-9a35-42a2-9949-d3667ad068c4",
+   "content_hash": "76aed60347cf0c3bc878190280ab7038d13a4829679419a7b9c2fe3d1db0ead4",
+   "timestamp": "2026-11-01T04:15:17.175547+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_09",
+   "round": 1,
+   "stance": "against",
+   "strength": 1.0,
+   "rationale": "LoF carriers show massive, consistent risk for hypercholesterolemia and elevated LDL/ApoB across multiple cohorts. No beneficial phenotypes; 'protect' rows are unfavorable lipid shifts.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4",
+    "burden_19",
+    "burden_24",
+    "burden_32"
+   ],
+   "parent_artifact_ids": [
+    "5525ed5e-b9a4-48cf-a875-06f8b4a7a0ec"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "c5ad0c55-ca10-449a-8195-acf4a18a97e2",
+   "content_hash": "b519445985e6cf47553e78c16e016a0f7fcbfa90ae5f0c7fb6e17445435acc88",
+   "timestamp": "2026-11-01T04:15:18.796052+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_09",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "GWAS shows massive associations with LDL and hypercholesterolemia (L2G > 0.96). Summary data confirms 9 hard-endpoint traits are associated, though not shown in the top 40 rows.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_5"
+   ],
+   "parent_artifact_ids": [
+    "40f420e2-4fb6-413c-977f-c3db87ed9d60"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "4f44411f-5fd1-4894-a86e-ad3807bd6b46",
+   "content_hash": "a10be6c8894656850b99c92ddb68c4c83de5a587fec9fe5c676f50816c00b868",
+   "timestamp": "2026-11-01T04:15:20.283151+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_09",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "4f44411f-5fd1-4894-a86e-ad3807bd6b46",
+    "b30d1883-b5f8-4fa1-9262-b4391875f2cb"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "b30d1883-b5f8-4fa1-9262-b4391875f2cb",
+     "rationale": "GWAS claims inhibition lowers lipids, contradicting Burden (A1, A6) where LoF increases LDL and hypercholesterolemia risk."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "4f44411f-5fd1-4894-a86e-ad3807bd6b46",
+     "rationale": "Stance 'supports' contradicts Burden (A1, A6) and Safety (A3) which show LoF leads to disease and lipid accumulation."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "b30d1883-b5f8-4fa1-9262-b4391875f2cb",
+     "rationale": "Evidence cited (LDL, total cholesterol) are biomarkers; hard clinical endpoints are not demonstrated in the provided data refs."
+    },
+    {
+     "type": "underpowered",
+     "channel": "gwas",
+     "target_artifact_id": "4f44411f-5fd1-4894-a86e-ad3807bd6b46",
+     "rationale": "The agent claims support from 9 hard-endpoint traits but admits they are not present in the provided data rows."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "82b6db81-c863-4018-a32a-5ce99f4742d6",
+   "content_hash": "04f7e2156f461fe935f139a54b9db20f6367d760ab9a272ea27523d80ba26a0b",
+   "timestamp": "2026-11-01T04:15:54.396631+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_09",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.5,
+   "rationale": "GWAS shows massive, multi-ancestry support for lipid-lowering alleles. However, external burden data suggests LoF increases risk, indicating the GWAS lead allele may be a GoF or regulatory.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_5",
+    "gwas_32",
+    "gwas_40"
+   ],
+   "parent_artifact_ids": [
+    "b30d1883-b5f8-4fa1-9262-b4391875f2cb"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "889f3442-aaae-4fa4-b130-443cf88324cc",
+   "content_hash": "581ad3561b777319f998745b973a4c664445fc84f8e9a65965cf9b83203d2598",
+   "timestamp": "2026-11-01T04:15:56.277240+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_09",
+   "round": 2,
+   "stance": "against",
+   "strength": 1.0,
+   "rationale": "Massive burden evidence (p<1e-150) shows LoF increases LDL and CVD risk across 6 cohorts and multiple ancestries. GWAS and tolerance data confirm this is a viable but high-risk lipid target.",
+   "data_refs": [
+    "burden_1",
+    "burden_3",
+    "burden_4",
+    "burden_24"
+   ],
+   "parent_artifact_ids": [
+    "40f420e2-4fb6-413c-977f-c3db87ed9d60",
+    "166b556c-9a35-42a2-9949-d3667ad068c4",
+    "4f44411f-5fd1-4894-a86e-ad3807bd6b46"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "85c98d07-4620-462d-be46-14d6708bd014",
+   "content_hash": "9ea66bba1872dd7173eec017239cc6bbb1f527ec673c11a29caca7a6265d6dee",
+   "timestamp": "2026-11-01T04:15:58.048274+00:00"
+  }
+ ]
+}

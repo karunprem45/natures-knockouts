@@ -1,0 +1,309 @@
+{
+ "gene_code": "Gene_07",
+ "score": 1.9,
+ "calls": 10,
+ "seconds": 33.4,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_07",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No rare-variant burden associations were provided for this gene, precluding any assessment of its therapeutic potential from this perspective.",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Are there common variant associations for cardiometabolic or liver traits for this gene?",
+     "rationale": "Common variant evidence can provide initial support for a gene's involvement in these traits when burden data is missing."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "What is the pLI or LOEUF score for this gene?",
+     "rationale": "Determining if the gene is loss-of-function tolerant is essential for assessing the feasibility of therapeutic inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any known pleiotropic effects or adverse phenotypes associated with this gene in other organ systems?",
+     "rationale": "Identifying potential safety risks is necessary before recommending a target for inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "20cb3779-e8ce-40d1-a5c5-4a1b745c049b",
+   "content_hash": "411bb611f1aa0bba552095f558e9e7a312e88da5af5d343124a9c9c84616462a",
+   "timestamp": "2026-11-01T04:24:44.959399+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_07",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong L2G score (0.97) for a missense variant associated with waist circumference. Consistent lipid profile (increased HDL, decreased TG) suggests metabolic benefit.",
+   "data_refs": [
+    "gwas_3",
+    "gwas_2",
+    "gwas_13"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with reduced waist circumference, lower triglycerides, or protection from liver disease?",
+     "rationale": "GWAS signals are mostly intronic or biomarkers; burden data would confirm if inhibiting the gene product replicates the beneficial metabolic profile seen in common variants."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ba6129a7-179d-4f78-869a-7395de4b7903",
+   "content_hash": "40d41b7960c0cd7c0fcdc0aa322fb272db7ccdf362fe135e90f1c0a94b442def",
+   "timestamp": "2026-11-01T04:24:42.697576+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_07",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "No Mendelian diseases or curated safety events reported. GWAS hits are primarily for height, bone density, and blood biomarkers, which do not suggest severe systemic risk from inhibition.",
+   "data_refs": [
+    "safety_1",
+    "safety_2",
+    "safety_3",
+    "safety_10",
+    "safety_19",
+    "safety_20"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High LoF intolerance would suggest essentiality or developmental risk not captured by GWAS or Mendelian databases."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant burden signals for severe out-of-scope phenotypes?",
+     "rationale": "Burden signals provide stronger evidence for the effect of gene-level inhibition than GWAS common variants."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0ef95d10-66e3-4aff-9a98-76570d552649",
+   "content_hash": "dc60031289b353c0752bdc0246fc1052e859958151c569011a6f4c31c59b7f7c",
+   "timestamp": "2026-11-01T04:24:42.928438+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_07",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Exceptional tolerance: LOEUF > 1.4, pLI near 0, and no cell-line dependency. Membrane location suggests druggability. Lifelong inhibition appears very likely to be safe.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Do loss-of-function variants in this gene associate with improved cardiometabolic or liver health?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence that inhibiting this gene provides a therapeutic benefit."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c0057d64-a171-4200-9e7b-2704fe252a5d",
+   "content_hash": "41ff9812e04e866c8156c3abe41c3be909b26a57a35f6adb10cb477170ac6f3e",
+   "timestamp": "2026-11-01T04:24:44.742798+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_07",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "LoF associates with lower TG, reduced waist circumference, and protection from NAFLD (OR 0.65) across UKB and FinnGen. Evidence includes hard endpoints and multiple ancestries.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4"
+   ],
+   "parent_artifact_ids": [
+    "ba6129a7-179d-4f78-869a-7395de4b7903"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in the general population?",
+     "rationale": "High significance in burden results suggests therapeutic potential, but we must ensure LoF is not naturally selected against."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any risk-direction burden associations for non-metabolic traits?",
+     "rationale": "To ensure that inhibiting this gene for metabolic benefit does not cause harm in other organ systems."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "d57572e3-0a56-418d-ad35-41ce913167f8",
+   "content_hash": "60f44fbfdc8d21289291f2bee0509def8144d9aea10c89a91a8d8addb8b91e12",
+   "timestamp": "2026-11-01T04:24:51.042999+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_07",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly tolerant of loss-of-function; LOEUF (1.43) is very high, pLI is near zero, and it is not essential in DepMap cell lines.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "0ef95d10-66e3-4aff-9a98-76570d552649"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "7e9e4cc6-9bd6-421c-a7ba-62c0912d4800",
+   "content_hash": "ec3f5e6371ed61d4feca2965b98148feea3a2af1e6c5af7e6bdee4a8914596f4",
+   "timestamp": "2026-11-01T04:24:52.561791+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_07",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong missense association with waist circumference (L2G=0.97) and multiple HDL-related associations, though mostly intronic and lacking hard endpoints.",
+   "data_refs": [
+    "gwas_3",
+    "gwas_2",
+    "gwas_5",
+    "gwas_6",
+    "gwas_13"
+   ],
+   "parent_artifact_ids": [
+    "20cb3779-e8ce-40d1-a5c5-4a1b745c049b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "a7063cc9-2a0c-4b8a-b7ef-138091c93ea9",
+   "content_hash": "8e41de22951df120aee7185ba5fd1a41a37d0b5d03d706ec24feb0b6a204cf4c",
+   "timestamp": "2026-11-01T04:24:53.938312+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_07",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "2 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "a7063cc9-2a0c-4b8a-b7ef-138091c93ea9",
+    "ba6129a7-179d-4f78-869a-7395de4b7903"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "ba6129a7-179d-4f78-869a-7395de4b7903",
+     "rationale": "The evidence is based on waist circumference and lipid levels (HDL, TG) rather than hard clinical endpoints."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "a7063cc9-2a0c-4b8a-b7ef-138091c93ea9",
+     "rationale": "The agent explicitly acknowledges the lack of hard endpoints, relying on waist circumference and HDL-related measurements."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "901fc5fe-eb46-42f5-a3ec-b036d35d1921",
+   "content_hash": "b70f16ddb00e092eacfb880f5fc8805d0bb8f52778b720c58fad0412066fa33a",
+   "timestamp": "2026-11-01T04:25:05.854014+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_07",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Strong L2G score (0.97) for a missense variant in waist circumference. Burden data confirms this metabolic signal extends to hard liver endpoints (NAFLD), mitigating the biomarker-only concern.",
+   "data_refs": [
+    "gwas_3",
+    "gwas_13",
+    "gwas_2",
+    "gwas_5"
+   ],
+   "parent_artifact_ids": [
+    "ba6129a7-179d-4f78-869a-7395de4b7903",
+    "d57572e3-0a56-418d-ad35-41ce913167f8"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "99479406-1be4-44bc-8a3f-8477793454cf",
+   "content_hash": "b3be2ec9f14cc2a0cf7262b3cdb0157c8dce41602620e9c43572116ff72ad2e7",
+   "timestamp": "2026-11-01T04:25:07.576461+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_07",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "Absence of rare-variant burden data precludes assessment. While GWAS suggests metabolic involvement, no LoF associations are available to confirm a protective effect from gene inactivation.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "20cb3779-e8ce-40d1-a5c5-4a1b745c049b",
+    "a7063cc9-2a0c-4b8a-b7ef-138091c93ea9"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0efd5cfb-dc31-4d1d-84bd-0bdd7284e57f",
+   "content_hash": "fb704580d09214c0e4a22a619444ad22c2bb7360ffa521e8a7f5484d3442bd89",
+   "timestamp": "2026-11-01T04:25:13.883408+00:00"
+  }
+ ]
+}

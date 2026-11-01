@@ -1,0 +1,309 @@
+{
+ "gene_code": "Gene_33",
+ "score": 1.6,
+ "calls": 10,
+ "seconds": 32.4,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_33",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Single protective LoF association with ALT in one EUR cohort (UKB). No hard endpoints or multi-ancestry data. Effect is on a biomarker only, and p-value is modest for burden analysis.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "To determine if therapeutic inhibition is likely to be tolerated without severe developmental or systemic consequences."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any risk associations for this gene in other systems (e.g., renal, neuro)?",
+     "rationale": "A single liver biomarker benefit might be outweighed by pleiotropic harm elsewhere."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with liver disease or metabolic traits?",
+     "rationale": "Common variant evidence would provide orthogonal support for the target's role in human physiology beyond rare LoF variants."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "346f3ad8-f9b2-4df3-acd8-8c1fa7791d54",
+   "content_hash": "ba22411dd6a1022529ed0ea9c8e71929e7799765fc9405db7f4812a77ba12d7c",
+   "timestamp": "2026-11-01T04:16:44.606134+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_33",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Weak evidence: low L2G score (0.21) suggests the T2D association may belong to a neighbor. Data is limited to one population (Finnish) and an intronic variant.",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare variant burden analysis show that loss-of-function in this gene protects against type 2 diabetes?",
+     "rationale": "A low L2G score makes the GWAS association unreliable for this specific gene; burden results would confirm causality and direction of effect."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function mutations (e.g., pLI or LOEUF scores)?",
+     "rationale": "To evaluate if inhibiting this gene is likely to be safe."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c0c95d55-1580-474c-b10e-f6f966edc7f0",
+   "content_hash": "1dcfbd779c286350eaefaf55d9f4342fa2852411fd5fc3ce20885c3af6c63cf8",
+   "timestamp": "2026-11-01T04:16:46.477580+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_33",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian loss-of-function diseases or curated safety events reported. GWAS hits for Dupuytren contracture and disc herniation are significant but do not indicate severe systemic toxicity.",
+   "data_refs": [
+    "safety_1",
+    "safety_2",
+    "safety_3"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., high pLI or low LOEUF)?",
+     "rationale": "The absence of Mendelian disease could be due to embryonic lethality or extreme intolerance, which would change the safety profile."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d0795229-4f61-484a-9d00-69677d691ea6",
+   "content_hash": "f25bb1c4d702f10af22a95a012bc27fa9a640b3bb89952791e89b6438c6d533b",
+   "timestamp": "2026-11-01T04:16:47.328619+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_33",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.08), low pLI (0.04), and no DepMap dependency (0.0) indicate this gene is highly tolerant to loss-of-function. Inhibition is likely to be well-tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function or inhibition of this gene provide protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance data shows safety but does not establish therapeutic benefit or efficacy."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a9c6817c-ddcc-45a4-b9b7-c8058eaaf00c",
+   "content_hash": "397fcdae5a5aac42a335af395fd3053069e9815f6ebad1cb442b8b88bec34b6b",
+   "timestamp": "2026-11-01T04:17:03.438050+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_33",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.08) and low pLI (0.04) indicate human LoF tolerance. DepMap data confirms non-essentiality (0% dependency) across 1,139 cell lines.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "346f3ad8-f9b2-4df3-acd8-8c1fa7791d54"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "2ff81912-5225-4d86-90fe-d77777c2dc33",
+   "content_hash": "496b62d0f6906de7d09287828ee999864e376448347578c4f6668be955817647",
+   "timestamp": "2026-11-01T04:17:06.734103+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_33",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.3,
+   "rationale": "LoF is associated with lower ALT (liver health biomarker) in UKB, but evidence is weak: single cohort, single ancestry, and no hard clinical endpoints like cirrhosis or liver disease.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "a9c6817c-ddcc-45a4-b9b7-c8058eaaf00c"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "93fbef95-b037-47de-b393-7aeee22c8470",
+   "content_hash": "541eb9ec33b4c9b516e018130e8574be0ed1703c9020119f72492cd82189c1fd",
+   "timestamp": "2026-11-01T04:17:08.305540+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_33",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases or LoF-driven safety events reported. GWAS hits for Dupuytren contracture and lumbar disc herniation are not severe systemic risks.",
+   "data_refs": [
+    "safety_1",
+    "safety_2",
+    "safety_3"
+   ],
+   "parent_artifact_ids": [
+    "346f3ad8-f9b2-4df3-acd8-8c1fa7791d54"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "9f8c0c4b-232d-44bf-acbb-34ec02a88896",
+   "content_hash": "0b32e87e005d12d3db88b898d96c880a0068bcc0235a354f44889c64654b92c6",
+   "timestamp": "2026-11-01T04:17:09.699655+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_33",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "93fbef95-b037-47de-b393-7aeee22c8470",
+    "c0c95d55-1580-474c-b10e-f6f966edc7f0"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "93fbef95-b037-47de-b393-7aeee22c8470",
+     "rationale": "The burden evidence relies entirely on the UK Biobank cohort, which lacks independent replication."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "93fbef95-b037-47de-b393-7aeee22c8470",
+     "rationale": "The association is limited to a European (EUR) population, limiting generalizability."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "93fbef95-b037-47de-b393-7aeee22c8470",
+     "rationale": "The evidence is based on ALT levels, a surrogate biomarker, without evidence of impact on clinical liver disease."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "gwas",
+     "target_artifact_id": "c0c95d55-1580-474c-b10e-f6f966edc7f0",
+     "rationale": "The GWAS evidence is restricted to a single population (Finnish)."
+    },
+    {
+     "type": "underpowered",
+     "channel": "gwas",
+     "target_artifact_id": "c0c95d55-1580-474c-b10e-f6f966edc7f0",
+     "rationale": "Low L2G score (0.21) and intronic variant location suggest the association may be spurious or linked to a different gene."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a3b75b35-50fb-4a92-866c-20a38930b5b7",
+   "content_hash": "ecccbd98f8d0ef1acef9a5a4be207700832037f45d9c94ce23d122ac231664ca",
+   "timestamp": "2026-11-01T04:17:11.891573+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_33",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Evidence remains weak: single cohort (UKB), single ancestry (EUR), and biomarker-only (ALT). While LoF-tolerant, the burden signal lacks replication or hard clinical endpoint data.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "346f3ad8-f9b2-4df3-acd8-8c1fa7791d54",
+    "2ff81912-5225-4d86-90fe-d77777c2dc33",
+    "9f8c0c4b-232d-44bf-acbb-34ec02a88896"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "bd7c1542-e4ba-4ea0-beff-8c074cf23544",
+   "content_hash": "643b3d1588f7480954fc723a25753255e23d3bb1556f82d9416b8ec0647ec02d",
+   "timestamp": "2026-11-01T04:17:13.195875+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_33",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.05,
+   "rationale": "Evidence remains very weak. The low L2G score (0.21) and intronic nature in a single population (Finnish) suggest the T2D signal likely belongs to a neighboring gene.",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [
+    "c0c95d55-1580-474c-b10e-f6f966edc7f0"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7ca0176e-6f88-46b8-8873-83e64f8ba9a0",
+   "content_hash": "4a07e1a789963146ad7ba27242c2e239182fba9f2143e98c3aebf412cd554206",
+   "timestamp": "2026-11-01T04:17:14.464016+00:00"
+  }
+ ]
+}

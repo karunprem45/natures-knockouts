@@ -1,0 +1,310 @@
+{
+ "gene_code": "Gene_26",
+ "score": 2.15,
+ "calls": 10,
+ "seconds": 27.6,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_26",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong LoF burden for lower LDL, ApoB, and total cholesterol across multiple cohorts (UKB, G&H). However, all 45 traits are biomarkers; no hard clinical endpoints are present in this view.",
+   "data_refs": [
+    "burden_2",
+    "burden_4",
+    "burden_6",
+    "burden_9",
+    "burden_12",
+    "burden_26"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with coronary artery disease or myocardial infarction?",
+     "rationale": "To confirm if the lipid-lowering effect translates to reduced cardiovascular disease risk."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (LOEUF/pLI)?",
+     "rationale": "To assess the safety of therapeutic inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "be4c4b3d-7ce9-4bdd-997d-d52612c672ba",
+   "content_hash": "b447dd22af50503ef45e0ad63d75d1fe58d4823960cd17395950f2d0e624de0b",
+   "timestamp": "2026-11-01T04:26:00.155348+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_26",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong associations with LDL, ApoB, and non-HDL cholesterol (L2G > 0.8) suggest inhibition is beneficial. However, lead variants are synonymous/intronic and hard endpoints are missing.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_1",
+    "gwas_7",
+    "gwas_4",
+    "gwas_13"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare-variant burden for LDL cholesterol and coronary artery disease",
+     "rationale": "GWAS lead variants are synonymous/intronic; rare-variant burden would confirm the gene's causal role and the effect of loss-of-function."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "63a9372a-cb92-45ce-bacb-151329031dc1",
+   "content_hash": "d14643f657804dc1ead48bcba955b01c29c973ab1fb952d51c504bac2a767d6c",
+   "timestamp": "2026-11-01T04:26:00.009321+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_26",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss-of-function variants. GWAS signals are primarily biomarkers (ALP, lipids, CRP) without strong evidence of severe adverse clinical phenotypes.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "safety_1",
+    "safety_5",
+    "safety_6"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "Confirmation that the gene can be safely inhibited without systemic developmental or viability issues is needed to increase confidence."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there any rare-variant burden associations with severe non-liver/non-metabolic clinical outcomes?",
+     "rationale": "To ensure that loss of function does not lead to rare but severe adverse events not captured in the Mendelian summary."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d804ba56-e946-4748-a41c-fa97194233e4",
+   "content_hash": "5de58311ec068c712eeb621457bd582de8f527d690aa8216168c5c54bb220532",
+   "timestamp": "2026-11-01T04:26:00.128929+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_26",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Exceptional tolerance: LOEUF (1.4) and pLI (0) indicate no constraint in humans. DepMap confirms non-essentiality. Secreted/membrane location is highly favorable for inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are loss-of-function variants in this gene associated with improved cardiometabolic or liver phenotypes?",
+     "rationale": "Tolerance is high, but therapeutic utility requires evidence that loss of function provides a clinical benefit."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b14896f5-8fec-45d8-a944-c38564996c7e",
+   "content_hash": "e492c90a563c301d4a62159dc87ce6f2562d4dde733f030a64d688eccc530870",
+   "timestamp": "2026-11-01T04:26:01.996295+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_26",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "The burden data provided only covers lipid biomarkers. There are no associations with severe non-liver/non-metabolic clinical outcomes or hard endpoints in this view.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "d804ba56-e946-4748-a41c-fa97194233e4"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "248a11e1-4b3b-4bfb-9a50-3fe23245cfdb",
+   "content_hash": "c189b743ddf89a4b795c83944800ce87423541560ac9f99b8c4cff7489c4dc76",
+   "timestamp": "2026-11-01T04:26:03.429850+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_26",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly tolerant to loss-of-function (LOEUF 1.4, pLI ~0) and is not essential in any DepMap cell lines. It is also likely secreted or membrane-bound, making it a viable drug target.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "is_core_essential",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [
+    "be4c4b3d-7ce9-4bdd-997d-d52612c672ba"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "9eee0302-0a76-40e2-a6ba-623a7a6b8d4d",
+   "content_hash": "3de6fcee9889ddf138507f71ba6755b182edb760a026b400599deaffad966cf3",
+   "timestamp": "2026-11-01T04:26:04.896203+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_26",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "GWAS data shows strong associations with lipid biomarkers (LDL, ApoB), but contains no associations for coronary artery disease or myocardial infarction to answer the specific query.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_7"
+   ],
+   "parent_artifact_ids": [
+    "be4c4b3d-7ce9-4bdd-997d-d52612c672ba"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "4a3dd516-8763-4c20-a11f-1b1b96a2131b",
+   "content_hash": "016327f8f4b418976de82ab89ffc56958908c014d19fca00e8020e3f277e9680",
+   "timestamp": "2026-11-01T04:26:06.471833+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_26",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "2 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "63a9372a-cb92-45ce-bacb-151329031dc1",
+    "be4c4b3d-7ce9-4bdd-997d-d52612c672ba"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "be4c4b3d-7ce9-4bdd-997d-d52612c672ba",
+     "rationale": "The agent explicitly states that all 45 traits analyzed are biomarkers and no hard clinical endpoints are present in the data."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "63a9372a-cb92-45ce-bacb-151329031dc1",
+     "rationale": "The rationale confirms that hard clinical endpoints are missing from the association data, relying instead on lipid measurements."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8c09286a-d2d2-4b7d-95c1-70de88f4095a",
+   "content_hash": "fb5ed80bd5aa1c6ad973aeecf3d16b65bc6a3b9870686012e1edba71694e3c03",
+   "timestamp": "2026-11-01T04:26:21.718583+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_26",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong LoF burden for lower LDL and ApoB across multiple cohorts. While GWAS and burden lack hard endpoints, high LoF tolerance (LOEUF 1.4) suggests safety for potential therapeutic targeting.",
+   "data_refs": [
+    "burden_2",
+    "burden_4",
+    "burden_6",
+    "burden_9",
+    "burden_12"
+   ],
+   "parent_artifact_ids": [
+    "be4c4b3d-7ce9-4bdd-997d-d52612c672ba",
+    "9eee0302-0a76-40e2-a6ba-623a7a6b8d4d",
+    "4a3dd516-8763-4c20-a11f-1b1b96a2131b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "56c08190-65db-482a-ad2b-ddcf68abd95e",
+   "content_hash": "8b0e1359ea91ce696362ade7e9ddcf3a20ec5e8f6f79bfb754f506fac06ece4a",
+   "timestamp": "2026-11-01T04:26:23.261913+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_26",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.5,
+   "rationale": "Strong L2G scores (>0.8) link the gene to multiple lipid biomarkers (LDL, ApoB, non-HDL). However, the lack of hard endpoints and reliance on synonymous variants limit the evidence strength.",
+   "data_refs": [
+    "gwas_4",
+    "gwas_7",
+    "gwas_8",
+    "gwas_13",
+    "gwas_14"
+   ],
+   "parent_artifact_ids": [
+    "63a9372a-cb92-45ce-bacb-151329031dc1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "05a29b81-7e80-43d5-9978-3ef5e6d29a4a",
+   "content_hash": "5eecd4948fa56d2416b98f897353d03404f67fc8e0acaf22d701f4b1be8c69bc",
+   "timestamp": "2026-11-01T04:26:25.165398+00:00"
+  }
+ ]
+}

@@ -1,0 +1,280 @@
+{
+ "gene_code": "Gene_19",
+ "score": 1.35,
+ "calls": 10,
+ "seconds": 25.4,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_19",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No rare-variant burden data is available for this gene across any cohorts, ancestries, or cardiometabolic traits. Evidence is currently absent.",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Are there common-variant associations for cardiometabolic or liver traits?",
+     "rationale": "In the absence of rare-variant burden data, common-variant signals are required to establish any genetic link to the target traits."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene tolerant to loss-of-function mutations in the general population?",
+     "rationale": "Lack of burden data may be due to the gene being highly constrained (essential), which would make it a poor therapeutic target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8fe5eb81-6ade-4f07-8937-57b028c700a1",
+   "content_hash": "ae9f4d015221eb2d30fd983022b6b1aad2b94312bcab9588d762661aff231be7",
+   "timestamp": "2026-11-01T04:25:28.018926+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_19",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "The L2G score is very low (0.08), suggesting the T2D association likely belongs to a neighboring gene. The lead variant is non-coding and limited to a single population.",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare variant burden in this gene associate with type 2 diabetes or metabolic traits?",
+     "rationale": "A low L2G score makes the GWAS signal unreliable for this specific gene; rare variant data is needed to confirm causality."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene constrained or tolerant to loss-of-function variants?",
+     "rationale": "To evaluate if inhibiting this gene would be tolerated without adverse effects."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "00914188-c3e1-43a9-9bc3-4238d0bdaf02",
+   "content_hash": "081c482c7e69430f77a95689289db73a542bb53f83235c3168cbd52e0d57d89d",
+   "timestamp": "2026-11-01T04:25:31.707739+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_19",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss-of-function (LoF) variants. LoF burden signals for HbA1c and glucose are protective, and GWAS hits for other traits are relatively weak or biomarkers.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_6",
+    "mendelian_11",
+    "safety_1",
+    "safety_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "High intolerance to loss-of-function variants would suggest essentiality or developmental risks not captured by the current disease list."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a4ca4ed8-abe7-430c-9dc3-5b5b9c287cab",
+   "content_hash": "d78662addb2dde692749cd70b8324e5c57d1423aba9f6cc3c1299836b8737beb",
+   "timestamp": "2026-11-01T04:25:28.272056+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_19",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Extremely high LOEUF (1.45) and pLI (0) indicate high tolerance for loss-of-function. DepMap data confirms the gene is non-essential for cell viability across 80 screens.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function or genetic variation in this gene associate with protection against cardiometabolic or liver disease?",
+     "rationale": "High tolerance indicates safety, but we need evidence of therapeutic benefit (efficacy) to justify it as a target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "59d714a0-56eb-4a80-9dab-651d24bf1590",
+   "content_hash": "4c41cff87a62a2f847df6a3a7b5c79f42eccf3108e226acc242c53fa768a9239",
+   "timestamp": "2026-11-01T04:25:29.927081+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_19",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No rare variant burden data is available for this gene regarding type 2 diabetes or metabolic traits across any cohorts or ancestries.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "00914188-c3e1-43a9-9bc3-4238d0bdaf02"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "c8e21726-c299-4c6d-b18a-1cf6e7d7636a",
+   "content_hash": "4f146549ea6b2915a7425f1d74db0728f6194c13204fea36440a00d88f30be43",
+   "timestamp": "2026-11-01T04:25:35.191291+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_19",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "High LOEUF (1.45) and pLI (0) indicate strong tolerance to LoF variants. DepMap data confirms the gene is not essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [
+    "00914188-c3e1-43a9-9bc3-4238d0bdaf02"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "7fa8e424-e363-428a-954e-f9086e40938f",
+   "content_hash": "460739d8b7f6944b148a8519b9a8448c990e3017d9d541e979082727fc9f5be4",
+   "timestamp": "2026-11-01T04:25:38.546757+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_19",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "A T2D association exists, but the extremely low L2G score (0.08) and upstream variant consequence suggest the signal likely belongs to a neighboring gene.",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [
+    "8fe5eb81-6ade-4f07-8937-57b028c700a1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "f8cb6988-1400-490f-936e-0727c0522840",
+   "content_hash": "4a568fbe1adff02a5753daff8b71f0b78bdf0dfdf4252574f114443acb75e234",
+   "timestamp": "2026-11-01T04:25:44.310406+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_19",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "2 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "00914188-c3e1-43a9-9bc3-4238d0bdaf02",
+    "a4ca4ed8-abe7-430c-9dc3-5b5b9c287cab"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_ancestry",
+     "channel": "gwas",
+     "target_artifact_id": "00914188-c3e1-43a9-9bc3-4238d0bdaf02",
+     "rationale": "The GWAS evidence is limited to a single population, reducing the generalizability of the neutral stance."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "a4ca4ed8-abe7-430c-9dc3-5b5b9c287cab",
+     "rationale": "The safety verdict relies on HbA1c and glucose measurements (biomarkers) rather than hard clinical endpoints."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c43f63cf-a497-4ffd-94b8-b22833f09692",
+   "content_hash": "2287f8dadf4b4b690ec569ddb0facfdbb87100b33467c6d8c9a976994f8cef0f",
+   "timestamp": "2026-11-01T04:25:46.021194+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_19",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.05,
+   "rationale": "L2G score remains very low (0.08), and the single-ancestry (Finnish) signal lacks generalizability. Tolerance data confirms LoF is safe but doesn't validate this specific gene as the causal driver.",
+   "data_refs": [
+    "gwas_1"
+   ],
+   "parent_artifact_ids": [
+    "00914188-c3e1-43a9-9bc3-4238d0bdaf02",
+    "c8e21726-c299-4c6d-b18a-1cf6e7d7636a",
+    "7fa8e424-e363-428a-954e-f9086e40938f"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "98a9832b-c431-4149-aaf3-fa137555a731",
+   "content_hash": "7fa346829077cdadb3648493d5e5478ac7a739c122aa24d7c881768da98b7f96",
+   "timestamp": "2026-11-01T04:25:47.420363+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_19",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "Burden data remains absent. The GWAS agent's report of a weak, likely off-target T2D signal does not provide evidence to support a protective LoF effect for this specific gene.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "8fe5eb81-6ade-4f07-8937-57b028c700a1",
+    "f8cb6988-1400-490f-936e-0727c0522840"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "841da45c-195b-488a-9368-88c94e937414",
+   "content_hash": "dafe768c91c655a2f016e8f51dd706371ff95c4a49e0aaaabe4a4f1f66021825",
+   "timestamp": "2026-11-01T04:25:51.459887+00:00"
+  }
+ ]
+}

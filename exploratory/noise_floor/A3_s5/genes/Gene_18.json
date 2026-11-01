@@ -1,0 +1,315 @@
+{
+ "gene_code": "Gene_18",
+ "score": 3.075,
+ "calls": 10,
+ "seconds": 24.4,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_18",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong protective effect against T2D (OR=0.37, p=3.2e-9) in Genes & Health. However, evidence is limited to one cohort, one ancestry, and a single hard endpoint.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "The strong protective effect is from LoF variants; I need to know if complete inhibition is viable/safe."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene also associate with T2D or glycemic traits?",
+     "rationale": "To see if the rare-variant burden signal is corroborated by common-variant evidence across broader populations."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with LoF in this gene in other systems?",
+     "rationale": "To ensure that T2D protection doesn't come at the cost of other organ system failures."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "eb3f3814-04d8-4e76-9316-1ebee31570ce",
+   "content_hash": "68a56804da055b7752d8efb7191fc0dbb485002cf4f437e00fb152bd1f549502",
+   "timestamp": "2026-11-01T04:25:23.478058+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_18",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Strong GWAS evidence for T2D (hard endpoint) and lipids. Missense variants and high L2G scores (0.94) across multiple populations link this gene to reduced T2D risk and lower triglycerides.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_5",
+    "gwas_6",
+    "gwas_9"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene protect against type 2 diabetes and lower triglycerides?",
+     "rationale": "GWAS missense associations suggest a link, but burden results are needed to confirm that inhibition (loss of function) is the mechanism for the observed beneficial metabolic effects."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7a86048a-54be-41b3-8af7-b919657ef814",
+   "content_hash": "e9a11c530469346c2a4774bccdda212f37e52f49708bf55e3d24e0096abeb43c",
+   "timestamp": "2026-11-01T04:25:23.129114+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_18",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss-of-function. GWAS signals are dominated by glycemic traits, which are likely in-scope or related to the therapeutic mechanism.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "safety_1",
+    "safety_5"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "To confirm that systemic loss of function is well-tolerated in the general population despite the lack of Mendelian LoF diseases."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "64769a0d-1ab9-48ec-b44c-e9cd50dd0607",
+   "content_hash": "9b4ca4965d41857db665ec389b8ff3a36dc5f305adb3229f4c88bf6d614421d4",
+   "timestamp": "2026-11-01T04:25:23.022339+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_18",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Exceptional tolerance: LOEUF > 1.0 and pLI ~ 0 indicate no selection against LoF. DepMap shows no essentiality across 1232 lines. Multi-pass membrane location is highly druggable.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are there human LoF carriers with beneficial cardiometabolic or liver phenotypes?",
+     "rationale": "Tolerance is high, but therapeutic utility requires evidence that loss of function provides a clinical benefit."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "eb8c9115-2eeb-4801-99c9-1052548f2996",
+   "content_hash": "07f4253a8913ef820efde400478c31f8740e0b0a0ade6bb7ed5bb39b6a0f4fde",
+   "timestamp": "2026-11-01T04:25:22.997853+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_18",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly LoF-tolerant (pLI ~0, LOEUF > 1) and non-essential in DepMap screens, suggesting systemic inhibition would be well-tolerated in humans.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [
+    "64769a0d-1ab9-48ec-b44c-e9cd50dd0607"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "de22fc6f-f212-47f8-8c75-43ae72f75fc2",
+   "content_hash": "508fe5bf048d08f7a68d2eb66b421ab6d20699a9e8b9c4d0cfe163ea3f7aa3c0",
+   "timestamp": "2026-11-01T04:25:27.685466+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_18",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "LoF variants significantly protect against T2D (OR 0.37, p=3.2e-9) in a South Asian cohort. However, data for triglycerides is missing from my view to confirm the full metabolic profile.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "7a86048a-54be-41b3-8af7-b919657ef814"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans?",
+     "rationale": "The strong protective effect against T2D suggests therapeutic potential, but we must ensure LoF is not associated with developmental or survival deficits."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "9e8c0497-3ee7-46a3-9fb0-f1151fe8d782",
+   "content_hash": "b7f794c1ed71c6f40be154d49f46c7cf0cc218500acc243cca2d0cfdc44f08a2",
+   "timestamp": "2026-11-01T04:25:29.495848+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_18",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "Strong common-variant evidence for T2D (P=10^-218) and T2D nephropathy, with high L2G scores (0.94), missense lead variants, and multi-ancestry support.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_5"
+   ],
+   "parent_artifact_ids": [
+    "eb3f3814-04d8-4e76-9316-1ebee31570ce"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "264ed7ab-367b-4e1f-89c9-daf85ca112c8",
+   "content_hash": "be7cb7b60a349453462ba0a501c835f48698485ec4974c901544f1ee390b7c5b",
+   "timestamp": "2026-11-01T04:25:30.986121+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_18",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "9e8c0497-3ee7-46a3-9fb0-f1151fe8d782",
+    "eb3f3814-04d8-4e76-9316-1ebee31570ce"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "eb3f3814-04d8-4e76-9316-1ebee31570ce",
+     "rationale": "The agent explicitly states the evidence is limited to one cohort (Genes & Health)."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "eb3f3814-04d8-4e76-9316-1ebee31570ce",
+     "rationale": "The agent explicitly states the evidence is limited to one ancestry."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "9e8c0497-3ee7-46a3-9fb0-f1151fe8d782",
+     "rationale": "The rationale confirms the protective effect is observed only in a single cohort."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "9e8c0497-3ee7-46a3-9fb0-f1151fe8d782",
+     "rationale": "The rationale confirms the evidence is restricted to a South Asian cohort."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "17957676-a641-4f33-810b-124a682d9a60",
+   "content_hash": "093546c632ad57568add6d5a90c174348596554c2a277e2cfda22a6d6b0528cd",
+   "timestamp": "2026-11-01T04:25:38.541005+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_18",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.75,
+   "rationale": "Strong protective LoF effect (OR=0.37) in South Asians. While burden data is single-cohort, massive GWAS support (p=10^-218) across ancestries validates the gene's role in T2D protection.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "eb3f3814-04d8-4e76-9316-1ebee31570ce",
+    "264ed7ab-367b-4e1f-89c9-daf85ca112c8"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "67cebaf6-ec91-43f2-a310-0ba096503223",
+   "content_hash": "836bf328c559a7ed3de08b1c05fad387dd4a068fe9adca628b19542c6dfd7848",
+   "timestamp": "2026-11-01T04:25:44.110137+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_18",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "GWAS shows strong, multi-ancestry associations with T2D and lipids (L2G > 0.9). Burden data confirms LoF is protective for T2D, aligning with the GWAS missense variant direction.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_5",
+    "gwas_6",
+    "gwas_9"
+   ],
+   "parent_artifact_ids": [
+    "7a86048a-54be-41b3-8af7-b919657ef814",
+    "9e8c0497-3ee7-46a3-9fb0-f1151fe8d782"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "cdf6aa0a-4146-45b7-9da8-e4dc478b761d",
+   "content_hash": "6e08eaa4367dfb3bf7640d21f45ec414ac9a925c77fd1e95def7144f05f5a6e8",
+   "timestamp": "2026-11-01T04:25:45.498405+00:00"
+  }
+ ]
+}

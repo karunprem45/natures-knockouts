@@ -1,0 +1,320 @@
+{
+ "gene_code": "Gene_30",
+ "score": 3.2249999999999996,
+ "calls": 10,
+ "seconds": 18.3,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_30",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Strong LoF burden evidence for TG reduction across 5 cohorts and multiple ancestries. Crucially, FinnGen shows protection against T2D, a hard clinical endpoint.",
+   "data_refs": [
+    "burden_1",
+    "burden_8",
+    "burden_9",
+    "burden_16",
+    "burden_23"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (LOEUF/pLI)?",
+     "rationale": "To ensure therapeutic inhibition is safe and not developmentally deleterious."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations for LoF carriers in non-metabolic traits?",
+     "rationale": "To identify potential off-target risks before recommending as a target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d63ee686-0062-443c-96be-63e892cca777",
+   "content_hash": "b16276f2f890d6240c951f2e7a0c50c71ab5b1ba432b58dace894106fc6a7344",
+   "timestamp": "2026-11-01T04:18:19.262511+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_30",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Extremely strong GWAS evidence (p < 1e-500) links this gene to lipid profiles. Missense variants consistently lower triglycerides and raise HDL, suggesting inhibition is beneficial.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_15",
+    "gwas_19"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare variant loss-of-function in this gene associate with lower triglycerides and protection from coronary artery disease?",
+     "rationale": "GWAS shows strong biomarker associations, but burden data would confirm that total gene inhibition (LoF) mimics the beneficial lipid profile and protects against hard endpoints."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse liver or metabolic phenotypes associated with loss of function in this gene?",
+     "rationale": "The gene has a massive effect on lipid metabolism; I need to ensure that lowering triglycerides this way doesn't cause hepatic steatosis or other safety issues."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "87cffe40-8ab2-4b0c-ab87-8ca2f1429dcd",
+   "content_hash": "65f106dd213d0bca3cb141fbe37d0715f60cefe9381458968504e5ff89b56f8c",
+   "timestamp": "2026-11-01T04:18:19.634305+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_30",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function. GWAS signals are predominantly lipid/metabolic biomarkers. No curated safety events reported.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "safety_1",
+    "safety_40"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF)?",
+     "rationale": "To confirm that loss of function is well-tolerated in the general population despite the lack of known Mendelian LoF diseases."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d619efb1-a744-4182-8569-c050177f0037",
+   "content_hash": "15ae5d472ab6ff81b41a524938b68f07eaa1646d41617387726e405c61347a8b",
+   "timestamp": "2026-11-01T04:18:19.019984+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_30",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Extremely high LOEUF (1.3) and pLI (0) indicate the gene is highly tolerant to loss-of-function. DepMap confirms it is not essential for cell viability. Secreted protein is a good drug target.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Is there evidence that loss of function or inhibition of this gene provides protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance indicates safety but not efficacy; we need evidence of therapeutic benefit to support it as a target."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific clinical phenotypes associated with homozygous loss-of-function in humans?",
+     "rationale": "While population metrics suggest general tolerance, specific rare phenotypes might reveal organ-specific risks."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a48eddac-38cb-4ca7-a848-3188d6e441ac",
+   "content_hash": "52ec96d511393acbb4f44403cba5225ea2833d9b7bd5543e728f7143a87edc41",
+   "timestamp": "2026-11-01T04:18:22.584219+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_30",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function, including in hepatobiliary or endocrine categories. GWAS/burden signals are restricted to lipid/biomarker traits.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "safety_1",
+    "safety_3",
+    "safety_20"
+   ],
+   "parent_artifact_ids": [
+    "87cffe40-8ab2-4b0c-ab87-8ca2f1429dcd"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "67851b8e-6d81-4520-ba68-1201db1aa0d8",
+   "content_hash": "8a028caf64c5cad8f152d11ce9aec0dba725e5e1fb9f106ad1b97c02a75c92d8",
+   "timestamp": "2026-11-01T04:18:24.334038+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_30",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "LoF strongly associates with lower triglycerides across multiple cohorts and ancestries. Protection from T2D is seen, but CAD data is not explicitly shown in these top rows.",
+   "data_refs": [
+    "burden_1",
+    "burden_3",
+    "burden_6",
+    "burden_8",
+    "burden_16"
+   ],
+   "parent_artifact_ids": [
+    "87cffe40-8ab2-4b0c-ab87-8ca2f1429dcd"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "7de76297-0652-4dd9-8d85-f7e03aaf05eb",
+   "content_hash": "7094605379077733abe60069f3e85e393a2bfc13d20d3ea94c12972915ef58d1",
+   "timestamp": "2026-11-01T04:18:25.862016+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_30",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly LoF-tolerant (LOEUF 1.3, pLI 0) and non-essential in DepMap screens, suggesting lifelong inhibition would be well-tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [
+    "d619efb1-a744-4182-8569-c050177f0037"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "92a9dc4e-a5d4-48db-a149-d003598a4f77",
+   "content_hash": "8591d57eeb2f5b24ea4482c9dcd5b699addf28955a4cc4b1548740f601e7a29c",
+   "timestamp": "2026-11-01T04:18:29.745004+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_30",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "1 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "87cffe40-8ab2-4b0c-ab87-8ca2f1429dcd"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "87cffe40-8ab2-4b0c-ab87-8ca2f1429dcd",
+     "rationale": "The GWAS evidence relies exclusively on lipid profiles (triglycerides and HDL) without demonstrating impact on hard clinical endpoints like cardiovascular disease."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f0d54adb-4c23-4930-8be2-a55afff49764",
+   "content_hash": "ad250fd0240b936fc3cba4aaa30e5ca760e58d892fdadcb0f7ea0462350781a5",
+   "timestamp": "2026-11-01T04:18:31.165099+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_30",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Extremely strong GWAS evidence (p < 1e-500) for lipids is now corroborated by burden LoF data showing T2D protection. High L2G scores and missense leads across populations support causality.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_15",
+    "gwas_25"
+   ],
+   "parent_artifact_ids": [
+    "87cffe40-8ab2-4b0c-ab87-8ca2f1429dcd",
+    "67851b8e-6d81-4520-ba68-1201db1aa0d8",
+    "7de76297-0652-4dd9-8d85-f7e03aaf05eb"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "012f8479-73e0-47e6-ade9-906e940f3f34",
+   "content_hash": "f184756cb243e797bb01541b846c39b272d9854346227e00c059bff760abfcfc",
+   "timestamp": "2026-11-01T04:18:32.884978+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_30",
+   "round": 2,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "No Mendelian LoF diseases or safety events. GWAS signals are lipid-related. Tolerance data confirms the gene is highly LoF-tolerant (LOEUF 1.3) and non-essential, indicating high safety.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "safety_1",
+    "safety_4",
+    "safety_12"
+   ],
+   "parent_artifact_ids": [
+    "d619efb1-a744-4182-8569-c050177f0037",
+    "92a9dc4e-a5d4-48db-a149-d003598a4f77"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "d1648f94-55f8-4d8a-9fda-f817caeb3dd6",
+   "content_hash": "4f1be761951755001025ae0bbfc73deb980f493b1b0f1d8ce58350e9731251fb",
+   "timestamp": "2026-11-01T04:18:34.768375+00:00"
+  }
+ ]
+}

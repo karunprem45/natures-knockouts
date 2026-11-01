@@ -1,0 +1,43 @@
+A3 seed 5: 0 genes already done, 40 to run
+  [1/40] Gene_06 score=+1.975 calls=10 18.9s
+  [2/40] Gene_03 score=-1.100 calls=10 19.6s
+  [3/40] Gene_01 score=+1.250 calls=10 23.4s
+  [4/40] Gene_02 score=+2.025 calls=10 23.8s
+  [5/40] Gene_05 score=+2.450 calls=10 28.9s
+  [6/40] Gene_04 score=-0.650 calls=10 33.4s
+  [7/40] Gene_08 score=+2.525 calls=10 14.5s
+  [8/40] Gene_12 score=+1.700 calls=10 14.5s
+  [9/40] Gene_11 score=+1.900 calls=10 20.0s
+  [10/40] Gene_07 score=+1.900 calls=10 33.4s
+  [11/40] Gene_09 score=-0.250 calls=10 34.3s
+  [12/40] Gene_10 score=-0.500 calls=10 35.7s
+  [13/40] Gene_13 score=+2.650 calls=10 30.4s
+  [14/40] Gene_15 score=+2.100 calls=10 20.6s
+  [15/40] Gene_16 score=+2.350 calls=10 21.1s
+  [16/40] Gene_17 score=+2.475 calls=10 18.7s
+  [17/40] Gene_18 score=+3.075 calls=10 24.4s
+  [18/40] Gene_21 score=-0.825 calls=10 15.7s
+  [19/40] Gene_19 score=+1.350 calls=10 25.4s
+  [20/40] Gene_14 score=+1.100 calls=10 48.1s
+  [21/40] Gene_20 score=+2.400 calls=10 28.6s
+  [22/40] Gene_23 score=+2.450 calls=10 16.3s
+  [23/40] Gene_22 score=+1.800 calls=10 26.2s
+  [24/40] Gene_25 score=+0.850 calls=10 31.6s
+  [25/40] Gene_26 score=+2.150 calls=10 27.6s
+  [26/40] Gene_24 score=-1.200 calls=10 34.7s
+  [27/40] Gene_31 score=+2.075 calls=10 14.5s
+  [28/40] Gene_28 score=+2.000 calls=10 51.6s
+  [29/40] Gene_32 score=+1.850 calls=10 28.1s
+  [30/40] Gene_27 score=+2.350 calls=10 56.3s
+  [31/40] Gene_29 score=-0.050 calls=10 63.0s
+  [32/40] Gene_36 score=+1.400 calls=10 14.4s
+  [33/40] Gene_35 score=-1.200 calls=10 19.8s
+  [34/40] Gene_30 score=+3.100 calls=10 56.9s
+  [35/40] Gene_38 score=-1.500 calls=10 16.0s
+  [36/40] Gene_39 score=+2.325 calls=10 20.7s
+  [37/40] Gene_37 score=+1.250 calls=10 29.1s
+  [38/40] Gene_40 score=+1.450 calls=10 18.0s
+  [39/40] Gene_33 score=+1.500 calls=10 58.8s
+  [40/40] Gene_34 score=+0.400 calls=10 49.5s
+wrote exploratory/noise_floor/A3_s5/scores.csv (40/40 genes)
+exit=0

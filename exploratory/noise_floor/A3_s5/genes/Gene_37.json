@@ -1,0 +1,340 @@
+{
+ "gene_code": "Gene_37",
+ "score": 1.25,
+ "calls": 10,
+ "seconds": 29.1,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_37",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.7,
+   "rationale": "LoF variants associate with lower HDL (burden_4) and higher triglycerides (burden_3), an unfavorable lipid profile. No hard endpoints show protection; evidence is biomarker-only in EUR.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4",
+    "burden_5"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Does LoF in this gene associate with increased risk of cardiovascular disease or liver pathology?",
+     "rationale": "The lipid profile (low HDL, high TG) suggests potential cardiovascular risk rather than protection."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "To assess if therapeutic inhibition would be tolerated given the unfavorable lipid associations."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "fd94756b-0c8b-4e54-b14e-4c071fb41e62",
+   "content_hash": "7ff40f46ac2c0492b9fb1cde9e0528e7e35a01a8e752d3423f568181a527c977",
+   "timestamp": "2026-11-01T04:27:09.541336+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_37",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Strong evidence from missense variants (L2G > 0.93) linking the gene to lower triglycerides and higher HDL-C, a profile typically beneficial for cardiometabolic health.",
+   "data_refs": [
+    "gwas_8",
+    "gwas_9",
+    "gwas_14",
+    "gwas_19",
+    "gwas_30"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with reduced triglycerides or protection from coronary artery disease?",
+     "rationale": "GWAS missense effects suggest benefit, but confirming that loss-of-function mimics this profile is essential for validating an inhibitory therapeutic strategy."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any associations with liver fat, enzymes, or non-alcoholic fatty liver disease?",
+     "rationale": "Triglyceride-lowering targets can sometimes cause hepatic steatosis if the mechanism involves blocking VLDL secretion."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "29236db7-e3f4-4790-b1b9-f212cc2ab803",
+   "content_hash": "42ac6fd3c1f093ec22bbccc08da1ce9e59646f8017fb751b166a09aa8e575855",
+   "timestamp": "2026-11-01T04:27:10.534395+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_37",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function. LoF is associated with lower HbA1c. GWAS hits for macular degeneration and SHBG require monitoring but are not definitive contraindications.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "safety_3",
+    "safety_26",
+    "safety_39"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High intolerance would suggest essential functions not captured by the current Mendelian disease summary."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7206172e-5d7b-45aa-b0ea-15eb51faf44a",
+   "content_hash": "75d61d2a84fa3ad8112646245adcae08376729f66daee9bfe3cb917348c3fb11",
+   "timestamp": "2026-11-01T04:27:09.556056+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_37",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.13), near-zero pLI (0.002), and minimal DepMap dependency indicate that loss of function is well-tolerated in humans and not essential for cell survival.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or inhibition of this gene provide protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; there must be a therapeutic benefit to inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific organ-system toxicities or phenotypes associated with loss of function in humans or animal models?",
+     "rationale": "General population constraint metrics might miss specific late-onset or tissue-specific adverse effects."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4e68066d-3d57-4770-b5d1-d8d598c587f6",
+   "content_hash": "7561d1be6bb3efc8d6a64dd6a850eb8312218aa7d78c6cdf89a2a251e3df19ad",
+   "timestamp": "2026-11-01T04:27:11.997646+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_37",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "LoF variants strongly associate with INCREASED triglycerides (beta 0.15, p=1e-51) and lower HDL, contradicting the GWAS missense profile. No hard endpoints (CAD) are present in the data.",
+   "data_refs": [
+    "burden_2",
+    "burden_3",
+    "burden_4"
+   ],
+   "parent_artifact_ids": [
+    "29236db7-e3f4-4790-b1b9-f212cc2ab803"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "0cece5cb-4630-46ae-a0af-87f6c3d27b15",
+   "content_hash": "e5baec4636f91cef50094f70868e066fbd3c56c6a759d38d24c9c840f518b71e",
+   "timestamp": "2026-11-01T04:27:13.557661+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_37",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "No Mendelian LoF diseases in hepatobiliary or GI categories. GWAS shows extensive VLDL/lipid associations but no direct signals for liver fat or enzymes in the top 40 safety rows.",
+   "data_refs": [
+    "mendelian_5",
+    "mendelian_8",
+    "safety_4",
+    "safety_6",
+    "safety_7",
+    "safety_10",
+    "safety_12",
+    "safety_14",
+    "safety_17",
+    "safety_18",
+    "safety_19",
+    "safety_21",
+    "safety_23",
+    "safety_24",
+    "safety_32",
+    "safety_34",
+    "safety_38"
+   ],
+   "parent_artifact_ids": [
+    "29236db7-e3f4-4790-b1b9-f212cc2ab803"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "61649a33-cce5-4d9e-b29d-32636f518cd2",
+   "content_hash": "de42ff9a5ea8ae9b1d1c431861746430f88b14a1b0405325127069bfad15fc74",
+   "timestamp": "2026-11-01T04:27:15.489240+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_37",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "The gene is highly tolerant of loss-of-function; LOEUF is 1.13 and pLI is near 0. DepMap data confirms it is not essential for cell survival (mean effect -0.16).",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "7206172e-5d7b-45aa-b0ea-15eb51faf44a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "ee128442-fbf4-4d6d-a72a-cd4f41ada94f",
+   "content_hash": "a0e0eb01bc82a0542ff0a68e2962ba51a288a34b956440ccd21a9cbe66a56e65",
+   "timestamp": "2026-11-01T04:27:17.060051+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_37",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "5 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "0cece5cb-4630-46ae-a0af-87f6c3d27b15",
+    "29236db7-e3f4-4790-b1b9-f212cc2ab803",
+    "fd94756b-0c8b-4e54-b14e-4c071fb41e62"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "fd94756b-0c8b-4e54-b14e-4c071fb41e62",
+     "rationale": "Agent explicitly states that no hard endpoints show protection and the evidence is biomarker-only."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "fd94756b-0c8b-4e54-b14e-4c071fb41e62",
+     "rationale": "Agent admits that the evidence is limited to EUR ancestry only."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "29236db7-e3f4-4790-b1b9-f212cc2ab803",
+     "rationale": "The GWAS missense profile (lower triglycerides) contradicts the burden LoF profile (higher triglycerides) reported in A5."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "29236db7-e3f4-4790-b1b9-f212cc2ab803",
+     "rationale": "The evidence relies on lipid measurements (triglycerides, HDL-C) rather than hard clinical endpoints."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "0cece5cb-4630-46ae-a0af-87f6c3d27b15",
+     "rationale": "Agent admits that no hard endpoints such as CAD are present in the data."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "180f6d0b-fa09-455c-9173-f6d9ece02259",
+   "content_hash": "c2ff5b9b6cb253a61a0c451a0271576e33785534f7d18074a056cc70cb2a8108",
+   "timestamp": "2026-11-01T04:27:33.249049+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_37",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.4,
+   "rationale": "GWAS missense variants (L2G > 0.93) show lower HDL and higher triglycerides, but the burden agent reports LoF variants have the same direction. This suggests inhibition is likely detrimental.",
+   "data_refs": [
+    "gwas_8",
+    "gwas_14"
+   ],
+   "parent_artifact_ids": [
+    "29236db7-e3f4-4790-b1b9-f212cc2ab803",
+    "0cece5cb-4630-46ae-a0af-87f6c3d27b15",
+    "61649a33-cce5-4d9e-b29d-32636f518cd2"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "358b952e-3314-458e-af47-52db7a6da2bb",
+   "content_hash": "7e928000b9f351db75620a40130fce4f2845fe5fb8af17bd4efd36a95f519c60",
+   "timestamp": "2026-11-01T04:27:34.861555+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_37",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.7,
+   "rationale": "LoF variants associate with lower HDL (burden_4) and higher triglycerides (burden_3), an unfavorable lipid profile. No hard endpoints show protection; evidence is biomarker-only in EUR.",
+   "data_refs": [
+    "burden_2",
+    "burden_3",
+    "burden_4"
+   ],
+   "parent_artifact_ids": [
+    "fd94756b-0c8b-4e54-b14e-4c071fb41e62"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "1855b91d-e898-4311-8d9d-5c2e5555ba8d",
+   "content_hash": "25895f965ff675836e1e5745c2c9190b4a7f50f9cb47e96e6c4a84081a053cab",
+   "timestamp": "2026-11-01T04:27:36.325461+00:00"
+  }
+ ]
+}

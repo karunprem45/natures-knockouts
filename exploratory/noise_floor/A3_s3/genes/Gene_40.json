@@ -1,0 +1,344 @@
+{
+ "gene_code": "Gene_40",
+ "score": 1.45,
+ "calls": 10,
+ "seconds": 47.9,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_40",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Single LoF association with lower triglycerides in one EUR cohort (UKB). No hard endpoints or multi-ancestry data. Effect size is very small (beta -0.0017).",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Does common variant evidence support a role in triglyceride regulation or cardiovascular disease?",
+     "rationale": "Common variant support would increase confidence in this single-cohort rare variant finding."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "If the gene is essential or intolerant to loss, therapeutic inhibition may be unsafe despite the lipid-lowering effect."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with LoF in this gene in other systems?",
+     "rationale": "To determine if the triglyceride reduction comes at the cost of other organ dysfunction."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "db07b9b8-fd56-442b-96ae-d422b83e890c",
+   "content_hash": "e57b6514113925a3cafee5e8bf23d148c637f4f9da0b96be2646d41e82f4471a",
+   "timestamp": "2026-11-01T04:18:39.038397+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_40",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "GWAS shows associations with lipid biomarkers (HDL, ApoB, VLDL), but L2G scores are very low (<0.16) and lead variants are intronic, suggesting the causal gene may be a neighbor.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5",
+    "gwas_6"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare variant burden in this gene associate with lipid levels or cardiovascular disease?",
+     "rationale": "Low L2G scores in GWAS make gene assignment uncertain; rare variant burden would provide direct evidence that this specific gene is the driver."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "435b8029-9a94-4fc9-8522-2f988c3ea7f6",
+   "content_hash": "4d4cb370304949006cb460ef889aa9e74b515809a15bf53647e9162ab70b29b5",
+   "timestamp": "2026-11-01T04:18:39.080447+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_40",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "No Mendelian diseases are caused by loss-of-function variants across 9 categories. GWAS hits are primarily biomarkers or lack LoF-specific burden evidence.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "mendelian_11",
+    "mendelian_12"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "Confirmation of population tolerance to loss-of-function would significantly strengthen the safety profile for inhibition."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant burden signals for bipolar disorder or colon carcinoma?",
+     "rationale": "GWAS hits for these conditions exist; knowing if LoF variants increase risk is critical for safety."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "3d7e2abe-87af-43e3-a9c1-78efc7ff06e3",
+   "content_hash": "3adda1e2196353e73d12f0f45ca708e64a2a8886c6de3ea84be9574c88e02379",
+   "timestamp": "2026-11-01T04:18:39.037913+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_40",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "High LOEUF (0.71) and near-zero pLI (0.0016) indicate strong tolerance for loss-of-function. Negligible DepMap dependency (0.08%) confirms it is not essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function or genetic variation in this gene associate with improved cardiometabolic or liver health?",
+     "rationale": "Tolerance evidence shows inhibition is safe, but benefit (efficacy) must be established by another specialist."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "740da36c-5d76-448f-951a-c5fbe1ef3771",
+   "content_hash": "43b72b1eb3a771ed6477f8692a54e345c225b98caf89b16b4f274b904f252816",
+   "timestamp": "2026-11-01T04:18:38.784643+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_40",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Evidence is very weak: only one synonymous variant row (not LoF) for triglycerides in a single ancestry/cohort. No hard endpoints or high-confidence damaging variant data available.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "435b8029-9a94-4fc9-8522-2f988c3ea7f6"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "40bfccfe-d830-4e1d-8a8f-d44230181cc5",
+   "content_hash": "4eff62f14e3e93568255258e52627bb28c52443e1e59b1e88a908b88bec7fcbb",
+   "timestamp": "2026-11-01T04:18:40.791156+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_40",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.71) and very low pLI (0.0016) indicate population tolerance to LoF. DepMap data confirms the gene is not essential for cell viability (mean effect -0.059).",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "3d7e2abe-87af-43e3-a9c1-78efc7ff06e3"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "0557a41c-fc88-4581-ac3d-68628346ac0b",
+   "content_hash": "7ab6c811fb7d564fb301ae70d799f6d7be7d03cb15758f71f8dd1c0688546d7f",
+   "timestamp": "2026-11-01T04:18:44.824049+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_40",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Common variant evidence for lipids is weak (L2G < 0.16) and limited to intronic variants. No significant associations for triglycerides or cardiovascular endpoints were observed.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5",
+    "gwas_6"
+   ],
+   "parent_artifact_ids": [
+    "db07b9b8-fd56-442b-96ae-d422b83e890c"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "d31b6f90-ed21-47c8-ad08-a7ff82e843fd",
+   "content_hash": "2bf5b92f715cf0098daeff1bce870b0663d5191c4cf0e1d6683c3df924ea8e4a",
+   "timestamp": "2026-11-01T04:18:50.474844+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_40",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "7 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "40bfccfe-d830-4e1d-8a8f-d44230181cc5",
+    "435b8029-9a94-4fc9-8522-2f988c3ea7f6",
+    "d31b6f90-ed21-47c8-ad08-a7ff82e843fd",
+    "db07b9b8-fd56-442b-96ae-d422b83e890c"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "db07b9b8-fd56-442b-96ae-d422b83e890c",
+     "rationale": "The rare-variant evidence is restricted to a single study (UK Biobank)."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "db07b9b8-fd56-442b-96ae-d422b83e890c",
+     "rationale": "The association data is derived exclusively from individuals of European ancestry."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "db07b9b8-fd56-442b-96ae-d422b83e890c",
+     "rationale": "The finding is limited to triglyceride levels, which is a biomarker rather than a hard clinical endpoint."
+    },
+    {
+     "type": "underpowered",
+     "channel": "gwas",
+     "target_artifact_id": "435b8029-9a94-4fc9-8522-2f988c3ea7f6",
+     "rationale": "L2G scores below 0.16 and intronic variants suggest the associations are not confidently mapped to this gene."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "435b8029-9a94-4fc9-8522-2f988c3ea7f6",
+     "rationale": "Common variant associations are restricted to lipid measurements (HDL, ApoB, VLDL) without clinical outcomes."
+    },
+    {
+     "type": "underpowered",
+     "channel": "burden",
+     "target_artifact_id": "40bfccfe-d830-4e1d-8a8f-d44230181cc5",
+     "rationale": "The evidence relies on a single synonymous variant row, which is insufficient for a rare-variant burden verdict."
+    },
+    {
+     "type": "underpowered",
+     "channel": "gwas",
+     "target_artifact_id": "d31b6f90-ed21-47c8-ad08-a7ff82e843fd",
+     "rationale": "Low L2G scores (<0.16) indicate that the common variant evidence for this gene is weak and unreliable."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "908d1489-9d69-4d82-93f1-83351db4c485",
+   "content_hash": "ef72103c1174a1d809acb4053f98db18a671b202f95760d4b810bfc3081bfd38",
+   "timestamp": "2026-11-01T04:19:21.419823+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_40",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Evidence is extremely weak: single cohort (UKB), EUR only, biomarker-only, and based on a synonymous variant burden which is not a true LoF. GWAS also provides no support.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "db07b9b8-fd56-442b-96ae-d422b83e890c",
+    "d31b6f90-ed21-47c8-ad08-a7ff82e843fd"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "1563da2e-5859-4bbf-8d9b-06925ec488ce",
+   "content_hash": "c67680e1f5721a259438280d5c02b0521aaddaec8ce7c6e80da7c04a868de1ab",
+   "timestamp": "2026-11-01T04:19:23.003756+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_40",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "GWAS evidence is very weak due to low L2G scores (<0.16) and intronic variants. Burden results also failed to provide high-confidence LoF or hard-endpoint data, confirming the lack of signal.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5",
+    "gwas_6"
+   ],
+   "parent_artifact_ids": [
+    "435b8029-9a94-4fc9-8522-2f988c3ea7f6",
+    "40bfccfe-d830-4e1d-8a8f-d44230181cc5"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b80772f5-ee4f-4711-8c97-8e62a339f058",
+   "content_hash": "385b33dc965b076a71efd157f286cff7341318cef01f8eebe01d1ce12a6b6b8c",
+   "timestamp": "2026-11-01T04:19:24.468647+00:00"
+  }
+ ]
+}

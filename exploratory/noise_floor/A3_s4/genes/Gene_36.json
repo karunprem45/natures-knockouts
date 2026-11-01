@@ -1,0 +1,310 @@
+{
+ "gene_code": "Gene_36",
+ "score": 1.3,
+ "calls": 10,
+ "seconds": 22.7,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_36",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong LoF burden association with lower ALT/AST (p<1e-15) in 760k+ samples. However, evidence is limited to biomarkers; no hard clinical endpoints (e.g., cirrhosis) are reported.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "To ensure therapeutic inhibition wouldn't cause developmental or essentiality issues."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with LoF in this gene?",
+     "rationale": "To check if lowering liver enzymes comes at the cost of other organ dysfunction."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with liver disease or metabolic traits?",
+     "rationale": "To see if common variation supports the rare-variant protective signal."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0b0cc298-b24b-4bd4-bd37-6bc924196544",
+   "content_hash": "2ff5c9bc4a615f6eb7118483e36771bf5b5837165bc2076fdaa4f9ecc3dafbbe",
+   "timestamp": "2026-11-01T04:22:12.449118+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_36",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong GWAS evidence across multiple populations (n>1.6M) linking this gene to lower LDL, ApoB, and total cholesterol, alongside protection against intrahepatic cholestasis and liver disorders.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_3",
+    "gwas_5",
+    "gwas_8",
+    "gwas_9",
+    "gwas_19",
+    "gwas_38"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with lower LDL-C and protection from liver disease?",
+     "rationale": "GWAS lead variants are primarily intronic; confirming that loss-of-function mimics the protective common-variant associations is essential to support inhibition as a therapeutic strategy."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8e94080b-2f7e-49a0-a06d-fa3bee334903",
+   "content_hash": "d6db2ba3be44d0c7e0503347827a3749906b301e4cc3bccb4d16bb9a577e3e8a",
+   "timestamp": "2026-11-01T04:22:12.275196+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_36",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "Mendelian evidence shows loss of function (LoF) causes genetic/congenital disease. Strong GWAS signals for glucose and kidney function suggest systemic metabolic roles.",
+   "data_refs": [
+    "mendelian_1",
+    "safety_1",
+    "safety_2",
+    "safety_13",
+    "safety_14"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI > 0.9 or high LOEUF)?",
+     "rationale": "A high intolerance score combined with the existing Mendelian LoF signal would significantly strengthen the 'against' stance."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "563a3197-ac65-4f8b-a867-9e3437b3dfc5",
+   "content_hash": "f2a36d062a3b55bba72a3ac9641ff900fd46f3202ecd00f400234c5974c1c03f",
+   "timestamp": "2026-11-01T04:22:12.096821+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_36",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "High LOEUF (0.76), pLI near 0, and zero DepMap dependency indicate the gene is highly tolerant to loss-of-function and not essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function in this gene associate with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not justify a target; we need evidence of therapeutic benefit from inhibition."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific clinical phenotypes or syndromes associated with homozygous loss-of-function in humans?",
+     "rationale": "Even if generally tolerated, specific organ-system risks may exist that population metrics miss."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "cd0b8e45-34bb-4107-bf57-6d41bcf090f6",
+   "content_hash": "efd3d16f6c06935789de5522432dacbb72503f00ab006760e4ff610fa0e71352",
+   "timestamp": "2026-11-01T04:22:15.676392+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_36",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (0.76) and pLI (~0) indicate human LoF tolerance. DepMap data confirms the gene is non-essential for cell viability (0% dependency, mean effect -0.03).",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "0b0cc298-b24b-4bd4-bd37-6bc924196544"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "2b410578-1971-4e2e-a1be-d898c0f46f92",
+   "content_hash": "1fa7b38322d11e6d18182de320338facbf59dc8ef16e64fdf6bb2fa3594c8641",
+   "timestamp": "2026-11-01T04:22:19.257700+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_36",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "Loss of function is linked to a genetic/congenital disease. GWAS shows strong associations with glucose metabolism, kidney function, and lung function (FEV/FVC).",
+   "data_refs": [
+    "mendelian_1",
+    "safety_1",
+    "safety_2",
+    "safety_13",
+    "safety_26"
+   ],
+   "parent_artifact_ids": [
+    "0b0cc298-b24b-4bd4-bd37-6bc924196544"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "e6d1d599-4e1e-47cb-b83f-705ef7987dd1",
+   "content_hash": "b67ae89bafda3aeb858b8a2c1e319d97702a34064187109e5fe47af0a55f55aa",
+   "timestamp": "2026-11-01T04:22:21.009722+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_36",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LoF associates with lower ALT/AST (liver health) in a large consortium (N>760k). However, evidence is biomarker-only (no hard endpoints) and lacks the requested LDL-C data in this view.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "8e94080b-2f7e-49a0-a06d-fa3bee334903"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "048c4713-b19b-4212-bde7-90dbd2a835c7",
+   "content_hash": "339d429606afbdd32d0d36ab9a0e97040795113a34e4f2d27b746dda41a2242f",
+   "timestamp": "2026-11-01T04:22:22.406070+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_36",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "2 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "048c4713-b19b-4212-bde7-90dbd2a835c7",
+    "0b0cc298-b24b-4bd4-bd37-6bc924196544"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "0b0cc298-b24b-4bd4-bd37-6bc924196544",
+     "rationale": "The rationale explicitly states that evidence is limited to biomarkers (ALT/AST) and lacks hard clinical endpoints such as cirrhosis."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "048c4713-b19b-4212-bde7-90dbd2a835c7",
+     "rationale": "The agent acknowledges the evidence is biomarker-only and lacks hard clinical endpoints or the requested LDL-C data."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "890f5976-fc58-4568-a7e9-f09fe82b6f2f",
+   "content_hash": "734a5e8466ecf1bd02434913f4dbb08e87e9bc5d394c8f0ba8662e54a6513555",
+   "timestamp": "2026-11-01T04:22:29.578959+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_36",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.5,
+   "rationale": "Strong LoF burden for lower ALT/AST (p<1e-15) in 760k+ samples. Tolerance data supports viability, but lack of hard endpoints and safety concerns regarding lung/kidney function limit strength.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "0b0cc298-b24b-4bd4-bd37-6bc924196544",
+    "2b410578-1971-4e2e-a1be-d898c0f46f92",
+    "e6d1d599-4e1e-47cb-b83f-705ef7987dd1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f7efe801-e949-4944-bf5b-1dd5f37e6da5",
+   "content_hash": "653ec30eff277cdf1fe8c6d4c310c0b692a93301000762ca80ea910e18711484",
+   "timestamp": "2026-11-01T04:22:30.977111+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_36",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "GWAS shows robust, multi-ancestry protection against liver disorders and high LDL/ApoB. Burden evidence now confirms LoF associates with improved liver biomarkers, reinforcing the GWAS signal.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_8",
+    "gwas_19",
+    "gwas_38"
+   ],
+   "parent_artifact_ids": [
+    "8e94080b-2f7e-49a0-a06d-fa3bee334903",
+    "048c4713-b19b-4212-bde7-90dbd2a835c7"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "defcf6fb-ebaf-45df-8a79-0ba976c27c40",
+   "content_hash": "4fdacebfc1529694d3eb59dec06647d632f07d508f2c0e63f1fa20caffa2969a",
+   "timestamp": "2026-11-01T04:22:32.743886+00:00"
+  }
+ ]
+}

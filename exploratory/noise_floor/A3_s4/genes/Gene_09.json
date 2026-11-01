@@ -1,0 +1,301 @@
+{
+ "gene_code": "Gene_09",
+ "score": 0.0,
+ "calls": 10,
+ "seconds": 24.1,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_09",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "LoF variants strongly associate with increased LDL, ApoB, and hypercholesterolemia across multiple cohorts (BRaVa, UKB) and ancestries. Inhibiting this gene would likely increase CVD risk.",
+   "data_refs": [
+    "burden_1",
+    "burden_3",
+    "burden_4",
+    "burden_24"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans (LOEUF/pLI)?",
+     "rationale": "The extreme lipid elevations suggest LoF might be poorly tolerated or cause severe familial hypercholesterolemia-like phenotypes."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with coronary artery disease?",
+     "rationale": "To confirm if the biomarker risk (high LDL) translates to hard clinical cardiovascular endpoints."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "9b2339cc-d459-46d6-a857-5abb514bee6c",
+   "content_hash": "3365d696b9f290b9dc0edb547445bda04a1b7a3337b8486a5afd2426f782f7d2",
+   "timestamp": "2026-11-01T04:19:57.488934+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_09",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Massive GWAS evidence across multiple populations linking this gene to LDL-C and total cholesterol reduction. High L2G scores (>0.96) strongly support this gene as the causal target.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with lower LDL-C and protection from coronary artery disease?",
+     "rationale": "GWAS signals are primarily non-coding; confirming that loss-of-function mimics the protective GWAS direction is essential for validating inhibition as a therapeutic strategy."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse phenotypes associated with low expression or loss-of-function of this gene, particularly in the liver or brain?",
+     "rationale": "Strong lipid-lowering effects can sometimes be associated with hepatic steatosis or other off-target metabolic issues."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "7e1ef2de-6837-4621-a360-a852381d36ea",
+   "content_hash": "9ec61d1b04001c766ed7eef3b3bbb881a38bfab0a626dafbc5c4fed7327be1d5",
+   "timestamp": "2026-11-01T04:19:57.945962+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_09",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "Mendelian evidence shows 3 loss-of-function (LoF) diseases, including in nutritional/metabolic categories. Curated safety events link target activation to liver lipid accumulation.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "safety_17"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "The presence of 3 LoF-causing Mendelian diseases suggests potential systemic harm from inhibition; knowing population tolerance would confirm the risk level."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "338613fb-3936-456d-95d8-5058714b8e56",
+   "content_hash": "7853ddbe9849f668925d1c0d2f99baaa5c047b2ec16c4be6d4e3f3d9834dc2bb",
+   "timestamp": "2026-11-01T04:19:57.489505+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_09",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Extremely high LOEUF (1.12) and pLI near 0 indicate the gene is highly tolerant to loss-of-function in humans. Low DepMap dependency and non-essential status suggest safety for inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are there human loss-of-function carriers with beneficial cardiometabolic or liver phenotypes?",
+     "rationale": "Tolerance evidence is strong for safety, but I need evidence of therapeutic benefit from loss-of-function to confirm it as a viable target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "bcff712d-bc9e-4a1b-8930-447c8102fb5a",
+   "content_hash": "da8ad0d04b2f594d8b93fab15cf9ef6fe3fb2f7b2eda8b0e2093076c7972d627",
+   "timestamp": "2026-11-01T04:19:57.136426+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_09",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "Population metrics (LOEUF 1.12, pLI 0) and DepMap data (-0.22) indicate high tolerance to loss-of-function, suggesting inhibition may be well-tolerated despite potential disease links.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "lof_oe"
+   ],
+   "parent_artifact_ids": [
+    "338613fb-3936-456d-95d8-5058714b8e56"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "7f4464f8-325c-4c48-aec1-f482adf49639",
+   "content_hash": "d61ad636d83e66d214a9ecf1b4e56b9618899355db9008d609ea3d04f8e80eb4",
+   "timestamp": "2026-11-01T04:20:01.698820+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_09",
+   "round": 1,
+   "stance": "against",
+   "strength": 1.0,
+   "rationale": "Rare LoF variants strongly associate with HIGHER LDL-C and hypercholesterolemia risk across multiple cohorts (BRaVa, UKB) and ancestries, contradicting the protective hypothesis.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_4",
+    "burden_24"
+   ],
+   "parent_artifact_ids": [
+    "7e1ef2de-6837-4621-a360-a852381d36ea"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "d5869939-883f-4acd-a5dc-044559e0ec13",
+   "content_hash": "96f35ccc9feee5174babfdcd18fdbebd200be6d1e60c174ba71f60b6a06049d0",
+   "timestamp": "2026-11-01T04:20:03.269780+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_09",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.6,
+   "rationale": "Loss-of-function is linked to Mendelian metabolic and nutritional diseases. Curated safety data indicates liver lipid accumulation, though this was noted for activation, not inhibition.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "curated_safety_events"
+   ],
+   "parent_artifact_ids": [
+    "7e1ef2de-6837-4621-a360-a852381d36ea"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "3b02c44a-d86c-4829-92fe-b2816681747b",
+   "content_hash": "0dcf82d6739d777b2181226cc94452de6a26d5d12ec7acb8077271f5dc1536a8",
+   "timestamp": "2026-11-01T04:20:04.823430+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_09",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "2 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "7e1ef2de-6837-4621-a360-a852381d36ea"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "direction_conflict",
+     "channel": "gwas",
+     "target_artifact_id": "7e1ef2de-6837-4621-a360-a852381d36ea",
+     "rationale": "GWAS suggests LDL reduction while burden evidence (A1, A6) shows rare LoF variants increase LDL and hypercholesterolemia risk, indicating a conflict in the direction of effect."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "7e1ef2de-6837-4621-a360-a852381d36ea",
+     "rationale": "The GWAS evidence relies solely on LDL-C and total cholesterol measurements without demonstrating impact on hard clinical endpoints like myocardial infarction or cardiovascular events."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ac3c8686-2969-4c8d-8fba-d3552f06241b",
+   "content_hash": "e687615ad7990562cfd57e4d696bfa38982a940bbf7bcd442b00d349f5af758c",
+   "timestamp": "2026-11-01T04:20:15.490215+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_09",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.5,
+   "rationale": "GWAS shows massive, multi-ancestry lipid-lowering signals (L2G > 0.96), but burden evidence reveals a total direction conflict where rare LoF variants increase LDL-C, suggesting complex biology.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_5",
+    "gwas_32",
+    "gwas_40"
+   ],
+   "parent_artifact_ids": [
+    "7e1ef2de-6837-4621-a360-a852381d36ea",
+    "d5869939-883f-4acd-a5dc-044559e0ec13",
+    "3b02c44a-d86c-4829-92fe-b2816681747b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a15d8328-5909-4771-a7ba-de533eb5a5f0",
+   "content_hash": "cccf259ef2b2001742e0364e2be98ca0f4c88e0a4a40302df4279b964d8d684a",
+   "timestamp": "2026-11-01T04:20:17.356901+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_09",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.3,
+   "rationale": "Initial safety concerns from 3 LoF Mendelian diseases are mitigated by high population tolerance (LOEUF 1.12, pLI 0), suggesting LoF is not severely deleterious in humans.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2"
+   ],
+   "parent_artifact_ids": [
+    "338613fb-3936-456d-95d8-5058714b8e56",
+    "7f4464f8-325c-4c48-aec1-f482adf49639"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0d1d8d09-ee62-4115-b62f-cd089b9c9e66",
+   "content_hash": "aaf033f3d498f27ae236214816604239bd53aa3b8656f7acc85c95f418445c36",
+   "timestamp": "2026-11-01T04:20:19.004072+00:00"
+  }
+ ]
+}

@@ -1,0 +1,323 @@
+{
+ "gene_code": "Gene_21",
+ "score": -0.8250000000000001,
+ "calls": 10,
+ "seconds": 15.7,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_21",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Only one protective LoF association found for a specific LDL subfraction biomarker in a single EUR cohort. No hard clinical endpoints or multi-ancestry data available to support efficacy.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Are there common variant associations for major lipid fractions (LDL, TC, TG) or cardiovascular disease?",
+     "rationale": "Common variant evidence would validate if this gene's pathway broadly impacts lipid metabolism beyond a single LDL subfraction."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene loss-of-function tolerant in the general population (LOEUF/pLI)?",
+     "rationale": "With only 505 carriers in UKB, I need to know if LoF is rare due to selection pressure, which would indicate potential safety issues."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c49323f0-3dc2-4632-ae7e-b3926c91a0a3",
+   "content_hash": "30a71572477008a7ebabab0926f31f086976a471f4517247f83754a89039fb07",
+   "timestamp": "2026-11-01T04:25:37.183301+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_21",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Strong GWAS evidence (high L2G) across multiple populations linking this gene to lower triglycerides, lower VLDL, and T2D risk, though lead variants are intronic.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_7",
+    "gwas_8",
+    "gwas_9",
+    "gwas_10",
+    "gwas_11"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare-variant burden for triglycerides, T2D, and ALT",
+     "rationale": "GWAS lead variants are intronic; rare-variant burden would confirm the gene's causal role and the direction of effect for loss-of-function."
+    },
+    {
+     "type": "safety_check",
+     "query": "association with BMI and liver enzymes",
+     "rationale": "GWAS shows associations with increased BMI and ALT, which could indicate potential metabolic or hepatotoxicity risks upon inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "9708d045-a4a5-430b-9e9f-d85f7be2fd42",
+   "content_hash": "c62038bde66f1930c51d2d519f12a8d4cf97bd5d4758fc971b61e50ed1e563b4",
+   "timestamp": "2026-11-01T04:25:37.646478+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_21",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 20 conditions. Strong GWAS signals in brain morphology lack evidence of being driven by LoF or causing clinical harm.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_11",
+    "mendelian_12",
+    "safety_1",
+    "safety_4"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "The strong brain GWAS signals suggest the gene is active in development; I need to confirm that breaking it doesn't cause embryonic lethality or severe neurodevelopmental issues."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there any rare-variant burden signals for cognitive impairment or psychiatric disorders?",
+     "rationale": "GWAS hits for brain volume and cortical thickness are very strong; I need to ensure rare LoF variants don't translate these into clinical neurological disease."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f259a264-469f-4234-a97c-f52d89f70583",
+   "content_hash": "7372841953ee1d0c1e2976e52d516edb525331b35b8b48046842c26d41d79fcb",
+   "timestamp": "2026-11-01T04:25:37.800636+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_21",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "High pLI (1.0) and low LOEUF (0.31) indicate strong intolerance to loss-of-function in humans, suggesting lifelong inhibition may not be well-tolerated despite low cell-line dependency.",
+   "data_refs": [
+    "pli",
+    "loeuf",
+    "depmap_mean_gene_effect"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Is there evidence of protective effects from rare LoF variants for cardiometabolic or liver traits?",
+     "rationale": "A strong protective effect might justify the risk suggested by high constraint scores."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "c63ed5bd-de7c-4086-bbc5-e14e330d4188",
+   "content_hash": "08b391e60f233e46226e57834c432ea598fc7a6143b52590300a98d5dbb744ac",
+   "timestamp": "2026-11-01T04:25:39.978501+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_21",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Evidence is limited to one biomarker in one ancestry (EUR). No data for requested traits (TG, T2D, ALT) or hard endpoints. LoF shows lower LDL percentage, but clinical impact is unclear.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "9708d045-a4a5-430b-9e9f-d85f7be2fd42"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene loss-of-function tolerant in humans?",
+     "rationale": "To determine if targeting this gene for LoF is viable without causing developmental or essentiality issues."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Does common variant evidence for TG, T2D, and ALT align with the LDL biomarker signal?",
+     "rationale": "To see if common variation supports the metabolic role that rare variants currently fail to show in my data."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "f1d74e1b-3e5a-42ab-944a-5c4f45bb807f",
+   "content_hash": "40f0b0d88fb7e9592113d9dc46f77252d9503e2556c32296ae1c14ad5ffa7f30",
+   "timestamp": "2026-11-01T04:25:42.057018+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_21",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "High constraint (pLI=1, LOEUF=0.31) suggests LoF is poorly tolerated in the population, despite lack of cell-line essentiality. Rare UKB carriers likely reflect strong selection pressure.",
+   "data_refs": [
+    "pli",
+    "loeuf",
+    "lof_oe",
+    "depmap_mean_gene_effect"
+   ],
+   "parent_artifact_ids": [
+    "c49323f0-3dc2-4632-ae7e-b3926c91a0a3"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "973b8aa0-95dc-401e-8bf5-48cc610d397f",
+   "content_hash": "57ba57b98fe1020fd616e33ab62c365953b864c6ec41aac9f4bb2292250f5e72",
+   "timestamp": "2026-11-01T04:25:43.611686+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_21",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF) across 20 conditions. GWAS signals for liver enzymes (GGT) and metabolic syndrome are present but not linked to LoF harm.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_11",
+    "mendelian_12",
+    "safety_16",
+    "safety_29"
+   ],
+   "parent_artifact_ids": [
+    "9708d045-a4a5-430b-9e9f-d85f7be2fd42"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "16a0e926-51ee-40df-a581-97723197b7ec",
+   "content_hash": "5cf67d0368d2d96049f491f9acc6b4906c0137c4e6385f5dd849320267961ae3",
+   "timestamp": "2026-11-01T04:25:45.344738+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_21",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "3 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "16a0e926-51ee-40df-a581-97723197b7ec",
+    "9708d045-a4a5-430b-9e9f-d85f7be2fd42",
+    "f259a264-469f-4234-a97c-f52d89f70583"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "essential_gene",
+     "channel": "safety",
+     "target_artifact_id": "f259a264-469f-4234-a97c-f52d89f70583",
+     "rationale": "The gene is highly LoF-intolerant (pLI 1.0, LOEUF 0.31). Claiming safety based on a lack of Mendelian disease ignores strong selection pressure against LoF variants."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "safety",
+     "target_artifact_id": "16a0e926-51ee-40df-a581-97723197b7ec",
+     "rationale": "High constraint (pLI 1.0) suggests LoF is deleterious. Absence of Mendelian disease reports does not equate to safety when the gene is under strong purifying selection."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "9708d045-a4a5-430b-9e9f-d85f7be2fd42",
+     "rationale": "Evidence relies on lipid measurements (triglycerides, VLDL) and T2D risk without confirming hard clinical endpoints for the metabolic traits."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "31a81260-2b7f-46bd-8f1a-6ae160b2c238",
+   "content_hash": "eea173da57ea2fa99bad44f9eed6c4cdb3edf145e2d4d18d1e270223d5298984",
+   "timestamp": "2026-11-01T04:25:47.596760+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_21",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.75,
+   "rationale": "Strong GWAS evidence (high L2G) across multiple populations for TG and T2D. Safety agent confirms no LoF harm, mitigating the lack of hard-endpoint burden data.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_7",
+    "gwas_8",
+    "gwas_9",
+    "gwas_10",
+    "gwas_11"
+   ],
+   "parent_artifact_ids": [
+    "9708d045-a4a5-430b-9e9f-d85f7be2fd42",
+    "f1d74e1b-3e5a-42ab-944a-5c4f45bb807f",
+    "16a0e926-51ee-40df-a581-97723197b7ec"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "34b32df2-d6fc-49b8-b8a0-540501705b6e",
+   "content_hash": "edb0acef91780069d59d953aaac747fc15324d8f4de36ec121d4a3c393864471",
+   "timestamp": "2026-11-01T04:25:49.220906+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_21",
+   "round": 2,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Initial safety optimism is overturned by extreme LoF-intolerance (pLI 1.0, LOEUF 0.31). The lack of Mendelian LoF reports likely reflects embryonic lethality or strong purifying selection.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_11",
+    "safety_1",
+    "safety_4"
+   ],
+   "parent_artifact_ids": [
+    "f259a264-469f-4234-a97c-f52d89f70583"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "9529f7cb-07d0-4cbd-9d1d-9f99b55e8731",
+   "content_hash": "6ac1e3686a9454e667608043bb7913d455e22a30dc478260f1b10a3f8bef7205",
+   "timestamp": "2026-11-01T04:25:50.720505+00:00"
+  }
+ ]
+}

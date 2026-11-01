@@ -1,0 +1,318 @@
+{
+ "gene_code": "Gene_25",
+ "score": 1.7,
+ "calls": 10,
+ "seconds": 13.6,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_25",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Strong LoF burden for lower triglycerides and LDL across multiple cohorts and ancestries. However, all 112 traits are biomarkers; hard clinical endpoints (e.g. CAD) are missing from this view.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_12",
+    "burden_15"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Does common variant evidence support a reduction in coronary artery disease or myocardial infarction?",
+     "rationale": "Burden results show strong biomarker protection, but clinical endpoint data is missing to confirm therapeutic efficacy."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-tolerant in humans (pLI/LOEUF)?",
+     "rationale": "High effect sizes on lipids suggest potential for developmental or systemic harm if the gene is essential."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "38d84fd6-e5ab-45c4-8bb0-d6864d7af4f2",
+   "content_hash": "553e80063195fc7303459e0c3ebf63dfee4f72b0dc02626a222f61398bb259c3",
+   "timestamp": "2026-11-01T04:21:19.162093+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_25",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Extremely strong GWAS associations with lipids (TG, TC, LDL, VLDL) across multiple populations. High L2G scores (e.g., 0.88 for TC) suggest this gene is the causal driver at the locus.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_16",
+    "gwas_23",
+    "gwas_36",
+    "gwas_40"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare variant burden for triglycerides, LDL cholesterol, and coronary artery disease",
+     "rationale": "To confirm that loss-of-function (mimicking inhibition) matches the common variant direction and protects against hard endpoints."
+    },
+    {
+     "type": "safety_check",
+     "query": "associations with liver fat, transaminases, or non-cardiometabolic traits",
+     "rationale": "The gene has very broad effects on lipid fractions; I need to ensure lowering circulating lipids doesn't cause hepatic steatosis or other adverse effects."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e8036e60-3c2e-49ca-8ae6-e4badb73f453",
+   "content_hash": "ed59e129e82a219d45dada9a230bfd4d0cae460a3615aef00b3cc3274f4d6fe7",
+   "timestamp": "2026-11-01T04:21:19.511337+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_25",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Loss of function is linked to Mendelian diseases in severe categories, including nervous system and congenital disorders, suggesting significant safety risks from gene inhibition.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "High intolerance would further confirm that breaking this gene is harmful, reinforcing the 'against' stance."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "0dcfd4f5-7e25-4209-8f1c-7059bddd1385",
+   "content_hash": "297e3ee98f1deb3318f6183d3e19af873679bb5845576243664fb0138fe8d64f",
+   "timestamp": "2026-11-01T04:21:18.719760+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_25",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Exceptional tolerance profile: LOEUF > 1.2 and pLI near 0 indicate no selection against LoF. No DepMap dependency and secreted location suggest high safety for systemic inhibition.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or inhibition of this gene provide protection against cardiometabolic or liver disease?",
+     "rationale": "While highly tolerated, the gene must show therapeutic benefit to be a viable target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b4de0ade-a042-42c2-8de3-06b9d2344793",
+   "content_hash": "46c36fc9a4e96de48e2b1bb1e1da10e2f708d5ac973f1379d8ec4a6b2e16218e",
+   "timestamp": "2026-11-01T04:21:18.775580+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_25",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly LoF-tolerant: LOEUF (1.22) is very high, pLI is near zero, and it is not essential in DepMap screens. Lifelong inhibition is likely well-tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "0dcfd4f5-7e25-4209-8f1c-7059bddd1385"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "d04eb38f-ae3e-464d-84d9-9b2b00b7e3cd",
+   "content_hash": "cb168e00cedc71b9038c3096756e0413b10387d0bdcad0fe2869327491dba2c0",
+   "timestamp": "2026-11-01T04:21:21.069011+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_25",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "LoF variants show massive, multi-cohort protection against high triglycerides and LDL. However, evidence is limited to biomarkers; no hard clinical endpoints are present in the data.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_12",
+    "burden_15",
+    "burden_31",
+    "burden_33"
+   ],
+   "parent_artifact_ids": [
+    "b4de0ade-a042-42c2-8de3-06b9d2344793"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "82bedfe2-2353-4a52-89b7-a9fedc6c49e2",
+   "content_hash": "4d55b3fc86fc0797a3f5621a3aa1f714d3871fdef4106d404049411cd7d4535a",
+   "timestamp": "2026-11-01T04:21:22.827508+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_25",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "GWAS data shows strong associations with lipid biomarkers (LDL, triglycerides, cholesterol), but the provided top 40 rows contain no clinical endpoint data for CAD or MI to confirm efficacy.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_36",
+    "gwas_40"
+   ],
+   "parent_artifact_ids": [
+    "38d84fd6-e5ab-45c4-8bb0-d6864d7af4f2"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "31b42132-6171-47d4-a76e-11b745b83496",
+   "content_hash": "b3bab731f44036ae81600a2b12799fb4a83c7b2aecf7320352800420f59294f2",
+   "timestamp": "2026-11-01T04:21:24.735680+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_25",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "4 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "0dcfd4f5-7e25-4209-8f1c-7059bddd1385",
+    "38d84fd6-e5ab-45c4-8bb0-d6864d7af4f2",
+    "82bedfe2-2353-4a52-89b7-a9fedc6c49e2",
+    "e8036e60-3c2e-49ca-8ae6-e4badb73f453"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "38d84fd6-e5ab-45c4-8bb0-d6864d7af4f2",
+     "rationale": "The agent explicitly states that all 112 traits are biomarkers and hard clinical endpoints like CAD are missing."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "e8036e60-3c2e-49ca-8ae6-e4badb73f453",
+     "rationale": "The associations are limited to lipid measurements (TG, TC, LDL, VLDL) without clinical outcomes, as noted in the GWAS fulfillment verdict."
+    },
+    {
+     "type": "direction_conflict",
+     "channel": "safety",
+     "target_artifact_id": "0dcfd4f5-7e25-4209-8f1c-7059bddd1385",
+     "rationale": "The safety agent claims Mendelian risks from LoF, but the tolerance agent (A4, A5) shows the gene is highly LoF-tolerant (LOEUF 1.22) and non-essential."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "82bedfe2-2353-4a52-89b7-a9fedc6c49e2",
+     "rationale": "The rationale confirms evidence is limited to biomarkers with no hard clinical endpoints present in the data."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "8a5ff9c9-42cd-462b-812f-8ef6ab6a313a",
+   "content_hash": "7520456c7c99ec9c76cef1b949005f79180c1599576aa0b96b1796f23fcc720c",
+   "timestamp": "2026-11-01T04:21:26.830656+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_25",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Extremely strong LoF burden for lower triglycerides and LDL across multiple cohorts and ancestries. However, evidence is limited to biomarkers; no hard clinical endpoints are present.",
+   "data_refs": [
+    "burden_1",
+    "burden_2",
+    "burden_3",
+    "burden_12",
+    "burden_15"
+   ],
+   "parent_artifact_ids": [
+    "38d84fd6-e5ab-45c4-8bb0-d6864d7af4f2",
+    "31b42132-6171-47d4-a76e-11b745b83496"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "61aff387-c96e-40d9-92e4-6efd7607084a",
+   "content_hash": "1fadf7f9011396f28335f9ae18becb02a563f4f3b9545b73b4379c25bf7290b5",
+   "timestamp": "2026-11-01T04:21:28.732495+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_25",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.3,
+   "rationale": "Mendelian LoF risks in nervous/congenital systems conflict with high population LoF tolerance (LOEUF 1.22). The safety risk may be restricted to specific developmental windows or genotypes.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2"
+   ],
+   "parent_artifact_ids": [
+    "0dcfd4f5-7e25-4209-8f1c-7059bddd1385",
+    "d04eb38f-ae3e-464d-84d9-9b2b00b7e3cd"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b4d2494e-fd6c-407f-82e2-d532f2b0962d",
+   "content_hash": "08ee6d01b7c8874bffd73a7b5b1b26c05229088f78535ccb437eb6faef40588b",
+   "timestamp": "2026-11-01T04:21:30.512707+00:00"
+  }
+ ]
+}

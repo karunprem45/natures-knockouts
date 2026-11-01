@@ -1,0 +1,335 @@
+{
+ "gene_code": "Gene_24",
+ "score": -1.7000000000000002,
+ "calls": 10,
+ "seconds": 29.2,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_24",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.1,
+   "rationale": "Only one row showing a tiny protective effect on HDL (biomarker) in one EUR cohort. No hard endpoints or liver/metabolic traits. Synonymous method used, not true LoF burden.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF tolerant in humans (pLI/LOEUF)?",
+     "rationale": "To determine if inhibiting this gene is likely to be tolerated without severe adverse effects."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "061f63ac-45e8-4daa-b5fe-9c018374c13d",
+   "content_hash": "f25714dd34e35e5181fead74bd2c9be14fb30f328a754c42ec73962dc5c66cda",
+   "timestamp": "2026-11-01T04:16:08.321185+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_24",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Strong GWAS signals for triglycerides and HDL subfractions across multiple populations. High L2G score (0.82) for synonymous variants. Directionality suggests TG lowering is possible.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_4",
+    "gwas_9",
+    "gwas_39"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene associate with reduced triglycerides or protection from coronary artery disease?",
+     "rationale": "GWAS lead variants are mostly non-coding or synonymous; burden data is needed to confirm that inhibiting the gene product mimics the beneficial lipid profile."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any associations with liver fat, enzymes, or non-cardiometabolic adverse traits?",
+     "rationale": "GWAS shows strong lipid effects; I need to ensure TG lowering doesn't come at the cost of hepatic steatosis."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "dfcbc857-79ea-4e0e-acbe-7879e891a544",
+   "content_hash": "e69439bbd3be431959df0f26a1ee5c9319a465dadd6b23b63c332f70b1871db5",
+   "timestamp": "2026-11-01T04:16:08.831173+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_24",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.8,
+   "rationale": "Strong evidence of Mendelian diseases caused by loss-of-function across multiple severe categories, including congenital, cardiovascular, and endocrine disorders.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (pLI or LOEUF scores)?",
+     "rationale": "High LoF intolerance would further confirm the risk of systemic harm from therapeutic inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b2659b6f-99f7-4df0-b62a-cd1805c7512b",
+   "content_hash": "2e8787d2e384573ab0dd632d07ef09739cf14976dd0b4fce91cacda245b60bf1",
+   "timestamp": "2026-11-01T04:16:09.590941+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_24",
+   "round": 0,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "Extreme constraint (LOEUF 0.19, pLI 1.0) indicates LoF is poorly tolerated in humans, despite non-essentiality in cell lines. Lifelong inhibition poses high safety risks.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "missense_z"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "safety_check",
+     "query": "Are there any known human phenotypes or syndromes associated with loss-of-function variants in this gene?",
+     "rationale": "High constraint scores usually correlate with severe developmental or fitness-reducing phenotypes."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there any healthy homozygous or heterozygous LoF carriers in large population cohorts?",
+     "rationale": "If healthy carriers exist despite low LOEUF, the safety profile might be more favorable than the constraint scores suggest."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "52c1538a-f9c9-4f95-9dfd-0a630ef966ad",
+   "content_hash": "d758066cd5137552eb71387cbe48997157bdf267c97352626462f46ef4165036",
+   "timestamp": "2026-11-01T04:16:11.179622+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_24",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.95,
+   "rationale": "Extremely low LOEUF (0.19) and pLI (1.0) indicate severe intolerance to loss-of-function in humans, suggesting lifelong inhibition would likely cause significant adverse effects.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "lof_oe",
+    "missense_z"
+   ],
+   "parent_artifact_ids": [
+    "061f63ac-45e8-4daa-b5fe-9c018374c13d"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "0dd1fa75-28f7-4061-8e47-c7fa0402cbb7",
+   "content_hash": "7f14d39bea651ea492b41b18a09b9de7769635b0981c2ebf028e2b8f73bb2eb9",
+   "timestamp": "2026-11-01T04:16:14.793572+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_24",
+   "round": 1,
+   "stance": "against",
+   "strength": 0.9,
+   "rationale": "Loss-of-function variants are associated with 12 Mendelian diseases across multiple severe categories, including genetic/congenital, cardiovascular, and endocrine systems.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10"
+   ],
+   "parent_artifact_ids": [
+    "52c1538a-f9c9-4f95-9dfd-0a630ef966ad"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "c1db25b8-78a4-465b-b4c1-eeb6de99f551",
+   "content_hash": "d2fc05f8162c7de076aabee3b709dc96c7c2d7a7d4b0d99c640b1089a3d5e820",
+   "timestamp": "2026-11-01T04:16:16.563814+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_24",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.2,
+   "rationale": "Evidence shows LoF carriers exist in UKB (N=344k), but data only covers one biomarker (HDL) with no hard endpoints or carrier counts provided to confirm health status.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "52c1538a-f9c9-4f95-9dfd-0a630ef966ad"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "a662d8fa-8fd0-499a-84fa-fa79a9d45f6a",
+   "content_hash": "2f081232eb0e4a43358d3f7c42974a87d7a1f0c21de9685243c686b837766fc6",
+   "timestamp": "2026-11-01T04:16:17.823102+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_24",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "8 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "061f63ac-45e8-4daa-b5fe-9c018374c13d",
+    "a662d8fa-8fd0-499a-84fa-fa79a9d45f6a",
+    "dfcbc857-79ea-4e0e-acbe-7879e891a544"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "underpowered",
+     "channel": "burden",
+     "target_artifact_id": "061f63ac-45e8-4daa-b5fe-9c018374c13d",
+     "rationale": "The verdict is based on only one row of data, which is insufficient for a confident assessment."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "061f63ac-45e8-4daa-b5fe-9c018374c13d",
+     "rationale": "The evidence relies entirely on a single cohort study."
+    },
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "061f63ac-45e8-4daa-b5fe-9c018374c13d",
+     "rationale": "The data is derived from only one ancestry (EUR)."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "061f63ac-45e8-4daa-b5fe-9c018374c13d",
+     "rationale": "The evidence is limited to HDL measurements without any hard clinical endpoints."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "dfcbc857-79ea-4e0e-acbe-7879e891a544",
+     "rationale": "GWAS signals are restricted to lipid biomarkers (TG and HDL subfractions) rather than clinical disease outcomes."
+    },
+    {
+     "type": "essential_gene",
+     "channel": "gwas",
+     "target_artifact_id": "dfcbc857-79ea-4e0e-acbe-7879e891a544",
+     "rationale": "A supportive verdict is unsafe given the extreme LoF intolerance (LOEUF 0.19) and severe Mendelian risks identified in A3-A6."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "a662d8fa-8fd0-499a-84fa-fa79a9d45f6a",
+     "rationale": "The fulfillment claim relies on a single biomarker (HDL) without evidence of impact on hard clinical endpoints."
+    },
+    {
+     "type": "underpowered",
+     "channel": "burden",
+     "target_artifact_id": "a662d8fa-8fd0-499a-84fa-fa79a9d45f6a",
+     "rationale": "No carrier counts were provided to confirm the statistical power or health status of the individuals."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "78156e97-5c23-4ed0-ab85-09a7bc217b21",
+   "content_hash": "ccff2674d514bdac366ea14a95f294ff5625b6afc24a009114f067e357346b1f",
+   "timestamp": "2026-11-01T04:16:32.129121+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_24",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.05,
+   "rationale": "Evidence is extremely weak: single EUR cohort, biomarker-only (HDL), and uses synonymous variants. Severe LoF intolerance (LOEUF 0.19) suggests true LoF is likely deleterious, not protective.",
+   "data_refs": [
+    "burden_1"
+   ],
+   "parent_artifact_ids": [
+    "061f63ac-45e8-4daa-b5fe-9c018374c13d",
+    "0dd1fa75-28f7-4061-8e47-c7fa0402cbb7"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "19f205db-a18b-4b0e-9767-cbe0e624068f",
+   "content_hash": "a4125bd5193dec4aed764786b08a886fc06c050d6a5f9a19810828337734abfb",
+   "timestamp": "2026-11-01T04:16:33.865794+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_24",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.3,
+   "rationale": "Strong lipid signals exist, but L2G scores for the most significant traits are low/moderate. Extreme LoF intolerance (LOEUF 0.19) and lack of clinical endpoints make inhibition risky.",
+   "data_refs": [
+    "gwas_2",
+    "gwas_4",
+    "gwas_9",
+    "gwas_39"
+   ],
+   "parent_artifact_ids": [
+    "dfcbc857-79ea-4e0e-acbe-7879e891a544"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "6752ec51-de6e-4f39-b5fd-25e5924f25da",
+   "content_hash": "dd2ccad1bcc85d788c68b536fbd14125552a1c95cb73e06d9d875b26808cbe8c",
+   "timestamp": "2026-11-01T04:16:35.524899+00:00"
+  }
+ ]
+}

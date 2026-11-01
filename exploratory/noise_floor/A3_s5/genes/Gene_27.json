@@ -1,0 +1,299 @@
+{
+ "gene_code": "Gene_27",
+ "score": 2.35,
+ "calls": 10,
+ "seconds": 56.3,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_27",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No rare-variant burden data is available for this gene across any cohorts, ancestries, or cardiometabolic traits. Evidence is currently absent.",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Are there common-variant associations for cardiometabolic or liver traits?",
+     "rationale": "In the absence of rare-variant burden data, common-variant signals are required to establish any genetic link to the target traits."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene tolerant to loss-of-function mutations in the general population?",
+     "rationale": "Lack of burden data may be due to the gene being highly constrained (essential), which would make it a poor therapeutic target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "29297626-3757-4577-bdb2-117cd681b402",
+   "content_hash": "48e4fa7111ce82e7277e3cc32566ca8480728853ca329d5b4901e3d2c49db9af",
+   "timestamp": "2026-11-01T04:26:01.605968+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_27",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Strong GWAS evidence links this gene to liver health. Variants associated with lower ALT/AST and reduced risk of cirrhosis and liver disorders suggest inhibition is likely hepatoprotective.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_3",
+    "gwas_5",
+    "gwas_6",
+    "gwas_16",
+    "gwas_32",
+    "gwas_35"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene protect against liver cirrhosis or NAFLD/MASH?",
+     "rationale": "GWAS signals are non-coding; confirming that loss-of-function mimics the protective effect seen in common variants is essential for target validation."
+    },
+    {
+     "type": "safety_check",
+     "query": "Is this gene associated with any adverse phenotypes in other tissues, particularly given the lipid associations?",
+     "rationale": "The gene shows complex lipid associations (e.g., increased triglycerides/cholesterol in some fractions) that need to be weighed against liver benefits."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "9fa310be-a853-4855-b23b-6603a0881c9d",
+   "content_hash": "44beafb23300467efcf7021a74eb83b37448fed7095c4417204464cc70da1c32",
+   "timestamp": "2026-11-01T04:26:02.160121+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_27",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss-of-function (LoF) variants. GWAS signals are primarily biomarkers (bone, blood, hormones) without clear evidence of severe adverse pathology.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "mendelian_11",
+    "safety_1",
+    "safety_2",
+    "safety_3",
+    "safety_17"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "If the gene is highly intolerant to loss-of-function, it would suggest developmental or systemic essentiality not captured by the Mendelian disease list."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant burden signals for stroke, bone density, or hematological disorders?",
+     "rationale": "GWAS hits for stroke and bone density are significant; I need to know if LoF variants specifically increase risk for these clinical outcomes."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e0dc653b-817f-476d-89a4-63d70ddd8d69",
+   "content_hash": "51985a287b0d9d8ac7723167ac039a78b8569627cc978caa55d71dbd04eda8c0",
+   "timestamp": "2026-11-01T04:26:02.672324+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_27",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Extremely high tolerance for loss-of-function (LOEUF 1.16, pLI ~0). No cell-line dependency across 1256 screens. Subcellular location (ER, Lipid droplet) is consistent with metabolic targets.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss of function or inhibition of this gene provide protection against cardiometabolic or liver disease?",
+     "rationale": "While highly tolerated, therapeutic value requires evidence of a beneficial effect from gene disruption."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "e70827c3-687e-4e96-a3e8-601c4acdf193",
+   "content_hash": "abbaa28b0516577f18b4cf7b1a33d279ff99d941c9c7f4c9ba192286760522a3",
+   "timestamp": "2026-11-01T04:26:01.605525+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_27",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No rare-variant burden data provided for this gene; cannot evaluate protection against liver cirrhosis or NAFLD/MASH.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "9fa310be-a853-4855-b23b-6603a0881c9d"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "d2a6aea6-31dc-444c-b217-f8959fec53b6",
+   "content_hash": "52df99d099b49ac46d81533e6013a9abc0275de95c3b291d990375335698645b",
+   "timestamp": "2026-11-01T04:26:05.244500+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_27",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Strong evidence for liver disease: multiple high-L2G associations with liver enzymes, cirrhosis, and liver disorders across populations. Negative betas suggest inhibition may be beneficial.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5",
+    "gwas_6",
+    "gwas_16",
+    "gwas_32",
+    "gwas_35"
+   ],
+   "parent_artifact_ids": [
+    "29297626-3757-4577-bdb2-117cd681b402"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "bc100558-e44d-46b9-9ebf-2bdb8904d664",
+   "content_hash": "60e38054a27887450334da8ebcc4de5d8ba0a34b72cc2ad4ec2cc682d9d9df1c",
+   "timestamp": "2026-11-01T04:26:07.150558+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_27",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "High LOEUF (1.16), pLI near 0, and zero DepMap dependency indicate the gene is highly tolerant to loss-of-function and not essential for cell viability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "29297626-3757-4577-bdb2-117cd681b402"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "1c7afa2b-7e10-4338-90a3-54ea1611cfa1",
+   "content_hash": "eff94ff524ff2a1213a9c5a78c5f905da19dc0cd38113c0654aada8241d7716d",
+   "timestamp": "2026-11-01T04:26:10.495852+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_27",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "0 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "cce13b2e-1d29-4068-a08e-5bf4a4b935b6",
+   "content_hash": "530838a0484a265d5fdb058d726a19910986d25bc15d8c42bc865a9d2052a512",
+   "timestamp": "2026-11-01T04:26:53.234963+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_27",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No rare-variant burden data exists for this gene. While GWAS and tolerance data are highly supportive, the burden channel itself remains empty and cannot independently support the hypothesis.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "29297626-3757-4577-bdb2-117cd681b402",
+    "bc100558-e44d-46b9-9ebf-2bdb8904d664",
+    "1c7afa2b-7e10-4338-90a3-54ea1611cfa1"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "49befa3d-c0ac-4405-951e-300cdfcd800f",
+   "content_hash": "64ab2aef9589bba50c8eb5a94f2364166dd43d3ebe70a2a8080e1654d484ae5c",
+   "timestamp": "2026-11-01T04:26:54.384500+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_27",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.75,
+   "rationale": "Strong GWAS evidence links this gene to liver health across multiple populations. Variants associated with lower ALT/AST and reduced risk of cirrhosis suggest inhibition is hepatoprotective.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_3",
+    "gwas_5",
+    "gwas_6",
+    "gwas_16",
+    "gwas_32",
+    "gwas_35"
+   ],
+   "parent_artifact_ids": [
+    "9fa310be-a853-4855-b23b-6603a0881c9d",
+    "d2a6aea6-31dc-444c-b217-f8959fec53b6"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "9a689375-f065-4c0f-bccc-e73077c1516c",
+   "content_hash": "7d1b4f00adc9407bd9844d41e25d1a205adc52653f7f3ef3c521b74ca637e4d1",
+   "timestamp": "2026-11-01T04:26:56.000772+00:00"
+  }
+ ]
+}

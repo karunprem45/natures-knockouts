@@ -1,0 +1,328 @@
+{
+ "gene_code": "Gene_27",
+ "score": 1.675,
+ "calls": 10,
+ "seconds": 18.7,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_27",
+   "round": 0,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No rare-variant burden data is available for this gene across any cohorts, ancestries, or cardiometabolic traits. Evidence is currently absent.",
+   "data_refs": [],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "gwas_check",
+     "query": "Are there common-variant associations for cardiometabolic or liver traits?",
+     "rationale": "In the absence of rare-variant burden data, common-variant signals are required to establish any genetic link to the target traits."
+    },
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene tolerant to loss-of-function mutations in the general population?",
+     "rationale": "Lack of burden data may be due to the gene being highly constrained (essential), which would make it a poor therapeutic target."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "dc72bd3e-a137-471b-a9fe-870d5d79134e",
+   "content_hash": "48e4fa7111ce82e7277e3cc32566ca8480728853ca329d5b4901e3d2c49db9af",
+   "timestamp": "2026-11-01T04:16:23.739974+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_27",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Strong GWAS evidence links this gene to liver health. Variants associated with lower ALT/AST and reduced risk of cirrhosis/liver disease consistently map to this locus with high L2G scores.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_3",
+    "gwas_5",
+    "gwas_6",
+    "gwas_16",
+    "gwas_32"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does rare-variant loss-of-function in this gene protect against liver cirrhosis or NAFLD/MASH?",
+     "rationale": "GWAS signals are non-coding; confirming that loss-of-function mimics the protective GWAS direction is essential for therapeutic validation."
+    },
+    {
+     "type": "safety_check",
+     "query": "Is this gene associated with any adverse phenotypes in other tissues, particularly given the lipid associations?",
+     "rationale": "The gene shows complex lipid associations (e.g., increased triglycerides/cholesterol in some fractions) that need safety profiling."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ac527b52-096c-412c-a312-046fb21ebe8e",
+   "content_hash": "4e43a6b917a1e351b2c4593f2d6e201ad4d6563d287cf21c8083407ba7b2d928",
+   "timestamp": "2026-11-01T04:16:23.926301+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_27",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss-of-function (LoF). GWAS signals are primarily biomarkers (bone density, hormones, blood counts) without clear evidence of severe pathology from LoF.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "mendelian_11",
+    "safety_1",
+    "safety_2",
+    "safety_3",
+    "safety_17"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "High intolerance would suggest essentiality not captured by the Mendelian disease data, potentially moving the stance to neutral or against."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there rare-variant burden signals for stroke or hepatocellular carcinoma?",
+     "rationale": "GWAS hits for these traits exist; if LoF variants increase risk, it would be a significant safety concern."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4b420390-61ec-4351-af58-95d6b425b347",
+   "content_hash": "32bb5f74824121b0a3cc639348f2db8857f8a4926cdced34aa392c04c516af13",
+   "timestamp": "2026-11-01T04:16:24.259414+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_27",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.16) and near-zero pLI indicate the gene is highly tolerant to loss-of-function. DepMap data confirms it is not essential for cell viability across 1,256 lines.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Does loss-of-function or inhibition of this gene associate with improved cardiometabolic or liver phenotypes?",
+     "rationale": "Tolerance indicates safety but not efficacy; I need to know if inhibiting this gene provides a therapeutic benefit."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "17856ceb-e61e-4608-a068-352d9d2e3f22",
+   "content_hash": "2b7a2fce51cd747ea00ee16ff53e668f5866377a479ca589627f2e1550823916",
+   "timestamp": "2026-11-01T04:16:26.129728+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_27",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "No rare-variant burden data was provided for liver cirrhosis, NAFLD/MASH, or any other traits to evaluate protective effects.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "ac527b52-096c-412c-a312-046fb21ebe8e"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "2954502d-f679-4ebd-a2dd-5f8775484e7a",
+   "content_hash": "e3f321f76202c894b106dd56a7bb426faec21738bbaac715304ff5b9bb6afba6",
+   "timestamp": "2026-11-01T04:16:30.198539+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_27",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "The gene is highly LoF-tolerant (LOEUF 1.16, pLI ~0) and not essential in DepMap screens (0% dependency), suggesting lifelong inhibition may be well-tolerated.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_frac_dependent",
+    "depmap_mean_gene_effect",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "4b420390-61ec-4351-af58-95d6b425b347"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "9ddd12ee-3920-4263-8e6b-d94f2e13f04b",
+   "content_hash": "2b141b2b7d7ff26c860bc94b08097084bd9376d5eb47e1a2d2be6ee560653cdc",
+   "timestamp": "2026-11-01T04:16:33.599888+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_27",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function across 11 categories. GWAS signals for bone density, hormones, and blood counts are present but lack LoF-burden evidence of harm.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "mendelian_10",
+    "mendelian_11",
+    "safety_1",
+    "safety_2",
+    "safety_3",
+    "safety_4"
+   ],
+   "parent_artifact_ids": [
+    "ac527b52-096c-412c-a312-046fb21ebe8e"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "9fbf7620-de23-424a-8287-5d3e8c6b9a5c",
+   "content_hash": "aae1b41090d397abbbac970cd21f1eb219a8011336f4d92398d9ac6eb9d10f79",
+   "timestamp": "2026-11-01T04:16:35.487373+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_27",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "2 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "9fbf7620-de23-424a-8287-5d3e8c6b9a5c",
+    "ac527b52-096c-412c-a312-046fb21ebe8e"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "ac527b52-096c-412c-a312-046fb21ebe8e",
+     "rationale": "The GWAS evidence relies heavily on liver enzymes (ALT/AST) which are biomarkers, though cirrhosis is mentioned."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "safety",
+     "target_artifact_id": "9fbf7620-de23-424a-8287-5d3e8c6b9a5c",
+     "rationale": "Safety assessment notes GWAS signals for bone density, hormones, and blood counts, which are measurements rather than clinical endpoints."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "654961e1-acbe-4020-8ebe-bf9d625514a6",
+   "content_hash": "969cf84fd1699ba6a8ff1a9c8190e3ecb71824eabbe029beaff7fda5d5c7b118",
+   "timestamp": "2026-11-01T04:16:37.012094+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_27",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.75,
+   "rationale": "Strong GWAS evidence links this locus to liver health (ALT/AST, cirrhosis, ALD) across populations. Strength is slightly moderated as lead variants are non-coding and burden data is missing.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_3",
+    "gwas_4",
+    "gwas_5",
+    "gwas_6",
+    "gwas_16",
+    "gwas_32",
+    "gwas_35"
+   ],
+   "parent_artifact_ids": [
+    "ac527b52-096c-412c-a312-046fb21ebe8e",
+    "2954502d-f679-4ebd-a2dd-5f8775484e7a",
+    "9fbf7620-de23-424a-8287-5d3e8c6b9a5c"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a2c75aa5-ffda-4e87-869e-3b7415040f54",
+   "content_hash": "1b671ec7acaa1393169a4e4dc5ba6a1dc646bea7a5f37811c51e2852bb6c0636",
+   "timestamp": "2026-11-01T04:16:38.671755+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "safety",
+   "gene_code": "Gene_27",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Gene is highly LoF-tolerant (LOEUF 1.16) and non-essential. GWAS signals are primarily biomarkers (bone density, hormones, blood counts) without evidence of severe pathology from LoF.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_10",
+    "safety_1",
+    "safety_2",
+    "safety_3"
+   ],
+   "parent_artifact_ids": [
+    "4b420390-61ec-4351-af58-95d6b425b347",
+    "9ddd12ee-3920-4263-8e6b-d94f2e13f04b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a832d11e-3a44-445e-881a-b0bde9161321",
+   "content_hash": "0760e5fe9b685490d90aeefc9f5596866c49ed1058e321a1347340b74eee8825",
+   "timestamp": "2026-11-01T04:16:40.181251+00:00"
+  }
+ ]
+}

@@ -1,0 +1,349 @@
+{
+ "gene_code": "Gene_05",
+ "score": 2.15,
+ "calls": 10,
+ "seconds": 24.0,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_05",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.5,
+   "rationale": "LoF variants show significant protection against high LDL and total cholesterol in one ancestry. However, evidence is limited to biomarkers with no hard clinical endpoints yet reported.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene tolerant to loss-of-function in humans (pLI/LOEUF)?",
+     "rationale": "Strong biomarker effects in a specific ancestry need to be balanced against whether systemic inhibition is viable without developmental or fitness costs."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants in this gene associate with cardiovascular disease or lipid levels?",
+     "rationale": "To see if the rare-variant burden signal is corroborated by common-variant evidence across broader populations."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any adverse associations with liver function or other metabolic traits?",
+     "rationale": "To ensure that lowering LDL via this target doesn't cause unintended harm like steatosis or glucose dysregulation."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "276210d5-32ad-4974-a3f2-98439b9147ce",
+   "content_hash": "ab64f1efddbc6fd7cb4e3c133b3d53cad5bcb9ddfcda7a03a30d8deb6cb5794e",
+   "timestamp": "2026-11-01T04:19:27.775998+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_05",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "Strong, consistent associations with reduced triglycerides and LDL-C across multiple GWAS. However, L2G scores are low (~0.25) and all lead variants are intronic, weakening gene assignment.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_7",
+    "gwas_12",
+    "gwas_13",
+    "gwas_22"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare-variant burden for triglycerides, LDL-C, and coronary artery disease",
+     "rationale": "Low L2G scores and intronic variants mean the causal gene is uncertain; rare-variant burden would confirm if this specific gene is the driver."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "3941eace-e1c7-4b2b-8b8e-5cdf99318dff",
+   "content_hash": "6f5097e5f7a80570492e9ff55f4e66464abeed5d80722d5eb75037b4a9367bee",
+   "timestamp": "2026-11-01T04:19:27.947926+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_05",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "No Mendelian diseases are caused by loss-of-function variants. GWAS signals are primarily related to sphingomyelin and lipid biomarkers, which are likely related to the target's mechanism.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "safety_1",
+    "safety_4"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-intolerant (e.g., pLI > 0.9 or low LOEUF)?",
+     "rationale": "To confirm that the lack of LoF Mendelian diseases isn't due to embryonic lethality or extreme intolerance."
+    },
+    {
+     "type": "burden_check",
+     "query": "Are there any rare-variant burden signals for non-lipid traits, particularly in the nervous system?",
+     "rationale": "Sphingomyelin metabolism is critical in the nervous system; I need to ensure LoF doesn't increase risk for neurodegenerative or developmental disorders."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "4ed7c3db-c1f5-41e8-9606-2ac8e551e7ab",
+   "content_hash": "0519c2cf8f37a6a8f2cca1242722874804c32ac90b38ea5de4e933592de86401",
+   "timestamp": "2026-11-01T04:19:28.223083+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_05",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Extremely high LOEUF (1.5) and pLI near 0 indicate high tolerance for loss-of-function. No cell-line dependency and predicted secretion suggest a safe, accessible therapeutic target.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are there human loss-of-function variants associated with protection against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone does not prove therapeutic benefit; I need evidence that inhibiting this gene actually improves health outcomes."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "9858709f-d3f5-4f5c-bc34-0692434e1c4a",
+   "content_hash": "7217e3f2fbbbb7a2cc3a800836633ecdc07c55bfd24b76f90ab8852bdd6e515b",
+   "timestamp": "2026-11-01T04:19:27.155573+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_05",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "LoF burden significantly lowers LDL-C and total cholesterol in Genes & Health. However, evidence is limited to one ancestry/cohort and lacks hard clinical endpoints like CAD.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "3941eace-e1c7-4b2b-8b8e-5cdf99318dff"
+   ],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "human tolerance for LoF in this gene",
+     "rationale": "To determine if therapeutic inhibition would be safe based on natural knockouts."
+    },
+    {
+     "type": "gwas_check",
+     "query": "common variant association with CAD",
+     "rationale": "To see if the lipid-lowering effect of this gene translates to reduced cardiovascular disease risk."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:4.20"
+   ],
+   "artifact_id": "9ebe1e4e-0244-4a9b-b48c-61e206a062ac",
+   "content_hash": "c5ec138810ab9e14dc17046f609a6118db41681ee71a3cfc5bd5a91c0efbcb7b",
+   "timestamp": "2026-11-01T04:19:29.942995+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_05",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "Extremely high LOEUF (1.5) and pLI near 0 indicate the gene is highly tolerant to loss-of-function. DepMap data shows no cell dependency across 1,248 screens, suggesting no fitness cost.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "is_core_essential"
+   ],
+   "parent_artifact_ids": [
+    "276210d5-32ad-4974-a3f2-98439b9147ce"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "f99a8d01-4b97-4a8f-9bc4-36c23e46c326",
+   "content_hash": "79db1202772e7dc20129333e65e72f2eaa4e286c354452f33a75b57c6f7e6930",
+   "timestamp": "2026-11-01T04:19:31.611600+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_05",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "Common variants strongly associate with lower triglycerides, LDL, and total cholesterol across large populations. However, L2G scores are low (~0.25) and lead variants are all intronic.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_7",
+    "gwas_12",
+    "gwas_13",
+    "gwas_22"
+   ],
+   "parent_artifact_ids": [
+    "276210d5-32ad-4974-a3f2-98439b9147ce"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "8474b6f9-66f5-4822-bd60-99d46dd0b3fd",
+   "content_hash": "2e574c546d1bb77b7cb9e41bbd9e4e9d35baca05dcb6b6caf2eaf635ff3962d2",
+   "timestamp": "2026-11-01T04:19:33.186740+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_05",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "6 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "276210d5-32ad-4974-a3f2-98439b9147ce",
+    "3941eace-e1c7-4b2b-8b8e-5cdf99318dff",
+    "8474b6f9-66f5-4822-bd60-99d46dd0b3fd",
+    "9ebe1e4e-0244-4a9b-b48c-61e206a062ac"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "single_ancestry",
+     "channel": "burden",
+     "target_artifact_id": "276210d5-32ad-4974-a3f2-98439b9147ce",
+     "rationale": "The rationale explicitly states that evidence is limited to one ancestry."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "276210d5-32ad-4974-a3f2-98439b9147ce",
+     "rationale": "The rationale confirms evidence is limited to biomarkers with no hard clinical endpoints reported."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "3941eace-e1c7-4b2b-8b8e-5cdf99318dff",
+     "rationale": "Evidence is based on lipid measurements (triglycerides, LDL-C) rather than clinical endpoints."
+    },
+    {
+     "type": "single_cohort",
+     "channel": "burden",
+     "target_artifact_id": "9ebe1e4e-0244-4a9b-b48c-61e206a062ac",
+     "rationale": "The rationale states evidence is limited to the Genes & Health cohort."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "9ebe1e4e-0244-4a9b-b48c-61e206a062ac",
+     "rationale": "The rationale admits the evidence lacks hard clinical endpoints like CAD."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "8474b6f9-66f5-4822-bd60-99d46dd0b3fd",
+     "rationale": "Associations are limited to lipid biomarkers without evidence for hard clinical endpoints."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "2e7a4a09-6c9a-4c7e-9168-8d1669f91122",
+   "content_hash": "0d44da741eff50f8fc2d9af2dca62f70581783ccd08efbef90e5ba5a77d21e3e",
+   "timestamp": "2026-11-01T04:19:44.207150+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_05",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.4,
+   "rationale": "LoF variants protect against high LDL/TC in one ancestry. While GWAS and high tolerance (LOEUF 1.5) support the mechanism, the burden signal remains weak due to lack of hard endpoints.",
+   "data_refs": [
+    "burden_1",
+    "burden_2"
+   ],
+   "parent_artifact_ids": [
+    "276210d5-32ad-4974-a3f2-98439b9147ce",
+    "f99a8d01-4b97-4a8f-9bc4-36c23e46c326",
+    "8474b6f9-66f5-4822-bd60-99d46dd0b3fd"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "860d0e1f-2ef6-4734-beba-69cdb38460ea",
+   "content_hash": "9ed97064eb619333dfb65a5c9c67bfdb4c1f291a8ec863fd583977186839bd37",
+   "timestamp": "2026-11-01T04:19:46.170646+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_05",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "GWAS shows consistent lipid-lowering associations. While L2G scores are low and variants intronic, independent burden evidence confirms LoF lowers LDL-C, significantly increasing confidence.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_7",
+    "gwas_12",
+    "gwas_13"
+   ],
+   "parent_artifact_ids": [
+    "3941eace-e1c7-4b2b-8b8e-5cdf99318dff",
+    "9ebe1e4e-0244-4a9b-b48c-61e206a062ac"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b3bd4567-b775-4361-bf6e-03e7ce6a2d9b",
+   "content_hash": "90bf62abddf492d03f8bc7932fc4f8ebaa1d99e529c29243b1c892e19d6634c3",
+   "timestamp": "2026-11-01T04:19:48.922087+00:00"
+  }
+ ]
+}

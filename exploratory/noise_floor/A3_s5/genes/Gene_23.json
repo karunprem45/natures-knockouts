@@ -1,0 +1,323 @@
+{
+ "gene_code": "Gene_23",
+ "score": 2.45,
+ "calls": 10,
+ "seconds": 16.3,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_23",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Massive LoF burden associations with lower triglycerides and VLDL across multiple cohorts (UKB, G&H). However, all 125 traits are biomarkers; no hard clinical endpoints are present in view.",
+   "data_refs": [
+    "burden_2",
+    "burden_3",
+    "burden_5",
+    "burden_8",
+    "burden_12",
+    "burden_14"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans?",
+     "rationale": "The effect sizes on lipids are very large; I need to know if complete inhibition is viable/safe."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus associate with coronary artery disease or MI?",
+     "rationale": "My view only contains biomarkers; I need evidence that these lipid changes translate to reduced disease risk."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "3563ad12-4302-46b7-901c-358ceaca5592",
+   "content_hash": "7fae37d5e9a0b28c75afb7adce73f7cb9d71521b4756d9ed8d9fe4b8b38c4a83",
+   "timestamp": "2026-11-01T04:25:48.121935+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_23",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Massive GWAS evidence across populations shows variants (including synonymous and splice donor) strongly associated with lower triglycerides and VLDL, and higher HDL.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_7",
+    "gwas_23",
+    "gwas_33"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare variant burden for triglycerides and coronary artery disease",
+     "rationale": "To confirm that loss-of-function (mimicking inhibition) recapitulates the beneficial lipid profile and protects against hard clinical endpoints."
+    },
+    {
+     "type": "safety_check",
+     "query": "associations with liver fat or liver enzymes",
+     "rationale": "Inhibiting triglyceride export can sometimes lead to hepatic steatosis; need to ensure liver safety."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "87cf3cc8-8cae-4bfb-8d6e-40b17ce98a33",
+   "content_hash": "38a12e69159e3a60e75071bf9bbe771d70c6375053c3da66268caf9c8c676593",
+   "timestamp": "2026-11-01T04:25:47.946120+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_23",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF). GWAS/burden signals are predominantly lipid-related biomarkers, which are likely relevant to the therapeutic scope.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "safety_1",
+    "safety_40"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-intolerant (pLI or LOEUF)?",
+     "rationale": "Confirmation of tolerance to loss of function would solidify the safety profile for inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a50b60a9-ccb7-496a-8028-12a707b5f70a",
+   "content_hash": "8b32508afbcdf4a77afde666fef04ab0d1d44b4aad1a8f94b9d3e2752292a258",
+   "timestamp": "2026-11-01T04:25:47.945811+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_23",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.95,
+   "rationale": "Extremely high LOEUF (1.61) and pLI near 0 indicate the gene is highly tolerant to loss-of-function. DepMap data shows no essentiality across 1230 cell lines. Secreted status aids druggability.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Are there human loss-of-function carriers with beneficial cardiometabolic or liver phenotypes?",
+     "rationale": "While highly tolerated, we need evidence that inhibiting this gene actually provides therapeutic benefit for the target indications."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "059f752c-e18d-401a-8ff3-8cb31861389a",
+   "content_hash": "a1dbba2bcf6193351da35c8f001eda77f48c2ce3592dcd95642de726c3381a6f",
+   "timestamp": "2026-11-01T04:25:49.107756+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_23",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "High LOEUF (1.61), low pLI (0.01), and lack of DepMap dependency (0.027) strongly indicate that human LoF is well-tolerated and the gene is non-essential.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "is_core_essential",
+    "depmap_frac_dependent"
+   ],
+   "parent_artifact_ids": [
+    "3563ad12-4302-46b7-901c-358ceaca5592"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "8bdf0507-2722-49fc-be7e-99f48fd32d7a",
+   "content_hash": "84d374ec6fdc960357f72070e114d77c7f72e1d1c2f36fb3f163109ce8d627b5",
+   "timestamp": "2026-11-01T04:25:52.669271+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_23",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "LoF carriers show massive reductions in triglycerides and VLDL subfractions across multiple cohorts (UKB, G&H). However, evidence is biomarker-only with no hard clinical endpoints reported.",
+   "data_refs": [
+    "burden_2",
+    "burden_3",
+    "burden_5",
+    "burden_8",
+    "burden_12",
+    "burden_16"
+   ],
+   "parent_artifact_ids": [
+    "059f752c-e18d-401a-8ff3-8cb31861389a"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "5fff4856-b806-4acb-86e2-c4ea8c57e6fd",
+   "content_hash": "3ea060b6dbc5e937ae5574252aecfe5780761a2e546225837f282a69b138e278",
+   "timestamp": "2026-11-01T04:25:54.571513+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_23",
+   "round": 1,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "My view contains 4,464 rows but only lipid biomarkers are shown. I cannot confirm associations with CAD or MI as no hard-endpoint traits are visible in the provided data subset.",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "3563ad12-4302-46b7-901c-358ceaca5592"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "94b455ab-b879-4f5e-a9b0-038a8d021fc3",
+   "content_hash": "34400fff050c192e3e86caef7ada1d808705c82613141d0941cda5aa63c51120",
+   "timestamp": "2026-11-01T04:25:56.508060+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_23",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "3 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "3563ad12-4302-46b7-901c-358ceaca5592",
+    "5fff4856-b806-4acb-86e2-c4ea8c57e6fd",
+    "87cf3cc8-8cae-4bfb-8d6e-40b17ce98a33"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "3563ad12-4302-46b7-901c-358ceaca5592",
+     "rationale": "The agent explicitly states that all 125 traits are biomarkers with no hard clinical endpoints present in the data."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "5fff4856-b806-4acb-86e2-c4ea8c57e6fd",
+     "rationale": "The rationale confirms evidence is biomarker-only with no hard clinical endpoints reported."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "87cf3cc8-8cae-4bfb-8d6e-40b17ce98a33",
+     "rationale": "The evidence is restricted to lipid biomarkers (triglycerides, VLDL, HDL) without clinical endpoints, as noted in the corresponding fulfillment verdict A7."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "59f6b5dd-bf6a-4709-95d2-d3bd41270235",
+   "content_hash": "f8654c8bb3b9e892085c8dad7632a7ffa6cde097332e2e326f90a37d01cf543e",
+   "timestamp": "2026-11-01T04:25:58.454266+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_23",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Massive LoF burden signals for lower triglycerides and VLDL across multiple cohorts. Strength reduced as evidence remains biomarker-only with no hard clinical endpoints in view.",
+   "data_refs": [
+    "burden_2",
+    "burden_5",
+    "burden_8",
+    "burden_12",
+    "burden_14",
+    "burden_16"
+   ],
+   "parent_artifact_ids": [
+    "3563ad12-4302-46b7-901c-358ceaca5592",
+    "8bdf0507-2722-49fc-be7e-99f48fd32d7a",
+    "94b455ab-b879-4f5e-a9b0-038a8d021fc3"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "b66af6e8-7f32-41af-82c6-7b4db070177b",
+   "content_hash": "01dca3cf1dea585d100ab9a01da9ee0e87c0b9ffc405a84c0eb7c8ef183f91c3",
+   "timestamp": "2026-11-01T04:26:00.124888+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_23",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.7,
+   "rationale": "Massive GWAS evidence across populations for lipid biomarkers (TG, VLDL, HDL). Strength reduced slightly as evidence is currently restricted to biomarkers without hard clinical endpoints.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_7",
+    "gwas_23",
+    "gwas_33",
+    "gwas_39"
+   ],
+   "parent_artifact_ids": [
+    "87cf3cc8-8cae-4bfb-8d6e-40b17ce98a33"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "ad9673c5-e95e-40f2-9449-3142c29a166d",
+   "content_hash": "6104d8fcfc9b5bbcbf31590312705a6ac71e7ac43036449c10f6bd42ee10da94",
+   "timestamp": "2026-11-01T04:26:01.841378+00:00"
+  }
+ ]
+}

@@ -1,0 +1,331 @@
+{
+ "gene_code": "Gene_23",
+ "score": 2.575,
+ "calls": 10,
+ "seconds": 20.6,
+ "artifacts": [
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "burden",
+   "gene_code": "Gene_23",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Massive LoF burden associations with lower triglycerides and VLDL across multiple cohorts (UKB, G&H). However, all 125 traits are biomarkers; no hard clinical endpoints are present in view.",
+   "data_refs": [
+    "burden_2",
+    "burden_3",
+    "burden_5",
+    "burden_8",
+    "burden_12",
+    "burden_14"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is this gene LoF-tolerant in humans?",
+     "rationale": "The effect sizes on lipids are very large; I need to know if complete inhibition is viable/safe."
+    },
+    {
+     "type": "gwas_check",
+     "query": "Do common variants at this locus associate with coronary artery disease or MI?",
+     "rationale": "My view only contains biomarkers; I need evidence that these lipid changes translate to reduced disease risk."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "a33702f6-2ec2-4dda-9d4a-444e3e377eca",
+   "content_hash": "7fae37d5e9a0b28c75afb7adce73f7cb9d71521b4756d9ed8d9fe4b8b38c4a83",
+   "timestamp": "2026-11-01T04:21:04.983081+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_23",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "Massive GWAS evidence across multiple populations shows lead variants (including splice donor and synonymous) strongly associated with reduced triglycerides and VLDL, and increased HDL.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_2",
+    "gwas_3",
+    "gwas_7",
+    "gwas_23",
+    "gwas_33"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "rare variant burden for triglycerides and coronary artery disease",
+     "rationale": "GWAS lead variants are non-coding or synonymous; burden data would confirm if loss-of-function mimics these beneficial lipid profiles and protects against hard endpoints."
+    },
+    {
+     "type": "safety_check",
+     "query": "associations with liver fat, steatosis, or pancreatitis",
+     "rationale": "Strong triglyceride-lowering effects can sometimes lead to hepatic fat accumulation depending on the mechanism."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "54c0de0f-ae9d-4bc9-bdd3-5c863aedc76b",
+   "content_hash": "50006c734c1029c30e87d16e5a187f904f59f80c6989b5cea49d9bd7a79d877e",
+   "timestamp": "2026-11-01T04:21:05.163770+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "safety",
+   "gene_code": "Gene_23",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "No Mendelian diseases are caused by loss of function (LoF). GWAS/burden signals are predominantly lipid-related biomarkers, which are likely relevant to the therapeutic scope.",
+   "data_refs": [
+    "mendelian_1",
+    "mendelian_2",
+    "mendelian_3",
+    "mendelian_4",
+    "mendelian_5",
+    "mendelian_6",
+    "mendelian_7",
+    "mendelian_8",
+    "mendelian_9",
+    "safety_1",
+    "safety_40"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "tolerance_check",
+     "query": "Is the gene LoF-intolerant (pLI or LOEUF)?",
+     "rationale": "Confirmation of tolerance to loss of function would solidify the safety profile for inhibition."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "f4dd9075-1f6b-47b2-8333-0471a7eebdfa",
+   "content_hash": "8b32508afbcdf4a77afde666fef04ab0d1d44b4aad1a8f94b9d3e2752292a258",
+   "timestamp": "2026-11-01T04:21:04.638974+00:00"
+  },
+  {
+   "artifact_type": "evidence",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_23",
+   "round": 0,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "High LOEUF (1.61) and low pLI (0.01) indicate strong LoF tolerance. No cell dependency (DepMap) and secreted status suggest inhibition would be well-tolerated and druggable.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [],
+   "needs": [
+    {
+     "type": "burden_check",
+     "query": "Is there evidence that loss-of-function or reduced expression of this gene protects against cardiometabolic or liver disease?",
+     "rationale": "Tolerance alone doesn't justify a target; we need evidence of therapeutic benefit."
+    },
+    {
+     "type": "safety_check",
+     "query": "Are there any specific organ-system toxicities or phenotypes associated with loss of this gene in humans or animal models?",
+     "rationale": "Population metrics might miss specific, late-onset, or context-dependent safety issues."
+    }
+   ],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "862a1d0b-d062-4589-9afc-abd6c65b63a1",
+   "content_hash": "e5070fffce76c4438c2d37489bcde492146dffd8a09564899a7a4b8c6bcaf017",
+   "timestamp": "2026-11-01T04:21:08.176461+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "burden",
+   "gene_code": "Gene_23",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.8,
+   "rationale": "LoF variants strongly associate with lower triglycerides across multiple cohorts (Genebass, AZ). However, no hard endpoints (CAD) are present in the data to confirm clinical protection.",
+   "data_refs": [
+    "burden_2",
+    "burden_3",
+    "burden_5",
+    "burden_6",
+    "burden_8",
+    "burden_12"
+   ],
+   "parent_artifact_ids": [
+    "54c0de0f-ae9d-4bc9-bdd3-5c863aedc76b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "fc726c2f-ad06-4eec-b0ff-e6ad5b023957",
+   "content_hash": "b29621784556604a9513884c8ac1cb10a18158cf86c537304f9623aaab7039fe",
+   "timestamp": "2026-11-01T04:21:10.048388+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "tolerance",
+   "gene_code": "Gene_23",
+   "round": 1,
+   "stance": "supports",
+   "strength": 1.0,
+   "rationale": "Extremely high tolerance for LoF (LOEUF 1.61, pLI 0.01). DepMap data shows no essentiality across 1230 cell lines. Predicted secretion makes it an accessible drug target.",
+   "data_refs": [
+    "loeuf",
+    "pli",
+    "depmap_mean_gene_effect",
+    "depmap_frac_dependent",
+    "subcellular_location"
+   ],
+   "parent_artifact_ids": [
+    "a33702f6-2ec2-4dda-9d4a-444e3e377eca"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:3.20"
+   ],
+   "artifact_id": "9fb80c10-c029-44bb-a0bc-6030edae4d6e",
+   "content_hash": "9522e78ae3d93a2c567732b5397e0d0f0648ae1bc2d92654342ec58391c4f29e",
+   "timestamp": "2026-11-01T04:21:11.636235+00:00"
+  },
+  {
+   "artifact_type": "fulfillment",
+   "producer_agent": "safety",
+   "gene_code": "Gene_23",
+   "round": 1,
+   "stance": "supports",
+   "strength": 0.6,
+   "rationale": "No Mendelian LoF diseases in hepatobiliary or GI categories. GWAS shows strong lipid/fatty acid signals but no direct evidence of steatosis or pancreatitis risk.",
+   "data_refs": [
+    "mendelian_4",
+    "mendelian_6",
+    "safety_1",
+    "safety_40"
+   ],
+   "parent_artifact_ids": [
+    "54c0de0f-ae9d-4bc9-bdd3-5c863aedc76b"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [
+    "pressure:2.20"
+   ],
+   "artifact_id": "1fc34cc4-4c9e-4428-93a0-c9a1c0f6b0df",
+   "content_hash": "1328d30f252ad6eefacaef7817da5704df132a6e603c684c999bc8c338ba571c",
+   "timestamp": "2026-11-01T04:21:13.203813+00:00"
+  },
+  {
+   "artifact_type": "challenge",
+   "producer_agent": "skeptic",
+   "gene_code": "Gene_23",
+   "round": 2,
+   "stance": "neutral",
+   "strength": 0.0,
+   "rationale": "3 challenge(s)",
+   "data_refs": [],
+   "parent_artifact_ids": [
+    "54c0de0f-ae9d-4bc9-bdd3-5c863aedc76b",
+    "a33702f6-2ec2-4dda-9d4a-444e3e377eca",
+    "fc726c2f-ad06-4eec-b0ff-e6ad5b023957"
+   ],
+   "needs": [],
+   "challenges": [
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "a33702f6-2ec2-4dda-9d4a-444e3e377eca",
+     "rationale": "The agent explicitly states that all 125 traits are biomarkers with no hard clinical endpoints present in the data."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "gwas",
+     "target_artifact_id": "54c0de0f-ae9d-4bc9-bdd3-5c863aedc76b",
+     "rationale": "The evidence is restricted to lipid measurements (triglycerides, VLDL, HDL) without clinical outcomes like cardiovascular disease."
+    },
+    {
+     "type": "biomarker_only",
+     "channel": "burden",
+     "target_artifact_id": "fc726c2f-ad06-4eec-b0ff-e6ad5b023957",
+     "rationale": "The rationale confirms the absence of hard endpoints such as CAD to confirm clinical protection beyond biomarker changes."
+    }
+   ],
+   "error": null,
+   "flags": [],
+   "artifact_id": "28d1666e-281c-41b7-bedf-529094d99045",
+   "content_hash": "864d63d8f322e2e8f2e7c0beb7d0cf39114d70efa842c5d406472a2e21d4d01f",
+   "timestamp": "2026-11-01T04:21:19.707148+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "burden",
+   "gene_code": "Gene_23",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.9,
+   "rationale": "Massive LoF burden associations with lower triglycerides and VLDL across multiple cohorts. Tolerance data confirms humans can live without this gene, mitigating the lack of hard endpoints.",
+   "data_refs": [
+    "burden_2",
+    "burden_5",
+    "burden_8",
+    "burden_12",
+    "burden_14",
+    "burden_16"
+   ],
+   "parent_artifact_ids": [
+    "a33702f6-2ec2-4dda-9d4a-444e3e377eca",
+    "9fb80c10-c029-44bb-a0bc-6030edae4d6e"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "41ffd12a-e31f-4340-84fb-463754bf1939",
+   "content_hash": "cc0bf1360ef2b1533bc395a96a1db8d7a093fd0fb46c64f1cb0643af04edd5eb",
+   "timestamp": "2026-11-01T04:21:21.158572+00:00"
+  },
+  {
+   "artifact_type": "revision",
+   "producer_agent": "gwas",
+   "gene_code": "Gene_23",
+   "round": 2,
+   "stance": "supports",
+   "strength": 0.85,
+   "rationale": "Massive GWAS evidence across multiple populations shows lead variants (including splice donor and synonymous) strongly associated with reduced triglycerides and VLDL, and increased HDL.",
+   "data_refs": [
+    "gwas_1",
+    "gwas_3",
+    "gwas_7",
+    "gwas_33",
+    "gwas_40"
+   ],
+   "parent_artifact_ids": [
+    "54c0de0f-ae9d-4bc9-bdd3-5c863aedc76b",
+    "fc726c2f-ad06-4eec-b0ff-e6ad5b023957",
+    "1fc34cc4-4c9e-4428-93a0-c9a1c0f6b0df"
+   ],
+   "needs": [],
+   "challenges": [],
+   "error": null,
+   "flags": [],
+   "artifact_id": "beed239e-fb60-4729-ba88-788f4f772fc8",
+   "content_hash": "890ebbfddeb89ae608214b81499ff4a0d388bcdf8a83710f1d230323d7762865",
+   "timestamp": "2026-11-01T04:21:22.814703+00:00"
+  }
+ ]
+}
