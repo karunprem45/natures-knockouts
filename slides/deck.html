@@ -189,9 +189,9 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
           <table>
             <thead><tr><th>Rubric comparison</th><th>Our result (Δ AUROC, 95% CI)</th><th>Status</th></tr></thead>
             <tbody>
-              <tr class="a3"><td>Collaborative vs isolated</td><td><b>−0.071</b> (−0.139 to −0.013), 1.1× floor<br><span style="color:var(--ink-2); font-size:12.5px">negative in 5 of 5 reruns, mean −0.053 (sign test p = 0.03); gpt-5-mini −0.106</span></td><td>Coordination hurt, consistently</td></tr>
-              <tr><td>Multi-agent vs single-agent</td><td><b>+0.080</b> (−0.004 to +0.173), 1.3× floor<br><span style="color:var(--ink-2); font-size:12.5px">round 0 0.853 vs A1 0.774; gpt-5-mini +0.037</span></td><td>Positive on both models; CI crosses 0</td></tr>
-              <tr class="dim"><td>Decentralized vs centralized</td><td><b>−0.013</b> (−0.112 to +0.093), 0.2× floor<br><span style="color:var(--ink-2); font-size:12.5px">planner picks 2 of 4 blind: always burden, never GWAS</span></td><td>Two specialists incl. burden ≈ all four</td></tr>
+              <tr class="a3"><td>Collaborative vs isolated <span style="font-weight:400; color:var(--ink-2)">(paired)</span></td><td><b>−0.053</b> (−0.090 to −0.017), p = 0.015<br><span style="color:var(--ink-2); font-size:12.5px">same board scored two ways, 5 reruns, 5/5 negative; frozen seeds −0.071</span></td><td>Coordination hurt, consistently</td></tr>
+              <tr><td>Multi-agent vs single-agent <span style="font-weight:400; color:var(--ink-2)">(unpaired)</span></td><td><b>+0.080</b> (−0.004 to +0.173), 1.3× floor<br><span style="color:var(--ink-2); font-size:12.5px">round 0 0.853 vs A1 0.774; gpt-5-mini +0.037</span></td><td>Positive on both models; near the 0.062 floor</td></tr>
+              <tr class="dim"><td>Decentralized vs centralized <span style="font-weight:400">(unpaired)</span></td><td><b>−0.013</b> (−0.112 to +0.093), 0.2× floor<br><span style="color:var(--ink-2); font-size:12.5px">blind planner chose burden for all 40 genes, never GWAS</span></td><td>A planner that cannot see evidence collapses to a fixed subset</td></tr>
             </tbody>
           </table>
         </div>
@@ -322,8 +322,8 @@ h3 { font-family: var(--display); font-stretch: 85%; font-size: 19px; margin: 0 
           <p>Per-challenge discounts fitted on panel 1, pre-registered (<span style="font-family:var(--mono)">prereg-v2</span>), tested on 28 negatives the fit never saw. Calibrated − flat = <b>+0.004</b> (−0.032 to +0.042): no improvement. On both panels the skeptic loop scores at or below the isolated specialists.</p>
         </div>
         <div class="callout">
-          <strong>Tested tonight: Evo 2 on coding variants</strong>
-          <p>Predicted beforehand: coding LoF variants lift the Variant channel above +0.038. Evo 2 rated them far more disruptive than the lead tags (median percentile 4.4 vs 59), but equally so in targets and negatives (3.4 vs 5.2): <b>−0.006</b>, not supported. It shows a variant breaks a gene, not that breaking it helps.</p>
+          <strong>We wrote a prediction down, tested it, it failed, and we learned what the model can and cannot tell us</strong>
+          <p>Predicted beforehand: coding LoF variants lift the Evo 2 channel above +0.038. They were far more disruptive than the lead tags (median percentile 4.4 vs 59), but equally so in targets and negatives (3.4 vs 5.2): <b>−0.006</b>, not supported. Evo 2 shows a variant breaks a gene, not that breaking it helps; testing that needs genes whose loss of function is harmful too.</p>
         </div>
         <div class="callout">
           <strong>Next</strong>
