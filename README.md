@@ -13,6 +13,7 @@
   <a href="frozen/"><img src="https://img.shields.io/badge/pre--registered-12b8c58-ffd60a" alt="Pre-registered at 12b8c58"></a>
   <img src="https://img.shields.io/badge/tests-passing-30d158" alt="Tests passing">
   <img src="https://img.shields.io/badge/python-3.14-3776ab?logo=python&logoColor=white" alt="Python 3.14">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-lightgrey" alt="MIT license"></a>
   <br>
   <img src="https://img.shields.io/badge/Gemini%203%20Flash-Google%20Cloud-4285f4?logo=googlecloud&logoColor=white" alt="Gemini 3 Flash on Google Cloud">
   <img src="https://img.shields.io/badge/Evo%202%2040B-NVIDIA-76b900?logo=nvidia&logoColor=white" alt="NVIDIA Evo 2">
@@ -196,6 +197,10 @@ Three pieces any team can lift into their own agent project:
 | **Dheepak Karan** · [@dheepakkaran](https://github.com/dheepakkaran) | Evaluation: baselines, statistics, reruns, extensions |
 
 More detail: [`CONTRIBUTORS.md`](CONTRIBUTORS.md). The original build plan is in [`BUILD.md`](BUILD.md), and the demo script is in [`DEMO.md`](DEMO.md).
+
+## License
+
+[MIT](LICENSE). Use the code and skills freely, and keep the copyright notice.
 
 ## References
 
